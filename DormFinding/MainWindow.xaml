@@ -1,0 +1,142 @@
+﻿<Window x:Class="DormFinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DormFinding"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Login"
+        Height="400"
+        Width="600"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#00000000"
+        MouseDown="Window_MouseDown">
+    <Window.DataContext>
+        <local:RegistrationVM />
+    </Window.DataContext>
+    <Grid Cursor="Arrow">
+        <Rectangle Fill="white" />
+        <Grid Margin="324,0,0,0">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FF44DDBA"
+                                      Offset="1" />
+                        <GradientStop Color="#FF6650D6"
+                                      Offset="1" />
+                        <GradientStop Color="#FF2B77E7"
+                                      Offset="0.018" />
+                        <GradientStop Color="#FF39B3CC"
+                                      Offset="0.225" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image Source="images/dorm.jpg"
+                   Stretch="UniformToFill"
+                   Opacity="0.4" />
+            <StackPanel Orientation="Vertical"
+                        Margin="20,50,20,20">
+
+                <TextBlock Text="Dorm Finding"
+                           FontSize="35"
+                           FontFamily="MS PGothic"
+                           FontStretch="Condensed"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontWeight="Bold" />
+
+                <TextBlock Margin="10,25,0,0"
+                           Text="Dorm Finding là một ứng"
+                           TextWrapping="WrapWithOverflow"
+                           FontFamily="Helvetica Neue"
+                           Foreground="White"
+                           FontSize="20"
+                           FontStyle="Italic"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                <TextBlock Margin="10,10,0,0"
+                           Text="giúp bạn tìm ra những"
+                           TextWrapping="WrapWithOverflow"
+                           FontFamily="Helvetica Neue"
+                           Foreground="White"
+                           FontStyle="Italic"
+                           FontSize="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                <TextBlock Margin="10,10,0,0"
+                           Text="căn phòng ưng ý"
+                           FontStyle="Italic"
+                           TextWrapping="WrapWithOverflow"
+                           FontFamily="Helvetica Neue"
+                           Foreground="White"
+                           FontSize="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                <TextBlock Margin="10,10,0,0"
+                           Text="cho mình"
+                           FontStyle="Italic"
+                           TextWrapping="WrapWithOverflow"
+                           FontFamily="Helvetica Neue"
+                           Foreground="White"
+                           FontSize="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
+                <TextBlock Margin="10,50,0,0"
+                           TextWrapping="WrapWithOverflow"
+                           FontFamily="Helvetica Neue"
+                           Foreground="White"
+                           FontSize="20"
+                           Text="D.H.T.A"
+                           HorizontalAlignment="Right" />
+            </StackPanel>
+            <Button x:Name="btnShutDown"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Background="{x:Null}"
+                    BorderThickness="0"
+                    Click="btnShutDown_Click">
+                <materialDesign:PackIcon Width="25"
+                                         Height="25"
+                                         Kind="Shutdown"
+                                         Foreground="WhiteSmoke" />
+            </Button>
+            <Button Margin="0,0,30,0"
+                    x:Name="btnMinimizedWindow"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Background="{x:Null}"
+                    BorderThickness="0"
+                    Click="btnMinimizedWindow_Click">
+                <materialDesign:PackIcon Width="25"
+                                         Height="25"
+                                         Kind="WindowMinimize"
+                                         Foreground="WhiteSmoke" />
+            </Button>
+        </Grid>
+        <Grid Margin="0,20,276,0">
+            <materialDesign:Transitioner SelectedIndex="0"
+                                         AutoApplyTransitionOrigins="True">
+
+                <Grid>
+                    <local:Login />
+                </Grid>
+
+                <materialDesign:TransitionerSlide>
+                    <materialDesign:TransitionerSlide.BackwardWipe>
+                        <materialDesign:CircleWipe />
+                    </materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:TransitionerSlide.ForwardWipe>
+                        <materialDesign:SlideWipe Direction="Up" />
+                    </materialDesign:TransitionerSlide.ForwardWipe>
+                    <local:SignUp />
+                </materialDesign:TransitionerSlide>
+            </materialDesign:Transitioner>
+        </Grid>
+    </Grid>
+</Window>
