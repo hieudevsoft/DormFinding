@@ -26,4 +26,7 @@ D:\C#\DormFinding\DormFinding\obj\Debug\UserController\Login.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\Login.baml
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SignUp.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SignUp.baml
-D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
+D:\C#\DormFinding\DormFinding\bin\Debug\FontAwesome.WPF.dll
+D:\C#\DormFinding\DormFinding\bin\Debug\FontAwesome.WPF.xml
+D:\C#\DormFinding\DormFinding\obj\Debug\UserController\LoadingBar.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\UserController\LoadingBar.baml

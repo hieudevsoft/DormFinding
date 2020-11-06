@@ -27,7 +27,7 @@ namespace DormFinding
         }
         private void btnCreateAccount_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            btnCreateAccount.Foreground = new SolidColorBrush(Colors.Gray);
+            btnCreateAccount.Foreground = new SolidColorBrush(Colors.Black);
         }
         private void btnCreateAccount_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -36,7 +36,7 @@ namespace DormFinding
 
         private void tbForgetPass_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            tbForgetPass.Foreground = new SolidColorBrush(Colors.Gray);
+            tbForgetPass.Foreground = new SolidColorBrush(Colors.Black);
         }
 
         private void tbForgetPass_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
@@ -54,6 +54,16 @@ namespace DormFinding
         {
             btnLogin.Foreground = new SolidColorBrush(Colors.Black);
             btnLogin.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void btnMinimizedWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void btnShutDown_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
