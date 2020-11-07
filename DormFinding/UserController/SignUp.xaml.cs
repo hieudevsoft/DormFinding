@@ -29,12 +29,12 @@ namespace DormFinding
             
         }
 
-        private void btnShutDownR_Click(object sender, RoutedEventArgs e)
+        private void btnShutDown_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
 
-        private void btnMinimizedR_Click(object sender, RoutedEventArgs e)
+        private void btnMinimizedWindow_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).WindowState = WindowState.Minimized;
         }

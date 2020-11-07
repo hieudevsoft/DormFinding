@@ -133,35 +133,33 @@
               Background="Black">
             <Image Source="../images/dorm2.jpg"
                    Stretch="UniformToFill" />
-            <Button Padding="5,0,3,10"
-                    FontStretch="Normal"
-                    x:Name="btnShutDownR"
-                    Click="btnShutDownR_Click"
-                    HorizontalAlignment="Right"
+            <Button x:Name="btnShutDown"
+                    Padding="5"
                     VerticalAlignment="Top"
-                    Background="Transparent"
+                    Margin="0,0,5,0"
+                    HorizontalAlignment="Right"
+                    Background="{x:Null}"
                     BorderThickness="0"
-                    Height="30">
-                <materialDesign:PackIcon Kind="Close"
-                                         HorizontalAlignment="Left"
-                                         VerticalAlignment="Top" />
+                    Click="btnShutDown_Click">
+                <materialDesign:PackIcon Width="25"
+                                         Height="25"
+                                         Kind="Shutdown"
+                                         Foreground="WhiteSmoke" />
             </Button>
-
-            <Button Padding="3,0,0,10"
-                    FontStretch="Normal"
-                    x:Name="btnMinimizedR"
-                    Click="btnMinimizedR_Click"
-                    HorizontalAlignment="Right"
+            <Button Margin="0,0,40,0"
+                    Padding="5"
+                    x:Name="btnMinimizedWindow"
                     VerticalAlignment="Top"
-                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    Background="{x:Null}"
                     BorderThickness="0"
-                    Height="30"
-                    Margin="0,0,30,0">
-                <materialDesign:PackIcon Kind="WindowMinimize"
-                                         HorizontalAlignment="Left"
-                                         VerticalAlignment="Top" />
+                    Click="btnMinimizedWindow_Click">
+                <materialDesign:PackIcon Width="25"
+                                         Height="25"
+                                         Kind="WindowMinimize"
+                                         Foreground="WhiteSmoke" />
             </Button>
 
         </Grid>
     </Grid>
-</UserControl>
+</UserControl>               
