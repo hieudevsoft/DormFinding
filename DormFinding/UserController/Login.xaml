@@ -10,6 +10,8 @@
              d:DesignHeight="400"
              d:DesignWidth="600">
     <Grid>
+        <WebBrowser x:Name="wbBrowser"
+                    Navigated="wbBrowser_Navigated" Visibility="Collapsed"/>
         <Grid Margin="350,0,0,0">
             <Rectangle>
                 <Rectangle.Fill>
@@ -26,7 +28,9 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Source="../images/dorm.jpg"
+            <Image 
+                    x:Name="image"
+                   Source="../images/dorm.jpg"
                    Stretch="UniformToFill"
                    Opacity="0.4" />
             <StackPanel Orientation="Vertical"
@@ -216,6 +220,7 @@
             </Grid>
             <Button Cursor="Hand"
                     x:Name="btnLogin"
+                    Click="btnLogin_Click"
                     Margin="50,20"
                     Content="Login"
                     Height="35"
@@ -233,7 +238,9 @@
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
-                <Button Margin="0,0,10,0"
+                <Button x:Name="btnFaceBook"
+                        Click="btnFaceBook_Click"
+                        Margin="0,0,10,0"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         Cursor="Hand"
                         BorderThickness="0"
