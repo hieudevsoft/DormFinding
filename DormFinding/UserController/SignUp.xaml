@@ -104,7 +104,7 @@
                 </Canvas>
                 <StackPanel Orientation="Vertical">
                     <CheckBox x:Name="cbAgreeTerm"
-                              Content="Tôi đồng ý với các điều khoản và dịch vụ"
+                              Content="Tôi đồng ý với các điều khoản &amp; dịch vụ"
                               Margin="10,10,10.4,10"
                               Background="Green" />
                     <Button Content="Sign Up"

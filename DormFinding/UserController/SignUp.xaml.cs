@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Facebook;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace DormFinding
     /// </summary>
     public partial class SignUp : UserControl
     {
-        DispatcherTimer dispatcherTimer;
+        private DispatcherTimer dispatcherTimer;
+       
         public SignUp()
         {
             InitializeComponent();

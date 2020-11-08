@@ -7,11 +7,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Login"
+        Icon="images/icon_app.ico"
         Height="400"
         Width="600"      
-        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
+        WindowStyle="None"
         Background="#00000000"
         MouseDown="Window_MouseDown">
     <Window.DataContext>

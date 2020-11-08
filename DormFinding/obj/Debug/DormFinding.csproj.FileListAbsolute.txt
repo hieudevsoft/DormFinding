@@ -54,3 +54,8 @@ D:\C#\DormFinding\DormFinding\bin\Debug\System.Buffers.xml
 D:\C#\DormFinding\DormFinding\bin\Debug\System.Memory.xml
 D:\C#\DormFinding\DormFinding\bin\Debug\System.Numerics.Vectors.xml
 D:\C#\DormFinding\DormFinding\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\C#\DormFinding\DormFinding\bin\Debug\Facebook.dll
+D:\C#\DormFinding\DormFinding\bin\Debug\Facebook.xml
+D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.baml
+D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
