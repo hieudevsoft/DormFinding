@@ -28,7 +28,7 @@
                                                Storyboard.TargetName="GridMenu">
                     <EasingDoubleKeyFrame KeyTime="0"
                                           Value="85.5" />
-                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.5"
+                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.2"
                                           Value="220" />
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
@@ -38,7 +38,7 @@
                                                Storyboard.TargetName="GridMenu">
                     <EasingDoubleKeyFrame KeyTime="0"
                                           Value="220" />
-                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.5"
+                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.2"
                                           Value="85.5" />
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>

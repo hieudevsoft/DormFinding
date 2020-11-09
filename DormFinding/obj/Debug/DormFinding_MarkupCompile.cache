@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\C#\DormFinding\DormFinding\obj\Debug\
+D:\Dorm\DormFinding\obj\Debug\
 DormFinding
 none
 false
 DEBUG;TRACE
-D:\C#\DormFinding\DormFinding\App.xaml
+D:\Dorm\DormFinding\App.xaml
 7-381241723
 
 14-1348800537
-140-1253363310
+1401067617150
 Window\MainControl.xaml;UserController\SearchDorm.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
 False
