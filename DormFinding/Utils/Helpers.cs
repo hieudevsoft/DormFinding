@@ -4,12 +4,13 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace DormFinding.Utils
 {
     public class Helpers
     {
-        static bool isValidEmail(String email)
+        public static bool isValidEmail(String email)
         {
             try
             {
@@ -21,5 +22,8 @@ namespace DormFinding.Utils
                 return false;
             }
         }
+
+        public static string GetTextTextBox(TextBox t) => t.Text.Trim();
+        public static string GetTextPassWord(PasswordBox p) => p.Password.Trim();
     }
 }

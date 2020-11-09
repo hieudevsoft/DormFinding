@@ -203,6 +203,8 @@
                 <TextBox materialDesign:HintAssist.Hint="Email"
                          materialDesign:TextFieldAssist.UnderlineBrush="Orange"
                          FontSize="14"
+                         Text="DormFinding@gmail.com"
+                         x:Name="tbEmail"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="250"
@@ -218,6 +220,8 @@
                                          Width="18"
                                          Foreground="#BDBDBD" />
                 <PasswordBox materialDesign:HintAssist.Hint="Password"
+                             x:Name="tbPassword"
+                             Password="buihuyhieu"
                              FontSize="14"
                              materialDesign:TextFieldAssist.UnderlineBrush="Orange"
                              HorizontalAlignment="Left"

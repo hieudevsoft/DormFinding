@@ -1,42 +1,31 @@
-﻿using DormFinding.Utils;
-using Facebook;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace DormFinding
+﻿namespace DormFinding
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
+    using DormFinding.Models;
+    using DormFinding.Utils;
+    using Facebook;
+    using System;
+    using System.Data;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Navigation;
+
     public partial class Login : UserControl
     {
-        MySqlConnection mySqlConnection;
-        const string connectDatabase = "SERVER=localhost;DATABASE=quanlydangnhap;UID=root;PASSWORD=;";
         private FacebookClient facebookClient;
+
         private const string Appid = "1677950655708399";
+
         private Uri _accessUri;
+
         private const string baseUri = "https://graph.facebook.com/oauth/authorize?";
+
         public String AccessToken { get; set; }
+
         public Login()
         {
             InitializeComponent();
-
-
         }
 
         private void setUpLoginFacebook()
@@ -48,13 +37,14 @@ namespace DormFinding
             string type = "user_agent";
             string display = "popup";
 
-            _accessUri = new Uri($"{baseUri}&client_id={client_id}&redirect_uri={redirect_uri}&type={type}&display={display}",UriKind.Absolute);
-
+            _accessUri = new Uri($"{baseUri}&client_id={client_id}&redirect_uri={redirect_uri}&type={type}&display={display}", UriKind.Absolute);
         }
+
         private void btnCreateAccount_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             btnCreateAccount.Foreground = new SolidColorBrush(Colors.Black);
         }
+
         private void btnCreateAccount_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             btnCreateAccount.Foreground = new SolidColorBrush(Colors.Blue);
@@ -94,26 +84,38 @@ namespace DormFinding
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
-                mySqlConnection = new MySqlConnection(connectDatabase);
-                mySqlConnection.Open();
-                if (mySqlConnection.State == ConnectionState.Open)
+
+                Mydatabase.OpenConnection();
+                Mydatabase.sql = "SELECT COUNT(1) FROM tb_user WHERE _email=@Email AND _password=@Password   ";
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@Email", Helpers.GetTextTextBox(tbEmail));
+                Mydatabase.cmd.Parameters.AddWithValue("@Password", Helpers.GetTextPassWord(tbPassword));
+
+                int result = Convert.ToInt32(Mydatabase.cmd.ExecuteScalar());
+
+                if (result == 0)
                 {
-                    MessageBox.Show("Connected");
-                    
-
+                    MessageBox.Show("Tài khoản hoặc mật khẩu sai rồi! ", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                else MessageBox.Show("Disconnected");
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.Message);
-            }
+                else
+                {
+                    MessageBox.Show("Login Successful ", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
 
-            MainControl m = new MainControl();
-            m.Show();
-            Window.GetWindow(this).Hide();
+            }
+            catch (Exception eex)
+            {
+                MessageBox.Show(eex.Message, "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            finally
+            {
+                Mydatabase.CloseConnection();
+            }
         }
 
         private void btnFaceBook_Click(object sender, RoutedEventArgs e)
@@ -125,7 +127,6 @@ namespace DormFinding
 
             setUpLoginFacebook();
             wbBrowser.Navigate(_accessUri);
-
         }
 
         private void btnBackLogin_Click(object sender, RoutedEventArgs e)
@@ -143,20 +144,19 @@ namespace DormFinding
                 layoutImageLogin.Visibility = Visibility.Visible;
                 layoutLogin.Visibility = Visibility.Visible;
             }
-
         }
 
         private void wbBrowser_Navigated(object sender, NavigationEventArgs e)
         {
             if (e.Uri.ToString().StartsWith("https://www.facebook.com/connect/login_success.html"))
             {
-                
+
                 AccessToken = e.Uri.Fragment.Split('&')[0].Replace("#access_token=", "");
                 facebookClient = new FacebookClient(AccessToken);
                 MainControl m = new MainControl(facebookClient);
                 m.Show();
                 Window.GetWindow(this).Hide();
-                
+
             }
         }
 
