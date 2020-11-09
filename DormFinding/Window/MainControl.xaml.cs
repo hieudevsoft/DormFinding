@@ -70,27 +70,39 @@ namespace DormFinding
             doubleAnimation.Duration = TimeSpan.FromSeconds(1);
             doubleAnimation.From = 0;
             doubleAnimation.To = 1;
+            DoubleAnimation doubleAnimation2 = new DoubleAnimation();
+            doubleAnimation.Duration = TimeSpan.FromSeconds(1);
+            doubleAnimation2.From = 1;
+            doubleAnimation2.To = 0;
             btnOpenMenu.BeginAnimation(OpacityProperty, doubleAnimation);
-            btnOpenMenu.Visibility = Visibility;
+            btnCloseMenu.BeginAnimation(OpacityProperty, doubleAnimation2);
+            btnOpenMenu.Visibility = Visibility.Visible;
+            btnCloseMenu.Visibility = Visibility.Collapsed;
 
         }
 
         private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
         {
             DoubleAnimation doubleAnimation = new DoubleAnimation();
-            doubleAnimation.Duration = TimeSpan.FromSeconds(0.4);
-            doubleAnimation.From = 1;
-            doubleAnimation.To = 0;
-            btnOpenMenu.BeginAnimation(OpacityProperty, doubleAnimation);
-            btnOpenMenu.Visibility = Visibility;
+            doubleAnimation.Duration = TimeSpan.FromSeconds(1);
+            doubleAnimation.From = 0;
+            doubleAnimation.To = 1;
+            DoubleAnimation doubleAnimation2 = new DoubleAnimation();
+            doubleAnimation.Duration = TimeSpan.FromSeconds(1);
+            doubleAnimation2.From = 1;
+            doubleAnimation2.To = 0;
+            btnOpenMenu.BeginAnimation(OpacityProperty, doubleAnimation2);
+            btnCloseMenu.BeginAnimation(OpacityProperty, doubleAnimation);
+            btnOpenMenu.Visibility = Visibility.Collapsed;
+            btnCloseMenu.Visibility = Visibility.Visible;
         }
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    wbLogout.Visibility = Visibility.Visible;
-        //    Debug.Print(getLogoutUri());
-        //    wbLogout.Navigate(new Uri(getLogoutUri(),UriKind.Absolute));
-        //    MainWindow lg = new MainWindow();
-        //    lg.Show();
-        //}
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            wbLogout.Visibility = Visibility.Visible;
+            Debug.Print(getLogoutUri());
+            wbLogout.Navigate(new Uri(getLogoutUri(),UriKind.Absolute));
+            MainWindow lg = new MainWindow();
+            lg.Show();
+        }
     }
 }

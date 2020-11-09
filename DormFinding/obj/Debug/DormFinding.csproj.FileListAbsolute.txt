@@ -6,12 +6,10 @@ D:\C#\DormFinding\DormFinding\bin\Debug\MaterialDesignThemes.Wpf.dll
 D:\C#\DormFinding\DormFinding\bin\Debug\MaterialDesignColors.pdb
 D:\C#\DormFinding\DormFinding\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\C#\DormFinding\DormFinding\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\C#\DormFinding\DormFinding\obj\Debug\MainWindow.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\App.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding_MarkupCompile.cache
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding_MarkupCompile.lref
 D:\C#\DormFinding\DormFinding\obj\Debug\App.baml
-D:\C#\DormFinding\DormFinding\obj\Debug\MainWindow.baml
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.g.resources
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.Properties.Resources.resources
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.GenerateResource.cache
@@ -19,8 +17,6 @@ D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CoreCompileInputs.cac
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CopyComplete
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
-D:\C#\DormFinding\DormFinding\obj\Debug\SplashScreen.g.cs
-D:\C#\DormFinding\DormFinding\obj\Debug\SplashScreen.baml
 D:\C#\DormFinding\DormFinding\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\Login.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\Login.baml
@@ -56,8 +52,11 @@ D:\C#\DormFinding\DormFinding\bin\Debug\System.Numerics.Vectors.xml
 D:\C#\DormFinding\DormFinding\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\C#\DormFinding\DormFinding\bin\Debug\Facebook.dll
 D:\C#\DormFinding\DormFinding\bin\Debug\Facebook.xml
-D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.g.cs
-D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.baml
-D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.baml
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\MainControl.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\MainWindow.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\SplashScreen.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\MainControl.baml
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\MainWindow.baml
+D:\C#\DormFinding\DormFinding\obj\Debug\Window\SplashScreen.baml

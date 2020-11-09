@@ -1,10 +1,10 @@
 ﻿
 FD:\C#\DormFinding\DormFinding\App.xaml;;
-FD:\C#\DormFinding\DormFinding\MainControl.xaml;;
+FD:\C#\DormFinding\DormFinding\Window\MainControl.xaml;;
 FD:\C#\DormFinding\DormFinding\UserController\SearchDorm.xaml;;
 FD:\C#\DormFinding\DormFinding\UserController\LoadingBar.xaml;;
 FD:\C#\DormFinding\DormFinding\UserController\SignUp.xaml;;
 FD:\C#\DormFinding\DormFinding\UserController\Login.xaml;;
-FD:\C#\DormFinding\DormFinding\MainWindow.xaml;;
-FD:\C#\DormFinding\DormFinding\SplashScreen.xaml;;
+FD:\C#\DormFinding\DormFinding\Window\MainWindow.xaml;;
+FD:\C#\DormFinding\DormFinding\Window\SplashScreen.xaml;;
 
