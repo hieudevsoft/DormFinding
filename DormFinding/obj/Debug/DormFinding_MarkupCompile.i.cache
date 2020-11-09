@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\DormFinding\DormFinding\App.xaml
-6-489580754
+7-394849456
 
-14-291575528
+15673427306
 140-1253363310
-MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;MainWindow.xaml;SplashScreen.xaml;
+MainControl.xaml;UserController\SearchDorm.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;MainWindow.xaml;SplashScreen.xaml;
 
 True
 

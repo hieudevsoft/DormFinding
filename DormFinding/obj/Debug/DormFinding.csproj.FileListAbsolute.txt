@@ -59,3 +59,5 @@ D:\C#\DormFinding\DormFinding\bin\Debug\Facebook.xml
 D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.g.cs
 D:\C#\DormFinding\DormFinding\obj\Debug\MainControl.baml
 D:\C#\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
+D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.g.cs
+D:\C#\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.baml

@@ -10,41 +10,89 @@
         Icon="images/icon_app.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Height="700"
-        Width="1200"
+        Height="650"
+        Width="1000"
         Cursor="Arrow"
         AllowsTransparency="True"
         WindowStyle="None"
         Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <SolidColorBrush x:Key="solidColorBlueShadow"
+                             Color="#6369AC" />
+
+            <Storyboard x:Key="MenuOpen">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                               Storyboard.TargetName="GridMenu">
+                    <EasingDoubleKeyFrame KeyTime="0"
+                                          Value="0" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.5"
+                                          Value="250" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <Storyboard x:Key="MenuClose">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                               Storyboard.TargetName="GridMenu">
+                    <EasingDoubleKeyFrame KeyTime="0"
+                                          Value="250" />
+                    <EasingDoubleKeyFrame KeyTime="0:0:0:0.5"
+                                          Value="0" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click"
+                      SourceName="btnOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click"
+                      SourceName="btnCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}" />
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
-        <Rectangle Fill="LightGray"
-                   RadiusX="10"
-                   RadiusY="10" />
-        <Border CornerRadius="10"
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.ColumnSpan="2"
+                Grid.RowSpan="2"
+                CornerRadius="10 10 0 0"
                 VerticalAlignment="Top"
-                Background="Black"
+                Background="{StaticResource solidColorBlueShadow}"
                 Height="40">
         </Border>
         <WebBrowser x:Name="wbLogout"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
                     Visibility="Collapsed" />
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.4*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-        </Grid>
-        <materialDesign:PopupBox Foreground="White" Grid.Row="0" VerticalAlignment="Top" Margin="0 6 0 0 " HorizontalAlignment="Right" PlacementMode="BottomAndAlignLeftEdges" StaysOpen="False">
+
+        <materialDesign:PopupBox Foreground="White"
+                                 Grid.ColumnSpan="2"
+                                 VerticalAlignment="Top"
+                                 Margin="0 6 0 0 "
+                                 HorizontalAlignment="Right"
+                                 PlacementMode="BottomAndAlignCentres"
+                                 StaysOpen="False">
             <StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Height="40"
                             Width="100">
                     <materialDesign:PackIcon Kind="Logout"
+                                             Foreground="{StaticResource solidColorBlueShadow}"
                                              Margin="5,12,0,0" />
                     <Button Cursor="Hand"
                             Padding="16 10 10 21"
@@ -52,7 +100,7 @@
                             Width="80">
                         <Button.Content>
                             <TextBlock Text="Sign Out"
-                                       Foreground="Black"
+                                       Foreground="{StaticResource solidColorBlueShadow}"
                                        FontSize="11"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
@@ -65,6 +113,7 @@
                             Height="40"
                             Width="100">
                     <materialDesign:PackIcon Kind="Person"
+                                             Foreground="{StaticResource solidColorBlueShadow}"
                                              Margin="5,12,0,0" />
                     <Button Cursor="Hand"
                             Padding="16 10 10 21"
@@ -72,7 +121,7 @@
                             Width="80">
                         <Button.Content>
                             <TextBlock Text="Profile"
-                                       Foreground="Black"
+                                       Foreground="{StaticResource solidColorBlueShadow}"
                                        FontSize="11"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
@@ -85,6 +134,7 @@
                             Height="40"
                             Width="100">
                     <materialDesign:PackIcon Kind="Settings"
+                                             Foreground="{StaticResource solidColorBlueShadow}"
                                              Margin="5,12,0,0" />
                     <Button Cursor="Hand"
                             Padding="16 10 10 21"
@@ -92,7 +142,31 @@
                             Width="80">
                         <Button.Content>
                             <TextBlock Text="Settings"
-                                       Foreground="Black"
+                                       Foreground="{StaticResource solidColorBlueShadow}"
+                                       FontSize="11"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"
+                                       Style="{StaticResource MaterialDesignButtonTextBlock}" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <Separator />
+                <StackPanel Orientation="Horizontal"
+                            Height="40"
+                            Width="100">
+                    <materialDesign:PackIcon Kind="ExitRun"
+                                             Foreground="{StaticResource solidColorBlueShadow}"
+                                             Margin="5,12,0,0" />
+                    <Button Cursor="Hand"
+                            x:Name="btnExitApp"
+                            Click="btnExitApp_Click"
+                            Padding="16 10 10 21"
+                            VerticalAlignment="Center"
+                            Width="80">
+                        <Button.Content>
+                            <TextBlock Text="Exit App"
+                                       Foreground="{StaticResource solidColorBlueShadow}"
                                        FontSize="11"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
@@ -103,6 +177,171 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:PopupBox>
+
+        <DockPanel Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   LastChildFill="True">
+            <Grid Grid.Row="1"
+                  x:Name="GridMenu"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Left"
+                  Grid.Column="0"
+                  Height="610"
+                  Grid.ColumnSpan="2"
+                  Width="249">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"
+                      Background="White">
+                    <Label Content="Dorm Finding. "
+                           Margin="0 0 0 -40"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="Arial Rounded MT Bold"
+                           Foreground="{StaticResource solidColorBlueShadow}"
+                           FontSize="30"
+                           FontWeight="Bold" />
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            x:Name="btnCloseMenu"
+                            Click="btnCloseMenu_Click"
+                            Height="40"
+                            Margin="10"
+                            Padding="0 0 0 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="ArrowLeft"
+                                                 Foreground="{StaticResource solidColorBlueShadow}"
+                                                 Width="35"
+                                                 Height="35" />
+                    </Button>
+
+                </Grid>
+
+                <Grid  Background="White"
+                       Grid.Row="1">
+                    <ListView Cursor="Hand"
+                              Margin="10">
+                        <ListViewItem Height="50">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Home"
+                                                         Width="23"
+                                                         Height="23"
+                                                         Margin="50 0 10 0"
+                                                         Foreground="{StaticResource solidColorBlueShadow}" />
+                                <TextBlock Text="HOME"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial Rounded MT Bold"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource solidColorBlueShadow}" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="50">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Search"
+                                                         Width="23"
+                                                         Height="23"
+                                                         Margin="50 0 10 0"
+                                                         Foreground="{StaticResource solidColorBlueShadow}" />
+                                <TextBlock Text="SEARCH"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial Rounded MT Bold"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource solidColorBlueShadow}" />
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem Height="50">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Heart"
+                                                         Width="23"
+                                                         Height="23"
+                                                         Margin="50 0 10 0"
+                                                         Foreground="{StaticResource solidColorBlueShadow}" />
+                                <TextBlock Text="DORM LIKE"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial Rounded MT Bold"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource solidColorBlueShadow}" />
+                            </StackPanel>
+
+                        </ListViewItem>
+                        <ListViewItem Height="50">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Post"
+                                                         Width="23"
+                                                         Height="23"
+                                                         Margin="50 0 10 0"
+                                                         Foreground="{StaticResource solidColorBlueShadow}" />
+                                <TextBlock Text="POST DORM"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial Rounded MT Bold"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource solidColorBlueShadow}" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="50">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <materialDesign:PackIcon Kind="Hotel"
+                                                         Width="23"
+                                                         Height="23"
+                                                         Margin="50 0 10 0"
+                                                         Foreground="{StaticResource solidColorBlueShadow}" />
+                                <TextBlock Text="MY DORM"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Arial Rounded MT Bold"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="{StaticResource solidColorBlueShadow}" />
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+
+                </Grid>
+
+            </Grid>
+            <Grid Grid.ColumnSpan="2"
+                  Grid.Row="1"
+                  Background="#EEEEEE">
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Height="40"
+                        Visibility="Collapsed"
+                        x:Name="btnOpenMenu"
+                        Margin="10"
+                        Click="btnOpenMenu_Click"
+                        Padding="0 0 0 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Menu"
+                                             Foreground="{StaticResource solidColorBlueShadow}"
+                                             Width="35"
+                                             Height="35" />
+                </Button>
+                <local:SearchDorm VerticalAlignment="Top" HorizontalAlignment="Center"
+                                  Width="400"
+                                  Margin="10"
+                                  Height="45"
+                                  />
+            </Grid>
+
+        </DockPanel>
     </Grid>
 
 </Window>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="DormFinding.SearchDorm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DormFinding"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"   
+             mc:Ignorable="d" 
+             Background="Transparent"
+             d:DesignHeight="45" d:DesignWidth="400">
+    <Grid>
+        <Border Background="Transparent"
+                >
+            <Border CornerRadius="10"
+                    Background="White"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                <Grid Height="auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <fa:ImageAwesome Icon="Search" 
+                                     Width="25"
+                                     Height="25"
+                                     Foreground="#9FA1BE"
+                                     />
+                    <TextBox Grid.Column="1"
+                             Height="45"
+                             Padding="0 6 0 0"
+                             FontSize="12"
+                             FontFamily="Arial Rounded MT bold"
+                             Foreground="#242365"
+                             materialDesign:HintAssist.Hint="Search something...."
+                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                             materialDesign:HintAssist.Foreground="#242365"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
+                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                             VerticalAlignment="Center"
+                             TextAlignment="Left"
+                             BorderThickness="0"
+                             x:Name="searchQuery" />
+                   
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</UserControl>

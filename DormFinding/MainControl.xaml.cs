@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -56,6 +57,32 @@ namespace DormFinding
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void btnExitApp_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation doubleAnimation = new DoubleAnimation();
+            doubleAnimation.Duration = TimeSpan.FromSeconds(1);
+            doubleAnimation.From = 0;
+            doubleAnimation.To = 1;
+            btnOpenMenu.BeginAnimation(OpacityProperty, doubleAnimation);
+            btnOpenMenu.Visibility = Visibility;
+
+        }
+
+        private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation doubleAnimation = new DoubleAnimation();
+            doubleAnimation.Duration = TimeSpan.FromSeconds(0.4);
+            doubleAnimation.From = 1;
+            doubleAnimation.To = 0;
+            btnOpenMenu.BeginAnimation(OpacityProperty, doubleAnimation);
+            btnOpenMenu.Visibility = Visibility;
         }
         //private void Button_Click(object sender, RoutedEventArgs e)
         //{

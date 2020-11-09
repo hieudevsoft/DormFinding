@@ -118,6 +118,9 @@
     <Compile Include="MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserController\SearchDorm.xaml.cs">
+      <DependentUpon>SearchDorm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserController\LoadingBar.xaml.cs">
       <DependentUpon>LoadingBar.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
     <Page Include="MainControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserController\SearchDorm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
