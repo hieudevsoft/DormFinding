@@ -119,6 +119,9 @@
     <Compile Include="SupportUserController\ResetPassController.xaml.cs">
       <DependentUpon>ResetPassController.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SupportUserController\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
     <Page Include="SupportUserController\ResetPassController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupportUserController\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

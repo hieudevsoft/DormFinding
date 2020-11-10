@@ -59,7 +59,7 @@
     <Border Background="#F5F4FC"
             BorderBrush="#312F45"
             BorderThickness="7"
-            CornerRadius="50">
+            CornerRadius="15">
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -111,7 +111,7 @@
                                 VerticalAlignment="Center"
                                 Width="80">
                             <Button.Content>
-                                <TextBlock Text="Contacts"
+                                <TextBlock Text="About Us"
                                            Foreground="{StaticResource solidColorSideBar}"
                                            FontSize="11"
                                            VerticalAlignment="Center"
@@ -178,7 +178,7 @@
                         Width="85.5"
                         Height="690"
                         x:Name="GridMenu"
-                        CornerRadius="45"
+                        CornerRadius="15"
                         Background="{StaticResource solidColorSideBar}"
                         HorizontalAlignment="Left">
                     <StackPanel>
