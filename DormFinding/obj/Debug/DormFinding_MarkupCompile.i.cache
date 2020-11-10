@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\C#\WPFDormfinding\WPFDormFinding\DormFinding\obj\Debug\
+D:\C#\WPFDormfinding\DormFinding\obj\Debug\
 DormFinding
 none
 false
 DEBUG;TRACE
-D:\C#\WPFDormfinding\WPFDormFinding\DormFinding\App.xaml
+D:\C#\WPFDormfinding\DormFinding\App.xaml
 8372602677
 
 171109520003
-140942513204
+141-1874687449
 SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\SearchDorm.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
 True
