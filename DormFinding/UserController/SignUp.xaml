@@ -28,12 +28,20 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="0,20,0,0">
+<<<<<<< HEAD
                     <Label Content="Have already account?"
+=======
+                    <Label Content="Already have an account?"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                            FontFamily="Roboto"
                            FontSize="12"
                            FontStyle="Italic" />
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+<<<<<<< HEAD
                             Content="Sign In"
+=======
+                            Content="Login"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                             x:Name="btnLoginR"
                             MouseMove="btnLoginR_MouseMove"
                             MouseLeave="btnLoginR_MouseLeave"
@@ -42,7 +50,7 @@
                             Foreground="Blue"
                             Background="{x:Null}"
                             BorderThickness="0"
-                            Margin="-10,-6,0,0" />
+                            Margin="-13,-5,0,0" Click="btnLoginR_Click" />
                 </StackPanel>
                 <Canvas Width="auto" Height="150">
                     <Grid Margin="120,50"
@@ -53,7 +61,11 @@
                                           Margin="-88,-36,-142,-94" />
                     </Grid>
                     <StackPanel Orientation="Vertical" Panel.ZIndex="0">
+<<<<<<< HEAD
                         <Label Content="Register"
+=======
+                        <Label Content="Create an account"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                                FontFamily="Arial"
                                FontSize="18" />
                         <StackPanel Orientation="Horizontal"
@@ -107,9 +119,13 @@
                 </Canvas>
                 <StackPanel Orientation="Vertical">
                     <CheckBox x:Name="cbAgreeTerm"
+<<<<<<< HEAD
                               FontFamily="Arial Rounded MT Bold"
                               Content="I agree with conditions &amp; term"
                               Foreground="#202630"
+=======
+                              Content="I have read and agreed to the terms and conditions"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                               Margin="10,10,10.4,10"
                               Background="Green" />
                     <Button Content="Sign Up"

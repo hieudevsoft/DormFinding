@@ -72,7 +72,7 @@
                            FontWeight="Bold" />
 
                 <TextBlock Margin="10,25,0,0"
-                           Text="Dorm Finding sẽ"
+                           Text="Dorm Finding will"
                            TextWrapping="WrapWithOverflow"
                            FontFamily="Helvetica Neue"
                            Foreground="White"
@@ -81,7 +81,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />
                 <TextBlock Margin="10,10,0,0"
-                           Text="giúp bạn tìm ra những"
+                           Text="help you "
                            TextWrapping="WrapWithOverflow"
                            FontFamily="Helvetica Neue"
                            Foreground="White"
@@ -90,7 +90,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />
                 <TextBlock Margin="10,10,0,0"
-                           Text="căn phòng ưng ý"
+                           Text="to find yourself"
                            FontStyle="Italic"
                            TextWrapping="WrapWithOverflow"
                            FontFamily="Helvetica Neue"
@@ -99,7 +99,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />
                 <TextBlock Margin="10,10,0,0"
-                           Text="cho mình"
+                           Text="a desired room"
                            FontStyle="Italic"
                            TextWrapping="WrapWithOverflow"
                            FontFamily="Helvetica Neue"
@@ -162,7 +162,11 @@
                 <TextBlock HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            FontFamily="Roboto"
+<<<<<<< HEAD
                            Text="Welcome to Dorm Finding?"
+=======
+                           Text="Please join us?"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                            FontStyle="Italic"
                            FontSize="13"
                            Margin="30,0,5,0"
@@ -186,7 +190,11 @@
             </StackPanel>
             <TextBlock HorizontalAlignment="Left"
                        VerticalAlignment="Top"
+<<<<<<< HEAD
                        Text="Join with us"
+=======
+                       Text="Login to continue"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                        FontSize="15"
                        Margin="30,5,0,0"
                        TextWrapping="Wrap" />
@@ -203,12 +211,11 @@
                 <TextBox materialDesign:HintAssist.Hint="Email"
                          materialDesign:TextFieldAssist.UnderlineBrush="Orange"
                          FontSize="14"
-                         Text="DormFinding@gmail.com"
                          x:Name="tbEmail"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="250"
-                         Margin="10,0,0,0" />
+                         Margin="10,0,0,0" TextChanged="tbEmail_TextChanged" />
             </StackPanel>
             <StackPanel Margin="30,20,0,0"
                         Orientation="Horizontal"
@@ -221,7 +228,7 @@
                                          Foreground="#BDBDBD" />
                 <PasswordBox materialDesign:HintAssist.Hint="Password"
                              x:Name="tbPassword"
-                             Password="buihuyhieu"
+                             
                              FontSize="14"
                              materialDesign:TextFieldAssist.UnderlineBrush="Orange"
                              HorizontalAlignment="Left"
@@ -230,7 +237,11 @@
                              Margin="10,0,0,0" />
             </StackPanel>
             <Grid>
+<<<<<<< HEAD
                 <CheckBox Content="Remember Password"
+=======
+                <CheckBox Content="Remember password"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                           Margin="30,20,0,0"
                           Background="Orange"
                           x:Name="cbRememberPass"
@@ -239,7 +250,11 @@
                 <TextBlock x:Name="tbForgetPass"
                            MouseMove="tbForgetPass_MouseMove"
                            MouseLeave="tbForgetPass_MouseLeave"
+<<<<<<< HEAD
                            Text="Forgot Password?"
+=======
+                           Text="Forgot password?"
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
                            Cursor="Hand"
                            FontSize="14"
                            Margin="0,10,50,0"

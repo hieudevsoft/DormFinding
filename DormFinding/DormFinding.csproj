@@ -119,7 +119,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Mydatabase.cs" />
+<<<<<<< HEAD
     <Compile Include="Classess\User.cs" />
+=======
+    <Compile Include="SupportUserController\Noti_Login_Success.xaml.cs">
+      <DependentUpon>Noti_Login_Success.xaml</DependentUpon>
+    </Compile>
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
     <Compile Include="UserController\SliderShow.xaml.cs">
       <DependentUpon>SliderShow.xaml</DependentUpon>
     </Compile>
@@ -147,7 +153,11 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+<<<<<<< HEAD
     <Page Include="StyleResource.xaml">
+=======
+    <Page Include="SupportUserController\Noti_Login_Success.xaml">
+>>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

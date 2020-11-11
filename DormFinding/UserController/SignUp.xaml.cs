@@ -136,6 +136,11 @@ namespace DormFinding
                 return true;
             }
         }
+
+        private void btnLoginR_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
