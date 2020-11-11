@@ -13,8 +13,8 @@ namespace DormFinding
     {
         private string _email;
 
-        [Required(ErrorMessage = "Email không được để trống")]
-        [EmailAddress(ErrorMessage = "Email không hợp lệ")]
+        [Required(ErrorMessage = "Email must note empty!")]
+        [EmailAddress(ErrorMessage = "Email invalid!")]
         public string Email
         {
             get => _email;

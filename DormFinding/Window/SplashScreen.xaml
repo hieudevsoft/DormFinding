@@ -41,7 +41,7 @@
                    FontFamily="Champagne &amp; Limousines"
                    FontSize="25"
                    Foreground="White">DESIGN BY HIEU'S DEV</TextBlock>
-        <Image Source="images/splash.png"
+        <Image Source="../images/splash.png"
                Width="64"
                Height="64"
                Margin="0,20,0,0" />

@@ -10,6 +10,7 @@
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Navigation;
+    using System.Windows.Threading;
 
     public partial class Login : UserControl
     {
@@ -18,9 +19,9 @@
         private const string Appid = "1677950655708399";
 
         private Uri _accessUri;
-
+       
         private const string baseUri = "https://graph.facebook.com/oauth/authorize?";
-
+     
         public String AccessToken { get; set; }
 
         public Login()
@@ -30,8 +31,6 @@
 
         private void setUpLoginFacebook()
         {
-
-
             string client_id = Appid;
             string redirect_uri = "https://www.facebook.com/connect/login_success.html";
             string type = "user_agent";
@@ -64,12 +63,16 @@
         {
             btnLogin.Foreground = new SolidColorBrush(Colors.White);
             btnLogin.Background = new SolidColorBrush(Colors.Black);
+
+           
         }
 
         private void btnLogin_MouseMove(object sender, MouseEventArgs e)
         {
             btnLogin.Foreground = new SolidColorBrush(Colors.Black);
             btnLogin.Background = new SolidColorBrush(Colors.White);
+
+           
         }
 
         private void btnMinimizedWindow_Click(object sender, RoutedEventArgs e)
@@ -84,44 +87,18 @@
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
-            try
-            {
-
-                Mydatabase.OpenConnection();
-                Mydatabase.sql = "SELECT _email FROM tb_profile,tb_user WHERE _email_profile=@Email AND tb_user._password=tb_profile._email_profile " 
-                    ;
-                Mydatabase.cmd.CommandType = CommandType.Text;
-                Mydatabase.cmd.CommandText = Mydatabase.sql;
-                Mydatabase.cmd.Parameters.Clear();
-                Mydatabase.cmd.Parameters.AddWithValue("@Email", Helpers.GetTextTextBox(tbEmail));
-               
-
-                Mydatabase.rd = Mydatabase.cmd.ExecuteReader();
-
-                while(Mydatabase.rd.Read())
-
-                MessageBox.Show(Mydatabase.rd.GetValue(0).ToString());
-
-                //int result = Convert.ToInt32(Mydatabase.cmd.ExecuteScalar());
-
-                //if (result == 0)
-                //{
-                //    MessageBox.Show("Tài khoản hoặc mật khẩu sai rồi! ", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Login Successful ", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
-                //}
-
+            User user = new User(tbEmail.Text.Trim(), tbPassword.Password.Trim(), Helpers.ConverCheckedToInt(cbRememberPass));
+            
+            if (Mydatabase.CheckAccount(user.Email, user.Password)){
+                
+                Mydatabase.Update(user,user.Email);
+                MainControl m = new MainControl(user);
+                Window.GetWindow(this).Hide();
+                m.Show();
             }
-            catch (Exception eex)
+            else
             {
-                MessageBox.Show(eex.Message, "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            finally
-            {
-                Mydatabase.CloseConnection();
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Eror join app", "Error");
             }
         }
 

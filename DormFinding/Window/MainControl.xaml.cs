@@ -1,4 +1,5 @@
-﻿using Facebook;
+﻿using DormFinding.Models;
+using Facebook;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,13 +28,14 @@ namespace DormFinding
         private Uri uriPhoto;
         private BitmapImage imageAvatar;
         private FacebookClient _Fbc;
+        private User user;
         private string id { get; set; }
         public MainControl(FacebookClient fbC)
         {
-            InitializeComponent();
-            this._Fbc = fbC;
+            InitializeComponent();       
             try
             {
+                this._Fbc = fbC;
                 dynamic me = fbC.Get("Me");
                 MessageBox.Show("Đăng nhập Facebook thành công");
                 uriPhoto = new Uri("https://graph.facebook.com/" + me.id.ToString() + "/picture/");
@@ -44,9 +46,13 @@ namespace DormFinding
 
             }
         }
-        public MainControl()
+        public MainControl(User user)
         {
             InitializeComponent();
+            this.user = user;
+            MessageBox.Show("Test thông tin xem có chính xác không~\n" +
+                "Email: " + user.Email +"\nPassword: " + user.Password +"\nRemember: " + user.isRemember);
+
         }
         private string getLogoutUri()
         {
@@ -103,6 +109,18 @@ namespace DormFinding
             wbLogout.Navigate(new Uri(getLogoutUri(),UriKind.Absolute));
             MainWindow lg = new MainWindow();
             lg.Show();
+        }
+
+        private void btnSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            if (user != null)
+            {
+                user.isRemember = 0;
+                Mydatabase.Update(user, user.Email);
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Hide();
+            }
         }
     }
 }

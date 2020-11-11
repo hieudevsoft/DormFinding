@@ -1,5 +1,8 @@
-﻿using Facebook;
+﻿using DormFinding.Models;
+using DormFinding.Utils;
+using Facebook;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -24,11 +27,11 @@ namespace DormFinding
     public partial class SignUp : UserControl
     {
         private DispatcherTimer dispatcherTimer;
-       
+
         public SignUp()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnShutDown_Click(object sender, RoutedEventArgs e)
@@ -67,14 +70,73 @@ namespace DormFinding
             icLoading.Visibility = Visibility.Visible;
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(TimerOnTick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 2);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0,400);
             dispatcherTimer.Start();
+
         }
 
         private void TimerOnTick(object sender, EventArgs e)
         {
-            dispatcherTimer.Stop();
-            icLoading.Visibility = Visibility.Collapsed;
+            try
+            {
+                if (isValidAccount(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), tbConfirmPassSignUp.Password.Trim(), cbAgreeTerm))
+                {
+                    if(Mydatabase.InsertToTableUser(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), 0))
+                    {
+                        Mydatabase.InsertToTableUserProfile(tbEmailSignUp.Text.Trim());
+                        Helpers.MakeConfirmMessage(Window.GetWindow(this), "Register Successful~", "Notify");
+                    }else
+                    {
+                        
+                    }
+                                    
+                }
+                dispatcherTimer.Stop();
+                icLoading.Visibility = Visibility.Collapsed;
+            }
+            catch (Exception er)
+            {
+
+            }
+        }
+        private bool isValidAccount(string email, string password, string confirmpass, CheckBox cb)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpass))
+            {
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Please fill out the form", "Error");
+                return false;
+            }
+            else
+            {
+                if (!password.Equals(confirmpass))
+
+                {
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), "Password is not matcher with confirm password", "Error");
+                    return false;
+                }
+                else
+                {
+                    if (!Helpers.isValidEmail(email))
+                    {
+                        Helpers.MakeErrorMessage(Window.GetWindow(this), "Email error~", "Error");
+                        return false;
+                    }
+                    else
+                    {
+                        if (cb.IsChecked == false)
+                        {
+                            Helpers.MakeErrorMessage(Window.GetWindow(this), "Please agree the term", "Error");
+                            return false;
+                        }
+                    }
+                }
+                
+
+
+                return true;
+            }
         }
     }
 }
+
+

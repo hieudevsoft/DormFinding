@@ -28,12 +28,12 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="0,20,0,0">
-                    <Label Content="Đã có tài khoản?"
+                    <Label Content="Have already account?"
                            FontFamily="Roboto"
                            FontSize="12"
                            FontStyle="Italic" />
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
-                            Content="Đăng nhập"
+                            Content="Sign In"
                             x:Name="btnLoginR"
                             MouseMove="btnLoginR_MouseMove"
                             MouseLeave="btnLoginR_MouseLeave"
@@ -53,7 +53,7 @@
                                           Margin="-88,-36,-142,-94" />
                     </Grid>
                     <StackPanel Orientation="Vertical" Panel.ZIndex="0">
-                        <Label Content="Đăng kí"
+                        <Label Content="Register"
                                FontFamily="Arial"
                                FontSize="18" />
                         <StackPanel Orientation="Horizontal"
@@ -67,6 +67,7 @@
                                      Validation.ErrorTemplate="{StaticResource errorTemplate}"
                                      materialDesign:HintAssist.Hint="Email"
                                      Width="250"
+                                     Name="tbEmailSignUp"
                                      FontSize="14"
                                      Margin="10,0,0,0"
                                      materialDesign:TextFieldAssist.UnderlineBrush="Yellow"
@@ -83,6 +84,7 @@
                             <PasswordBox materialDesign:HintAssist.Hint="Password"
                                          Width="250"
                                          FontSize="14"
+                                         x:Name="tbPasswordSignUp"
                                          Margin="10,0,0,0"
                                          materialDesign:TextFieldAssist.UnderlineBrush="Blue" />
                         </StackPanel>
@@ -96,6 +98,7 @@
                             <PasswordBox materialDesign:HintAssist.Hint="Confirm Password"
                                          Width="250"
                                          FontSize="14"
+                                         x:Name="tbConfirmPassSignUp"
                                          Margin="10,0,0,0"
                                          materialDesign:TextFieldAssist.UnderlineBrush="Red" />
                         </StackPanel>
@@ -104,7 +107,9 @@
                 </Canvas>
                 <StackPanel Orientation="Vertical">
                     <CheckBox x:Name="cbAgreeTerm"
-                              Content="Tôi đồng ý với các điều khoản &amp; dịch vụ"
+                              FontFamily="Arial Rounded MT Bold"
+                              Content="I agree with conditions &amp; term"
+                              Foreground="#202630"
                               Margin="10,10,10.4,10"
                               Background="Green" />
                     <Button Content="Sign Up"

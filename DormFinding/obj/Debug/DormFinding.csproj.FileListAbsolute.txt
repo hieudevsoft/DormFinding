@@ -319,4 +319,4 @@ D:\C#\WPFDormfinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\WPFDormfinding\DormFinding\obj\Debug\DormFinding.pdb
 D:\C#\WPFDormfinding\DormFinding\obj\Debug\UserController\SliderShow.g.cs
 D:\C#\WPFDormfinding\DormFinding\obj\Debug\UserController\SliderShow.baml
-D:\C#\WPFDormfinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
+D:\C#\WPFDormfinding\DormFinding\obj\Debug\StyleResource.baml
