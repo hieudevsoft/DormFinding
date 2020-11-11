@@ -59,7 +59,7 @@
     <Border Background="#F5F4FC"
             BorderBrush="#312F45"
             BorderThickness="7"
-            CornerRadius="50">
+            CornerRadius="15">
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -73,7 +73,7 @@
             <materialDesign:PopupBox Foreground="{StaticResource solidColorSideBar}"
                                      Grid.ColumnSpan="2"
                                      VerticalAlignment="Top"
-                                     Margin="0 10 20 0 "
+                                     Margin="0 10 0 0 "
                                      Panel.ZIndex="1"
                                      HorizontalAlignment="Right"
                                      PlacementMode="BottomAndAlignCentres"
@@ -111,7 +111,7 @@
                                 VerticalAlignment="Center"
                                 Width="80">
                             <Button.Content>
-                                <TextBlock Text="Contacts"
+                                <TextBlock Text="About Us"
                                            Foreground="{StaticResource solidColorSideBar}"
                                            FontSize="11"
                                            VerticalAlignment="Center"
@@ -178,7 +178,7 @@
                         Width="85.5"
                         Height="690"
                         x:Name="GridMenu"
-                        CornerRadius="45"
+                        CornerRadius="15"
                         Background="{StaticResource solidColorSideBar}"
                         HorizontalAlignment="Left">
                     <StackPanel>
@@ -200,7 +200,7 @@
                                         Background="{x:Null}"
                                         Padding="0 0 0 0"
                                         Click="btnCloseMenu_Click"
-                                        Visibility="Collapsed"                                      
+                                        Visibility="Collapsed"
                                         Width="40"
                                         Height="40"
                                         BorderThickness="0">
@@ -211,7 +211,7 @@
                                 </Button>
                                 <Button x:Name="btnOpenMenu"
                                         Background="{x:Null}"
-                                        Padding="0 0 0 0"    
+                                        Padding="0 0 0 0"
                                         Click="btnOpenMenu_Click"
                                         Width="40"
                                         Height="40"
@@ -240,27 +240,6 @@
                                                Margin="10 0 0 0"
                                                Height="45" />
                                         <TextBlock Text="HOME"
-                                                   HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="19"
-                                                   Foreground="White"
-                                                   Margin="20"
-                                                   FontFamily="Arial Rounded MT Bold" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem Margin="0 10 0 0"
-                                              HorizontalAlignment="Left"
-                                              HorizontalContentAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              Width="218">
-                                    <StackPanel Orientation="Horizontal"
-                                                Margin="5 0 0 0"
-                                                Height="60">
-                                        <Image Source="/images/icon_search.png"
-                                               Width="45"
-                                               Margin="-14 0 0 0"
-                                               Height="45" />
-                                        <TextBlock Text="SEARCH"
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
@@ -334,11 +313,18 @@
                             </ListView>
                         </StackPanel>
                     </StackPanel>
-
-
+                </Border>
+                <Border CornerRadius="10"
+                        Grid.Column="1"
+                        BorderThickness="1"
+                        BorderBrush="Transparent"
+                        Margin="27">
+                    <Grid>
+                       <local:SliderShow/>
+                                            
+                    </Grid>
                 </Border>
             </DockPanel>
-
         </Grid>
     </Border>
 </Window>

@@ -89,23 +89,30 @@
             {
 
                 Mydatabase.OpenConnection();
-                Mydatabase.sql = "SELECT COUNT(1) FROM tb_user WHERE _email=@Email AND _password=@Password   ";
+                Mydatabase.sql = "SELECT _email FROM tb_profile,tb_user WHERE _email_profile=@Email AND tb_user._password=tb_profile._email_profile " 
+                    ;
                 Mydatabase.cmd.CommandType = CommandType.Text;
                 Mydatabase.cmd.CommandText = Mydatabase.sql;
                 Mydatabase.cmd.Parameters.Clear();
                 Mydatabase.cmd.Parameters.AddWithValue("@Email", Helpers.GetTextTextBox(tbEmail));
-                Mydatabase.cmd.Parameters.AddWithValue("@Password", Helpers.GetTextPassWord(tbPassword));
+               
 
-                int result = Convert.ToInt32(Mydatabase.cmd.ExecuteScalar());
+                Mydatabase.rd = Mydatabase.cmd.ExecuteReader();
 
-                if (result == 0)
-                {
-                    MessageBox.Show("Tài khoản hoặc mật khẩu sai rồi! ", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Login Successful ", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                while(Mydatabase.rd.Read())
+
+                MessageBox.Show(Mydatabase.rd.GetValue(0).ToString());
+
+                //int result = Convert.ToInt32(Mydatabase.cmd.ExecuteScalar());
+
+                //if (result == 0)
+                //{
+                //    MessageBox.Show("Tài khoản hoặc mật khẩu sai rồi! ", "Notification", MessageBoxButton.OK, MessageBoxImage.Error);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Login Successful ", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                //}
 
             }
             catch (Exception eex)
