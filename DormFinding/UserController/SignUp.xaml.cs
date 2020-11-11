@@ -76,5 +76,10 @@ namespace DormFinding
             dispatcherTimer.Stop();
             icLoading.Visibility = Visibility.Collapsed;
         }
+
+        private void btnLoginR_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

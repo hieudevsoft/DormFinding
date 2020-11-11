@@ -171,5 +171,10 @@
         {
             MessageBox.Show("Comming soon...");
         }
+
+        private void tbEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

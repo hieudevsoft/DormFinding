@@ -119,6 +119,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Mydatabase.cs" />
+    <Compile Include="SupportUserController\Noti_Login_Success.xaml.cs">
+      <DependentUpon>Noti_Login_Success.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserController\SliderShow.xaml.cs">
       <DependentUpon>SliderShow.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="SupportUserController\Noti_Login_Success.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserController\SliderShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DormFinding"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="758" d:DesignWidth="800">
     <Grid>
        
         <Button Padding="0" Panel.ZIndex="1" Background="Transparent" 
@@ -29,6 +29,30 @@
                             Stretch="UniformToFill" />
             </Border.Background>
         </Border>
+        <TextBlock VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Margin="0,80,0,0"
+                   Text="Find a room"
+                   FontFamily="Arial Rounded MT"
+                   FontSize="48"
+                   FontStyle="Italic"
+                   Foreground="WhiteSmoke"/>
+        <TextBlock VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Margin="0,160,0,0"
+                   Text="that meets "
+                   FontFamily="Arial Rounded MT"
+                   FontSize="48"
+                   FontStyle="Italic"
+                   Foreground="WhiteSmoke"/>
+        <TextBlock VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   Margin="0,240,0,0"
+                   Text="your requirement"
+                   FontFamily="Arial Rounded MT"
+                   FontSize="48"
+                   FontStyle="Italic"
+                   Foreground="WhiteSmoke"/>
 
         <Button Padding="0"
                 Panel.ZIndex="1"

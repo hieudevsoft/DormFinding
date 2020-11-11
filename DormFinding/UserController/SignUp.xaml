@@ -28,12 +28,12 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="0,20,0,0">
-                    <Label Content="Đã có tài khoản?"
+                    <Label Content="Already have an account?"
                            FontFamily="Roboto"
                            FontSize="12"
                            FontStyle="Italic" />
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
-                            Content="Đăng nhập"
+                            Content="Login"
                             x:Name="btnLoginR"
                             MouseMove="btnLoginR_MouseMove"
                             MouseLeave="btnLoginR_MouseLeave"
@@ -42,7 +42,7 @@
                             Foreground="Blue"
                             Background="{x:Null}"
                             BorderThickness="0"
-                            Margin="-10,-6,0,0" />
+                            Margin="-13,-5,0,0" Click="btnLoginR_Click" />
                 </StackPanel>
                 <Canvas Width="auto" Height="150">
                     <Grid Margin="120,50"
@@ -53,7 +53,7 @@
                                           Margin="-88,-36,-142,-94" />
                     </Grid>
                     <StackPanel Orientation="Vertical" Panel.ZIndex="0">
-                        <Label Content="Đăng kí"
+                        <Label Content="Create an account"
                                FontFamily="Arial"
                                FontSize="18" />
                         <StackPanel Orientation="Horizontal"
@@ -104,7 +104,7 @@
                 </Canvas>
                 <StackPanel Orientation="Vertical">
                     <CheckBox x:Name="cbAgreeTerm"
-                              Content="Tôi đồng ý với các điều khoản &amp; dịch vụ"
+                              Content="I have read and agreed to the terms and conditions"
                               Margin="10,10,10.4,10"
                               Background="Green" />
                     <Button Content="Sign Up"

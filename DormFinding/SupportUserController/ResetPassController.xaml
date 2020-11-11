@@ -90,7 +90,7 @@
                     </StackPanel>
                 </Canvas>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Trả lời câu hỏi bí mật"
+                    <Label Content="Answer the secret question"
                            FontFamily="Roboto"
                            FontSize="14"
                            FontWeight="Bold"
@@ -101,9 +101,9 @@
                               Margin="34,0,0,10"
                               Width="250
                               ">
-                        <ComboBoxItem>Tên trường tiểu học của bạn</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True">Tên đội bóng bạn yêu thích</ComboBoxItem>
-                        <ComboBoxItem>Tên thần tượng của bạn</ComboBoxItem>
+                        <ComboBoxItem>Name of your elementary school</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Name of your favorite football club</ComboBoxItem>
+                        <ComboBoxItem>Name of your idol</ComboBoxItem>
                     </ComboBox>
                     <materialDesign:PackIcon Kind="QuestionAnswer"
                                              Foreground="DarkGray"
