@@ -56,9 +56,9 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}" />
         </EventTrigger>
     </Window.Triggers>
-    <Border Background="#323639"
-            BorderBrush="WhiteSmoke"
-            BorderThickness="7"
+    <Border Background="White"
+            BorderBrush="Black"
+            BorderThickness="5"
             CornerRadius="15">
         <Grid>
 
@@ -71,7 +71,7 @@
                         Grid.ColumnSpan="2"
                         Visibility="Collapsed" />
 
-            <materialDesign:PopupBox Foreground="WhiteSmoke"
+            <materialDesign:PopupBox Foreground="Black"
                                      Grid.ColumnSpan="2"
                                      VerticalAlignment="Top"
                                      Margin="0 0 0 0 "

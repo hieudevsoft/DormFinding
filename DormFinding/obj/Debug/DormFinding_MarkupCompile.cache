@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\WPFDormfinding\DormFinding\DormFinding\App.xaml
-121483833272
+121618586082
 
-19-733669125
+19-1959911423
 141190054529
-SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\SearchDorm.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
+UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
 False
 

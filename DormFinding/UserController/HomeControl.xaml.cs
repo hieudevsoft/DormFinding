@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DormFinding
 {
     /// <summary>
-    /// Interaction logic for SearchDorm.xaml
+    /// Interaction logic for HomeControl.xaml
     /// </summary>
-    public partial class SearchDorm : UserControl
+    public partial class HomeControl : UserControl
     {
-        public SearchDorm()
+        public HomeControl()
         {
             InitializeComponent();
         }

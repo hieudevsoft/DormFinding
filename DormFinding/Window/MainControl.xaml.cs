@@ -130,11 +130,9 @@ namespace DormFinding
             {
                 case 0:
                     MainHomeLayout.Children.Clear();
-                    MainHomeLayout.Height = 190;
-                    MainHomeLayout.Width  = 500;
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                    MainHomeLayout.Children.Add(new DormItem());
+                    MainHomeLayout.Children.Add(new HomeControl());
                     break;
             }
         }

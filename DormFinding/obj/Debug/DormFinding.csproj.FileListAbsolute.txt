@@ -2,7 +2,6 @@ D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\Not
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\SliderShow.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\ResetPassController.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Window\MainControl.g.cs
-D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\LoadingBar.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Window\MainWindow.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Window\SplashScreen.g.cs
@@ -54,7 +53,6 @@ D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\Not
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\SliderShow.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\ResetPassController.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Window\MainControl.baml
-D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\SearchDorm.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\LoadingBar.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\SignUp.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\Login.baml
@@ -67,7 +65,8 @@ D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CoreCo
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CopyComplete
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
-D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\DormItem.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\SupportUserController\DormItem.baml
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\StyleResource.baml
+D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\HomeControl.g.cs
+D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\UserController\HomeControl.baml
