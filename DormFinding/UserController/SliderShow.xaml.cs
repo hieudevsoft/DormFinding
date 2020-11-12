@@ -79,7 +79,7 @@ namespace DormFinding
         {
             if (index == 4) index = 1; else index++;
             imageSlider.ImageSource = new BitmapImage(new Uri($"../../images/dorm_slide_{index}.jpg", UriKind.RelativeOrAbsolute));
-            SetAnimationForImage(500, 1100);
+            SetAnimationForImage(500, 1150);
         }
 
         private void btnPrevSLiderShow_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ namespace DormFinding
             if (index == 1) index = 4;
             else index--;
             imageSlider.ImageSource = new BitmapImage(new Uri($"../../images/dorm_slide_{index}.jpg", UriKind.RelativeOrAbsolute));
-            SetAnimationForImage(1700, 1100);
+            SetAnimationForImage(1700, 1150);
         }
     }
 }

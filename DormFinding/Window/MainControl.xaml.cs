@@ -50,8 +50,7 @@ namespace DormFinding
         {
             InitializeComponent();
             this.user = user;
-            MessageBox.Show("Test thông tin xem có chính xác không~\n" +
-                "Email: " + user.Email +"\nPassword: " + user.Password +"\nRemember: " + user.isRemember);
+            
 
         }
         private string getLogoutUri()
@@ -121,6 +120,38 @@ namespace DormFinding
                 m.Show();
                 this.Hide();
             }
+        }
+
+        private void ListViewSideBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListViewSideBar.SelectedIndex;
+            MoveCursorMenu(index);
+            switch (index)
+            {
+                case 0:
+                    MainHomeLayout.Children.Clear();
+                    MainHomeLayout.Height = 190;
+                    MainHomeLayout.Width  = 500;
+                    MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                    MainHomeLayout.Children.Add(new DormItem());
+                    break;
+            }
+        }
+
+        private void MoveCursorMenu(int index)
+        {
+            TransitioningContentSlide.OnApplyTemplate();
+            SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);
+            SlideCursor.Visibility = Visibility.Visible;
+            switch (index)
+            {
+                case 2: SlideCursor.Margin = new Thickness(0, (15 + (index * 95)), 0, 0);break;
+                case 3 : SlideCursor.Margin = new Thickness(0, (10 + (index * 97)), 0, 0);break;
+                default: SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);break;
+            }
+                
+
         }
     }
 }

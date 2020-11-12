@@ -1,27 +1,15 @@
 ﻿
-<<<<<<< HEAD
-FD:\C#\WPFDormfinding\DormFinding\App.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\StyleResource.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\UserController\SliderShow.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\SupportUserController\ResetPassController.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\Window\MainControl.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\UserController\SearchDorm.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\UserController\LoadingBar.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\UserController\SignUp.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\UserController\Login.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\Window\MainWindow.xaml;;
-FD:\C#\WPFDormfinding\DormFinding\Window\SplashScreen.xaml;;
-=======
-FD:\DormF\DormFinding\DormFinding\App.xaml;;
-FD:\DormF\DormFinding\DormFinding\UserController\SliderShow.xaml;;
-FD:\DormF\DormFinding\DormFinding\SupportUserController\ResetPassController.xaml;;
-FD:\DormF\DormFinding\DormFinding\Window\MainControl.xaml;;
-FD:\DormF\DormFinding\DormFinding\UserController\SearchDorm.xaml;;
-FD:\DormF\DormFinding\DormFinding\UserController\LoadingBar.xaml;;
-FD:\DormF\DormFinding\DormFinding\UserController\SignUp.xaml;;
-FD:\DormF\DormFinding\DormFinding\UserController\Login.xaml;;
-FD:\DormF\DormFinding\DormFinding\Window\MainWindow.xaml;;
-FD:\DormF\DormFinding\DormFinding\Window\SplashScreen.xaml;;
-FD:\DormF\DormFinding\DormFinding\SupportUserController\Noti_Login_Success.xaml;;
->>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\App.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\SupportUserController\DormItem.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\StyleResource.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\SupportUserController\Noti_Login_Success.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\SliderShow.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\SupportUserController\ResetPassController.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\Window\MainControl.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\SearchDorm.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\LoadingBar.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\SignUp.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\Login.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\Window\MainWindow.xaml;;
+FD:\C#\WPFDormfinding\DormFinding\DormFinding\Window\SplashScreen.xaml;;
 

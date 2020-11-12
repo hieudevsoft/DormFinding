@@ -1,0 +1,238 @@
+﻿<UserControl x:Class="DormFinding.DormItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DormFinding"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Background="Transparent"
+             d:DesignHeight="190"
+             d:DesignWidth="500">
+
+    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+        <Grid>
+
+            <Grid.Resources>
+                <ResourceDictionary Source="../StyleResource.xaml"></ResourceDictionary>
+            </Grid.Resources>
+            <Border CornerRadius="10"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
+                    Background="{StaticResource colorWhite}" />
+            <Border  Grid.Row="0"
+                     Background="{StaticResource colorSky}"
+                     Grid.ColumnSpan="2"
+                     CornerRadius="10 10 0 0" />
+            <Border Grid.Column="1"
+                    Margin="16"
+                    CornerRadius="10"
+                    Background="{StaticResource colorGreen}"
+                    Grid.Row="1">
+                <Button Content="Book now"
+                        FontSize="18"
+                        BorderThickness="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontFamily="Champagne &amp; Limousines"
+                        RenderTransformOrigin="0.5,0.5"
+                        Foreground="{StaticResource colorWhite}"
+                        Background="Transparent"
+                        FontWeight="Bold"
+                        Padding="0"
+                        Width="140"
+                        Height="68"
+                        Margin="-35,39,-37,41">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270" />
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </Border>
+            <Border Grid.Row="1"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    Background="{StaticResource colorWhite}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"
+                            CornerRadius="8"
+                            Margin="16">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../images/dorm_slide_2.jpg"
+                                        Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Margin="0,16"
+                                Grid.Column="1"
+                                Orientation="Vertical">
+                        <TextBlock Text="Hiep's House Family"
+                                   FontSize="20"
+                                   TextTrimming="CharacterEllipsis"
+                                   FontFamily="Arial ROunded mt bold" />
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0 5 0 0">
+                            <materialDesign:PackIcon Kind="Location"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Foreground="{StaticResource colorGray}" />
+                            <TextBlock Text="71 Tan Trieu, Thanh Tri, Ha Noi"
+                                       FontSize="14"
+                                       TextTrimming="CharacterEllipsis"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Foreground="Gray"
+                                       FontFamily="Helvetica Neue" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0 5 0 0">
+                            <materialDesign:PackIcon Kind="Dollar"
+                                                     VerticalAlignment="Center"
+                                                     Width="20"
+                                                     Height="20"
+                                                     Foreground="{StaticResource colorBlue}" />
+                            <TextBlock Text="280"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource colorBlue}"
+                                       FontFamily="Arial Rounded MT Bold" />
+                            <TextBlock Text=" / months"
+                                       FontSize="12"
+                                       Margin="0 -2 0 0"
+                                       VerticalAlignment="Center"
+                                       Foreground="{StaticResource colorBlue}" />
+                        </StackPanel>
+                        <TextBlock Text="Aminities"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 10 0 0"
+                                   FontSize="15"
+                                   FontFamily="Arial Rounded MT Bold" />
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="10 5 0 0 ">
+                            <StackPanel.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="Width"
+                                            Value="40" />
+                                    <Setter Property="Height"
+                                            Value="40" />
+                                    <Setter Property="Margin"
+                                            Value="0 0 10 0" />
+                                    <Setter Property="CornerRadius"
+                                            Value="10" />
+                                    <Setter Property="Background"
+                                            Value="{StaticResource colorWhite }" />
+                                    <Setter Property="BorderThickness"
+                                            Value="1.5" />
+                                    <Setter Property="BorderBrush"
+                                            Value="{StaticResource colorSky}" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <Border>
+                                <Canvas HorizontalAlignment="Left"
+                                        Width="40"
+                                        Height="40"
+                                        VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Wifi"
+                                                             Foreground="{StaticResource colorSky}"
+                                                             Canvas.Left="10"
+                                                             Canvas.Top="11" />
+                                    <Image Source="../images/icon_line.png"
+                                           Height="18"
+                                           Width="18"
+                                           Visibility="Visible"
+                                           Canvas.Left="10"
+                                           Canvas.Top="10" />
+                                </Canvas>
+                            </Border>
+                            <Border>
+                                <Canvas HorizontalAlignment="Left"
+                                        Width="40"
+                                        Height="40"
+                                        VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Motorbike"
+                                                             Foreground="{StaticResource colorSky}"
+                                                             Canvas.Left="10"
+                                                             Canvas.Top="11" />
+                                    <Image Source="../images/icon_line.png"
+                                           Height="18"
+                                           Width="18"
+                                           Visibility="Visible"
+                                           Canvas.Left="10"
+                                           Canvas.Top="10" />
+                                </Canvas>
+                            </Border>
+                            <Border>
+                                <Canvas HorizontalAlignment="Left"
+                                        Width="40"
+                                        Height="40"
+                                        VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="Television"
+                                                             Foreground="{StaticResource colorSky}"
+                                                             Canvas.Left="10"
+                                                             Canvas.Top="11" />
+                                    <Image Source="../images/icon_line.png"
+                                           Height="18"
+                                           Width="18"
+                                           Visibility="Visible"
+                                           Canvas.Left="10"
+                                           Canvas.Top="10" />
+                                </Canvas>
+                            </Border>
+                            <Border>
+                                <Button Width="auto"
+                                        Height="auto"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        Padding="-10"
+                                        BorderThickness="0">
+
+                                    <materialDesign:PackIcon Kind="MoreHoriz"
+                                                             Foreground="{StaticResource colorSky}" />
+                                </Button>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Width"
+                                                Value="40" />
+                                        <Setter Property="Height"
+                                                Value="40" />
+                                        <Setter Property="CornerRadius"
+                                                Value="10" />
+                                        <Setter Property="Background"
+                                                Value="{StaticResource colorWhite }" />
+                                        <Setter Property="BorderThickness"
+                                                Value="1.5" />
+                                        <Setter Property="BorderBrush"
+                                                Value="{StaticResource colorSky}" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="{StaticResource colorGray}" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.25*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.06*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

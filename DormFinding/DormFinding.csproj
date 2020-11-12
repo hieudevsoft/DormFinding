@@ -118,14 +118,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Mydatabase.cs" />
-<<<<<<< HEAD
-    <Compile Include="Classess\User.cs" />
-=======
-    <Compile Include="SupportUserController\Noti_Login_Success.xaml.cs">
-      <DependentUpon>Noti_Login_Success.xaml</DependentUpon>
+    <Compile Include="SupportUserController\DormItem.xaml.cs">
+      <DependentUpon>DormItem.xaml</DependentUpon>
     </Compile>
->>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
+    <Compile Include="Models\Mydatabase.cs" />
+    <Compile Include="Classess\User.cs" />
     <Compile Include="UserController\SliderShow.xaml.cs">
       <DependentUpon>SliderShow.xaml</DependentUpon>
     </Compile>
@@ -153,11 +150,15 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
-<<<<<<< HEAD
+    <Page Include="SupportUserController\DormItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StyleResource.xaml">
-=======
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SupportUserController\Noti_Login_Success.xaml">
->>>>>>> 9f8e99dd3f52389b48789e99cbc48fc67a81b409
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,7 +240,9 @@
   <ItemGroup>
     <Resource Include="images\splash.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\dorm_slide_1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\dorm2.jpg" />
   </ItemGroup>
@@ -274,9 +277,6 @@
     <Resource Include="images\rcv.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\dorm_slide_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\dorm_slide_2.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\icon_arrow_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon_line.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
