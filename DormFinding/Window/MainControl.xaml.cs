@@ -139,9 +139,9 @@ namespace DormFinding
 
         private void MoveCursorMenu(int index)
         {
-            TransitioningContentSlide.OnApplyTemplate();
-            SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);
             SlideCursor.Visibility = Visibility.Visible;
+            TransitioningContentSlide.OnApplyTemplate();
+            SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);         
             switch (index)
             {
                 case 2: SlideCursor.Margin = new Thickness(0, (15 + (index * 95)), 0, 0);break;

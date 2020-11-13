@@ -10,16 +10,12 @@
              d:DesignHeight="650"
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
         <Grid Background="White">
             <Grid.Resources>
                 <ResourceDictionary Source="../StyleResource.xaml" />
             </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.6*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
+           
             <StackPanel Orientation="Vertical"
                         Grid.Row="0">
                 <TextBlock Text="Hello Guys"
@@ -77,15 +73,20 @@
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Popular Dorm"
-                               Margin="20 5 0 0"
+                               Margin="20 10 0 0"
                                VerticalAlignment="Top"
                                FontSize="28"
                                FontFamily="Arial Rounded MT Bold"
                                Foreground="Black"
                                HorizontalAlignment="Left" />
-                    
-                    <ListView Width="auto" Height="auto" materialDesign:RippleAssist.RippleOnTop="True" materialDesign:RippleAssist.ClipToBounds="True"                           
-                              >
+
+                    <ListView Width="auto"
+                              Height="auto"
+                              Margin="20 15 0 0"
+                              ItemsSource="{Binding Dorm}"
+                              x:Name="listViewHori"
+                              materialDesign:RippleAssist.RippleOnTop="True"
+                              materialDesign:RippleAssist.ClipToBounds="True">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Background"
@@ -99,371 +100,78 @@
                                 </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
-                 
-                        <StackPanel Orientation="Horizontal">
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                            <ListViewItem>
-                                <Button Width="170"
-                                        Padding="0"
-                                        Height="190"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom"
-                                        Background="{StaticResource colorWhite}"
-                                        materialDesign:ButtonAssist.CornerRadius="10"
-                                        BorderThickness="0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2">
-                                    <Button.Content>
-                                        <StackPanel Orientation="Vertical">
-                                            <Image Source="../images/dorm_slide_1.jpg" />
-                                            <TextBlock Text="Hieu's Dorm"
-                                                       Foreground="Black"
-                                                       Margin="10 8 0 0"
-                                                       FontSize="14"
-                                                       FontFamily="Arial Rounded MT Bold" />
-                                            <TextBlock Text="Kim Giang Town, Ha Noi"
-                                                       FontSize="10"
-                                                       Margin="10 1 0 0"
-                                                       Foreground="{StaticResource colorGray}" />
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="4 2 0 0">
-                                                <materialDesign:PackIcon Kind="Dollar"
-                                                                         VerticalAlignment="Center"
-                                                                         Foreground="{StaticResource colorBlue}" />
-                                                <TextBlock Text="280"
-                                                           FontSize="12"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}"
-                                                           FontFamily="Arial Rounded MT Bold" />
-                                                <TextBlock Text=" / months"
-                                                           FontSize="12"
-                                                           Margin="0 -2 0 0"
-                                                           VerticalAlignment="Center"
-                                                           Foreground="{StaticResource colorBlue}" />
-                                            </StackPanel>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Margin="10 0 5 5"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Right">
-                                                <TextBlock Text="4.5"
-                                                           FontSize="12"
-                                                           Foreground="{StaticResource colorGreen}" />
-                                                <materialDesign:PackIcon Kind="Star"
-                                                                         Foreground="{StaticResource colorGreen}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Button.Content>
-                                </Button>
-                            </ListViewItem>
-                        </StackPanel>
-                       
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:DormItemHori Margin="0 0 20 5" />
+                            </DataTemplate>
+                            
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
                     </ListView>
-                   
+
                 </StackPanel>
             </Grid>
+            <ScrollViewer Grid.Row="2" Background="Transparent"
+                          Margin="0 30 0 0"
+                          HorizontalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Auto"
+                          materialDesign:ScrollBarAssist.ButtonsVisibility="Visible"
+                          >
+            <Grid >
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Dorms"
+                               Margin="20 0 0 0"
+                               VerticalAlignment="Top"
+                               FontSize="28"
+                               FontFamily="Arial Rounded MT Bold"
+                               Foreground="Black"
+                               HorizontalAlignment="Left"
+                               />
+                    <ListView Width="auto"                            
+                              Height="auto"
+                              Margin="20 5 0 0"
+                              x:Name="listViewVerti"
+                              SelectionChanged="listViewVerti_SelectionChanged"
+                              ItemsSource="{Binding Dorm}"
+                              materialDesign:RippleAssist.RippleOnTop="True"
+                              materialDesign:RippleAssist.ClipToBounds="True">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:DormItem Margin="0 0 20 20" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Width="1200" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                       
+                    </ListView>
+                </StackPanel>
+            </Grid>
+            </ScrollViewer>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
         </Grid>
     </materialDesign:TransitioningContent>
 </UserControl>

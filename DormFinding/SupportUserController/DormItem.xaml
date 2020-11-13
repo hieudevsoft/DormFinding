@@ -8,19 +8,19 @@
              mc:Ignorable="d"
              Background="Transparent"
              d:DesignHeight="190"
-             d:DesignWidth="500">
+             d:DesignWidth="600">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-        <Grid>
-
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:1}">
+        <Grid Cursor="Hand">
+         
             <Grid.Resources>
                 <ResourceDictionary Source="../StyleResource.xaml"></ResourceDictionary>
             </Grid.Resources>
             <Border CornerRadius="10"
                     Grid.ColumnSpan="2"
                     Grid.RowSpan="2"
-                    Background="{StaticResource colorWhite}" />
+                    Background="{StaticResource colorSky}" />
             <Border  Grid.Row="0"
                      Background="{StaticResource colorSky}"
                      Grid.ColumnSpan="2"
@@ -30,63 +30,84 @@
                     CornerRadius="10"
                     Background="{StaticResource colorGreen}"
                     Grid.Row="1">
-                <Button Content="Book now"
+                <Button 
                         FontSize="18"
                         BorderThickness="0"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         FontFamily="Champagne &amp; Limousines"
-                        RenderTransformOrigin="0.5,0.5"
-                        Foreground="{StaticResource colorWhite}"
+                        RenderTransformOrigin="0.5,0.5"                      
                         Background="Transparent"
                         FontWeight="Bold"
                         Padding="0"
                         Width="140"
                         Height="68"
                         Margin="-35,39,-37,41">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Sale"
+                                   Margin="-5 0 0 0"
+                                   FontFamily="Champagne &amp; Limousines"
+                                   Foreground="{StaticResource colorWhite}" />
+                            <Label Content="{Binding Sale}"
+                                   FontFamily="Champagne &amp; Limousines"
+                                   Foreground="{StaticResource colorWhite}"/>
+                            <Label Content="%"
+                                   Margin="-5 0 0 0"
+                                   FontFamily="Champagne &amp; Limousines"
+                                   Foreground="{StaticResource colorWhite}"
+                                   />
+                        </StackPanel>
+                    </Button.Content>
                     <Button.RenderTransform>
                         <TransformGroup>
-                            <RotateTransform Angle="270" />
+                            <RotateTransform Angle="270"
+                                              />
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
             </Border>
             <Border Grid.Row="1"
+                  
                     Grid.Column="0"
                     CornerRadius="10"
-                    Background="{StaticResource colorWhite}">
+                    Background="White">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="1" ShadowDepth="3" Opacity="0.5" Color="Gray"/>
+                </Border.Effect>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.7*" />
+                        <ColumnDefinition Width="0.9*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Border Grid.Column="0"
+                            Width="192"
                             CornerRadius="8"
                             Margin="16">
                         <Border.Background>
-                            <ImageBrush ImageSource="../images/dorm_slide_2.jpg"
+                            <ImageBrush ImageSource="{Binding Image}"
                                         Stretch="UniformToFill" />
                         </Border.Background>
                     </Border>
                     <StackPanel Margin="0,16"
                                 Grid.Column="1"
                                 Orientation="Vertical">
-                        <TextBlock Text="Hiep's House Family"
+                        <TextBlock Text="{Binding Owner}"
                                    FontSize="20"
                                    TextTrimming="CharacterEllipsis"
                                    FontFamily="Arial ROunded mt bold" />
                         <StackPanel Orientation="Horizontal"
                                     Margin="0 5 0 0">
                             <materialDesign:PackIcon Kind="Location"
-                                                     Width="20"
+                                                     Width="20"                                                   
                                                      Height="20"
-                                                     Foreground="{StaticResource colorGray}" />
-                            <TextBlock Text="71 Tan Trieu, Thanh Tri, Ha Noi"
+                                                     Foreground="Gray" />
+                            <TextBlock Text="{Binding Address}"
                                        FontSize="14"
                                        TextTrimming="CharacterEllipsis"
                                        VerticalAlignment="Center"
                                        FontStyle="Italic"
-                                       Foreground="Gray"
+                                       Foreground="{StaticResource colorGray}"
                                        FontFamily="Helvetica Neue" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
@@ -96,7 +117,7 @@
                                                      Width="20"
                                                      Height="20"
                                                      Foreground="{StaticResource colorBlue}" />
-                            <TextBlock Text="280"
+                            <TextBlock Text="{Binding Price}"
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}"
@@ -185,39 +206,21 @@
                                 </Canvas>
                             </Border>
                             <Border>
-                                <Button Width="auto"
-                                        Height="auto"
-                                        Background="Transparent"
-                                        Cursor="Hand"
-                                        Padding="-10"
-                                        BorderThickness="0">
-
-                                    <materialDesign:PackIcon Kind="MoreHoriz"
-                                                             Foreground="{StaticResource colorSky}" />
-                                </Button>
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Setter Property="Width"
-                                                Value="40" />
-                                        <Setter Property="Height"
-                                                Value="40" />
-                                        <Setter Property="CornerRadius"
-                                                Value="10" />
-                                        <Setter Property="Background"
-                                                Value="{StaticResource colorWhite }" />
-                                        <Setter Property="BorderThickness"
-                                                Value="1.5" />
-                                        <Setter Property="BorderBrush"
-                                                Value="{StaticResource colorSky}" />
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Background"
-                                                        Value="{StaticResource colorGray}" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
+                                <Canvas HorizontalAlignment="Left"
+                                        Width="40"
+                                        Height="40"
+                                        VerticalAlignment="Top">
+                                    <materialDesign:PackIcon Kind="BathroomTissueOutline"
+                                                             Foreground="{StaticResource colorSky}"
+                                                             Canvas.Left="10"
+                                                             Canvas.Top="11" />
+                                    <Image Source="../images/icon_line.png"
+                                           Height="18"
+                                           Width="18"
+                                           Visibility="Visible"
+                                           Canvas.Left="10"
+                                           Canvas.Top="10" />
+                                </Canvas>
                             </Border>
                         </StackPanel>
                     </StackPanel>
@@ -225,7 +228,7 @@
             </Border>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.06*" />
