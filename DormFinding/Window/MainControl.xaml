@@ -75,10 +75,9 @@
                                      Grid.ColumnSpan="2"
                                      VerticalAlignment="Top"
                                      Margin="0 0 0 0 "
-                                     Panel.ZIndex="1"
-                                     
+                                     Panel.ZIndex="1"                                   
                                      HorizontalAlignment="Right"
-                                     PlacementMode="LeftAndAlignBottomEdges"
+                                     PlacementMode="BottomAndAlignCentres"
                                      StaysOpen="False"
                                      >
                 
@@ -118,27 +117,6 @@
                                 Width="80">
                             <Button.Content>
                                 <TextBlock Text="About Us"
-                                           Foreground="{StaticResource solidColorSideBar}"
-                                           FontSize="11"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           FontWeight="Bold"
-                                           Style="{StaticResource MaterialDesignButtonTextBlock}" />
-                            </Button.Content>
-                        </Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                                Height="40"
-                                Width="100">
-                        <materialDesign:PackIcon Kind="Settings"
-                                                 Foreground="{StaticResource solidColorSideBar}"
-                                                 Margin="5,12,0,0" />
-                        <Button Cursor="Hand"
-                                Padding="16 10 10 21"
-                                VerticalAlignment="Center"
-                                Width="80">
-                            <Button.Content>
-                                <TextBlock Text="Settings"
                                            Foreground="{StaticResource solidColorSideBar}"
                                            FontSize="11"
                                            VerticalAlignment="Center"
@@ -256,12 +234,12 @@
                                               VerticalAlignment="Center"
                                               Width="216">
                                     <StackPanel Orientation="Horizontal"
-                                                Margin="5 0 0 0"
+                                                Margin="10 0 0 0"
                                                 Height="60">
                                         <Image Source="/images/icon_home.png"
-                                               Width="45"
+                                               Width="40"
                                                Margin="10 0 0 0"
-                                               Height="45" />
+                                               Height="40" />
                                         <TextBlock Text="HOME"
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
@@ -277,12 +255,12 @@
                                               VerticalAlignment="Center"
                                               Width="216">
                                     <StackPanel Orientation="Horizontal"
-                                                Margin="5 0 0 0"
+                                                Margin="10 0 0 0"
                                                 Height="60">
                                         <Image Source="/images/icon_love.png"
-                                               Width="45"
+                                               Width="40"
                                                Margin="10 0 0 0"
-                                               Height="45" />
+                                               Height="40" />
                                         <TextBlock Text="DORM LOVE"
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
@@ -301,8 +279,8 @@
                                                 Margin="5 0 0 0"
                                                 Height="60">
                                         <Image Source="/images/icon_dorm.png"
-                                               Width="45"
-                                               Height="45" />
+                                               Width="39"
+                                               Height="39" />
                                         <TextBlock Text="MY DORM"
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
@@ -318,12 +296,12 @@
                                               VerticalAlignment="Center"
                                               Width="218">
                                     <StackPanel Orientation="Horizontal"
-                                                Margin="5 0 0 0"
+                                                Margin="8 0 0 0"
                                                 Height="60">
                                         <Image Source="/images/icon_profile.png"
-                                               Width="45"
+                                               Width="39"
                                                Margin="10 0 0 0"
-                                               Height="45" />
+                                               Height="39" />
                                         <TextBlock Text="MY PROFILE"
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"

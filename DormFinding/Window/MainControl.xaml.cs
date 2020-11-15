@@ -134,6 +134,12 @@ namespace DormFinding
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Children.Add(new HomeControl());
                     break;
+                case 3:
+                    MainHomeLayout.Children.Clear();
+                    MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                    MainHomeLayout.Children.Add(new Profile());
+                    break;
             }
         }
 

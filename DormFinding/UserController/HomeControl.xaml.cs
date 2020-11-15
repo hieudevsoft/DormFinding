@@ -20,6 +20,8 @@ namespace DormFinding
     /// </summary>
     public partial class HomeControl : UserControl
     {
+        List<Dorm> listDorm = new List<Dorm>();
+
         public HomeControl()
         {
             InitializeComponent();
@@ -59,7 +61,7 @@ namespace DormFinding
         }
         private void setUpListViewVerti()
         {
-            List<Dorm> listDorm = new List<Dorm>();
+          
             Dorm dorm = new Dorm();
             dorm.Owner = "Hieu's House";
             dorm.Address = "Kim Giang Town, Ha Noi";
@@ -78,7 +80,7 @@ namespace DormFinding
             listDorm.Add(dorm1);
             Dorm dorm2 = new Dorm();
             dorm2.Owner = "Truong's House";
-            dorm2.Address = "CHien Thang Town, Ha Noi";
+            dorm2.Address = "Chien Thang Town, Ha Noi";
             dorm2.Price = 100;
             dorm2.Sale = 10;
             dorm2.Quality = 3;
@@ -87,7 +89,11 @@ namespace DormFinding
             listDorm.Add(dorm);
             listDorm.Add(dorm1);
             listDorm.Add(dorm);
+           
             listViewVerti.ItemsSource = listDorm;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listViewVerti.ItemsSource);
+            view.Filter = DormFilter;
 
         }
 
@@ -100,6 +106,16 @@ namespace DormFinding
                 "Sale: " + dorm.Sale + "\n"+
                 sender.ToString()
                 );
+        }
+
+       private bool DormFilter(Object item)
+        {
+            if (String.IsNullOrEmpty(searchQuery.Text)) return true;
+            else return ((item as Dorm).Owner.IndexOf(searchQuery.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private void searchQuery_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listViewVerti.ItemsSource).Refresh();
         }
     }
 }

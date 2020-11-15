@@ -8,6 +8,7 @@
              mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="650"
+             
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
@@ -53,6 +54,7 @@
                                      Height="60"
                                      Padding="0 9 0 0"
                                      FontSize="16"
+                                     TextChanged="searchQuery_TextChanged"
                                      FontFamily="Arial Rounded MT bold"
                                      Foreground="#242365"
                                      materialDesign:HintAssist.Hint="Search something...."
@@ -80,7 +82,7 @@
                                Foreground="Black"
                                HorizontalAlignment="Left" />
 
-                    <ListView Width="auto"
+                    <ListView Width="1200"
                               Height="auto"
                               Margin="20 15 0 0"
                               ItemsSource="{Binding Dorm}"
@@ -122,9 +124,10 @@
                           materialDesign:ScrollBarAssist.ButtonsVisibility="Visible"
                           >
             <Grid >
-                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical"
+                                Margin="20 0 0 0">
                     <TextBlock Text="Dorms"
-                               Margin="20 0 0 0"
+                               
                                VerticalAlignment="Top"
                                FontSize="28"
                                FontFamily="Arial Rounded MT Bold"
@@ -133,7 +136,7 @@
                                />
                     <ListView Width="auto"                            
                               Height="auto"
-                              Margin="20 5 0 0"
+                              Margin="0 5 0 0"
                               x:Name="listViewVerti"
                               SelectionChanged="listViewVerti_SelectionChanged"
                               ItemsSource="{Binding Dorm}"
@@ -154,7 +157,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <local:DormItem Margin="0 0 20 20" />
+                                    <local:DormItem Margin="0 0 30 20" />
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                             <ListView.ItemsPanel>
