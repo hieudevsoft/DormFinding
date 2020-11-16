@@ -138,7 +138,7 @@ namespace DormFinding
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;                
-                        MainHomeLayout.Children.Add(new Profile(user,_Fbc));
+                    MainHomeLayout.Children.Add(new Profile(user,_Fbc));
             
                     break;
             }

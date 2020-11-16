@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="190" d:DesignWidth="170">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0:0.5}">
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0:0.8}">
         <Grid>
             <Grid.Resources>
                 <ResourceDictionary Source="../StyleResource.xaml" />

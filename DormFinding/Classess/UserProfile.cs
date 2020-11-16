@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Media.Imaging;
 using System.Threading.Tasks;
 
 namespace DormFinding
@@ -16,7 +15,7 @@ namespace DormFinding
         private string _address;
         private string _hint;
         private byte _gender;
-        private BitmapImage _avatar;
+        private byte[] _avatar;
 
         public string Email { get => _email; set => _email = value; }
         public string Name { get => _name; set => _name = value; }
@@ -25,9 +24,9 @@ namespace DormFinding
         public string Address { get => _address; set => _address = value; }
         public string Hint { get => _hint; set => _hint = value; }
         public byte Gender { get => _gender; set => _gender = value; }
-        public BitmapImage Avatar { get => _avatar; set => _avatar = value; }
+        public byte[] Avatar { get => _avatar; set => _avatar = value; }
 
-        public UserProfile(string email, string name, string date, string phone, string address, string hint, byte gender, BitmapImage avatar)
+        public UserProfile(string email, string name, string date, string phone, string address, string hint, byte gender, byte[] avatar)
         {
             Email = email;
             Name = name;

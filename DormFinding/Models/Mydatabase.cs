@@ -250,8 +250,8 @@ namespace DormFinding.Models
                     else
                     {
                         image = (byte[])rd.GetValue(7);
-                        MessageBox.Show("vao day");
-                        userProfile = new UserProfile(email, name, date, phone, address, hint, gender, Helpers.ConvertByteToImageBitmap(image));
+                        
+                        userProfile = new UserProfile(email, name, date, phone, address, hint, gender, image);
                     }
                
                 }
@@ -269,6 +269,71 @@ namespace DormFinding.Models
             }
 
             return userProfile;
+        }
+        public static Boolean UpdateProfileSave(UserProfile user)
+        {
+
+            String sql = $"update {Helpers.tbUserProfile} SET {Helpers.colNameProfile}=@Name , {Helpers.colPhoneProfile}=@Phone, {Helpers.colImageProfile}=@Image where {Helpers.colEmailProfile}=@Email;";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Name", user.Name);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Phone", user.Phone);
+                cmd.Parameters.AddWithValue("@Image", user.Avatar);
+                cmd.ExecuteScalar();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Update User Profile " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public static Boolean UpdateProfileSubmit(UserProfile user)
+        {
+
+            String sql = $"update {Helpers.tbUserProfile} SET {Helpers.colAdressProfile}=@Address , {Helpers.colHintProfile}=@Hint, {Helpers.colDateProfile} = @Date" +
+                $", {Helpers.colGenderProfile} = @Gender where {Helpers.colEmailProfile}=@Email;";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Address", user.Address);
+                cmd.Parameters.AddWithValue("@Hint", user.Hint);
+                cmd.Parameters.AddWithValue("@Date", user.Date);
+                cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.ExecuteScalar();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Update User Profile " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
     }
 }
