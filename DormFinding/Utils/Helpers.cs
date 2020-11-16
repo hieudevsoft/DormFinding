@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace DormFinding.Utils
 {
@@ -33,7 +35,16 @@ namespace DormFinding.Utils
         {
             if (cb.IsChecked == true) return 1; else return 0;
         }
-
+        public static BitmapImage ConvertByteToImageBitmap(byte[] array)
+        {
+            MemoryStream ms = new MemoryStream(array);          
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.StreamSource = ms;
+            image.EndInit();
+            return image;
+        }
         public static string tbUser = "tb_user";
         public static string colEmail = "_email";
         public static string colPassword = "_password";

@@ -139,6 +139,7 @@
     <Compile Include="SupportUserController\ResetPassController.xaml.cs">
       <DependentUpon>ResetPassController.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classess\UserProfile.cs" />
     <Compile Include="Window\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>

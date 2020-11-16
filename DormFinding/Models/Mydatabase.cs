@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -187,7 +188,7 @@ namespace DormFinding.Models
 
         public static User CheckAccountAreadyInApp()
         {
-            String sql = $"select * from {Helpers.tbUser} where {Helpers.colRemember}=@value;";
+            string sql = $"select * from {Helpers.tbUser} where {Helpers.colRemember}=@value;";
             User user = null;
             try
             {
@@ -217,6 +218,57 @@ namespace DormFinding.Models
                 CloseConnection();
             }
             return user;
+        }
+
+        public static UserProfile getProfile(User user)
+        {
+            string sql = $"select * from {Helpers.tbUserProfile} where {Helpers.colEmailProfile}=@Email";
+            UserProfile userProfile=null;
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", user.Email.Trim());
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    string email = rd.GetValue(0).ToString();
+                    string name = rd.GetValue(1).ToString();
+                    string date = rd.GetValue(2).ToString();
+                    string phone = rd.GetValue(3).ToString();
+                    string address = rd.GetValue(4).ToString();
+                    string hint = rd.GetValue(5).ToString();
+                    byte gender = byte.Parse(rd.GetValue(6).ToString());
+                    byte[] image;
+                    if (rd.GetValue(7).ToString().Equals("")){
+                        
+                        userProfile = new UserProfile(email, name, date, phone, address, hint, gender, null);
+                    }
+                    else
+                    {
+                        image = (byte[])rd.GetValue(7);
+                        MessageBox.Show("vao day");
+                        userProfile = new UserProfile(email, name, date, phone, address, hint, gender, Helpers.ConvertByteToImageBitmap(image));
+                    }
+               
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error loading Profile" + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return userProfile;
         }
     }
 }

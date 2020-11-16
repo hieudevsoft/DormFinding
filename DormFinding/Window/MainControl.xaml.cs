@@ -137,8 +137,9 @@ namespace DormFinding
                 case 3:
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
-                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                    MainHomeLayout.Children.Add(new Profile());
+                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;                
+                        MainHomeLayout.Children.Add(new Profile(user,_Fbc));
+            
                     break;
             }
         }

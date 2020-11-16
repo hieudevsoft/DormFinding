@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DormFinding.Models;
+using Facebook;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +23,20 @@ namespace DormFinding
     /// </summary>
     public partial class Profile : UserControl
     {
-        
-        public Profile()
+        private User user;
+        private FacebookClient fbc;
+        private UserProfile userProfile;
+        public Profile(User user,FacebookClient fbc)
         {
             InitializeComponent();
+            this.user = user;
+            this.fbc = fbc;
             this.DataContext = this;
             this.Resources["colorBackGroundMode"] = new SolidColorBrush(Colors.White);
             TransitioningContentSlide1.OnApplyTemplate();
             TransitioningContentSlide2.OnApplyTemplate();
+            initProfile();
+           
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -60,6 +68,12 @@ namespace DormFinding
             this.Resources["colorBackGroundMode"] = new SolidColorBrush(Colors.White);
             this.Resources["colorLightMode"] = new SolidColorBrush(Color.FromRgb(49, 49, 49));
             txtDarkMode.Text = "Light Mode";
+        }
+
+        private void initProfile()
+        {
+            userProfile = Mydatabase.getProfile(user);
+            MessageBox.Show(userProfile.Email);
         }
     }
 }

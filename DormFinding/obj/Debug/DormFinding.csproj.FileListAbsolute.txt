@@ -74,4 +74,3 @@ D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Profile.g.cs
 D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\Profile.baml
-D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
