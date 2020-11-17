@@ -165,7 +165,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsWifi}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -175,14 +175,14 @@
                                         Width="40"
                                         Height="40"
                                         VerticalAlignment="Top">
-                                    <materialDesign:PackIcon Kind="Motorbike"
+                                    <materialDesign:PackIcon Kind="Bicycle"
                                                              Foreground="{StaticResource colorSky}"
                                                              Canvas.Left="10"
                                                              Canvas.Top="11" />
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsParking}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -199,7 +199,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsTelevision}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -216,7 +216,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsBathroom}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>

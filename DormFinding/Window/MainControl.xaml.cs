@@ -32,7 +32,8 @@ namespace DormFinding
         private string id { get; set; }
         public MainControl(FacebookClient fbC)
         {
-            InitializeComponent();       
+            InitializeComponent();
+            
             try
             {
                 this._Fbc = fbC;
@@ -50,7 +51,7 @@ namespace DormFinding
         {
             InitializeComponent();
             this.user = user;
-            
+           
 
         }
         private string getLogoutUri()
@@ -126,18 +127,21 @@ namespace DormFinding
         {
             int index = ListViewSideBar.SelectedIndex;
             MoveCursorMenu(index);
+            
             switch (index)
             {
                 case 0:
+                    TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Children.Add(new HomeControl());
                     break;
                 case 3:
+                    TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
-                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;                
+                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Children.Add(new Profile(user,_Fbc));
             
                     break;

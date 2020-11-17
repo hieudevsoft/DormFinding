@@ -319,9 +319,12 @@
                         Background="Transparent"
                         Grid.Column="1"
                         Margin="14 28 5 28">
-                    <Grid x:Name="MainHomeLayout">
-                        <local:SliderShow />
-                    </Grid>
+                    <materialDesign:TransitioningContent x:Name="TransitioningContentSlideAdd"
+                                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0:0.5}">
+                        <Grid x:Name="MainHomeLayout">
+                            <local:SliderShow />
+                        </Grid>
+                    </materialDesign:TransitioningContent>
                 </Border>
             </DockPanel>
         </Grid>
