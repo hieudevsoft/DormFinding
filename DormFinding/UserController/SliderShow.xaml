@@ -36,7 +36,7 @@
                    HorizontalAlignment="Center"
                    Margin="0,80,0,0"
                    Text="Find a room"
-                   FontFamily="Arial Rounded MT"
+                   FontFamily="Avenir LT Std 65 Medium"
                    FontSize="48"
                    FontStyle="Italic"
                    Foreground="WhiteSmoke" />
@@ -44,7 +44,7 @@
                    HorizontalAlignment="Center"
                    Margin="0,160,0,0"
                    Text="that meets "
-                   FontFamily="Arial Rounded MT"
+                   FontFamily="Avenir LT Std 65 Medium"
                    FontSize="48"
                    FontStyle="Italic"
                    Foreground="WhiteSmoke" />
@@ -52,7 +52,7 @@
                    HorizontalAlignment="Center"
                    Margin="0,240,0,0"
                    Text="your requirement"
-                   FontFamily="Arial Rounded MT"
+                   FontFamily="Avenir LT Std 65 Medium"
                    FontSize="48"
                    FontStyle="Italic"
                    Foreground="WhiteSmoke" />

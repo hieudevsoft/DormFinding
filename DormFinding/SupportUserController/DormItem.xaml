@@ -11,7 +11,7 @@
              d:DesignWidth="600">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0:0.5}">
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0:0.8}">
         <Grid Cursor="Hand">
             <Grid.Resources>
                 <ResourceDictionary Source="../StyleResource.xaml"></ResourceDictionary>
@@ -94,7 +94,7 @@
                         <TextBlock Text="{Binding Owner}"
                                    FontSize="20"
                                    TextTrimming="CharacterEllipsis"
-                                   FontFamily="Arial ROunded mt bold" />
+                                   FontFamily="Avenir LT Std 65 Medium" />
                         <StackPanel Orientation="Horizontal"
                                     Margin="0 5 0 0">
                             <materialDesign:PackIcon Kind="Location"
@@ -120,9 +120,10 @@
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}"
-                                       FontFamily="Arial Rounded MT Bold" />
+                                       FontFamily="Avenir LT Std 65 Medium" />
                             <TextBlock Text=" / months"
                                        FontSize="12"
+                                       FontFamily="Avenir LT Std 65 Medium"
                                        Margin="0 -2 0 0"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}" />
@@ -132,7 +133,7 @@
                                    VerticalAlignment="Center"
                                    Margin="10 10 0 0"
                                    FontSize="15"
-                                   FontFamily="Arial Rounded MT Bold" />
+                                   FontFamily="Avenir LT Std 65 Medium" />
                         <StackPanel Orientation="Horizontal"
                                     Margin="10 5 0 0 ">
                             <StackPanel.Resources>
@@ -165,7 +166,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsWifi}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -175,14 +176,14 @@
                                         Width="40"
                                         Height="40"
                                         VerticalAlignment="Top">
-                                    <materialDesign:PackIcon Kind="Motorbike"
+                                    <materialDesign:PackIcon Kind="Bicycle"
                                                              Foreground="{StaticResource colorSky}"
                                                              Canvas.Left="10"
                                                              Canvas.Top="11" />
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsParking}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -199,7 +200,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsTelevision}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>
@@ -216,7 +217,7 @@
                                     <Image Source="../images/icon_line.png"
                                            Height="18"
                                            Width="18"
-                                           Visibility="Visible"
+                                           Visibility="{Binding IsBathroom}"
                                            Canvas.Left="10"
                                            Canvas.Top="10" />
                                 </Canvas>

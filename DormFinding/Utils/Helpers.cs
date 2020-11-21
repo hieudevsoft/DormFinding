@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,6 +47,23 @@ namespace DormFinding.Utils
             image.EndInit();
             return image;
         }
+
+        public static byte[] ConvertImageToBinary(BitmapImage image)
+        {
+            var encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(image));
+            var ms = new MemoryStream();
+            encoder.Save(ms);
+            return ms.ToArray();
+        }
+
+        public static void shortDateFormating()
+        {
+            CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
+            ci.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
+            Thread.CurrentThread.CurrentCulture = ci;
+        }
+
         public static string tbUser = "tb_user";
         public static string colEmail = "_email";
         public static string colPassword = "_password";
@@ -54,7 +73,7 @@ namespace DormFinding.Utils
         public static string colEmailProfile = "_email_profile";
         public static string colNameProfile = "_name_profile";
         public static string colDateProfile = "_date_profile";
-        public static string colPhoneProfile = "_email_profile";
+        public static string colPhoneProfile = "_phone_profile";
         public static string colAdressProfile = "_address_profile";
         public static string colHintProfile = "_hintanswer_profile";
         public static string colGenderProfile = "_gender_profile";

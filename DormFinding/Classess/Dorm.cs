@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace DormFinding { 
@@ -19,13 +20,12 @@ namespace DormFinding {
         private int _quality;
         private int _count;
         private int _countLike;
-        private bool _isWifi;
-        private bool _isParking;
-        private bool _isTelevision;
-        private bool _isBathroom;
-        private bool _isAirCondidition;
-        private bool _isEHeater;
-        private bool _isSpaceClothes;
+        private Visibility _isWifi;
+        private Visibility _isParking;
+        private Visibility _isTelevision;
+        private Visibility _isBathroom;
+        private Visibility _isAirCondidition;
+        private Visibility _isWaterHeater;
 
         public string Owner { get => _owner; set => _owner = value; }
         public string Address { get => _address; set => _address = value; }
@@ -34,13 +34,12 @@ namespace DormFinding {
         public int Review { get => _review; set => _review = value; }
         public int Count { get => _count; set => _count = value; }
         public int CountLike { get => _countLike; set => _countLike = value; }
-        public bool IsWifi { get => _isWifi; set => _isWifi = value; }
-        public bool IsParking { get => _isParking; set => _isParking = value; }
-        public bool IsTelevision { get => _isTelevision; set => _isTelevision = value; }
-        public bool IsBathroom { get => _isBathroom; set => _isBathroom = value; }
-        public bool IsAirCondidition { get => _isAirCondidition; set => _isAirCondidition = value; }
-        public bool IsEHeater { get => _isEHeater; set => _isEHeater = value; }
-        public bool IsSpaceClothes { get => _isSpaceClothes; set => _isSpaceClothes = value; }
+        public Visibility IsWifi { get => _isWifi; set => _isWifi = value; }
+        public Visibility IsParking { get => _isParking; set => _isParking = value; }
+        public Visibility IsTelevision { get => _isTelevision; set => _isTelevision = value; }
+        public Visibility IsBathroom { get => _isBathroom; set => _isBathroom = value; }
+        public Visibility IsAirCondidition { get => _isAirCondidition; set => _isAirCondidition = value; }
+        public Visibility IsWaterHeater { get => _isWaterHeater; set => _isWaterHeater = value; }
         public int Id { get => _id; set => _id = value; }
         public BitmapImage Image { get => _image; set => _image = value; }
         public int Quality { get => _quality; set => _quality = value; }
@@ -63,13 +62,13 @@ namespace DormFinding {
             int quality,
             int count, 
             int countLike, 
-            bool isWifi, 
-            bool isParking, 
-            bool isTelevision,
-            bool isBathroom, 
-            bool isAirCondidition,
-            bool isEHeater, 
-            bool isSpaceClothes )
+            Visibility isWifi,
+            Visibility isParking,
+            Visibility isTelevision,
+            Visibility isBathroom,
+            Visibility isAirCondidition,
+            Visibility isWaterHeater
+            )
             
         {
             Id = id;
@@ -88,23 +87,7 @@ namespace DormFinding {
             IsTelevision = isTelevision;
             IsBathroom = isBathroom;
             IsAirCondidition = isAirCondidition;
-            IsEHeater = isEHeater;
-            IsSpaceClothes = isSpaceClothes;
-            Owner = owner;
-            Address = address;
-            Description = description;
-            Price = price;
-            Review = review;
-            Count = count;
-            CountLike = countLike;
-            IsWifi = isWifi;
-            IsParking = isParking;
-            IsTelevision = isTelevision;
-            IsBathroom = isBathroom;
-            IsAirCondidition = isAirCondidition;
-            IsEHeater = isEHeater;
-            IsSpaceClothes = isSpaceClothes;
-            Id = id;
+            IsWaterHeater = isWaterHeater;
         }
     }
 }

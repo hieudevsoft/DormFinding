@@ -7,141 +7,91 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="650"
-             
+             d:DesignHeight="650" 
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
-                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
-        <Grid Background="White">
-            <Grid.Resources>
-                <ResourceDictionary Source="../StyleResource.xaml" />
-            </Grid.Resources>
-           
-            <StackPanel Orientation="Vertical"
-                        Grid.Row="0">
-                <TextBlock Text="Hello Guys"
-                           Margin="20 10 0 0"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           FontSize="20"
-                           FontFamily="Arial Rounded MT Bold"
-                           Foreground="{StaticResource colorGray}" />
-                <TextBlock Text="Find your Dorm"
-                           Margin="20 8 0 0"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           FontSize="24"
-                           FontFamily="Arial Rounded MT Bold"
-                           Foreground="{StaticResource colorBlack}" />
-                <Border Background="Transparent">
-                    <Border CornerRadius="10"
-                            Margin="18 10 0 0"
-                            Width="400"
-                            BorderThickness="2"
-                            Background="{StaticResource colorGray}"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Stretch">
-                        <Grid Height="auto">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50"></ColumnDefinition>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <fa:ImageAwesome Icon="Search"
-                                             Width="25"
-                                             Height="25"
-                                             Foreground="#9FA1BE" />
-                            <TextBox Grid.Column="1"
-                                     Height="60"
-                                     Padding="0 9 0 0"
-                                     FontSize="16"
-                                     TextChanged="searchQuery_TextChanged"
-                                     FontFamily="Arial Rounded MT bold"
-                                     Foreground="#242365"
-                                     materialDesign:HintAssist.Hint="Search something...."
-                                     materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
-                                     materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                     materialDesign:HintAssist.Foreground="#242365"
-                                     materialDesign:TextFieldAssist.HasClearButton="True"
-                                     materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
-                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
-                                     VerticalAlignment="Center"
-                                     TextAlignment="Left"
-                                     BorderThickness="0"
-                                     x:Name="searchQuery" />
-                        </Grid>
-                    </Border>
-                </Border>
-            </StackPanel>
-            <Grid Grid.Row="1">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Popular Dorm"
+                                         OpeningEffect="{materialDesign:TransitionEffect SlideInFromleft, Duration=0:0:0:0.5}"
+                                         
+                                         >
+        <Grid Background="White"
+              x:Name="layoutMainDorm">
+            <Grid>
+                <Grid.Resources>
+                    <ResourceDictionary Source="../StyleResource.xaml" />
+                </Grid.Resources>
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="0">
+                    <TextBlock Text="Hello Guys"
                                Margin="20 10 0 0"
                                VerticalAlignment="Top"
-                               FontSize="28"
-                               FontFamily="Arial Rounded MT Bold"
-                               Foreground="Black"
-                               HorizontalAlignment="Left" />
-
-                    <ListView Width="1200"
-                              Height="auto"
-                              Margin="20 15 0 0"
-                              ItemsSource="{Binding Dorm}"
-                              x:Name="listViewHori"
-                              materialDesign:RippleAssist.RippleOnTop="True"
-                              materialDesign:RippleAssist.ClipToBounds="True">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background"
-                                        Value="Transparent" />
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <ContentPresenter />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <local:DormItemHori Margin="0 0 20 5" />
-                            </DataTemplate>
-                            
-                        </ListView.ItemTemplate>
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" />
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                    </ListView>
-
-                </StackPanel>
-            </Grid>
-            <ScrollViewer Grid.Row="2" Background="Transparent"
-                          Margin="0 30 0 0"
-                          HorizontalScrollBarVisibility="Hidden"
-                          VerticalScrollBarVisibility="Auto"
-                          materialDesign:ScrollBarAssist.ButtonsVisibility="Visible"
-                          >
-            <Grid >
-                    <StackPanel Orientation="Vertical"
-                                Margin="20 0 0 0">
-                    <TextBlock Text="Dorms"
-                               
-                               VerticalAlignment="Top"
-                               FontSize="28"
-                               FontFamily="Arial Rounded MT Bold"
-                               Foreground="Black"
                                HorizontalAlignment="Left"
-                               />
-                    <ListView Width="auto"                            
-                              Height="auto"
-                              Margin="0 5 0 0"
-                              x:Name="listViewVerti"
-                              SelectionChanged="listViewVerti_SelectionChanged"
-                              ItemsSource="{Binding Dorm}"
-                              materialDesign:RippleAssist.RippleOnTop="True"
-                              materialDesign:RippleAssist.ClipToBounds="True">
+                               FontSize="20"
+                               FontFamily="Avenir LT Std 65 Medium"
+                               Foreground="{StaticResource colorGray}" />
+                    <TextBlock Text="Find your Dorm"
+                               Margin="20 8 0 0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               FontSize="24"
+                               FontFamily="Avenir LT Std 65 Medium"
+                               Foreground="{StaticResource colorBlack}" />
+                    <Border Background="Transparent">
+                        <Border CornerRadius="10"
+                                Margin="18 10 0 0"
+                                Width="400"
+                                BorderThickness="2"
+                                Background="{StaticResource colorGray}"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch">
+                            <Grid Height="auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="85*" />
+                                    <ColumnDefinition Width="262*"/>
+                                </Grid.ColumnDefinitions>
+                                <fa:ImageAwesome Icon="Search"
+                                                 Width="25"
+                                                 Height="25"
+                                                 Foreground="#9FA1BE" Margin="12,18,12.6,18" />
+                                <TextBox Grid.Column="1"
+                                         Height="60"
+                                         Padding="0 9 0 0"
+                                         FontSize="16"
+                                         TextChanged="searchQuery_TextChanged"
+                                         FontFamily="Avenir LT Std 65 Medium"
+                                         Foreground="#242365"
+                                         materialDesign:HintAssist.Hint="Search something...."
+                                         materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                         materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                         materialDesign:HintAssist.Foreground="#242365"
+                                         materialDesign:TextFieldAssist.HasClearButton="True"
+                                         materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                         VerticalAlignment="Center"
+                                         TextAlignment="Left"
+                                         BorderThickness="0"
+                                         x:Name="searchQuery" Grid.ColumnSpan="2" Margin="0.4,0,-1.2,0" />
+                            </Grid>
+                        </Border>
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Popular Dorm"
+                                   Margin="20 10 0 0"
+                                   VerticalAlignment="Top"
+                                   FontSize="28"
+                                   FontFamily="Avenir LT Std 65 Medium"
+                                   Foreground="Black"
+                                   HorizontalAlignment="Left" />
+
+                        <ListView Width="1200"
+                                  Height="auto"
+                                  Margin="20 15 0 0"
+                                  ItemsSource="{Binding Dorm}"
+                                  x:Name="listViewHori"
+                                  materialDesign:RippleAssist.RippleOnTop="True"
+                                  materialDesign:RippleAssist.ClipToBounds="True">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="Background"
@@ -157,24 +107,76 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <local:DormItem Margin="0 0 30 20" />
+                                    <local:DormItemHori Margin="0 0 20 5" />
                                 </DataTemplate>
+
                             </ListView.ItemTemplate>
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel Width="1200" />
+                                    <WrapPanel Orientation="Horizontal" />
                                 </ItemsPanelTemplate>
                             </ListView.ItemsPanel>
-                       
-                    </ListView>
-                </StackPanel>
+                        </ListView>
+
+                    </StackPanel>
+                </Grid>
+                <ScrollViewer Grid.Row="2"
+                              Background="Transparent"
+                              Margin="0 30 0 0"
+                              HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Auto"
+                              materialDesign:ScrollBarAssist.ButtonsVisibility="Visible">
+                    <Grid>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="20 0 0 0">
+                            <TextBlock Text="Dorms"
+                                       VerticalAlignment="Top"
+                                       FontSize="28"
+                                       FontFamily="Avenir LT Std 65 Medium"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Left" />
+                            <ListView Width="auto"
+                                      Height="auto"
+                                      Margin="0 5 0 0"
+                                      x:Name="listViewVerti"
+                                      SelectionChanged="listViewVerti_SelectionChanged"
+                                      ItemsSource="{Binding Dorm}"
+                                      materialDesign:RippleAssist.RippleOnTop="True"
+                                      materialDesign:RippleAssist.ClipToBounds="True">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListViewItem}">
+                                        <Setter Property="Background"
+                                                Value="Transparent" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                    <ContentPresenter />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:DormItem Margin="0 0 30 20" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Width="1200" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+
+                            </ListView>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.6*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
             </Grid>
-            </ScrollViewer>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.6*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
         </Grid>
     </materialDesign:TransitioningContent>
 </UserControl>

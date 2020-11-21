@@ -1,20 +1,15 @@
 ﻿using DormFinding.Models;
+using DormFinding.Utils;
 using Facebook;
+using Prism.Services.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using Microsoft.Win32;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DormFinding
 {
@@ -26,9 +21,23 @@ namespace DormFinding
         private User user;
         private FacebookClient fbc;
         private UserProfile userProfile;
-        public Profile(User user,FacebookClient fbc)
+        private string fileImage;
+
+
+        public DateTime myDate
+        {
+            get { return (DateTime)GetValue(myDateProperty); }
+            set { SetValue(myDateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for myDate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty myDateProperty =
+            DependencyProperty.Register("myDate", typeof(DateTime), typeof(Profile));
+
+        public Profile(User user, FacebookClient fbc)
         {
             InitializeComponent();
+
             this.user = user;
             this.fbc = fbc;
             this.DataContext = this;
@@ -36,7 +45,7 @@ namespace DormFinding
             TransitioningContentSlide1.OnApplyTemplate();
             TransitioningContentSlide2.OnApplyTemplate();
             initProfile();
-           
+
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -48,7 +57,7 @@ namespace DormFinding
         private void tbDarkMode_Checked(object sender, RoutedEventArgs e)
         {
             openDarkMode();
-            
+
         }
 
         private void tbDarkMode_Unchecked(object sender, RoutedEventArgs e)
@@ -58,7 +67,7 @@ namespace DormFinding
 
         private void openDarkMode()
         {
-            this.Resources["colorBackGroundMode"] = new SolidColorBrush(Color.FromRgb(49,49,49));
+            this.Resources["colorBackGroundMode"] = new SolidColorBrush(Color.FromRgb(49, 49, 49));
             this.Resources["colorLightMode"] = new SolidColorBrush(Colors.White);
             txtDarkMode.Text = "Dark Mode";
         }
@@ -73,7 +82,88 @@ namespace DormFinding
         private void initProfile()
         {
             userProfile = Mydatabase.getProfile(user);
-            MessageBox.Show(userProfile.Email);
+            tbNameProfile.Text = userProfile.Name;
+            tbPhoneProfile.Text = userProfile.Phone;
+            tbEmailProfile.Text = userProfile.Email;
+            tbEmailProfile.IsEnabled = false;
+            tbAddress.Text = userProfile.Address;
+            tbHint.Text = userProfile.Hint;
+            cbGender.SelectedIndex = userProfile.Gender;
+            string date = userProfile.Date;
+            if (String.IsNullOrEmpty(date))
+            {
+                Helpers.shortDateFormating();
+                myDate = DateTime.Today;
+            }
+            else
+            {
+                Helpers.shortDateFormating();
+                myDate = DateTime.Parse(date);
+            }
+            if (userProfile.Avatar != null)
+                imgAvatarMini.ImageSource = Helpers.ConvertByteToImageBitmap(userProfile.Avatar);
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            userProfile.Address = tbAddress.Text.Trim();
+            userProfile.Hint = tbHint.Text.Trim();
+            userProfile.Date = dpDateOfBirth.SelectedDate.ToString().Split(' ')[0].Trim();
+            userProfile.Gender = (byte)cbGender.SelectedIndex;
+
+            if (Mydatabase.UpdateProfileSubmit(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
+        }
+
+        private void btnSaveProfile_Click(object sender, RoutedEventArgs e)
+        {
+            userProfile.Name = tbNameProfile.Text.Trim();
+            userProfile.Phone = tbPhoneProfile.Text.Trim();
+            userProfile.Avatar = Helpers.ConvertImageToBinary((BitmapImage)imgAvatarMini.ImageSource);
+            if (Mydatabase.UpdateProfileSave(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            string oldPass = psbOldPass.Password.Trim();
+            if (!user.Password.Equals(oldPass))
+            {
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Error", "Password is not correct");
+            }
+            else
+            {
+                string newPass = psbNewPass.Password.Trim();
+                string confirmPass = psbConfirmNewPass.Password.Trim();
+                if (!newPass.Equals(confirmPass))
+                {
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), "Error", "New Password and Confirm Password isn't matcher");
+                }
+                else
+                {
+                    user.Password = newPass;
+                    user.isRemember = 0;
+                    if (Mydatabase.Update(user, user.Email))
+                    {
+                        Helpers.MakeConfirmMessage(Window.GetWindow(this), "Update Password Successfully~", "Notify");
+                    }
+                    else
+                        Helpers.MakeErrorMessage(Window.GetWindow(this), "Error", "Update Failure");
+                }
+            }
+
+        }
+    
+        private void btnImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "JPG Files(.jpg,.png)|*.jpg;*.png;*.jpeg|*.gif|All";
+            dialog.Title = "Select Avatar";
+            dialog.Multiselect = false;
+            dialog.ValidateNames = true;
+            if (dialog.ShowDialog() == true)
+            {
+                fileImage = dialog.FileName;
+                imgAvatarMini.ImageSource = new BitmapImage(new Uri(fileImage, UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }

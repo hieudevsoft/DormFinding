@@ -18,9 +18,9 @@
             Margin="0,6,0,0"
             
             Content="Logged in successfully"
-            FontFamily="Roboto"
+            FontFamily="Avenir LT Std 65 Medium"
             FontWeight="DemiBold"
-            FontSize="10"
+            FontSize="14"
             />
             <Label Content="Press OK to advance"
                    HorizontalAlignment="Center"
@@ -30,7 +30,7 @@
                    FontSize="10"/>
             <Button Content="OK"
                     FontSize="10"
-                    FontFamily="Roboto"
+                    FontFamily="Avenir LT Std 65 Medium"
                     Width="90"
                     Height="20"
                     VerticalAlignment="Bottom"

@@ -7,6 +7,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
+             Name="ProfileWindow"
              d:DesignHeight="650"
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
@@ -41,24 +42,42 @@
                             <WrapPanel Orientation="Horizontal"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right">
-                                <Ellipse Width="40"
-                                         VerticalAlignment="Center"
-                                         Margin="10 5 5 10"
-                                         Height="40">
-                                    <Ellipse.Fill>
-                                        <ImageBrush ImageSource="images/header.jpg"
-                                                    Stretch="UniformToFill" />
-                                    </Ellipse.Fill>
-                                </Ellipse>
+                                <Button Width="40"
+                                        Height="40"
+                                        Padding="0 0 0 0"
+                                        Cursor="Hand"
+                                        Click="btnImage_Click"
+                                        x:Name="btnImage"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="Transparent"
+                                        BorderThickness="0">
+                                    <Button.Content>
+                                        <Ellipse Width="40"
+                                                 VerticalAlignment="Center"
+                                                
+                                                 
+                                                 Height="40">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="images/blank_account.png"
+                                                            x:Name="imgAvatarMini"
+                                                            Stretch="UniformToFill" />
+                                            </Ellipse.Fill>
+                                        </Ellipse>
+                                    </Button.Content>
+                                </Button>
                                 <TextBlock Text="Hello"
-                                           FontFamily="Arial Rounded MT Bold"
-                                           Margin="10 5 0 10"
+                                           FontSize="20"
+                                           FontFamily="Avenir LT Std 65 Medium"
+                                           Margin="10 5 -10 10"
                                            Foreground="{DynamicResource colorLightMode}"
                                            VerticalAlignment="Center"
-                                           FontSize="18" />
-                                <TextBlock Text="Hieu"
+                                            />
+                                <TextBlock Text="{Binding Path=Text, ElementName=tbNameProfile}"
                                            Margin="4 5 40 10"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           TextTrimming="CharacterEllipsis"
+                                           x:Name="tbName"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="{DynamicResource colorLightMode}"
                                            VerticalAlignment="Center"
                                            FontSize="18" />
@@ -70,7 +89,7 @@
                             <Border CornerRadius="20"
                                     Width="450">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="images/header.jpg"
+                                    <ImageBrush ImageSource="{Binding Path=ImageSource, ElementName=imgAvatarMini}"
                                                 Stretch="UniformToFill" />
                                 </Border.Background>
                             </Border>
@@ -83,7 +102,7 @@
                                     <TextBlock Text="My Profile"
                                                FontSize="23"
                                                Foreground="{DynamicResource colorLightMode}"
-                                               FontFamily="Arial Rounded MT Bold" />
+                                               FontFamily="Avenir LT Std 65 Medium" />
                                     <StackPanel Orientation="Horizontal">
                                         <Border CornerRadius="10"
                                                 Margin="0 20 0 0"
@@ -97,7 +116,7 @@
                                                      Padding="5 6 0 0"
                                                      x:Name="tbNameProfile"
                                                      FontSize="16"
-                                                     FontFamily="Arial Rounded MT bold"
+                                                     FontFamily="Avenir LT Std 65 Medium"
                                                      materialDesign:HintAssist.Hint="Name"
                                                      materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                      materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -121,8 +140,9 @@
                                                      PreviewTextInput="TextBox_PreviewTextInput"
                                                      Height="50"
                                                      Padding="5 6 0 0"
+                                                     x:Name="tbPhoneProfile"
                                                      FontSize="16"
-                                                     FontFamily="Arial Rounded MT bold"
+                                                     FontFamily="Avenir LT Std 65 Medium"
                                                      materialDesign:HintAssist.Hint="Phone"
                                                      materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                      materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -147,7 +167,8 @@
                                                  Height="50"
                                                  Padding="5 6 0 0"
                                                  FontSize="16"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 x:Name="tbEmailProfile"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Email"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -174,15 +195,17 @@
                                         <TextBlock Text="Light Mode"
                                                    x:Name="txtDarkMode"
                                                    Foreground="{DynamicResource colorLightMode}"
-                                                   FontFamily="Arial Rounded MT Bold"
+                                                   FontFamily="Avenir LT Std 65 Medium"
                                                    Margin="10 -3 0 0"
                                                    FontSize="18" />
                                     </StackPanel>
                                     <Button Content="Save"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
+                                            x:Name="btnSaveProfile"
+                                            Click="btnSaveProfile_Click"
                                             Margin="0 20 0 0"
-                                            FontFamily="Arial Rounded MT Bold"
+                                            FontFamily="Avenir LT Std 65 Medium"
                                             Foreground="{DynamicResource colorBackGroundMode}"
                                             BorderThickness="0"
                                             Width="110"
@@ -217,17 +240,16 @@
 
 
                 </Border>
-                
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.9*"></RowDefinition>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.9*"></RowDefinition>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide1"
                                                          Grid.Row="0"
                                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.4}">
-                        <Border 
-                                Background="{DynamicResource colorBackGroundMode}"
+                        <Border Background="{DynamicResource colorBackGroundMode}"
                                 Margin="0 18 50 0"
                                 CornerRadius="22">
                             <Border.Effect>
@@ -236,93 +258,95 @@
                                                   Color="Gray" />
                             </Border.Effect>
                             <WrapPanel Orientation="Vertical"
-                                       HorizontalAlignment="Center"
-                                       >
+                                       HorizontalAlignment="Center">
                                 <TextBlock Text="Reset Password"
                                            Margin="0 10 0 0"
                                            FontSize="20"
                                            HorizontalAlignment="Center"
                                            Foreground="{DynamicResource colorLightMode}"
-                                           FontFamily="Arial Rounded MT Bold"
-                                           />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 <Border CornerRadius="10"
                                         Margin="0 10 0 0"
                                         Width="410"
+                                        Height="54"
                                         Background="#BFBFBF"
                                         BorderThickness="2"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Stretch">
-                                    <TextBox Grid.Column="1"
-                                             Height="50"
-                                             Padding="5 6 0 0"
-                                             FontSize="16"
-                                             FontFamily="Arial Rounded MT bold"
-                                             materialDesign:HintAssist.Hint="Password"
-                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
-                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                             materialDesign:HintAssist.Foreground="#313131"
-                                             materialDesign:TextFieldAssist.HasClearButton="True"
-                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
-                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
-                                             VerticalAlignment="Center"
-                                             Foreground="{DynamicResource colorLightMode}"
-                                             TextAlignment="Left"
-                                             BorderThickness="0" />
+                                    <PasswordBox Grid.Column="1"
+                                                 Padding="5 0 0 0"
+                                                 Width="410"
+                                                 Height="auto"
+                                                 FontSize="16"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:HintAssist.Foreground="#313131"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 VerticalAlignment="Center"
+                                                 x:Name="psbOldPass"
+                                                 Foreground="{DynamicResource colorLightMode}"
+                                                 BorderThickness="0" />
                                 </Border>
                                 <Border CornerRadius="10"
                                         Margin="0 10 0 0"
                                         Width="410"
+                                        Height="54"
                                         Background="#BFBFBF"
                                         BorderThickness="2"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Stretch">
-                                    <TextBox Grid.Column="1"
-                                             Height="50"
-                                             Padding="5 6 0 0"
-                                             FontSize="16"
-                                             FontFamily="Arial Rounded MT bold"
-                                             materialDesign:HintAssist.Hint="New Password"
-                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
-                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                             materialDesign:HintAssist.Foreground="#313131"
-                                             materialDesign:TextFieldAssist.HasClearButton="True"
-                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
-                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
-                                             VerticalAlignment="Center"
-                                             Foreground="{DynamicResource colorLightMode}"
-                                             TextAlignment="Left"
-                                             BorderThickness="0" />
+                                    <PasswordBox Grid.Column="1"
+                                                 Padding="5 0 0 0"
+                                                 Width="410"
+                                                 Height="auto"
+                                                 FontSize="16"
+                                                 x:Name="psbNewPass"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="New Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:HintAssist.Foreground="#313131"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="{DynamicResource colorLightMode}"
+                                                 BorderThickness="0" />
                                 </Border>
                                 <Border CornerRadius="10"
-                                        
                                         Margin="0 10 0 0"
                                         Width="410"
+                                        Height="54"
                                         Background="#BFBFBF"
                                         BorderThickness="2"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Stretch">
-                                    <TextBox Grid.Column="1"
-                                             Height="50"
-                                             Padding="5 6 0 0"
-                                             FontSize="16"
-                                             FontFamily="Arial Rounded MT bold"
-                                             materialDesign:HintAssist.Hint="Confirm New Password"
-                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
-                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                             materialDesign:HintAssist.Foreground="#313131"
-                                             materialDesign:TextFieldAssist.HasClearButton="True"
-                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
-                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
-                                             VerticalAlignment="Center"
-                                             Foreground="{DynamicResource colorLightMode}"
-                                             TextAlignment="Left"
-                                             BorderThickness="0" />
+                                    <PasswordBox Grid.Column="1"
+                                                 Padding="5 0 0 0"
+                                                 Width="410"
+                                                 Height="auto"
+                                                 FontSize="16"
+                                                 x:Name="psbConfirmNewPass"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="Confirm New Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:HintAssist.Foreground="#313131"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 VerticalAlignment="Center"
+                                                 Foreground="{DynamicResource colorLightMode}"
+                                                 BorderThickness="0" />
                                 </Border>
                                 <Button Content="Confirm"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         Margin="0 10 0 0"
-                                        FontFamily="Arial Rounded MT Bold"
+                                        x:Name="btnConfirm"
+                                        Click="btnConfirm_Click"
+                                        FontFamily="Avenir LT Std 65 Medium"
                                         Foreground="{DynamicResource colorBackGroundMode}"
                                         BorderThickness="0"
                                         Width="110"
@@ -356,8 +380,7 @@
                     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide2"
                                                          Grid.Row="1"
                                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.4}">
-                        <Border 
-                                Background="{DynamicResource colorBackGroundMode}"
+                        <Border Background="{DynamicResource colorBackGroundMode}"
                                 Margin="0 30 50 20"
                                 CornerRadius="22">
                             <Border.Effect>
@@ -372,7 +395,7 @@
                                            FontSize="20"
                                            HorizontalAlignment="Center"
                                            Foreground="{DynamicResource colorLightMode}"
-                                           FontFamily="Arial Rounded MT Bold" />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 <Border CornerRadius="10"
                                         Margin="0 10 0 0"
                                         Width="410"
@@ -383,8 +406,9 @@
                                     <TextBox Grid.Column="1"
                                              Height="50"
                                              Padding="5 6 0 0"
+                                             x:Name="tbAddress"
                                              FontSize="16"
-                                             FontFamily="Arial Rounded MT bold"
+                                             FontFamily="Avenir LT Std 65 Medium"
                                              materialDesign:HintAssist.Hint="Address"
                                              materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                              materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -401,11 +425,11 @@
                                             HorizontalAlignment="Left"
                                             VerticalAlignment="Center"
                                             Margin="3 8 0 0">
-                                <TextBlock Text="What's is the favorite food?" 
-                                           FontFamily="Arial Rounded MT bold"
-                                           VerticalAlignment="Center"
-                                           Foreground="{DynamicResource colorLightMode}"
-                                           FontSize="12"/>
+                                    <TextBlock Text="What's is the favorite food?"
+                                               FontFamily="Avenir LT Std 65 Medium"
+                                               VerticalAlignment="Center"
+                                               Foreground="{DynamicResource colorLightMode}"
+                                               FontSize="12" />
                                     <Border CornerRadius="10"
                                             Margin="10 0 0 0"
                                             Width="240"
@@ -414,10 +438,11 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Stretch">
                                         <TextBox Grid.Column="1"
-                                                 Height="50"                                               
+                                                 Height="50"
+                                                 x:Name="tbHint"
                                                  Padding="5 6 0 0"
                                                  FontSize="16"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Food"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -431,24 +456,29 @@
                                                  BorderThickness="0" />
                                     </Border>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                <Border Width="170" 
-                                        BorderBrush="Black"
-                                        Background="#BFBFBF"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Left"
-                                        Height="50" CornerRadius="10" BorderThickness="0.1" Margin="0 5 0 0">
-                                    <DatePicker HorizontalContentAlignment="Left"
-                                                Margin="10 0 10 0"
-                                                FontSize="16"
-                                                SelectedDateFormat="Short"
-                                                materialDesign:HintAssist.Hint="Date Of Birth"
-                                                materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
-                                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource colorLightMode}"
-                                                FontFamily="Arial Rounded MT Bold"
-                                                Foreground="{DynamicResource colorLightMode}"
-                                                FirstDayOfWeek="Monday" />
-                                </Border>
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0 6 0 0">
+                                    <Border Width="170"
+                                            BorderBrush="Black"
+                                            Background="#BFBFBF"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Left"
+                                            Height="50"
+                                            CornerRadius="10"
+                                            BorderThickness="0.1"
+                                            Margin="0 5 0 0">
+                                        <DatePicker HorizontalContentAlignment="Left"
+                                                    Margin="10 0 10 0"
+                                                    FontSize="16"
+                                                    Name="dpDateOfBirth"
+                                                    SelectedDate="{Binding myDate,ElementName=ProfileWindow,StringFormat='dd/MM/yyyy'}"
+                                                    materialDesign:HintAssist.Hint="Date Of Birth"
+                                                    materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
+                                                    materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource colorLightMode}"
+                                                    FontFamily="Avenir LT Std 65 Medium"
+                                                    Foreground="{DynamicResource colorLightMode}"
+                                                    FirstDayOfWeek="Monday" />
+                                    </Border>
                                     <Border Width="235"
                                             BorderBrush="Black"
                                             Background="#BFBFBF"
@@ -459,25 +489,36 @@
                                             BorderThickness="0.1"
                                             Margin="5 5 0 0">
                                         <ComboBox HorizontalContentAlignment="Left"
-                                                  Margin="10 0 10 0"             
+                                                  Margin="10 0 10 0"
                                                   FontSize="16"
+                                                  BorderBrush="Black"
+                                                  x:Name="cbGender"
                                                   materialDesign:HintAssist.Hint="Gender"
                                                   materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
                                                   materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource colorLightMode}"
-                                                  FontFamily="Arial Rounded MT Bold"
-                                                  Foreground="{DynamicResource colorLightMode}"
-                                                 >
+                                                  FontFamily="Avenir LT Std 65 Medium"
+                                                  Foreground="{DynamicResource colorLightMode}">
+                                            <ComboBox.ItemContainerStyle>
+                                                <Style TargetType="ComboBoxItem">
+                                                    <Setter Property="Background"
+                                                            Value="{DynamicResource colorBackGroundMode}" />
+                                                    <Setter Property="BorderBrush"
+                                                            Value="{DynamicResource colorBackGroundMode}" />
+                                                </Style>
+                                            </ComboBox.ItemContainerStyle>
                                             <ComboBoxItem>Male</ComboBoxItem>
                                             <ComboBoxItem>Female</ComboBoxItem>
                                             <ComboBoxItem>Others</ComboBoxItem>
-                                        </ComboBox>                                         
+                                        </ComboBox>
                                     </Border>
                                 </StackPanel>
                                 <Button Content="Submit"
+                                        Click="btnSubmit_Click"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         Margin="0 20 0 0"
-                                        FontFamily="Arial Rounded MT Bold"
+                                        Name="btnSubmit"
+                                        FontFamily="Avenir LT Std 65 Medium"
                                         Foreground="{DynamicResource colorBackGroundMode}"
                                         BorderThickness="0"
                                         Width="110"
@@ -509,9 +550,9 @@
                         </Border>
                     </materialDesign:TransitioningContent>
                 </Grid>
-                
+
             </Grid>
-                
+
         </Border>
     </materialDesign:TransitioningContent>
 </UserControl>
