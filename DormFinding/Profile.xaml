@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:DormFinding"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ff="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
              Name="ProfileWindow"
              d:DesignHeight="650"
@@ -198,7 +199,7 @@
                                                    Margin="10 -3 0 0"
                                                    FontSize="18" />
                                     </StackPanel>
-                                    <Button Content="Save"
+                                    <Button 
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
                                             x:Name="btnSaveProfile"
@@ -210,6 +211,15 @@
                                             Width="110"
                                             materialDesign:ButtonAssist.CornerRadius="20"
                                             Height="40">
+                                        <Button.Content>
+                                            <WrapPanel Orientation="Horizontal">
+                                                <fa:FontAwesome Icon="Save"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0 0 5 0" />
+                                                <Label Content="Save"
+                                                       Foreground="White" />
+                                            </WrapPanel>
+                                        </Button.Content>
                                         <Button.Background>
                                             <LinearGradientBrush EndPoint="0.5,1"
                                                                  MappingMode="RelativeToBoundingBox"
@@ -339,7 +349,7 @@
                                                  Foreground="{DynamicResource colorLightMode}"
                                                  BorderThickness="0" />
                                 </Border>
-                                <Button Content="Confirm"
+                                <Button 
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         Margin="0 10 0 0"
@@ -348,9 +358,18 @@
                                         FontFamily="Arial Rounded MT Bold"
                                         Foreground="{DynamicResource colorBackGroundMode}"
                                         BorderThickness="0"
-                                        Width="110"
+                                        Width="120"
                                         materialDesign:ButtonAssist.CornerRadius="20"
                                         Height="40">
+                                    <Button.Content>
+                                        <WrapPanel Orientation="Horizontal">
+                                            <fa:FontAwesome Icon="Flag"
+                                                            VerticalAlignment="Center"
+                                                            Margin="0 0 5 0" />
+                                            <Label Content="Confirm"
+                                                   Foreground="White" />
+                                        </WrapPanel>
+                                    </Button.Content>
                                     <Button.Background>
                                         <LinearGradientBrush EndPoint="0.5,1"
                                                              MappingMode="RelativeToBoundingBox"
@@ -511,7 +530,7 @@
                                         </ComboBox>
                                     </Border>
                                 </StackPanel>
-                                <Button Content="Submit"
+                                <Button 
                                         Click="btnSubmit_Click"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
@@ -523,6 +542,15 @@
                                         Width="110"
                                         materialDesign:ButtonAssist.CornerRadius="20"
                                         Height="40">
+                                    <Button.Content>
+                                        <WrapPanel Orientation="Horizontal">
+                                            <fa:FontAwesome Icon="Upload"
+                                                            VerticalAlignment="Center"
+                                                            Margin="0 0 5 0" />
+                                            <Label Content="Submit"
+                                                   Foreground="White" />
+                                        </WrapPanel>
+                                    </Button.Content>
                                     <Button.Background>
                                         <LinearGradientBrush EndPoint="0.5,1"
                                                              MappingMode="RelativeToBoundingBox"

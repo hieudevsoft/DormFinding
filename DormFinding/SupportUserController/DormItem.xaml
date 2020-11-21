@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:DormFinding"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
              Background="Transparent"
              d:DesignHeight="190"
@@ -209,9 +210,10 @@
                                         Width="40"
                                         Height="40"
                                         VerticalAlignment="Top">
-                                    <materialDesign:PackIcon Kind="BathroomTissueOutline"
+                                    <fa:FontAwesome          Icon="Bath"
+                                                             FontSize="15"
                                                              Foreground="{StaticResource colorSky}"
-                                                             Canvas.Left="10"
+                                                             Canvas.Left="11"
                                                              Canvas.Top="11" />
                                     <Image Source="../images/icon_line.png"
                                            Height="18"

@@ -215,6 +215,7 @@ namespace DormFinding.Models
             }
             finally
             {
+                rd.Close();
                 CloseConnection();
             }
             return user;
@@ -265,6 +266,7 @@ namespace DormFinding.Models
             }
             finally
             {
+                rd.Close();
                 CloseConnection();
             }
 
@@ -334,6 +336,233 @@ namespace DormFinding.Models
             {
                 CloseConnection();
             }
+        }
+
+        public static bool InsertDorm(DormDb dorm)
+        {
+
+            String sql = $"insert into {Helpers.tbDorm}(" +
+                $"{Helpers.colOwnerDorm}," +
+                $"{Helpers.colAdressDorm}," +
+                $"{Helpers.colDescriptionDorm}," +
+                $"{Helpers.colPriceDorm}," +
+                $"{Helpers.colSaleDorm}," +
+                $"{Helpers.colImageDorm}," +
+                $"{Helpers.colCountDorm}," +
+                $"{Helpers.colCountLikeDorm}," +
+                $"{Helpers.colWifiDorm}," +
+                $"{Helpers.colParkingDorm}," +
+                $"{Helpers.colTelevisionDorm}," +
+                $"{Helpers.colBathroomDorm}," +
+                $"{Helpers.colAirconditionerDorm}," +
+                $"{Helpers.colWaterHeaterDorm}," +
+                $"{Helpers.colQualityDorm}," +
+                $"{Helpers.colSizeDorm})" +
+                $"values(" +
+                $"@Owner," +
+                $"@Address," +
+                $"@Description," +
+                $"@Price," +
+                $"@Sale," +
+                $"@Image," +
+                $"@Count," +
+                $"@CountLike," +
+                $"@Wifi," +
+                $"@Parking," +
+                $"@Television," +
+                $"@Bathroom," +
+                $"@AirConditioner," +
+                $"@WaterHeater," +
+                $"@Quality," +
+                $"@Size" +
+                $");";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Owner", dorm.Owner);
+                cmd.Parameters.AddWithValue("@Address", dorm.Address);
+                cmd.Parameters.AddWithValue("@Description", dorm.Description);
+                cmd.Parameters.AddWithValue("@Price", dorm.Price);
+                cmd.Parameters.AddWithValue("@Sale", dorm.Sale);
+                cmd.Parameters.AddWithValue("@Image", dorm.Image);
+                cmd.Parameters.AddWithValue("@Count", dorm.Count);
+                cmd.Parameters.AddWithValue("@CountLike", dorm.CountLike);
+                cmd.Parameters.AddWithValue("@Wifi", dorm.IsWifi);
+                cmd.Parameters.AddWithValue("@Parking", dorm.IsParking);
+                cmd.Parameters.AddWithValue("@Television", dorm.IsTelevision);
+                cmd.Parameters.AddWithValue("@Bathroom", dorm.IsBathroom);
+                cmd.Parameters.AddWithValue("@AirConditioner", dorm.IsAirCondiditioner);
+                cmd.Parameters.AddWithValue("@WaterHeater", dorm.IsWaterHeater);
+                cmd.Parameters.AddWithValue("@Quality", dorm.Quality);
+                cmd.Parameters.AddWithValue("@Size", dorm.Size);
+
+                cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Insert Dorm Error " +e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public static List<Dorm> getAllListDorm()
+        {
+            string sql = $"select * from {Helpers.tbDorm}";
+            List<Dorm> listDorm = new List<Dorm>();
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Dorm dorm = new Dorm();
+                    int id = rd.GetInt32(0);
+                    string owner = rd.GetString(1);
+                    string address = rd.GetString(2);
+                    string description = rd.GetString(3);
+                    double price = rd.GetDouble(4);
+                    double sale = rd.GetDouble(5);
+
+                    byte[] image;
+                    if (rd.GetValue(6).ToString().Equals(""))
+                    {
+                        dorm.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri($"../../images/icon_app.ico", UriKind.RelativeOrAbsolute));
+                       
+                    }
+                    else
+                    {
+                        image = (byte[])rd.GetValue(6);
+
+                        dorm.Image = Helpers.ConvertByteToImageBitmap(image);
+                    }
+
+                    int count = rd.GetInt32(7);
+                    int countLike = rd.GetInt32(8);
+                    
+                    byte wifi = Helpers.ConverBoolToByte(rd.GetBoolean(9));
+                    
+                    byte parking = Helpers.ConverBoolToByte(rd.GetBoolean(10));
+                    byte television = Helpers.ConverBoolToByte(rd.GetBoolean(11));
+                    byte bathroom = Helpers.ConverBoolToByte(rd.GetBoolean(12));
+                    byte aircon = Helpers.ConverBoolToByte(rd.GetBoolean(13));
+                    byte waterheater = Helpers.ConverBoolToByte(rd.GetBoolean(14));
+                    int quality = rd.GetInt16(15);
+                    double size = rd.GetDouble(16);
+
+                    dorm.Id = id;
+                    dorm.Owner = owner;
+                    dorm.Address = address;
+                    dorm.Description = description;
+                    dorm.Price = price;
+                    dorm.Sale = sale;
+                    dorm.Count = count;
+                    dorm.CountLike = countLike;
+                    dorm.IsWifi = Helpers.ConvertByteToVisibility(wifi);
+                    dorm.IsParking = Helpers.ConvertByteToVisibility(parking);
+                    dorm.IsTelevision = Helpers.ConvertByteToVisibility(television);
+                    dorm.IsBathroom = Helpers.ConvertByteToVisibility(bathroom);
+                    dorm.IsAirCondiditioner = Helpers.ConvertByteToVisibility(aircon);
+                    dorm.IsWaterHeater = Helpers.ConvertByteToVisibility(waterheater);
+                    dorm.Quality = quality;
+                    dorm.Size = size;
+
+                    listDorm.Add(dorm);
+                }
+              
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error loading List Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                rd.Close();
+                CloseConnection();
+            }
+
+            return listDorm;
+        }
+        public static void InsertToTableOwnerDorm(string email, int idDorm)
+        {
+
+            String sql = $"insert into {Helpers.tbDormOwner}({Helpers.colEmailOwnerDorm},{Helpers.colIdOwnerDorm}) values(@Email,@Id);";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Id", idDorm);
+                cmd.ExecuteScalar();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Insert to table owner dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public static UserProfile getOwnerProfileWithDorm(int idDorm)
+        {
+            UserProfile owner = new UserProfile();
+
+            String sql = $"select {Helpers.colImageProfile},{Helpers.colNameProfile},{Helpers.colPhoneProfile},{Helpers.colEmailProfile}," +
+                $"{Helpers.colAdressProfile}, {Helpers.colGenderProfile} " +
+                $"from {Helpers.tbUserProfile},{Helpers.tbDormOwner} " +
+                $"where {Helpers.colIdOwnerDorm} = @Id and {Helpers.colEmailOwnerDorm} = {Helpers.colEmailProfile};";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id", idDorm);
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    string email = rd.GetValue(3).ToString();
+                    string name = rd.GetValue(1).ToString();
+                    string phone = rd.GetValue(2).ToString();
+                    string address = rd.GetValue(4).ToString();
+                    byte gender = byte.Parse(rd.GetValue(5).ToString());
+                    byte[] image;
+                    image = (byte[])rd.GetValue(0);
+                    owner = new UserProfile(email, name, "", phone, address, "", gender, image);
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getOwnerProfileWithDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                rd.Close();
+                CloseConnection();
+            }
+
+            return owner;
         }
     }
 }

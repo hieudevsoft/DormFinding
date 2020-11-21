@@ -62,7 +62,14 @@ namespace DormFinding
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            try
+            {
+                DragMove();
+            }catch(Exception exx)
+            {
+
+            }
+            
         }
 
         private void btnExitApp_Click(object sender, RoutedEventArgs e)
@@ -142,8 +149,16 @@ namespace DormFinding
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                    MainHomeLayout.Width = 1150;
+                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Children.Add(new PostDorm(user));
+                    break;
+                case 4:
+                    TransitioningContentSlideAdd.OnApplyTemplate();
+                    MainHomeLayout.Children.Clear();
+                    MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                    MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Children.Add(new Profile(user,_Fbc));
-            
                     break;
             }
         }
@@ -152,12 +167,13 @@ namespace DormFinding
         {
             SlideCursor.Visibility = Visibility.Visible;
             TransitioningContentSlide.OnApplyTemplate();
-            SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);         
             switch (index)
             {
-                case 2: SlideCursor.Margin = new Thickness(0, (15 + (index * 95)), 0, 0);break;
-                case 3 : SlideCursor.Margin = new Thickness(0, (10 + (index * 97)), 0, 0);break;
-                default: SlideCursor.Margin = new Thickness(0, (14 + (index * 92)), 0, 0);break;
+                case 0: SlideCursor.Margin = new Thickness(0, 5, 0, 0); break;
+                case 1: SlideCursor.Margin = new Thickness(0, 78, 0, 0); break;
+                case 2: SlideCursor.Margin = new Thickness(0, 155, 0, 0);break;
+                case 3 : SlideCursor.Margin = new Thickness(0, 241, 0, 0);break;
+                case 4: SlideCursor.Margin = new Thickness(0, 325, 0, 0); break;
             }
                 
 
