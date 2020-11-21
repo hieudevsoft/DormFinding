@@ -68,16 +68,17 @@
                                     </Button.Content>
                                 </Button>
                                 <TextBlock Text="Hello"
-                                           FontFamily="Arial Rounded MT Bold"
-                                           Margin="10 5 0 10"
+                                           FontSize="20"
+                                           FontFamily="Avenir LT Std 65 Medium"
+                                           Margin="10 5 -10 10"
                                            Foreground="{DynamicResource colorLightMode}"
                                            VerticalAlignment="Center"
-                                           FontSize="18" />
+                                            />
                                 <TextBlock Text="{Binding Path=Text, ElementName=tbNameProfile}"
                                            Margin="4 5 40 10"
                                            TextTrimming="CharacterEllipsis"
                                            x:Name="tbName"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="{DynamicResource colorLightMode}"
                                            VerticalAlignment="Center"
                                            FontSize="18" />
@@ -102,7 +103,7 @@
                                     <TextBlock Text="My Profile"
                                                FontSize="23"
                                                Foreground="{DynamicResource colorLightMode}"
-                                               FontFamily="Arial Rounded MT Bold" />
+                                               FontFamily="Avenir LT Std 65 Medium" />
                                     <StackPanel Orientation="Horizontal">
                                         <Border CornerRadius="10"
                                                 Margin="0 20 0 0"
@@ -116,7 +117,7 @@
                                                      Padding="5 6 0 0"
                                                      x:Name="tbNameProfile"
                                                      FontSize="16"
-                                                     FontFamily="Arial Rounded MT bold"
+                                                     FontFamily="Avenir LT Std 65 Medium"
                                                      materialDesign:HintAssist.Hint="Name"
                                                      materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                      materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -142,7 +143,7 @@
                                                      Padding="5 6 0 0"
                                                      x:Name="tbPhoneProfile"
                                                      FontSize="16"
-                                                     FontFamily="Arial Rounded MT bold"
+                                                     FontFamily="Avenir LT Std 65 Medium"
                                                      materialDesign:HintAssist.Hint="Phone"
                                                      materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                      materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -168,7 +169,7 @@
                                                  Padding="5 6 0 0"
                                                  FontSize="16"
                                                  x:Name="tbEmailProfile"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Email"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -195,7 +196,7 @@
                                         <TextBlock Text="Light Mode"
                                                    x:Name="txtDarkMode"
                                                    Foreground="{DynamicResource colorLightMode}"
-                                                   FontFamily="Arial Rounded MT Bold"
+                                                   FontFamily="Avenir LT Std 65 Medium"
                                                    Margin="10 -3 0 0"
                                                    FontSize="18" />
                                     </StackPanel>
@@ -205,7 +206,7 @@
                                             x:Name="btnSaveProfile"
                                             Click="btnSaveProfile_Click"
                                             Margin="0 20 0 0"
-                                            FontFamily="Arial Rounded MT Bold"
+                                            FontFamily="Avenir LT Std 65 Medium"
                                             Foreground="{DynamicResource colorBackGroundMode}"
                                             BorderThickness="0"
                                             Width="110"
@@ -273,7 +274,7 @@
                                            FontSize="20"
                                            HorizontalAlignment="Center"
                                            Foreground="{DynamicResource colorLightMode}"
-                                           FontFamily="Arial Rounded MT Bold" />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 <Border CornerRadius="10"
                                         Margin="0 10 0 0"
                                         Width="410"
@@ -287,7 +288,7 @@
                                                  Width="410"
                                                  Height="auto"
                                                  FontSize="16"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Password"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -313,7 +314,7 @@
                                                  Height="auto"
                                                  FontSize="16"
                                                  x:Name="psbNewPass"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="New Password"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -338,7 +339,7 @@
                                                  Height="auto"
                                                  FontSize="16"
                                                  x:Name="psbConfirmNewPass"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Confirm New Password"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -355,7 +356,7 @@
                                         Margin="0 10 0 0"
                                         x:Name="btnConfirm"
                                         Click="btnConfirm_Click"
-                                        FontFamily="Arial Rounded MT Bold"
+                                        FontFamily="Avenir LT Std 65 Medium"
                                         Foreground="{DynamicResource colorBackGroundMode}"
                                         BorderThickness="0"
                                         Width="120"
@@ -413,7 +414,7 @@
                                            FontSize="20"
                                            HorizontalAlignment="Center"
                                            Foreground="{DynamicResource colorLightMode}"
-                                           FontFamily="Arial Rounded MT Bold" />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 <Border CornerRadius="10"
                                         Margin="0 10 0 0"
                                         Width="410"
@@ -426,7 +427,7 @@
                                              Padding="5 6 0 0"
                                              x:Name="tbAddress"
                                              FontSize="16"
-                                             FontFamily="Arial Rounded MT bold"
+                                             FontFamily="Avenir LT Std 65 Medium"
                                              materialDesign:HintAssist.Hint="Address"
                                              materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                              materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -444,7 +445,7 @@
                                             VerticalAlignment="Center"
                                             Margin="3 8 0 0">
                                     <TextBlock Text="What's is the favorite food?"
-                                               FontFamily="Arial Rounded MT bold"
+                                               FontFamily="Avenir LT Std 65 Medium"
                                                VerticalAlignment="Center"
                                                Foreground="{DynamicResource colorLightMode}"
                                                FontSize="12" />
@@ -460,7 +461,7 @@
                                                  x:Name="tbHint"
                                                  Padding="5 6 0 0"
                                                  FontSize="16"
-                                                 FontFamily="Arial Rounded MT bold"
+                                                 FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Food"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
                                                  materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -493,7 +494,7 @@
                                                     materialDesign:HintAssist.Hint="Date Of Birth"
                                                     materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
                                                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource colorLightMode}"
-                                                    FontFamily="Arial Rounded MT Bold"
+                                                    FontFamily="Avenir LT Std 65 Medium"
                                                     Foreground="{DynamicResource colorLightMode}"
                                                     FirstDayOfWeek="Monday" />
                                     </Border>
@@ -514,7 +515,7 @@
                                                   materialDesign:HintAssist.Hint="Gender"
                                                   materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
                                                   materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource colorLightMode}"
-                                                  FontFamily="Arial Rounded MT Bold"
+                                                  FontFamily="Avenir LT Std 65 Medium"
                                                   Foreground="{DynamicResource colorLightMode}">
                                             <ComboBox.ItemContainerStyle>
                                                 <Style TargetType="ComboBoxItem">
@@ -536,7 +537,7 @@
                                         HorizontalAlignment="Center"
                                         Margin="0 20 0 0"
                                         Name="btnSubmit"
-                                        FontFamily="Arial Rounded MT Bold"
+                                        FontFamily="Avenir LT Std 65 Medium"
                                         Foreground="{DynamicResource colorBackGroundMode}"
                                         BorderThickness="0"
                                         Width="110"

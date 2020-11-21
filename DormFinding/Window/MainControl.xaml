@@ -61,26 +61,29 @@
             BorderThickness="5"
             CornerRadius="15">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="155*"/>
+                <RowDefinition Height="219*"/>
+            </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="220"></ColumnDefinition>
-                
+
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <WebBrowser x:Name="wbLogout"
                         Grid.ColumnSpan="2"
-                        Visibility="Collapsed" />
+                        Visibility="Collapsed" Margin="0,0,0.4,-0.2" Grid.RowSpan="2" />
 
             <materialDesign:PopupBox Foreground="Black"
-                                     Grid.ColumnSpan="2"
                                      VerticalAlignment="Top"
-                                     Margin="0 0 0 0 "
+                                     Margin="0,0,0.4,0"
                                      Panel.ZIndex="1"                                   
                                      HorizontalAlignment="Right"
                                      PlacementMode="BottomAndAlignCentres"
-                                     StaysOpen="False"
+                                     StaysOpen="False" Grid.Column="1"
                                      >
-                
+
                 <StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Height="40"
@@ -155,7 +158,7 @@
 
 
             <DockPanel Grid.ColumnSpan="2"
-                       LastChildFill="True"
+                       LastChildFill="True" Margin="0,0,0.4,-0.2" Grid.RowSpan="2"
                      
                        >
                 <Border VerticalAlignment="Center"
@@ -246,8 +249,13 @@
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
                                                    Foreground="White"
+<<<<<<< HEAD
                                                    Margin="30 0 0 0"
                                                    FontFamily="Arial Rounded MT Bold" />
+=======
+                                                   Margin="20"
+                                                   FontFamily="Avenir LT Std 65 Medium" />
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 10 0 0"
@@ -268,8 +276,13 @@
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
                                                    Foreground="White"
+<<<<<<< HEAD
                                                    Margin="25 0 0 0"
                                                    FontFamily="Arial Rounded MT Bold" />
+=======
+                                                   Margin="20"
+                                                   FontFamily="Avenir LT Std 65 Medium" />
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 10 0 0"
@@ -289,8 +302,13 @@
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
                                                    Foreground="White"
+<<<<<<< HEAD
                                                    Margin="28 0 0 0"
                                                    FontFamily="Arial Rounded MT Bold" />
+=======
+                                                   Margin="20"
+                                                   FontFamily="Avenir LT Std 65 Medium" />
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 15 0 0"
@@ -330,8 +348,13 @@
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
                                                    Foreground="White"
+<<<<<<< HEAD
                                                    Margin="25 0 0 0"
                                                    FontFamily="Arial Rounded MT Bold" />
+=======
+                                                   Margin="20"
+                                                   FontFamily="Avenir LT Std 65 Medium" />
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                             </ListView>

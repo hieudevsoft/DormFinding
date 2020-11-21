@@ -32,7 +32,7 @@
         <TextBlock Margin="0,-200,0,0"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   FontFamily="Champagne &amp; Limousines"
+                   FontFamily="Avenir LT Std 65 Medium"
                    FontSize="50"
                    Foreground="White">Dorm Finding</TextBlock>
         <TextBlock Margin="0,-100,0,0"

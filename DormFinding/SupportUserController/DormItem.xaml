@@ -95,7 +95,7 @@
                         <TextBlock Text="{Binding Owner}"
                                    FontSize="20"
                                    TextTrimming="CharacterEllipsis"
-                                   FontFamily="Arial ROunded mt bold" />
+                                   FontFamily="Avenir LT Std 65 Medium" />
                         <StackPanel Orientation="Horizontal"
                                     Margin="0 5 0 0">
                             <materialDesign:PackIcon Kind="Location"
@@ -121,9 +121,10 @@
                                        FontSize="14"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}"
-                                       FontFamily="Arial Rounded MT Bold" />
+                                       FontFamily="Avenir LT Std 65 Medium" />
                             <TextBlock Text=" / months"
                                        FontSize="12"
+                                       FontFamily="Avenir LT Std 65 Medium"
                                        Margin="0 -2 0 0"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}" />
@@ -133,7 +134,7 @@
                                    VerticalAlignment="Center"
                                    Margin="10 10 0 0"
                                    FontSize="15"
-                                   FontFamily="Arial Rounded MT Bold" />
+                                   FontFamily="Avenir LT Std 65 Medium" />
                         <StackPanel Orientation="Horizontal"
                                     Margin="10 5 0 0 ">
                             <StackPanel.Resources>

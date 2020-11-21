@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-D:\C#\WPFDormfinding\DormFinding\DormFinding\obj\Debug\
+D:\Program Data\DormFinding\DormFinding\obj\Debug\
 DormFinding
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\C#\WPFDormfinding\DormFinding\DormFinding\App.xaml
 16825291196
 
 261288061706
 144192947172
 UserController\PostDorm.xaml;Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
+=======
+D:\Program Data\DormFinding\DormFinding\App.xaml
+15-689330583
+
+24394056925
+1457821854
+Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
 
 False
 

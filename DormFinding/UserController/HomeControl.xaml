@@ -26,14 +26,14 @@
                                VerticalAlignment="Top"
                                HorizontalAlignment="Left"
                                FontSize="20"
-                               FontFamily="Arial Rounded MT Bold"
+                               FontFamily="Avenir LT Std 65 Medium"
                                Foreground="{StaticResource colorGray}" />
                     <TextBlock Text="Find your Dorm"
                                Margin="20 8 0 0"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Left"
                                FontSize="24"
-                               FontFamily="Arial Rounded MT Bold"
+                               FontFamily="Avenir LT Std 65 Medium"
                                Foreground="{StaticResource colorBlack}" />
                     <Border Background="Transparent">
                         <Border CornerRadius="10"
@@ -46,18 +46,19 @@
                             <Grid Height="auto">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"></ColumnDefinition>
-                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="85*" />
+                                    <ColumnDefinition Width="262*"/>
                                 </Grid.ColumnDefinitions>
                                 <fa:ImageAwesome Icon="Search"
                                                  Width="25"
                                                  Height="25"
-                                                 Foreground="#9FA1BE" />
+                                                 Foreground="#9FA1BE" Margin="12,18,12.6,18" />
                                 <TextBox Grid.Column="1"
                                          Height="60"
                                          Padding="0 9 0 0"
                                          FontSize="16"
                                          TextChanged="searchQuery_TextChanged"
-                                         FontFamily="Arial Rounded MT bold"
+                                         FontFamily="Avenir LT Std 65 Medium"
                                          Foreground="#242365"
                                          materialDesign:HintAssist.Hint="Search something...."
                                          materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
@@ -69,7 +70,7 @@
                                          VerticalAlignment="Center"
                                          TextAlignment="Left"
                                          BorderThickness="0"
-                                         x:Name="searchQuery" />
+                                         x:Name="searchQuery" Grid.ColumnSpan="2" Margin="0.4,0,-1.2,0" />
                             </Grid>
                         </Border>
                     </Border>
@@ -80,7 +81,7 @@
                                    Margin="20 10 0 0"
                                    VerticalAlignment="Top"
                                    FontSize="28"
-                                   FontFamily="Arial Rounded MT Bold"
+                                   FontFamily="Avenir LT Std 65 Medium"
                                    Foreground="Black"
                                    HorizontalAlignment="Left" />
 
@@ -131,7 +132,7 @@
                             <TextBlock Text="Dorms"
                                        VerticalAlignment="Top"
                                        FontSize="28"
-                                       FontFamily="Arial Rounded MT Bold"
+                                       FontFamily="Avenir LT Std 65 Medium"
                                        Foreground="Black"
                                        HorizontalAlignment="Left" />
                             <ListView Width="auto"

@@ -32,7 +32,7 @@
                                    Foreground="Black"
                                    Margin="10 8 0 0"
                                    FontSize="14"
-                                   FontFamily="Arial Rounded MT Bold" />
+                                   FontFamily="Avenir LT Std 65 Medium" />
                         <TextBlock Text="{Binding Address}"
                                    FontSize="10"
                                    Margin="10 1 0 0"
@@ -46,7 +46,7 @@
                                        FontSize="12"
                                        VerticalAlignment="Center"
                                        Foreground="{StaticResource colorBlue}"
-                                       FontFamily="Arial Rounded MT Bold" />
+                                       FontFamily="Avenir LT Std 65 Medium" />
                             <TextBlock Text=" / months"
                                        FontSize="12"
                                        Margin="0 -2 0 0"

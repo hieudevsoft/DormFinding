@@ -66,7 +66,7 @@
                                         Margin="15 10 0 0">
                                 <TextBlock Text="{Binding OwnerDorm, ElementName=showDorm}"
                                            FontSize="20"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="#101010" />
                                 <TextBlock Text="{Binding AddressDorm, ElementName=showDorm}"
                                            Margin="0 8 0 0"
@@ -85,7 +85,7 @@
                                 <TextBlock Text="{Binding DesDorm, ElementName=showDorm}"
                                            FontSize="11"
                                            TextWrapping="WrapWithOverflow"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="LightSlateGray" />
                             </StackPanel>
                             <Grid Grid.Row="3"
@@ -99,19 +99,19 @@
                                             Grid.Column="0">
                                     <Label Content="Price"
                                            FontSize="12"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="SlateGray" />
                                     <Label Content="{Binding PriceDorm, ElementName=showDorm,StringFormat= {}{0:C}}"
                                            FontSize="17"
                                            HorizontalAlignment="Left"
-                                           FontFamily="Arial Rounded MT bold" />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical"
                                             Grid.Column="1">
                                     <Label Content="Reviews"
                                            FontSize="12"
                                            Margin="10 0 0 0"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="SlateGray" />
                                     <materialDesign:RatingBar IsHitTestVisible="False"
                                                               Value="{Binding QualityDorm, ElementName=showDorm}"
@@ -123,14 +123,14 @@
                                             Grid.Column="2">
                                     <Label Content="Booked"
                                            FontSize="12"
-                                           FontFamily="Arial Rounded MT Bold"
+                                           FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="SlateGray" />
                                     <Label Content="{Binding CountDorm,ElementName=showDorm}"
                                            HorizontalAlignment="Center"
                                            Margin="0 0 25 0"
                                            VerticalAlignment="Center"
                                            FontSize="17"
-                                           FontFamily="Arial Rounded MT Bold" />
+                                           FontFamily="Avenir LT Std 65 Medium" />
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Row="4">
@@ -141,7 +141,7 @@
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Center"
                                                FontSize="16"
-                                               FontFamily="Arial Rounded MT Bold" />
+                                               FontFamily="Avenir LT Std 65 Medium" />
                                     <StackPanel Orientation="Horizontal"
                                                 Margin="0 15 0 0">
                                         <StackPanel.Resources>
@@ -297,7 +297,7 @@
                                         Margin="50 0 0 0"
                                         Width="190"
                                         Height="44"
-                                        FontFamily="Arial Rounded MT Bold"
+                                        FontFamily="Avenir LT Std 65 Medium"
                                         FontSize="15"
                                         BorderThickness="0"
                                         Background="#2DCA73"

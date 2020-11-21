@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 FD:\C#\WPFDormfinding\DormFinding\DormFinding\App.xaml;;
 FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\PostDorm.xaml;;
@@ -16,4 +17,23 @@ FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\SignUp.xaml;;
 FD:\C#\WPFDormfinding\DormFinding\DormFinding\UserController\Login.xaml;;
 FD:\C#\WPFDormfinding\DormFinding\DormFinding\Window\MainWindow.xaml;;
 FD:\C#\WPFDormfinding\DormFinding\DormFinding\Window\SplashScreen.xaml;;
+=======
+﻿D:\Program Data\DormFinding\DormFinding\obj\Debug\GeneratedInternalTypeHelper.g.cs
+FD:\Program Data\DormFinding\DormFinding\App.xaml;;
+FD:\Program Data\DormFinding\DormFinding\Profile.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\ShowDorm.xaml;;
+FD:\Program Data\DormFinding\DormFinding\SupportUserController\DormItemHori.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\HomeControl.xaml;;
+FD:\Program Data\DormFinding\DormFinding\SupportUserController\DormItem.xaml;;
+FD:\Program Data\DormFinding\DormFinding\StyleResource.xaml;;
+FD:\Program Data\DormFinding\DormFinding\SupportUserController\Noti_Login_Success.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\SliderShow.xaml;;
+FD:\Program Data\DormFinding\DormFinding\SupportUserController\ResetPassController.xaml;;
+FD:\Program Data\DormFinding\DormFinding\Window\MainControl.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\LoadingBar.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\SignUp.xaml;;
+FD:\Program Data\DormFinding\DormFinding\UserController\Login.xaml;;
+FD:\Program Data\DormFinding\DormFinding\Window\MainWindow.xaml;;
+FD:\Program Data\DormFinding\DormFinding\Window\SplashScreen.xaml;;
+>>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
 
