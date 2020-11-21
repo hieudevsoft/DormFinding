@@ -70,7 +70,7 @@
                                 <TextBlock Text="Hello"
                                            FontSize="20"
                                            FontFamily="Avenir LT Std 65 Medium"
-                                           Margin="10 5 -10 10"
+                                           Margin="10 5 0 10"
                                            Foreground="{DynamicResource colorLightMode}"
                                            VerticalAlignment="Center"
                                             />
@@ -448,7 +448,7 @@
                                                FontFamily="Avenir LT Std 65 Medium"
                                                VerticalAlignment="Center"
                                                Foreground="{DynamicResource colorLightMode}"
-                                               FontSize="12" />
+                                               FontSize="13" />
                                     <Border CornerRadius="10"
                                             Margin="10 0 0 0"
                                             Width="240"

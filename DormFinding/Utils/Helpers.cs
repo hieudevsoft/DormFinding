@@ -128,5 +128,12 @@ namespace DormFinding.Utils
         public static string colIdDormUser = "Id";
         public static string colEmailOwnerDorm = "_email_owner";
         public static string colIdOwnerDorm = "_id_dorm";
+
+        //Table Owner Like Dorm 
+        public static string tbOwnerLikeDorm = "tbOwnerLikeDorm";
+        public static string colIdOwnerLikeDorm = "Id";
+        public static string colEmailOwnerLikeDorm = "_email";
+        public static string colIdDormOwnerLikeDorm = "_id_dorm";
+        public static string colLikeOwnerLikeDorm = "_is_like";
     }
 }

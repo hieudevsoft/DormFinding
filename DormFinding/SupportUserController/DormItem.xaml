@@ -132,11 +132,11 @@
                         <TextBlock Text="Aminities"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
-                                   Margin="10 10 0 0"
+                                   Margin="8 10 0 0"
                                    FontSize="15"
                                    FontFamily="Avenir LT Std 65 Medium" />
                         <StackPanel Orientation="Horizontal"
-                                    Margin="10 5 0 0 ">
+                                    Margin="6 5 0 0 ">
                             <StackPanel.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="Width"

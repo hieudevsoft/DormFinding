@@ -27,8 +27,6 @@ namespace DormFinding
     public partial class ShowDorm : UserControl
     {
         private Dorm dorm;
-
-        private bool click = false;
         public BitmapImage ImageDorm
         {
             get { return (BitmapImage)GetValue(ImageDormProperty); }
@@ -205,6 +203,7 @@ namespace DormFinding
             this.dorm = dorm;
             initDorm();
             initProfile();
+            initLike();
         }
         private void initDorm()
         {
@@ -223,8 +222,8 @@ namespace DormFinding
             WaterHeaterDorm = dorm.IsWaterHeater;
             CountLikeDorm = dorm.CountLike;
             SizeDorm = $"Area: {dorm.Size} m²";
+            
         }
-
         private void initProfile()
         {
             owner = Mydatabase.getOwnerProfileWithDorm(dorm.Id);
@@ -234,7 +233,14 @@ namespace DormFinding
             AddressOwner = owner.Address;
             lbEmail.Content = owner.Email;
             GenderOwner = Helpers.ConvertByteToGender(owner.Gender);
-            
+          
+        }
+
+        private void initLike()
+        {
+            Boolean click = Mydatabase.getStateLikeOfOwner(owner.Email, dorm.Id);
+            if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -248,17 +254,43 @@ namespace DormFinding
 
         private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            click = !click;
-            if (click)
+            try
             {
-                likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
-                CountLikeDorm++;
+                if(Mydatabase.InsertToOwnerLikeDorm(owner.Email, dorm.Id, 1))
+                {
+                    likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+                    CountLikeDorm++;
+                    dorm.CountLike++;
+                    Mydatabase.updateLikeDorm(dorm);
+                }
+                else
+                {
+                    Boolean click = Mydatabase.getStateLikeOfOwner(owner.Email, dorm.Id);
+                    if (!click)
+                    {
+                        likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+                        CountLikeDorm++;
+                        dorm.CountLike++;
+                        Mydatabase.updateLikeDorm(dorm);
+                        Mydatabase.updateOwnerLikeDorm(owner.Email, dorm.Id, 1);
+                    }
+                    else
+                    {
+                        likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
+                        CountLikeDorm--;
+                        dorm.CountLike--;
+                        Mydatabase.updateLikeDorm(dorm);
+                        Mydatabase.updateOwnerLikeDorm(owner.Email, dorm.Id, 0);
+                    }
+                }
+
             }
-            else
+            catch(Exception exec)
             {
-                likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
-                CountLikeDorm--;
+                MessageBox.Show("Error while processing Like....");
             }
+
+
         }
     }
 }

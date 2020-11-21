@@ -248,14 +248,10 @@
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
+                                                   Margin="40 0 0 0"
                                                    Foreground="White"
-<<<<<<< HEAD
-                                                   Margin="30 0 0 0"
-                                                   FontFamily="Arial Rounded MT Bold" />
-=======
-                                                   Margin="20"
                                                    FontFamily="Avenir LT Std 65 Medium" />
->>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
+
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 10 0 0"
@@ -264,7 +260,7 @@
                                               VerticalAlignment="Center"
                                               Width="216">
                                     <StackPanel Orientation="Horizontal"
-                                                Margin="5 0 0 0"
+                                                Margin="10 0 0 0"
                                                 Width="auto"
                                                 Height="40">
                                         <Image Source="/images/icon_love.png"
@@ -275,14 +271,9 @@
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
+                                                   Margin="40 0 0 0"
                                                    Foreground="White"
-<<<<<<< HEAD
-                                                   Margin="25 0 0 0"
-                                                   FontFamily="Arial Rounded MT Bold" />
-=======
-                                                   Margin="20"
                                                    FontFamily="Avenir LT Std 65 Medium" />
->>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 10 0 0"
@@ -291,7 +282,7 @@
                                               VerticalAlignment="Center"
                                               Width="219">
                                     <StackPanel Orientation="Horizontal"
-                                                Margin="-15 0 0 0"
+                                                Margin="-8 0 0 0"
                                                 Width="auto"
                                                 Height="40">
                                         <Image Source="/images/icon_mydorm.png"
@@ -301,14 +292,9 @@
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
+                                                   Margin="40 0 0 0"
                                                    Foreground="White"
-<<<<<<< HEAD
-                                                   Margin="28 0 0 0"
-                                                   FontFamily="Arial Rounded MT Bold" />
-=======
-                                                   Margin="20"
                                                    FontFamily="Avenir LT Std 65 Medium" />
->>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 15 0 0"
@@ -326,9 +312,9 @@
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
+                                                   Margin="40 0 0 0"
                                                    Foreground="White"
-                                                   Margin="28 0 0 0"
-                                                   FontFamily="Arial Rounded MT Bold" />
+                                                   FontFamily="Avenir LT Std 65 Medium" />
                                     </StackPanel>
                                 </ListViewItem>
                                 <ListViewItem Margin="0 14 0 0"
@@ -347,14 +333,9 @@
                                                    HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Center"
                                                    FontSize="19"
+                                                   Margin="40 0 0 0"
                                                    Foreground="White"
-<<<<<<< HEAD
-                                                   Margin="25 0 0 0"
-                                                   FontFamily="Arial Rounded MT Bold" />
-=======
-                                                   Margin="20"
                                                    FontFamily="Avenir LT Std 65 Medium" />
->>>>>>> 7a807e8f9ae456ecc40300b10bcc8a024c4a2489
                                     </StackPanel>
                                 </ListViewItem>
                             </ListView>
