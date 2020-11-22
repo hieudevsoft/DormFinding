@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:DormFinding"
-             mc:Ignorable="d"   
+             mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1150">
 
     <Grid>
@@ -21,41 +22,72 @@
             <Image Source="../images/icon_arrow_back.png" />
         </Button>
 
-        <Border CornerRadius="20"
+        <Border CornerRadius="0"
                 x:Name="borderImageSlider"
                 Width="1150"
                 Height="auto"
                 HorizontalAlignment="Left">
             <Border.Background>
-                <ImageBrush ImageSource="../images/dorm_slide_1.jpg"
+                <ImageBrush ImageSource="D:\DormFinding\DormFinding\DormFinding\images\dorm_slide_2.jpg"
                             x:Name="imageSlider"
                             Stretch="UniformToFill" />
             </Border.Background>
         </Border>
-        <TextBlock VerticalAlignment="Top"
-                   HorizontalAlignment="Center"
-                   Margin="0,80,0,0"
-                   Text="Find a room"
-                   FontFamily="Avenir LT Std 65 Medium"
-                   FontSize="48"
-                   FontStyle="Italic"
-                   Foreground="WhiteSmoke" />
-        <TextBlock VerticalAlignment="Top"
-                   HorizontalAlignment="Center"
-                   Margin="0,160,0,0"
-                   Text="that meets "
-                   FontFamily="Avenir LT Std 65 Medium"
-                   FontSize="48"
-                   FontStyle="Italic"
-                   Foreground="WhiteSmoke" />
-        <TextBlock VerticalAlignment="Top"
-                   HorizontalAlignment="Center"
-                   Margin="0,240,0,0"
-                   Text="your requirement"
-                   FontFamily="Avenir LT Std 65 Medium"
-                   FontSize="48"
-                   FontStyle="Italic"
-                   Foreground="WhiteSmoke" />
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="800"
+                    Height="300"
+                    Visibility="Hidden">
+            <TextBlock Text="WELCOME TO DORM-FINDER"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Foreground="WhiteSmoke"
+                       FontFamily="Arial Rounded MT"
+                       FontWeight="ExtraLight"
+                       Margin="0,40,0,0"/>
+            <materialDesign:PackIcon Kind="Star"
+                            Foreground="Yellow"
+                            Width="20"
+                            Height="20"
+                            VerticalAlignment="Top"
+                            Margin="530,-22,0,0"/>
+            <TextBlock Text="THE FIRST EVER DORM-FINDING APP IN VIETNAM" 
+                       HorizontalAlignment="Center"
+                       Margin="0,50,0,0"
+                       FontFamily="Segoe UI Black"
+                       FontSize="32"
+                       Foreground="WhiteSmoke"/>
+
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Height="300"
+                    Width="1150"
+                    Visibility="Hidden"
+                    >
+            <TextBlock Text="YOUR PERFECT ASSISTANT"
+                       Foreground="WhiteSmoke"
+                       HorizontalAlignment="Center"
+                       FontSize="32"
+                       FontFamily="Segoe UI Semibold"
+                       Margin="0,140,0,0"
+                       />
+            <TextBlock Text="Discover the best places that meet even your most unreal expectation"
+                       Foreground="WhiteSmoke"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom"
+                       FontFamily="Segoe UI Light"
+                       FontSize="22"
+                       />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"> 
+            
+        </StackPanel>
+                    
+
 
         <Button Padding="0"
                 Panel.ZIndex="1"

@@ -68,7 +68,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 168 "..\..\..\Window\MainControl.xaml"
+        #line 169 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Border GridMenu;
         
@@ -76,7 +76,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 187 "..\..\..\Window\MainControl.xaml"
+        #line 188 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnCloseMenu;
         
@@ -84,7 +84,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 200 "..\..\..\Window\MainControl.xaml"
+        #line 201 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnOpenMenu;
         
@@ -92,7 +92,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 216 "..\..\..\Window\MainControl.xaml"
+        #line 217 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal MaterialDesignThemes.Wpf.Transitions.TransitioningContent TransitioningContentSlide;
         
@@ -100,7 +100,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 226 "..\..\..\Window\MainControl.xaml"
+        #line 227 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Border SlideCursor;
         
@@ -108,7 +108,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 234 "..\..\..\Window\MainControl.xaml"
+        #line 235 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ListView ListViewSideBar;
         
@@ -116,7 +116,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 348 "..\..\..\Window\MainControl.xaml"
+        #line 349 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal MaterialDesignThemes.Wpf.Transitions.TransitioningContent TransitioningContentSlideAdd;
         
@@ -124,7 +124,7 @@ namespace DormFinding {
         #line hidden
         
         
-        #line 350 "..\..\..\Window\MainControl.xaml"
+        #line 351 "..\..\..\Window\MainControl.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid MainHomeLayout;
         
@@ -196,7 +196,7 @@ namespace DormFinding {
             case 6:
             this.btnCloseMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 190 "..\..\..\Window\MainControl.xaml"
+            #line 191 "..\..\..\Window\MainControl.xaml"
             this.btnCloseMenu.Click += new System.Windows.RoutedEventHandler(this.btnCloseMenu_Click);
             
             #line default
@@ -205,7 +205,7 @@ namespace DormFinding {
             case 7:
             this.btnOpenMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 203 "..\..\..\Window\MainControl.xaml"
+            #line 204 "..\..\..\Window\MainControl.xaml"
             this.btnOpenMenu.Click += new System.Windows.RoutedEventHandler(this.btnOpenMenu_Click);
             
             #line default
@@ -220,7 +220,7 @@ namespace DormFinding {
             case 10:
             this.ListViewSideBar = ((System.Windows.Controls.ListView)(target));
             
-            #line 233 "..\..\..\Window\MainControl.xaml"
+            #line 234 "..\..\..\Window\MainControl.xaml"
             this.ListViewSideBar.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.ListViewSideBar_SelectionChanged);
             
             #line default

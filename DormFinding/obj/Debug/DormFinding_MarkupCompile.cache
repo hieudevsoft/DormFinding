@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\
 DormFinding
 none
 false
 DEBUG;TRACE
-D:\C#\DORMFINDING\DormFinding\DormFinding\App.xaml
+D:\DormFinding\DormFinding\DormFinding\App.xaml
 18353308230
 
-291788291433
-145-1610967584
+30945932066
+145105837875
 UserController\MyDorm.xaml;UserController\LikedDorm.xaml;UserController\PostDorm.xaml;Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
-False
+True
 
