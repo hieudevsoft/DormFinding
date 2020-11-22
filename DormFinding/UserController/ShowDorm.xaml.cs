@@ -209,6 +209,7 @@ namespace DormFinding
             initDorm();
             initProfile();
             initLike();
+            initBookDorm();
             SetHover(iconSend);
         }
         private void initDorm()
@@ -244,8 +245,16 @@ namespace DormFinding
 
         private void initLike()
         {
-            Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
-            if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+            try
+            {
+                Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
+                if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+            }
+            catch(Exception e)
+            {
+
+            }
+            
 
         }
 
@@ -327,6 +336,66 @@ namespace DormFinding
                 SetAnimationForIconLeave(icon);
 
             };
+        }
+        private void initBookDorm()
+        {
+            try
+            {
+                BookDorm bookDorm = new BookDorm();
+                bookDorm.EmailOwner = owner.Email;
+                bookDorm.EmailUser = user.Email;
+                bookDorm.IdDorm = dorm.Id;
+                bookDorm.StateDorm = 1;
+
+                bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                if (bookDorm.StateDorm == 0)
+                {
+                    spinnerBook.Visibility = Visibility.Collapsed;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
+                }
+                else if (bookDorm.StateDorm == 1)
+                {
+                    spinnerBook.Visibility = Visibility.Visible;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
+                }
+                lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
+            }
+            finally
+            {
+
+            }
+        }
+        private void btnBooked_Click(object sender, RoutedEventArgs e)
+        {
+            BookDorm bookDorm = new BookDorm();
+            bookDorm.EmailOwner = owner.Email;
+            bookDorm.EmailUser = user.Email;
+            bookDorm.IdDorm = dorm.Id;
+            bookDorm.StateDorm = 1;
+            if (Mydatabase.InsertDataToBookDorm(bookDorm))
+            {
+                spinnerBook.Visibility = Visibility.Visible;
+                lbStateBook.Content = "Booking...";
+            }
+            else
+            {
+                bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                if (bookDorm.StateDorm == 0)
+                {
+                    spinnerBook.Visibility = Visibility.Visible;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
+                    bookDorm.StateDorm = 1;
+                    Mydatabase.updateBookDorm(bookDorm);
+                }
+                else if(bookDorm.StateDorm == 1)
+                {
+                    spinnerBook.Visibility = Visibility.Collapsed;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
+                    bookDorm.StateDorm = 0;
+                    Mydatabase.updateBookDorm(bookDorm);
+                }
+                lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
+            }
         }
     }
 }

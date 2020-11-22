@@ -1,16 +1,11 @@
 ﻿using DormFinding.Utils;
-using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+
 
 namespace DormFinding.Models
 {
@@ -618,7 +613,6 @@ namespace DormFinding.Models
             {
                 CloseConnection();
             }
-            return true;
         }
         public static void updateOwnerLikeDorm(string email, int id,byte like)
         {
@@ -669,7 +663,7 @@ namespace DormFinding.Models
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error Update Owner Like Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error get State Owner Like Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
 
             }
@@ -766,6 +760,113 @@ namespace DormFinding.Models
             }
 
             return listDorm;
+        }
+        public static Boolean InsertDataToBookDorm(BookDorm bookDorm)
+        {
+
+            String sql = $"insert into {Helpers.tbBookDorm}({Helpers.colEmailOwnerBookDorm},{Helpers.colEmailUserBookDorm},{Helpers.colIdDormBookDorm},{Helpers.colStateBookDorm}) values(@EmailOwner,@EmailUser,@Id,@State);";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@EmailOwner", bookDorm.EmailOwner);
+                cmd.Parameters.AddWithValue("@EmailUser", bookDorm.EmailUser);
+                cmd.Parameters.AddWithValue("@Id", bookDorm.IdDorm);
+                cmd.Parameters.AddWithValue("@State", bookDorm.StateDorm);
+                cmd.ExecuteScalar();
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show("Error Insert Book Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+        public static void updateBookDorm(BookDorm bookDorm)
+        {
+            String sql = $"update {Helpers.tbBookDorm} SET {Helpers.colEmailOwnerBookDorm}=@EmailOwner" +
+                $", {Helpers.colEmailUserBookDorm} = @EmailUser" +
+                $", {Helpers.colIdDormBookDorm}=@Id" +
+                $", {Helpers.colStateBookDorm}=@State" +
+                $", {Helpers.colCommentBookDorm}=@Comment" +
+                $", {Helpers.colRatingBookDorm}=@Rating" +
+                $" where {Helpers.colEmailOwnerBookDorm}=@EmailOwner and {Helpers.colEmailUserBookDorm} = @EmailUser and  {Helpers.colIdDormBookDorm}=@Id;";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@EmailOwner", bookDorm.EmailOwner);
+                cmd.Parameters.AddWithValue("@EmailUser", bookDorm.EmailUser);
+                cmd.Parameters.AddWithValue("@Id", bookDorm.IdDorm);
+                cmd.Parameters.AddWithValue("@State", bookDorm.StateDorm);
+                cmd.Parameters.AddWithValue("@Comment", bookDorm.CommentDorm);
+                cmd.Parameters.AddWithValue("@Rating", bookDorm.RatingDorm);
+                cmd.ExecuteScalar();
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Update Book Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+        public static BookDorm getInforBookDorm(BookDorm bookDorm)
+        {
+            BookDorm dorm = new BookDorm();
+            String sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @EmailOwner and {Helpers.colEmailUserBookDorm}=@EmailUser and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@EmailOwner",bookDorm.EmailOwner);
+                cmd.Parameters.AddWithValue("@EmailUser", bookDorm.EmailUser);
+                cmd.Parameters.AddWithValue("@Id", bookDorm.IdDorm);
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    dorm.EmailOwner = rd.GetString(0);
+                    dorm.EmailUser = rd.GetString(1);
+                    dorm.IdDorm = rd.GetInt32(2);
+                    dorm.StateDorm = rd.GetInt16(3);
+                    dorm.CommentDorm = rd.GetString(4);
+                    dorm.RatingDorm = rd.GetInt16(5);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error get infor Owner Like Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return dorm;
         }
     }
 }

@@ -86,6 +86,15 @@ namespace DormFinding.Utils
             if (a == 1) return "Female"; else return "Male";
         }
 
+        public static string ConvertStateToText(int a)
+        {
+            if (a == 1) return "Booking...";
+            if (a == 0) return "Book Now";
+            if (a == 2) return "Booked";
+
+            return "Error";
+        }
+
         //Table User
         public static string tbUser = "tb_user";
         public static string colEmail = "_email";
@@ -135,5 +144,14 @@ namespace DormFinding.Utils
         public static string colEmailOwnerLikeDorm = "_email";
         public static string colIdDormOwnerLikeDorm = "_id_dorm";
         public static string colLikeOwnerLikeDorm = "_is_like";
+
+        //Table Book Dorm
+        public static string tbBookDorm = "tbBookDorm";
+        public static string colEmailOwnerBookDorm = "_email_owner";
+        public static string colEmailUserBookDorm = "_email_user";
+        public static string colIdDormBookDorm = "_id_dorm";
+        public static string colStateBookDorm = "_state_book";
+        public static string colCommentBookDorm = "_comment";
+        public static string colRatingBookDorm = "_rating";
     }
 }

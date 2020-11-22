@@ -130,8 +130,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classess\BookDorm.cs" />
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
+    <Compile Include="UserController\MyDorm.xaml.cs">
+      <DependentUpon>MyDorm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserController\LikedDorm.xaml.cs">
       <DependentUpon>LikedDorm.xaml</DependentUpon>
     </Compile>
@@ -180,6 +184,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="UserController\MyDorm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserController\LikedDorm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

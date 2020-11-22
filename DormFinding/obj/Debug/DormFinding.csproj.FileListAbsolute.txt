@@ -91,3 +91,5 @@ D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.g.cs
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.baml
+D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\MyDorm.g.cs
+D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\MyDorm.baml
