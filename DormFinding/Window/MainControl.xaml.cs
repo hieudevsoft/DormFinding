@@ -142,14 +142,18 @@ namespace DormFinding
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                    MainHomeLayout.Children.Add(new HomeControl());
+                    MainHomeLayout.Width = 1150;
+                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Children.Add(new HomeControl(user));
                     break;
                 case 1:
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                    MessageBox.Show(Mydatabase.getAllListDormOwnerLike(user.Email).Count.ToString());
+                    MainHomeLayout.Width = 1150;
+                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Children.Add(new LikedDorm(Mydatabase.getAllListDormOwnerLike(user.Email), user));
                     break;
                 case 3:
                     TransitioningContentSlideAdd.OnApplyTemplate();

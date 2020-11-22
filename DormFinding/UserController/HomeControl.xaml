@@ -70,7 +70,7 @@
                                          VerticalAlignment="Center"
                                          TextAlignment="Left"
                                          BorderThickness="0"
-                                         x:Name="searchQuery" Grid.ColumnSpan="2" Margin="0.4,0,-1.2,0" />
+                                         x:Name="searchQuery" Grid.ColumnSpan="2"  />
                             </Grid>
                         </Border>
                     </Border>
@@ -90,6 +90,7 @@
                                   Margin="20 15 0 0"
                                   ItemsSource="{Binding Dorm}"
                                   x:Name="listViewHori"
+                                  SelectionChanged="listViewHori_SelectionChanged"
                                   materialDesign:RippleAssist.RippleOnTop="True"
                                   materialDesign:RippleAssist.ClipToBounds="True">
                             <ListView.ItemContainerStyle>

@@ -1,5 +1,6 @@
 ﻿using DormFinding.Models;
 using DormFinding.Utils;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -196,14 +198,18 @@ namespace DormFinding
         public static readonly DependencyProperty GenderOwnerProperty =
             DependencyProperty.Register("GenderOwner", typeof(string), typeof(ShowDorm), new PropertyMetadata(""));
 
-        public ShowDorm(Dorm dorm)
+        private User user;
+
+        public ShowDorm(Dorm dorm,User user)
         {
             InitializeComponent();
+            this.user = user;
             TransitioningContentSlide.OnApplyTemplate();
             this.dorm = dorm;
             initDorm();
             initProfile();
             initLike();
+            SetHover(iconSend);
         }
         private void initDorm()
         {
@@ -238,7 +244,7 @@ namespace DormFinding
 
         private void initLike()
         {
-            Boolean click = Mydatabase.getStateLikeOfOwner(owner.Email, dorm.Id);
+            Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
             if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
 
         }
@@ -249,14 +255,14 @@ namespace DormFinding
             layoutDorm.Children.Clear();
             layoutDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutDorm.HorizontalAlignment = HorizontalAlignment.Left;
-            layoutDorm.Children.Add(new HomeControl());
+            layoutDorm.Children.Add(new HomeControl(user));
         }
 
         private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                if(Mydatabase.InsertToOwnerLikeDorm(owner.Email, dorm.Id, 1))
+                if(Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 1))
                 {
                     likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                     CountLikeDorm++;
@@ -265,14 +271,14 @@ namespace DormFinding
                 }
                 else
                 {
-                    Boolean click = Mydatabase.getStateLikeOfOwner(owner.Email, dorm.Id);
+                    Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
                     if (!click)
                     {
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
                         dorm.CountLike++;
                         Mydatabase.updateLikeDorm(dorm);
-                        Mydatabase.updateOwnerLikeDorm(owner.Email, dorm.Id, 1);
+                        Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 1);
                     }
                     else
                     {
@@ -280,7 +286,7 @@ namespace DormFinding
                         CountLikeDorm--;
                         dorm.CountLike--;
                         Mydatabase.updateLikeDorm(dorm);
-                        Mydatabase.updateOwnerLikeDorm(owner.Email, dorm.Id, 0);
+                        Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 0);
                     }
                 }
 
@@ -291,6 +297,36 @@ namespace DormFinding
             }
 
 
+        }
+        private void SetAnimationForIconMove(PackIcon icon)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = 1;
+            animation.To = 0.5;
+            animation.Duration = TimeSpan.FromSeconds(0.05);
+            icon.BeginAnimation(OpacityProperty, animation);
+        }
+
+        private void SetAnimationForIconLeave(PackIcon icon)
+        {
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = 0.5;
+            animation.To = 1;
+            animation.Duration = TimeSpan.FromSeconds(0.05);
+            icon.BeginAnimation(OpacityProperty, animation);
+        }
+        private void SetHover(PackIcon icon)
+        {
+            icon.MouseMove += delegate (object sender, MouseEventArgs e)
+            {
+                SetAnimationForIconMove(icon);
+
+            };
+            icon.MouseLeave += delegate (object sender, MouseEventArgs e)
+            {
+                SetAnimationForIconLeave(icon);
+
+            };
         }
     }
 }

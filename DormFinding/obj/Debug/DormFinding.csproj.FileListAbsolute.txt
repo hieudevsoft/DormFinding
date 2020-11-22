@@ -89,4 +89,5 @@ D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CoreCompi
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CopyComplete
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
-D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
+D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.g.cs
+D:\C#\DORMFINDING\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.baml

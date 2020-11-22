@@ -318,7 +318,12 @@
                                               ShadowDepth="1"
                                               Color="Gray" />
                         </Border.Effect>
-                        <ListView>
+                        <StackPanel Orientation="Vertical" Width="auto"
+                                    Height="auto"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    >
+                        <ListView Height="550">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
 
@@ -331,6 +336,54 @@
                                 </ItemsPanelTemplate>
                             </ListView.ItemsPanel>
                         </ListView>
+                            <materialDesign:RatingBar Padding="10 0 0 0"
+                                                      Grid.Column="0"
+                                                      Cursor="Hand"
+                                                      Foreground="#2DCA73"
+                                                      VerticalAlignment="Center" />
+                            <Border Background="#F0F2F5"
+                                    CornerRadius="10"
+                                    Margin="10"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Stretch"
+                                    Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="0.18*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Send"
+                                                             VerticalAlignment="Center"
+                                                             HorizontalAlignment="Center"
+                                                             Width="25"
+                                                             Height="25"
+                                                             Cursor="Hand"
+                                                             x:Name="iconSend"
+                                                             Foreground="#171F38"
+                                                             Grid.Column="1" />
+                                    <TextBox Grid.Column="0" 
+                                             materialDesign:HintAssist.Hint="Comment"
+                                             FontSize="18"
+                                             TextWrapping="Wrap"
+                                             AcceptsReturn="True"
+                                             VerticalScrollBarVisibility="Auto"
+                                             Padding="5 0 0 0"
+                                             FontFamily="Avenir LT Std 65 Medium"
+                                             Foreground="#242365"
+                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                             materialDesign:HintAssist.Foreground="#242365"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                             VerticalAlignment="Center"
+                                             TextAlignment="Left"
+                                             BorderThickness="0"
+                                             VerticalContentAlignment="Center"
+                                             />
+                                </Grid>    
+                            </Border>
+                        </StackPanel>
                     </Border>
                     <Border Grid.Column="2"
                             CornerRadius="15">

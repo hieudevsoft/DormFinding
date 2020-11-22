@@ -23,9 +23,11 @@ namespace DormFinding
     {
         private List<Dorm> listDorm = new List<Dorm>();
         private List<Dorm> listDormVerti = new List<Dorm>();
-        public HomeControl()
+        private User user;
+        public HomeControl(User user)
         {
             InitializeComponent();
+            this.user = user;
             setUpListViewHori();
             setUpListViewVerti();
             TransitioningContentSlide.OnApplyTemplate();
@@ -33,28 +35,7 @@ namespace DormFinding
 
         private void setUpListViewHori()
         {
-            List<Dorm> listDorm = new List<Dorm>();
-            Dorm dorm = new Dorm();
-            dorm.Owner = "Hieu's House";
-            dorm.Address = "Kim Giang Town, Ha Noi";
-            dorm.Price = 120;
-            dorm.Quality = 3;
-            dorm.Image = new BitmapImage(new Uri("../../images/dorm_slide_2.jpg", UriKind.RelativeOrAbsolute));
-            listDorm.Add(dorm);
-            Dorm dorm1 = new Dorm();
-            dorm1.Owner = "Hiep's House";
-            dorm1.Address = "Tan Trieu Town, Ha Noi";
-            dorm1.Price = 25;
-            dorm1.Quality = 1;
-            dorm1.Image = new BitmapImage(new Uri("../../images/dorm_slide_1.jpg", UriKind.RelativeOrAbsolute));
-            listDorm.Add(dorm1);
-            Dorm dorm2 = new Dorm();
-            dorm2.Owner = "Truong's House";
-            dorm2.Address = "CHien Thang Town, Ha Noi";
-            dorm2.Price = 100;
-            dorm2.Quality = 3;
-            dorm2.Image = new BitmapImage(new Uri("../../images/dorm_slide_3.jpg", UriKind.RelativeOrAbsolute));
-            listDorm.Add(dorm2);
+            listDorm = Mydatabase.getAllListDorm();
             listViewHori.ItemsSource = listDorm;
 
         }
@@ -79,7 +60,7 @@ namespace DormFinding
             layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
             layoutMainDorm.Width = 1120;
             layoutMainDorm.Height = 690;
-            layoutMainDorm.Children.Add(new ShowDorm(dorm));
+            layoutMainDorm.Children.Add(new ShowDorm(dorm,user));
         }
 
        private bool DormFilter(Object item)
@@ -90,6 +71,18 @@ namespace DormFinding
         private void searchQuery_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(listViewVerti.ItemsSource).Refresh();
+        }
+
+        private void listViewHori_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Dorm dorm = listViewHori.SelectedItem as Dorm;
+            layoutMainDorm.Children.Clear();
+            TransitioningContentSlide.OnApplyTemplate();
+            layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
+            layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
+            layoutMainDorm.Width = 1120;
+            layoutMainDorm.Height = 690;
+            layoutMainDorm.Children.Add(new ShowDorm(dorm,user));
         }
     }
 }

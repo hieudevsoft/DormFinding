@@ -132,6 +132,9 @@
     </ApplicationDefinition>
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
+    <Compile Include="UserController\LikedDorm.xaml.cs">
+      <DependentUpon>LikedDorm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserController\PostDorm.xaml.cs">
       <DependentUpon>PostDorm.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="UserController\LikedDorm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserController\PostDorm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
