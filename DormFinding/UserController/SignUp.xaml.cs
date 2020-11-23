@@ -85,7 +85,7 @@ namespace DormFinding
                     if(Mydatabase.InsertToTableUser(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), 0))
                     {
                         Mydatabase.InsertToTableUserProfile(tbEmailSignUp.Text.Trim());
-                        Helpers.MakeConfirmMessage(Window.GetWindow(this), "Register Successful~", "Notify");
+                        Helpers.MakeConfirmMessage(Window.GetWindow(this), "Registered Successfully~", "Notify");
                     }else
                     {
                         
@@ -104,7 +104,7 @@ namespace DormFinding
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmpass))
             {
-                Helpers.MakeErrorMessage(Window.GetWindow(this), "Please fill out the form", "Error");
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Please fill in the form", "Error");
                 return false;
             }
             else
@@ -112,7 +112,7 @@ namespace DormFinding
                 if (!password.Equals(confirmpass))
 
                 {
-                    Helpers.MakeErrorMessage(Window.GetWindow(this), "Password is not matcher with confirm password", "Error");
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), "Password is not matched with the confirmed password", "Error");
                     return false;
                 }
                 else
@@ -126,7 +126,7 @@ namespace DormFinding
                     {
                         if (cb.IsChecked == false)
                         {
-                            Helpers.MakeErrorMessage(Window.GetWindow(this), "Please agree the term", "Error");
+                            Helpers.MakeErrorMessage(Window.GetWindow(this), "Please agree with the term", "Error");
                             return false;
                         }
                     }

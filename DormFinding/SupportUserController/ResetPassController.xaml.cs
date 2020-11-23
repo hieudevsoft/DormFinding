@@ -24,5 +24,25 @@ namespace DormFinding
         {
             InitializeComponent();
         }
+
+        private void btnLoginR_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLoginR.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE46B"));
+
+        }
+
+        private void btnLoginR_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnLoginR.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
+        }
+        private void btnMinimizedWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void btnShutDown_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

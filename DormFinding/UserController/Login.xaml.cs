@@ -27,6 +27,7 @@
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void setUpLoginFacebook()

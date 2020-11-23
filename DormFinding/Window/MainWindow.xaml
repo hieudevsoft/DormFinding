@@ -33,12 +33,23 @@
                 <materialDesign:TransitionerSlide.BackwardWipe>
                     <materialDesign:CircleWipe />
                 </materialDesign:TransitionerSlide.BackwardWipe>
-                <materialDesign:TransitionerSlide.ForwardWipe>
-                    <materialDesign:SlideWipe Direction="Up" />
-                </materialDesign:TransitionerSlide.ForwardWipe>
-                <local:SignUp />
-            </materialDesign:TransitionerSlide>
-        </materialDesign:Transitioner>
+                    <materialDesign:TransitionerSlide.ForwardWipe>
+                        <materialDesign:SlideWipe Direction="Up" />
+                    </materialDesign:TransitionerSlide.ForwardWipe>
+                    <local:SignUp />
+                </materialDesign:TransitionerSlide>
+            
+                <materialDesign:TransitionerSlide>
+                    <materialDesign:TransitionerSlide.BackwardWipe>
+                        <materialDesign:CircleWipe />
+                    </materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:TransitionerSlide.ForwardWipe>
+                        <materialDesign:SlideWipe Direction="Up" />
+                    </materialDesign:TransitionerSlide.ForwardWipe>
+                    <local:ResetPassController />
+                </materialDesign:TransitionerSlide>
+            
+            </materialDesign:Transitioner>
     </Grid>
     </Border>
 </Window>

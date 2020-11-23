@@ -65,7 +65,7 @@
                         </Button.Content>
                     </Button>
 
-                    <TextBlock Text="or use email for register:"
+                    <TextBlock Text="or register with your email"
                                FontFamily="Helvetica Neue"
                                HorizontalAlignment="Center"
                                Foreground="Gray"
@@ -245,7 +245,7 @@
                                VerticalAlignment="Center"
                                FontSize="14"
                                FontFamily="Avenir LT Std 55 Roman" />
-                        <Label Content="login with your personal infor"
+                        <Label Content="login with your registered account"
                                Foreground="#F3FAFA"
                                Margin="20 0 0 0"
                                FontFamily="Avenir LT Std 55 Roman"

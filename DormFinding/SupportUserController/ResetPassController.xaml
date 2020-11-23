@@ -8,163 +8,323 @@
              xmlns:local="clr-namespace:DormFinding"
              xmlns:controls="using"
              mc:Ignorable="d"
-             d:DesignHeight="400"
-             d:DesignWidth="600">
-    
-    <Grid>
-        <Grid Margin="0,0,250,0"
-              Background="White">
+             d:DesignHeight="470"
+             d:DesignWidth="740">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="colorTextBox"
+                         Color="#F4F8F7" />
+        <SolidColorBrush x:Key="colorGreen"
+                         Color="#3AB19B" />
+    </UserControl.Resources>
+    <Border CornerRadius="1"
+            Background="White">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.61*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Vertical"
                         Background="White"
-                        Margin="20,30,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch">
-                <Label Content="Password Reset"
-                       FontFamily="Avenir LT Std 65 Medium"
-                       FontSize="30"
-                       HorizontalAlignment="Left"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Margin="0 30 0 0">
+                <Label Content="Reset password"
+                       HorizontalAlignment="Center"
+                       FontFamily="Arial Rounded MT Bold"
+                       FontSize="32"
+                       Foreground="{StaticResource colorGreen}"
                        VerticalAlignment="Top" />
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Margin="0,20,0,0">
 
-
-                </StackPanel>
                 <Canvas Width="auto"
-                        Height="130">
+                        Height="150">
                     <Grid Margin="120,50"
                           Panel.ZIndex="1"
-                          Visibility="Collapsed">
+                          Visibility="Collapsed"
+                          x:Name="icLoading">
                         <local:LoadingBar Margin="-88,-36,-142,-94" />
                     </Grid>
-                    <StackPanel Orientation="Vertical"
-                                Panel.ZIndex="0">
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Email"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <TextBox materialDesign:HintAssist.Hint="Enter Email"
-                                     Width="250"
-                                     FontSize="14"
-                                     Margin="10,0,0,0"
-                                     materialDesign:TextFieldAssist.UnderlineBrush="Yellow"
-                                     Background="Transparent"
-                                     SelectionBrush="#FFDBE342" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Key"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <PasswordBox materialDesign:HintAssist.Hint="Enter New Password"
-                                         Width="250"
-                                         FontSize="14"
-                                         Margin="10,0,0,0"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="Blue" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Key"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <PasswordBox materialDesign:HintAssist.Hint="Confirm New Password"
-                                         Width="250"
-                                         FontSize="14"
-                                         Margin="10,0,0,0"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="Red" />
+                    <WrapPanel Orientation="Vertical"
+                               HorizontalAlignment="Center"
+                               Panel.ZIndex="0">
+                        <WrapPanel Orientation="Vertical"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 20 0 0"
+                                   VerticalAlignment="Center">
+                            <Border CornerRadius="10"
+                                    Width="300"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Email"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <TextBox Grid.Column="1"
+                                             Height="40"
+                                             FontSize="13"
+                                             Text="{Binding Email, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
+                                             Name="tbEmailReset"
+                                             Padding="0 3.8 0 0"
+                                             FontFamily="Avenir LT Std 65 Medium"
+                                             materialDesign:HintAssist.Hint="Email"
+                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                             VerticalAlignment="Center"
+                                             TextAlignment="Left"
+                                             BorderThickness="0"
+                                             />
+                                </Grid>
+                            </Border>
+                            <Border CornerRadius="10"
+                                    Margin="0 15 0 0 "
+                                    Width="300"
+                                    Height="40"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Key"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <PasswordBox Grid.Column="1"
+                                                 FontSize="13"
+                                                 Padding="0 0 0 3.8"
+                                                 Height="40"
+                                                 x:Name="tbPasswordReset"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="New Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                                 VerticalAlignment="Center"
+                                                 BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                            <Border CornerRadius="10"
+                                    Margin="0 15 0 0 "
+                                    Width="300"
+                                    Height="40"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Key"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <PasswordBox Grid.Column="1"
+                                                 FontSize="13"
+                                                 Padding="0 0 0 3.8"
+                                                 Height="40"
+                                                 x:Name="tbConfirmPassReset"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="Confirm New Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                                 VerticalAlignment="Center"
+                                                 BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                        </WrapPanel>
+                        <StackPanel Margin="0,10,0,0">
+                            <Label Content="Answer the secret question?"
+                                   FontSize="13"
+                                   FontFamily="Avenir LT Std 65 Medium"
+                                   Foreground="{StaticResource colorGreen}" />
                         </StackPanel>
                         <StackPanel>
-
+                            <Label Content="What is your favorite food ?"
+                                   FontSize="13"
+                                   FontFamily="Avenir LT Std 65 Medium"
+                                   Foreground="Black" />
                         </StackPanel>
+                        <StackPanel Margin="0,8,0,0">
+                            <Border CornerRadius="10"
+                                    Width="300"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="QuestionMark"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <TextBox Grid.Column="1"
+                                             Height="40"
+                                             FontSize="13"
+                                             Padding="0 3.8 0 0"
+                                             FontFamily="Avenir LT Std 65 Medium"
+                                             x:Name="lbAnswerReset"
+                                             materialDesign:HintAssist.Hint="Your Answer"
+                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                             VerticalAlignment="Center"
+                                             TextAlignment="Left"
+                                             BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="0 20 0 0">
 
-                    </StackPanel>
+                            <Button Cursor="Hand"
+                                    Width="150"
+                                    Content="Reset"
+                                    Height="42"
+                                    x:Name="btnResetPass"
+                                    FontFamily="Avenir LT Std 55 Roman"
+                                    Background="{StaticResource colorGreen}"
+                                    Foreground="{StaticResource colorTextBox}"
+                                    BorderBrush="Black"
+                                    materialDesign:ButtonAssist.CornerRadius="18"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    materialDesign:ShadowAssist.ShadowEdges="All"
+                                    FontWeight="Bold"
+                                    BorderThickness="0"
+                                    FontSize="20"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </WrapPanel>
                 </Canvas>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Answer the secret question"
-                           FontFamily="Avenir LT Std 65 Medium"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
-                           Margin="30,0,0,10" />
-                    <ComboBox HorizontalAlignment="Left"
-                              Margin="34,0,0,10"
-                              Width="250
-                              ">
-                        <ComboBoxItem>Name of your elementary school</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True">Name of your favorite football club</ComboBoxItem>
-                        <ComboBoxItem>Name of your idol</ComboBoxItem>
-                    </ComboBox>
-                    <materialDesign:PackIcon Kind="QuestionAnswer"
-                                             Foreground="DarkGray"
-                                             Width="24"
-                                             Height="24"
-                                             Margin="5,5,0,0" />
-                    <TextBox VerticalAlignment="Top"
-                             materialDesign:HintAssist.Hint="Enter Your Answer"
-                             Width="250"
-                             FontSize="14"
-                             Margin="-9,-25,0,0"
-                             materialDesign:TextFieldAssist.UnderlineBrush="Yellow"
-                             Background="Transparent"
-                             SelectionBrush="#FFDBE342" />
-
-                    <Button Content="Change Password"
-                            Margin="40,20,50,0"
-                            materialDesign:ButtonAssist.CornerRadius="4"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                            materialDesign:ShadowAssist.ShadowEdges="All"
-                            FontWeight="Bold"
-                            Height="40"
-                            FontSize="18"
-                            Background="Black"
-                            FontFamily="Avenir LT Std 65 Medium"
-                            BorderThickness="0" />
-                </StackPanel>
-
-
             </StackPanel>
-
-
-        </Grid>
-        <Grid Width="250"
-              HorizontalAlignment="Right"
-              Background="Black">
-            <Image Source="/images/rcv.png"
-                   Stretch="UniformToFill" />
-            <Button Padding="5"
+            <Border Grid.Column="0"
+                    
+                    CornerRadius="1 0 0 1">
+                <Border.Background>
+                    <ImageBrush ImageSource="../images/back_ground_2.png"
+                                Stretch="UniformToFill" />
+                </Border.Background>
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                    <WrapPanel Orientation="Vertical">
+                        <Label Content="Be Careful"
+                               Foreground="White"
+                               FontSize="32"
+                               FontFamily="Arial Rounded MT Bold" 
+                               HorizontalAlignment="Center"/>
+                        <Label Content="Do not set your password"
+                               Foreground="#F3FAFA"
+                               Margin="15 15 0 0"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"
+                               FontFamily="Avenir LT Std 55 Roman" />
+                        <Label Content="in an easy-to-guess way"
+                               Foreground="#F3FAFA"
+                               Margin="20 0 0 0"
+                               FontFamily="Avenir LT Std 55 Roman"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14" />
+                        <Label Content="to avoid losing your account!"
+                               Foreground="#F3FAFA"
+                               Margin="20 0 0 0"
+                               FontFamily="Avenir LT Std 55 Roman"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14" />
+                        <Button Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"
+                                Margin="0 20 0 0"
+                                BorderThickness="1.2"
+                                VerticalAlignment="Center"
+                                x:Name="btnLoginR"
+                                Background="Transparent"
+                                PreviewMouseMove="btnLoginR_MouseMove"
+                                MouseLeave="btnLoginR_MouseLeave"
+                                Foreground="White"
+                                BorderBrush="White"
+                                Width="150"
+                                materialDesign:ButtonAssist.CornerRadius="16"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                Height="42"
+                                Cursor="Hand"
+                                HorizontalAlignment="Center"
+                                FontFamily="Avenir LT Std 55 Roman"
+                                Content="Sign In"
+                                FontStyle="Italic"
+                                FontSize="16" />
+                        
+                    </WrapPanel>
+                </Grid>
+            </Border>
+            <WrapPanel Orientation="Horizontal"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="20">
+                <fa:FontAwesome Icon="Home"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource colorTextBox}"
+                                FontSize="18" />
+                <Label Content="Dorm Finding"
+                       FontFamily="Avenir LT Std 65 Medium"
+                       Foreground="{StaticResource colorTextBox}"
+                       FontSize="12" />
+            </WrapPanel>
+            <Button Grid.ColumnSpan="2"
                     VerticalAlignment="Top"
-                    Margin="0,0,5,0"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    BorderThickness="0">
-                <materialDesign:PackIcon Width="25"
-                                         Height="25"
-                                         Kind="Shutdown"
-                                         Foreground="WhiteSmoke" />
+                    Background="Transparent"
+                    Padding="0"
+                    x:Name="btnShutDown"
+                    Click="btnShutDown_Click"
+                    Margin="0 0 5 0"
+                    BorderThickness="0"
+                    HorizontalAlignment="Right">
+                <fa:ImageAwesome Icon="Close"
+                                 Width="12"
+                                 Foreground="{StaticResource colorGreen}"
+                                 Height="12" />
             </Button>
-            <Button Margin="0,0,40,0"
-                    Padding="5"
+            <Button Grid.ColumnSpan="2"
                     VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    BorderThickness="0">
-                <materialDesign:PackIcon Width="25"
-                                         Height="25"
-                                         Kind="WindowMinimize"
-                                         Foreground="WhiteSmoke" />
+                    Background="Transparent"
+                    Padding="0"
+                    x:Name="btnMinimizedWindow"
+                    Click="btnMinimizedWindow_Click"
+                    Margin="0 0 30 0"
+                    BorderThickness="0"
+                    HorizontalAlignment="Right">
+                <fa:ImageAwesome Icon="WindowMinimize"
+                                 Width="12"
+                                 Foreground="{StaticResource colorGreen}"
+                                 Height="12" />
             </Button>
-
         </Grid>
-    </Grid>
-</UserControl>               
+
+    </Border>
+</UserControl> 
