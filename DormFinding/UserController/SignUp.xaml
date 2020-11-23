@@ -8,172 +8,288 @@
              xmlns:local="clr-namespace:DormFinding"
              xmlns:controls="using"
              mc:Ignorable="d"
-             d:DesignHeight="400"
-             d:DesignWidth="600">
-    <Grid>
-        
-        <Grid Margin="0,0,250,0"
-              Background="White">
+             d:DesignHeight="470"
+             d:DesignWidth="740">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="colorTextBox"
+                         Color="#F4F8F7" />
+        <SolidColorBrush x:Key="colorGreen"
+                         Color="#3AB19B" />
+    </UserControl.Resources>
+    <Border CornerRadius="1"
+            Background="White">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.61*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Vertical"
                         Background="White"
-                        Margin="20,30,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch">
-                <Label Content="Sign Up"
-                       FontFamily="Avenir LT Std 65 Medium"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Margin="0 30 0 0"
+                        >
+                <Label Content="Create Account"
+                       HorizontalAlignment="Center"
+                       FontFamily="Arial Rounded MT Bold"
                        FontSize="32"
-                       HorizontalAlignment="Left"
+                       Foreground="{StaticResource colorGreen}"
                        VerticalAlignment="Top" />
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Margin="0,10,0,0">
-
-                    <Label Content="Already have an account?"
-
-                           FontFamily="Avenir LT Std 65 Medium"
-                           FontSize="12"
-                           FontStyle="Italic" />
+                <WrapPanel Orientation="Vertical"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Center">
                     <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+                            Margin="0,20,0,0"
+                            Padding="0"
+                            Width="35"
+                            Height="35"
+                            Cursor="Hand"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderBrush="Black">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse Fill="White"
+                                             StrokeThickness="1"
+                                             Stroke="Gray" />
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.Content>
+                            <fa:FontAwesome Icon="Facebook"
+                                            Foreground="Black" />
+                        </Button.Content>
+                    </Button>
 
-                            Content="Login"
+                    <TextBlock Text="or use email for register:"
+                               FontFamily="Helvetica Neue"
+                               HorizontalAlignment="Center"
+                               Foreground="Gray"
+                               Margin="0 25 0 0"
+                               FontSize="12"
+                               TextWrapping="Wrap" />
 
-                            x:Name="btnLoginR"
-                            MouseMove="btnLoginR_MouseMove"
-                            MouseLeave="btnLoginR_MouseLeave"
-                            FontFamily="Avenir LT Std 65 Medium"
-                            FontStyle="Italic"
-                            FontSize="16"
-                            Foreground="Blue"
-                            Background="{x:Null}"
-                            BorderThickness="0"
-                            Margin="-13,-5,0,0" Click="btnLoginR_Click" />
-                </StackPanel>
-                <Canvas Width="auto" Height="150">
+                </WrapPanel>
+                <Canvas Width="auto"
+                        Height="150">
                     <Grid Margin="120,50"
                           Panel.ZIndex="1"
                           Visibility="Collapsed"
                           x:Name="icLoading">
-                        <local:LoadingBar 
-                                          Margin="-88,-36,-142,-94" />
+                        <local:LoadingBar Margin="-88,-36,-142,-94" />
                     </Grid>
-                    <StackPanel Orientation="Vertical" Panel.ZIndex="0">
-
-                        <Label Content="Create an account"
-
-                               FontFamily="Avenir LT Std 65 Medium"
-                               FontSize="16" />
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Email"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <TextBox Text="{Binding Email, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
-                                     Validation.ErrorTemplate="{StaticResource errorTemplate}"
-                                     materialDesign:HintAssist.Hint="Email"
-                                     Width="250"
-                                     Name="tbEmailSignUp"
-                                     FontSize="14"
-                                     Margin="10,0,0,0"
-                                     materialDesign:TextFieldAssist.UnderlineBrush="Yellow"
-                                     Background="Transparent"
-                                     SelectionBrush="#FFDBE342" />
+                    <WrapPanel Orientation="Vertical"
+                               HorizontalAlignment="Center"
+                               Panel.ZIndex="0">
+                        <WrapPanel Orientation="Vertical"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 20 0 0"
+                                   VerticalAlignment="Center">
+                            <Border CornerRadius="10"
+                                    Width="300"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Email"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <TextBox Grid.Column="1"
+                                             Height="40"
+                                             FontSize="13"
+                                             Text="{Binding Email, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
+                                             Name="tbEmailSignUp"
+                                             Padding="0 3.8 0 0"
+                                             FontFamily="Avenir LT Std 65 Medium"
+                                             materialDesign:HintAssist.Hint="Email"
+                                             materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                             VerticalAlignment="Center"
+                                             TextAlignment="Left"
+                                             BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                            <Border CornerRadius="10"
+                                    Margin="0 15 0 0 "
+                                    Width="300"
+                                    Height="40"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Key"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <PasswordBox Grid.Column="1"
+                                                 FontSize="13"
+                                                 Padding="0 0 0 3.8"
+                                                 Height="40"
+                                                 x:Name="tbPasswordSignUp"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                                 VerticalAlignment="Center"
+                                                 BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                            <Border CornerRadius="10"
+                                    Margin="0 15 0 0 "
+                                    Width="300"
+                                    Height="40"
+                                    Background="#F4F8F7">
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                    </Grid.ColumnDefinitions>
+                                    <materialDesign:PackIcon Kind="Key"
+                                                             Width="20"
+                                                             Height="20"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="Gray" />
+                                    <PasswordBox Grid.Column="1"
+                                                 FontSize="13"
+                                                 Padding="0 0 0 3.8"
+                                                 Height="40"
+                                                 x:Name="tbConfirmPassSignUp"
+                                                 FontFamily="Avenir LT Std 65 Medium"
+                                                 materialDesign:HintAssist.Hint="Confirm Password"
+                                                 materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.RippleOnFocusEnabled="True"
+                                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                                 VerticalAlignment="Center"
+                                                 BorderThickness="0" />
+                                </Grid>
+                            </Border>
+                        </WrapPanel>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="0 20 0 0">
+                            <CheckBox x:Name="cbAgreeTerm"
+                                      FontFamily="Avenir LT Std 65 Medium"
+                                      FontSize="10.5"
+                                      Content="I have read and agreed to the terms &amp; conditions"
+                                      Foreground="{StaticResource MaterialDesignBody}"
+                                      Margin="10,10,10.4,10"
+                                      Background="{StaticResource colorGreen}" />
+                            <Button Cursor="Hand"
+                                    Width="150"
+                                    Content="Sign Up"
+                                    Height="42"
+                                    FontFamily="Avenir LT Std 55 Roman"
+                                    Background="{StaticResource colorGreen}"
+                                    Foreground="{StaticResource colorTextBox}"
+                                    Click="btnSignUp_Click"
+                                    x:Name="btnSignUp"
+                                    MouseMove="btnSignUp_MouseMove"
+                                    MouseLeave="btnSignUp_MouseLeave"
+                                    BorderBrush="Black"
+                                    materialDesign:ButtonAssist.CornerRadius="18"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    materialDesign:ShadowAssist.ShadowEdges="All"
+                                    FontWeight="Bold"
+                                    BorderThickness="0"
+                                    FontSize="20"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" />
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Key"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <PasswordBox materialDesign:HintAssist.Hint="Password"
-                                         Width="250"
-                                         FontSize="14"
-                                         x:Name="tbPasswordSignUp"
-                                         Margin="10,0,0,0"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="Blue" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="5,10,0,0">
-                            <materialDesign:PackIcon Kind="Key"
-                                                     Foreground="DarkGray"
-                                                     Width="24"
-                                                     Height="24"
-                                                     Margin="0,5,0,0" />
-                            <PasswordBox materialDesign:HintAssist.Hint="Confirm Password"
-                                         Width="250"
-                                         FontSize="14"
-                                         x:Name="tbConfirmPassSignUp"
-                                         Margin="10,0,0,0"
-                                         materialDesign:TextFieldAssist.UnderlineBrush="Red" />
-                        </StackPanel>
-
-                    </StackPanel>
+                    </WrapPanel>
                 </Canvas>
-                <StackPanel Orientation="Vertical">
-                    <CheckBox x:Name="cbAgreeTerm"
-                               FontFamily="Avenir LT Std 65 Medium"
-                              FontSize="10.5"
-                              Content="I have read and agreed to the terms &amp; conditions"
-                              Margin="10,10,10.4,10"
-                              Background="Green" />
-                    <Button Content="Sign Up"
-                            Margin="40,6,50,0"
-                            materialDesign:ButtonAssist.CornerRadius="4"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                            materialDesign:ShadowAssist.ShadowEdges="All"
-                            FontWeight="Bold"
-                            Height="35"
-                            Click="btnSignUp_Click"
-                            x:Name="btnSignUp"
-                            MouseMove="btnSignUp_MouseMove"
-                            MouseLeave="btnSignUp_MouseLeave"
-                            FontSize="18"
-                            FontFamily="Avenir LT Std 65 Medium"
-                            Background="Black"
-                            BorderThickness="0" />
-                </StackPanel>
+               
 
 
             </StackPanel>
 
-
+            <Border Grid.Column="0"
+                    x:Name="layoutMainLogin"
+                    CornerRadius="1 0 0 1">
+                <Border.Background>
+                    <ImageBrush ImageSource="../images/back_ground_2.png"
+                                Stretch="UniformToFill" />
+                </Border.Background>
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+                    <WrapPanel Orientation="Vertical">
+                        <Label Content="Welcome Back !"
+                               Foreground="White"
+                               FontSize="32"
+                               FontFamily="Arial Rounded MT Bold" />
+                        <Label Content="To keep connected with us please"
+                               Foreground="#F3FAFA"
+                               Margin="15 15 0 0"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14"
+                               FontFamily="Avenir LT Std 55 Roman" />
+                        <Label Content="login with your personal infor"
+                               Foreground="#F3FAFA"
+                               Margin="20 0 0 0"
+                               FontFamily="Avenir LT Std 55 Roman"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="14" />
+                        <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+                                Margin="0 20 0 0"
+                                Click="btnLoginR_Click"
+                                BorderThickness="1.2"
+                                VerticalAlignment="Center"
+                                x:Name="btnLoginR"
+                                Background="Transparent"
+                                PreviewMouseMove="btnLoginR_MouseMove"
+                                MouseLeave="btnLoginR_MouseLeave"
+                                Foreground="White"
+                                BorderBrush="White"
+                                Width="150"
+                                materialDesign:ButtonAssist.CornerRadius="16"
+                                materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                Height="42"
+                                Cursor="Hand"
+                                HorizontalAlignment="Center"
+                                FontFamily="Avenir LT Std 55 Roman"
+                                Content="Sign In"
+                                FontStyle="Italic"
+                                FontSize="16" />
+                    </WrapPanel>
+                </Grid>
+            </Border>
+            <WrapPanel Orientation="Horizontal"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="20">
+                <fa:FontAwesome Icon="Home"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource colorTextBox}"
+                                FontSize="18" />
+                <Label Content="Dorm Finding"
+                       FontFamily="Avenir LT Std 65 Medium"
+                       Foreground="{StaticResource colorTextBox}"
+                       FontSize="12" />
+            </WrapPanel>
         </Grid>
-        <Grid Width="250"
-              HorizontalAlignment="Right"
-              Background="Black">
-            <Image Source="../images/dorm2.jpg"
-                   Stretch="UniformToFill" />
-            <Button x:Name="btnShutDown"
-                    Padding="5"
-                    VerticalAlignment="Top"
-                    Margin="0,0,5,0"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    BorderThickness="0"
-                    Click="btnShutDown_Click">
-                <materialDesign:PackIcon Width="25"
-                                         Height="25"
-                                         Kind="Shutdown"
-                                         Foreground="WhiteSmoke" />
-            </Button>
-            <Button Margin="0,0,40,0"
-                    Padding="5"
-                    x:Name="btnMinimizedWindow"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    BorderThickness="0"
-                    Click="btnMinimizedWindow_Click">
-                <materialDesign:PackIcon Width="25"
-                                         Height="25"
-                                         Kind="WindowMinimize"
-                                         Foreground="WhiteSmoke" />
-            </Button>
-
-        </Grid>
-    </Grid>
+    </Border>
 </UserControl>               

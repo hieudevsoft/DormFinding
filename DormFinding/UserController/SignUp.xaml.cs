@@ -46,23 +46,24 @@ namespace DormFinding
 
         private void btnLoginR_MouseMove(object sender, MouseEventArgs e)
         {
-            btnLoginR.Foreground = new SolidColorBrush(Colors.Black);
+            btnLoginR.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE46B"));
+            
         }
 
         private void btnLoginR_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnLoginR.Foreground = new SolidColorBrush(Colors.Blue);
+            btnLoginR.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
         }
         private void btnSignUp_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnSignUp.Foreground = new SolidColorBrush(Colors.White);
-            btnSignUp.Background = new SolidColorBrush(Colors.Black);
+            btnSignUp.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3AB19B"));
+            btnSignUp.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
         }
 
         private void btnSignUp_MouseMove(object sender, MouseEventArgs e)
         {
-            btnSignUp.Foreground = new SolidColorBrush(Colors.Black);
-            btnSignUp.Background = new SolidColorBrush(Colors.White);
+            btnSignUp.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3AB19B"));
+            btnSignUp.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
         }
 
         private void btnSignUp_Click(object sender, RoutedEventArgs e)

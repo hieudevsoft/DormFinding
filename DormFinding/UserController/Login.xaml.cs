@@ -41,12 +41,12 @@
 
         private void btnCreateAccount_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            btnCreateAccount.Foreground = new SolidColorBrush(Colors.Black);
+            btnCreateAccount.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE46B"));
         }
 
         private void btnCreateAccount_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            btnCreateAccount.Foreground = new SolidColorBrush(Colors.Blue);
+            btnCreateAccount.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
         }
 
         private void tbForgetPass_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -59,20 +59,20 @@
             tbForgetPass.Foreground = new SolidColorBrush(Colors.DodgerBlue);
         }
 
+
         private void btnLogin_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnLogin.Foreground = new SolidColorBrush(Colors.White);
-            btnLogin.Background = new SolidColorBrush(Colors.Black);
+            btnLogin.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3AB19B"));
+            btnLogin.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
+            
 
            
         }
 
         private void btnLogin_MouseMove(object sender, MouseEventArgs e)
         {
-            btnLogin.Foreground = new SolidColorBrush(Colors.Black);
-            btnLogin.Background = new SolidColorBrush(Colors.White);
-
-           
+            btnLogin.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3AB19B"));
+            btnLogin.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F4F8F7"));
         }
 
         private void btnMinimizedWindow_Click(object sender, RoutedEventArgs e)
@@ -104,28 +104,29 @@
 
         private void btnFaceBook_Click(object sender, RoutedEventArgs e)
         {
-            wbBrowser.Visibility = Visibility.Visible;
-            layoutImageLogin.Visibility = Visibility.Collapsed;
+            lyWB.Visibility = Visibility.Visible;
             layoutLogin.Visibility = Visibility.Collapsed;
             btnBackLogin.Visibility = Visibility.Visible;
-
+            layoutMainLogin.Visibility = Visibility.Collapsed;
             setUpLoginFacebook();
             wbBrowser.Navigate(_accessUri);
         }
 
         private void btnBackLogin_Click(object sender, RoutedEventArgs e)
         {
-            wbBrowser.Visibility = Visibility.Collapsed;
+            lyWB.Visibility = Visibility.Collapsed;
             btnBackLogin.Visibility = Visibility.Collapsed;
+            layoutLogin.Visibility = Visibility.Visible;
+            layoutMainLogin.Visibility = Visibility.Visible;
             try
             {
                 wbBrowser.GoBack();
-                layoutImageLogin.Visibility = Visibility.Visible;
+          
                 layoutLogin.Visibility = Visibility.Visible;
             }
             catch (Exception xe)
             {
-                layoutImageLogin.Visibility = Visibility.Visible;
+               
                 layoutLogin.Visibility = Visibility.Visible;
             }
         }
@@ -144,14 +145,6 @@
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Comming soon...");
-        }
-
-        private void tbEmail_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
