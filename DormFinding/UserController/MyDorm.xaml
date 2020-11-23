@@ -37,6 +37,8 @@
                             VerticalAlignment="Center">
                         <Button Background="Transparent"
                                 Padding="0"
+                                x:Name="btnNotify"
+                                Click="btnNotify_Click"
                                 BorderThickness="0">
                             <Button.Content>
                                 <fa:FontAwesome Icon="Bell"
@@ -44,7 +46,10 @@
                                                 FontSize="20" />
                             </Button.Content>
                         </Button>
-                        <Ellipse Width="10" Height="10" Canvas.Left="1" Canvas.Top="4">
+                        <Ellipse Width="10" Height="10" Canvas.Left="1" Canvas.Top="4"
+                                 x:Name="notifyMyDorm"
+                                 Visibility="Collapsed"
+                                 >
                             <Ellipse.Fill>
                                 <SolidColorBrush Color="#E34853" />
                             </Ellipse.Fill>

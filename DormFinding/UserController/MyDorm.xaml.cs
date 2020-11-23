@@ -1,17 +1,7 @@
-﻿using System;
+﻿using DormFinding.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DormFinding
 {
@@ -20,9 +10,31 @@ namespace DormFinding
     /// </summary>
     public partial class MyDorm : UserControl
     {
-        public MyDorm()
+        private List<BookDorm> list;
+        private User owner;
+        public MyDorm(User user)
         {
             InitializeComponent();
+            owner = user;
+            initState();
+        }
+
+        private void initState()
+        {
+            list = Mydatabase.getAllWattingBookDorm(owner.Email);
+            if (list.Count != 0)
+            {
+                notifyMyDorm.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                notifyMyDorm.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        private void btnNotify_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBox.Show(list.Count.ToString());
         }
     }
 }

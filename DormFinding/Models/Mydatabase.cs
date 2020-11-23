@@ -17,10 +17,6 @@ namespace DormFinding.Models
         public static SqlCommand cmd = new SqlCommand("", con);
         public static SqlDataReader rd;
 
-        
-
-
-
 
         public static void OpenConnection()
         {
@@ -867,6 +863,48 @@ namespace DormFinding.Models
                 CloseConnection();
             }
             return dorm;
+        }
+
+        public static List<BookDorm> getAllWattingBookDorm(string email)
+        {
+            List<BookDorm> list = new List<BookDorm>();
+            String sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@State", 1);
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    BookDorm dorm = new BookDorm();
+                    dorm.EmailOwner = rd.GetString(0);
+                    dorm.EmailUser = rd.GetString(1);
+                    dorm.IdDorm = rd.GetInt32(2);
+                    dorm.StateDorm = rd.GetInt16(3);
+                    dorm.CommentDorm = rd.GetString(4);
+                    dorm.RatingDorm = rd.GetInt16(5);
+                    list.Add(dorm);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error get All List Owner Book Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return list;
         }
     }
 }

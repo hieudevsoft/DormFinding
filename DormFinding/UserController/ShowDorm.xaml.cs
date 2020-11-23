@@ -352,11 +352,19 @@ namespace DormFinding
                 {
                     spinnerBook.Visibility = Visibility.Collapsed;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
+                    btnBooked.IsEnabled = true;
                 }
                 else if (bookDorm.StateDorm == 1)
                 {
                     spinnerBook.Visibility = Visibility.Visible;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
+                    btnBooked.IsEnabled = true;
+                }
+                else
+                {
+                    spinnerBook.Visibility = Visibility.Collapsed;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
+                    btnBooked.IsEnabled = false;
                 }
                 lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
             }
@@ -383,6 +391,7 @@ namespace DormFinding
                 if (bookDorm.StateDorm == 0)
                 {
                     spinnerBook.Visibility = Visibility.Visible;
+                    btnBooked.IsEnabled = true;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
                     bookDorm.StateDorm = 1;
                     Mydatabase.updateBookDorm(bookDorm);
@@ -390,9 +399,16 @@ namespace DormFinding
                 else if(bookDorm.StateDorm == 1)
                 {
                     spinnerBook.Visibility = Visibility.Collapsed;
+                    btnBooked.IsEnabled = true;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
                     bookDorm.StateDorm = 0;
                     Mydatabase.updateBookDorm(bookDorm);
+                }
+                else
+                {
+                    spinnerBook.Visibility = Visibility.Collapsed;
+                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
+                    btnBooked.IsEnabled = false;
                 }
                 lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
             }

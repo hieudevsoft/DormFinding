@@ -160,7 +160,7 @@ namespace DormFinding
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
                     MainHomeLayout.Height = 690;
-                    MainHomeLayout.Children.Add(new MyDorm());
+                    MainHomeLayout.Children.Add(new MyDorm(user));
                     break;
                 case 3:
                     TransitioningContentSlideAdd.OnApplyTemplate();
