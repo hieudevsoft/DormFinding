@@ -8,17 +8,20 @@
         mc:Ignorable="d"
         Title="Login"
         Icon="../images/icon_app.ico"
-        Height="400"
-        Width="600"      
+        Height="470"
+        Width="740"      
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
-        Background="#00000000"
+        Background="Transparent"
+        Topmost="True"
         MouseDown="Window_MouseDown">
     <Window.DataContext>
         <local:ValidationEmail />
     </Window.DataContext>
+    <Border CornerRadius="1"
+            Background="#3AA7AE">
     <Grid Cursor="Arrow">
         <materialDesign:Transitioner SelectedIndex="0"
                                      AutoApplyTransitionOrigins="True">
@@ -37,4 +40,5 @@
             </materialDesign:TransitionerSlide>
         </materialDesign:Transitioner>
     </Grid>
+    </Border>
 </Window>

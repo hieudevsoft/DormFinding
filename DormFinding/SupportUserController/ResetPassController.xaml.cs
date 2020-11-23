@@ -24,5 +24,15 @@ namespace DormFinding
         {
             InitializeComponent();
         }
+
+        private void tbEmailSignUp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
