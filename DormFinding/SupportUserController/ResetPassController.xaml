@@ -202,6 +202,7 @@
                             <Button Cursor="Hand"
                                     Width="150"
                                     Content="Reset"
+                                    Click="btnResetPass_Click"
                                     Height="42"
                                     x:Name="btnResetPass"
                                     FontFamily="Avenir LT Std 55 Roman"

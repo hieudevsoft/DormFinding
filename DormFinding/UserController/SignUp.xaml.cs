@@ -88,7 +88,7 @@ namespace DormFinding
                         Helpers.MakeConfirmMessage(Window.GetWindow(this), "Registered Successfully~", "Notify");
                     }else
                     {
-                        
+                        Helpers.MakeErrorMessage(Window.GetWindow(this), "Error", "Email is already exits");
                     }
                                     
                 }
