@@ -32,7 +32,7 @@
             User user = Mydatabase.CheckAccountAreadyInApp();
             if (user != null)
             {
-                MainControl m = new MainControl(user);
+                MainControl m = new MainControl(user,"");
                 m.Show();
                 Window.GetWindow(this).Hide();
             }

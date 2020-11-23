@@ -27,7 +27,7 @@
         public Login()
         {
             InitializeComponent();
-            
+            AccessToken = "";
         }
 
         private void setUpLoginFacebook()
@@ -93,13 +93,13 @@
             if (Mydatabase.CheckAccount(user.Email, user.Password)){
                 
                 Mydatabase.Update(user,user.Email);
-                MainControl m = new MainControl(user);
+                MainControl m = new MainControl(user,AccessToken);
                 Window.GetWindow(this).Hide();
                 m.Show();
             }
             else
             {
-                Helpers.MakeErrorMessage(Window.GetWindow(this), "Eror join app", "Error");
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Error join app", "Error");
             }
         }
 
@@ -139,7 +139,22 @@
 
                 AccessToken = e.Uri.Fragment.Split('&')[0].Replace("#access_token=", "");
                 facebookClient = new FacebookClient(AccessToken);
-                MainControl m = new MainControl(facebookClient);
+                dynamic me = facebookClient.Get("Me");
+                MessageBox.Show($"Đăng nhập Facebook thành công {me.name}");
+                Uri  uriPhoto = new Uri("https://graph.facebook.com/" + me.id.ToString() + "/picture/");
+                User user = new User();
+                user.Email = $"{me.id.ToString()}@facebook.com";
+                user.Password = "dormfinding";
+                user.isRemember = 0;
+                if (Mydatabase.InsertToTableUser(user.Email,user.Password,user.isRemember))
+                {
+                    Mydatabase.InsertToTableUserProfileFaceBook(user.Email,me.name.ToString(),Helpers.ConvertImageToBinary(new System.Windows.Media.Imaging.BitmapImage(uriPhoto)));
+                }
+                else
+                {
+                    
+                }
+                MainControl m = new MainControl(user,AccessToken);
                 m.Show();
                 Window.GetWindow(this).Hide();
 

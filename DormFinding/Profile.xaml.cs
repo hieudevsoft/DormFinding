@@ -19,7 +19,6 @@ namespace DormFinding
     public partial class Profile : UserControl
     {
         private User user;
-        private FacebookClient fbc;
         private UserProfile userProfile;
         private string fileImage;
 
@@ -34,12 +33,10 @@ namespace DormFinding
         public static readonly DependencyProperty myDateProperty =
             DependencyProperty.Register("myDate", typeof(DateTime), typeof(Profile));
 
-        public Profile(User user, FacebookClient fbc)
+        public Profile(User user)
         {
             InitializeComponent();
-
             this.user = user;
-            this.fbc = fbc;
             this.DataContext = this;
             this.Resources["colorBackGroundMode"] = new SolidColorBrush(Colors.White);
             TransitioningContentSlide1.OnApplyTemplate();

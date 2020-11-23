@@ -27,36 +27,22 @@ namespace DormFinding
     {
         private Uri uriPhoto;
         private BitmapImage imageAvatar;
-        private FacebookClient _Fbc;
         private User user;
+        private string token;
         private string id { get; set; }
-        public MainControl(FacebookClient fbC)
+        
+        public MainControl(User user,string token)
         {
             InitializeComponent();
-            
-            try
-            {
-                this._Fbc = fbC;
-                dynamic me = fbC.Get("Me");
-                MessageBox.Show("Đăng nhập Facebook thành công");
-                uriPhoto = new Uri("https://graph.facebook.com/" + me.id.ToString() + "/picture/");
-                imageAvatar = new BitmapImage(uriPhoto);
-            }
-            catch(Exception e)
-            {
-
-            }
-        }
-        public MainControl(User user)
-        {
-            InitializeComponent();
+            this.token = token;
             this.user = user;
            
 
         }
         private string getLogoutUri()
         {
-            var _logoutUri = _Fbc.GetLogoutUrl(new { access_token = _Fbc.AccessToken, next = "https://www.facebook.com/connect" });
+            FacebookClient client = new FacebookClient();
+            var _logoutUri = client.GetLogoutUrl(new { access_token = token, next = "https://www.facebook.com/" });
             return _logoutUri.ToString();
         }
 
@@ -176,7 +162,7 @@ namespace DormFinding
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                    MainHomeLayout.Children.Add(new Profile(user,_Fbc));
+                    MainHomeLayout.Children.Add(new Profile(user));
                     break;
             }
         }
