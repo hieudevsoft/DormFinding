@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,8 +28,9 @@ namespace DormFinding
     {
         private Uri uriPhoto;
         private BitmapImage imageAvatar;
-        private User user;
+        public User user;
         private string token;
+        int check = 0;
         private string id { get; set; }
         
         public MainControl(User user,string token)
@@ -39,11 +41,11 @@ namespace DormFinding
            
 
         }
-        private string getLogoutUri()
+        private Uri getLogoutUri()
         {
             FacebookClient client = new FacebookClient();
-            var _logoutUri = client.GetLogoutUrl(new { access_token = token, next = "https://www.facebook.com/" });
-            return _logoutUri.ToString();
+            var _logoutUri = client.GetLogoutUrl(new { access_token = token, next = "https://www.facebook.com/logout.php?" });
+            return _logoutUri;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -95,24 +97,39 @@ namespace DormFinding
             btnOpenMenu.Visibility = Visibility.Collapsed;
             btnCloseMenu.Visibility = Visibility.Visible;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            wbLogout.Visibility = Visibility.Visible;
-            Debug.Print(getLogoutUri());
-            wbLogout.Navigate(new Uri(getLogoutUri(),UriKind.Absolute));
-            MainWindow lg = new MainWindow();
-            lg.Show();
-        }
-
+     
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
             if (user != null)
             {
-                user.isRemember = 0;
-                Mydatabase.Update(user, user.Email);
-                MainWindow m = new MainWindow();
-                m.Show();
-                this.Hide();
+                if(user.Email.Contains("@facebook.com"))
+                {
+
+
+
+                    FacebookClient fb = new FacebookClient();
+                    Uri logoutUrl = fb.GetLogoutUrl(new
+                    {
+                        access_token = token,
+                        next = "https://www.facebook.com/connect/login_sucess.html"
+                    });
+
+                    wbLogout.Visibility = Visibility.Visible;
+                    wbLogout.Navigate(logoutUrl.AbsoluteUri);
+
+                    token = null;
+
+                    
+                }
+                else
+                {
+                    user.isRemember = 0;
+                    Mydatabase.Update(user, user.Email);
+                    MainWindow m = new MainWindow();
+                    m.Show();
+                    this.Hide();
+                } 
+               
             }
         }
 
@@ -124,6 +141,7 @@ namespace DormFinding
             switch (index)
             {
                 case 0:
+                    wbLogout.Visibility = Visibility.Collapsed;
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
@@ -131,6 +149,7 @@ namespace DormFinding
                     MainHomeLayout.Children.Add(new HomeControl(user));
                     break;
                 case 1:
+                    wbLogout.Visibility = Visibility.Collapsed;
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
@@ -140,6 +159,7 @@ namespace DormFinding
                     MainHomeLayout.Children.Add(new LikedDorm(Mydatabase.getAllListDormOwnerLike(user.Email), user));
                     break;
                 case 2:
+                    wbLogout.Visibility = Visibility.Collapsed;
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
@@ -149,15 +169,17 @@ namespace DormFinding
                     MainHomeLayout.Children.Add(new MyDorm(user));
                     break;
                 case 3:
+                    wbLogout.Visibility = Visibility.Collapsed;
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
                     MainHomeLayout.Height = 690;
-                    MainHomeLayout.Children.Add(new PostDorm(user));
+                    MainHomeLayout.Children.Add(new PostDorm(user,null));
                     break;
                 case 4:
+                    wbLogout.Visibility = Visibility.Collapsed;
                     TransitioningContentSlideAdd.OnApplyTemplate();
                     MainHomeLayout.Children.Clear();
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
@@ -181,6 +203,20 @@ namespace DormFinding
             }
                 
 
+        }
+
+        private void wbLogout_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            
+            if (!e.Uri.ToString().StartsWith("https://www.facebook.com/connect/login_success.html"))
+            {
+                MessageBox.Show(check+"");
+                if (check == 2) { 
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Hide();
+                }
+            }
         }
     }
 }

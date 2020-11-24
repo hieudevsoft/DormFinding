@@ -170,14 +170,37 @@ namespace DormFinding
             DependencyProperty.Register("WaterHeaterDorm", typeof(bool), typeof(PostDorm), new PropertyMetadata(false));
 
         private string filePathImage;
-
-        public PostDorm(User user)
+        private Dorm dormSend;
+        private bool check = false;
+        public PostDorm(User user, Dorm id)
         {
             InitializeComponent();
             this.user = user;
+            this.dormSend = id;
+            initDorm();
             TransitioningContentSlideAdd.OnApplyTemplate();
         }
-
+        private void initDorm()
+        {
+            if (dormSend != null)
+            {
+                OwnerDorm = dormSend.Owner;
+                AddressDorm = dormSend.Address;
+                PriceDorm = dormSend.Price;
+                AreaDorm = dormSend.Size;
+                SaleDorm = dormSend.Sale;
+                DesDorm = dormSend.Description;
+                ImageDorm = dormSend.Image;
+                WifiDorm = Helpers.ConvertVisibilityToBool(dormSend.IsWifi);
+                ParkingDorm = Helpers.ConvertVisibilityToBool(dormSend.IsParking);
+                TelevisionDorm = Helpers.ConvertVisibilityToBool(dormSend.IsTelevision);
+                BathDorm = Helpers.ConvertVisibilityToBool(dormSend.IsBathroom);
+                AirConDorm = Helpers.ConvertVisibilityToBool(dormSend.IsAirCondiditioner);
+                WaterHeaterDorm = Helpers.ConvertVisibilityToBool(dormSend.IsWaterHeater);
+                btnBack.Visibility = Visibility.Visible;
+                check = true;
+            }
+        }
         private void tbPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("^[0-9]+");
@@ -224,16 +247,37 @@ namespace DormFinding
             dorm.Description = DesDorm;
             dorm.Image = Helpers.ConvertImageToBinary(ImageDorm);
             dorm.IsWifi = Helpers.ConverBoolToByte(WifiDorm);
+            dorm.IsParking = Helpers.ConverBoolToByte(ParkingDorm);
             dorm.IsTelevision = Helpers.ConverBoolToByte(TelevisionDorm);
             dorm.IsBathroom = Helpers.ConverBoolToByte(BathDorm);
             dorm.IsAirCondiditioner = Helpers.ConverBoolToByte(AirConDorm);
             dorm.IsWaterHeater = Helpers.ConverBoolToByte(WaterHeaterDorm);
-
-            if (Mydatabase.InsertDorm(dorm))
+            if (!check)
             {
-                Helpers.MakeConfirmMessage(Window.GetWindow(this), "Post Dorm Successfully~", "Notify");
-                Mydatabase.InsertToTableOwnerDorm(user.Email, Mydatabase.getAllListDorm()[Mydatabase.getAllListDorm().Count-1].Id);
+
+                if (Mydatabase.InsertDorm(dorm))
+                {
+                    Helpers.MakeConfirmMessage(Window.GetWindow(this), "Post Dorm Successfully~", "Notify");
+                    Mydatabase.InsertToTableOwnerDorm(user.Email, Mydatabase.getAllListDorm()[Mydatabase.getAllListDorm().Count - 1].Id);
+                }
             }
+            else
+            {
+               
+                if(Mydatabase.updateDorm(dorm,dormSend.Id)) Helpers.MakeConfirmMessage(Window.GetWindow(this), "Update Dorm Successfully~", "Notify");
+                else Helpers.MakeErrorMessage(Window.GetWindow(this), "Failure update Dorm", "Error");
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainControl mainControl = (MainControl)Window.GetWindow(this);
+            mainControl.MainHomeLayout.Children.Clear();
+            mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+            mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+            mainControl.MainHomeLayout.Width = 1150;
+            mainControl.MainHomeLayout.Height = 690;
+            mainControl.MainHomeLayout.Children.Add(new MyDorm(user));
         }
     }
 }

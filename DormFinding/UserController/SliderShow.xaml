@@ -22,7 +22,7 @@
             <Image Source="../images/icon_arrow_back.png" />
         </Button>
 
-        <Border CornerRadius="0"
+        <Border CornerRadius="20"
                 x:Name="borderImageSlider"
                 Width="1150"
                 Height="auto"

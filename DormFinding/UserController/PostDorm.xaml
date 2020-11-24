@@ -21,6 +21,23 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Button Width="auto"
+                        Height="auto"
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        BorderThickness="0"
+                        Padding="8"
+                        Margin="8"
+                        Visibility="Collapsed"
+                        Panel.ZIndex="1"
+                        x:Name="btnBack"
+                        Click="btnBack_Click"
+                        Background="Transparent">
+                    <materialDesign:PackIcon Kind="ArrowBack"
+                                             Width="20"
+                                             Height="20" />
+                </Button>
                 <Grid Grid.Column="0"
                       >
                     <Grid.RowDefinitions>
@@ -30,6 +47,7 @@
                     <Border Grid.Row="0"
                             CornerRadius="15"
                             Margin="10">
+                        
                         <Border.Background>
                             <ImageBrush ImageSource="{Binding ImageDorm, ElementName=postDorm}" Stretch="UniformToFill" />
                         </Border.Background>

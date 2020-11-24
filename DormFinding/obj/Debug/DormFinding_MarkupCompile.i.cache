@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\DORMFINDING\DormFinding\DormFinding\App.xaml
-18353308230
+19-1776537664
 
-31-658892886
+32435001827
 145-1610967584
-UserController\MyDorm.xaml;UserController\LikedDorm.xaml;UserController\PostDorm.xaml;Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
+SupportUserController\RowLayout.xaml;UserController\MyDorm.xaml;UserController\LikedDorm.xaml;UserController\PostDorm.xaml;Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
 True
 

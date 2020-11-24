@@ -140,7 +140,7 @@ namespace DormFinding
             DependencyProperty.Register("SizeDorm", typeof(string), typeof(ShowDorm), new PropertyMetadata("0"));
 
 
-        
+
         private UserProfile owner;
 
 
@@ -152,7 +152,7 @@ namespace DormFinding
 
         // Using a DependencyProperty as the backing store for Image.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageProperty =
-            DependencyProperty.Register("ImageOwner", typeof(BitmapImage), typeof(ShowDorm),new PropertyMetadata(new BitmapImage(new Uri($"../../images/blank_account.png", UriKind.RelativeOrAbsolute))));
+            DependencyProperty.Register("ImageOwner", typeof(BitmapImage), typeof(ShowDorm), new PropertyMetadata(new BitmapImage(new Uri($"../../images/blank_account.png", UriKind.RelativeOrAbsolute))));
 
 
         public string NameOwner
@@ -200,7 +200,7 @@ namespace DormFinding
 
         private User user;
 
-        public ShowDorm(Dorm dorm,User user)
+        public ShowDorm(Dorm dorm, User user)
         {
             InitializeComponent();
             this.user = user;
@@ -218,9 +218,9 @@ namespace DormFinding
             OwnerDorm = dorm.Owner;
             AddressDorm = dorm.Address;
             DesDorm = dorm.Description;
-            PriceDorm = "$"+dorm.Price;
+            PriceDorm = "$" + dorm.Price;
             QualityDorm = dorm.Quality;
-            CountDorm = "+"+dorm.Count.ToString();
+            CountDorm = "+" + dorm.Count.ToString();
             WifiDorm = dorm.IsWifi;
             ParkingDorm = dorm.IsParking;
             TelevisionDorm = dorm.IsTelevision;
@@ -229,7 +229,7 @@ namespace DormFinding
             WaterHeaterDorm = dorm.IsWaterHeater;
             CountLikeDorm = dorm.CountLike;
             SizeDorm = $"Area: {dorm.Size} m²";
-            
+
         }
         private void initProfile()
         {
@@ -240,7 +240,7 @@ namespace DormFinding
             AddressOwner = owner.Address;
             lbEmail.Content = owner.Email;
             GenderOwner = Helpers.ConvertByteToGender(owner.Gender);
-          
+
         }
 
         private void initLike()
@@ -250,11 +250,11 @@ namespace DormFinding
                 Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
                 if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
-            
+
 
         }
 
@@ -271,36 +271,41 @@ namespace DormFinding
         {
             try
             {
-                if(Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 1))
-                {
-                    likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
-                    CountLikeDorm++;
-                    dorm.CountLike++;
-                    Mydatabase.updateLikeDorm(dorm);
-                }
-                else
-                {
-                    Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
-                    if (!click)
+
+
+                
+                
+                    if (Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 1))
                     {
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
                         dorm.CountLike++;
                         Mydatabase.updateLikeDorm(dorm);
-                        Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 1);
                     }
                     else
                     {
-                        likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
-                        CountLikeDorm--;
-                        dorm.CountLike--;
-                        Mydatabase.updateLikeDorm(dorm);
-                        Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 0);
+                        Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
+                        if (!click)
+                        {
+                            likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
+                            CountLikeDorm++;
+                            dorm.CountLike++;
+                            Mydatabase.updateLikeDorm(dorm);
+                            Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 1);
+                        }
+                        else
+                        {
+                            likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
+                            CountLikeDorm--;
+                            dorm.CountLike--;
+                            Mydatabase.updateLikeDorm(dorm);
+                            Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 0);
+                        }
                     }
-                }
 
-            }
-            catch(Exception exec)
+
+                }
+            catch (Exception exec)
             {
                 MessageBox.Show("Error while processing Like....");
             }
@@ -341,33 +346,35 @@ namespace DormFinding
         {
             try
             {
-                BookDorm bookDorm = new BookDorm();
-                bookDorm.EmailOwner = owner.Email;
-                bookDorm.EmailUser = user.Email;
-                bookDorm.IdDorm = dorm.Id;
-                bookDorm.StateDorm = 1;
+               
+                
+                    BookDorm bookDorm = new BookDorm();
+                    bookDorm.EmailOwner = owner.Email;
+                    bookDorm.EmailUser = user.Email;
+                    bookDorm.IdDorm = dorm.Id;
+                    bookDorm.StateDorm = 1;
 
-                bookDorm = Mydatabase.getInforBookDorm(bookDorm);
-                if (bookDorm.StateDorm == 0)
-                {
-                    spinnerBook.Visibility = Visibility.Collapsed;
-                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
-                    btnBooked.IsEnabled = true;
+                    bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                    if (bookDorm.StateDorm == 0)
+                    {
+                        spinnerBook.Visibility = Visibility.Collapsed;
+                        btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
+                        btnBooked.IsEnabled = true;
+                    }
+                    else if (bookDorm.StateDorm == 1)
+                    {
+                        spinnerBook.Visibility = Visibility.Visible;
+                        btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
+                        btnBooked.IsEnabled = true;
+                    }
+                    else
+                    {
+                        spinnerBook.Visibility = Visibility.Collapsed;
+                        btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
+                        btnBooked.IsEnabled = false;
+                    }
+                    lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
                 }
-                else if (bookDorm.StateDorm == 1)
-                {
-                    spinnerBook.Visibility = Visibility.Visible;
-                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
-                    btnBooked.IsEnabled = true;
-                }
-                else
-                {
-                    spinnerBook.Visibility = Visibility.Collapsed;
-                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
-                    btnBooked.IsEnabled = false;
-                }
-                lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
-            }
             finally
             {
 
@@ -375,42 +382,56 @@ namespace DormFinding
         }
         private void btnBooked_Click(object sender, RoutedEventArgs e)
         {
-            BookDorm bookDorm = new BookDorm();
-            bookDorm.EmailOwner = owner.Email;
-            bookDorm.EmailUser = user.Email;
-            bookDorm.IdDorm = dorm.Id;
-            bookDorm.StateDorm = 1;
-            if (Mydatabase.InsertDataToBookDorm(bookDorm))
+            if (user.Email.Equals(owner.Email))
             {
-                spinnerBook.Visibility = Visibility.Visible;
-                lbStateBook.Content = "Booking...";
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "You are owner so can't book dorm", "Error");
             }
             else
             {
-                bookDorm = Mydatabase.getInforBookDorm(bookDorm);
-                if (bookDorm.StateDorm == 0)
+                BookDorm bookDorm = new BookDorm();
+                bookDorm.EmailOwner = owner.Email;
+                bookDorm.EmailUser = user.Email;
+                bookDorm.IdDorm = dorm.Id;
+                bookDorm.StateDorm = 1;
+                if (Mydatabase.InsertDataToBookDorm(bookDorm))
                 {
                     spinnerBook.Visibility = Visibility.Visible;
-                    btnBooked.IsEnabled = true;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
-                    bookDorm.StateDorm = 1;
-                    Mydatabase.updateBookDorm(bookDorm);
-                }
-                else if(bookDorm.StateDorm == 1)
-                {
-                    spinnerBook.Visibility = Visibility.Collapsed;
-                    btnBooked.IsEnabled = true;
-                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
-                    bookDorm.StateDorm = 0;
-                    Mydatabase.updateBookDorm(bookDorm);
+                    lbStateBook.Content = "Booking...";
                 }
                 else
                 {
-                    spinnerBook.Visibility = Visibility.Collapsed;
-                    btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
-                    btnBooked.IsEnabled = false;
+                    bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                    if (bookDorm.StateDorm == 0)
+                    {
+                        spinnerBook.Visibility = Visibility.Visible;
+                        btnBooked.IsEnabled = true;
+                        btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
+                        bookDorm.StateDorm = 1;
+                        Mydatabase.updateBookDorm(bookDorm);
+                    }
+                    else if (bookDorm.StateDorm == 1)
+                    {
+                        spinnerBook.Visibility = Visibility.Collapsed;
+                        btnBooked.IsEnabled = true;
+                        btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
+                        bookDorm.StateDorm = 0;
+                        Mydatabase.updateBookDorm(bookDorm);
+                    }
+                    lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
                 }
-                lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
+            }
+        }
+
+        private void btnComment_Click(object sender, RoutedEventArgs e)
+        {
+            if (user.Email.Equals(owner.Email))
+            {
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "You are owner so can't rating", "Error");
+            }
+            else
+            {
+
             }
         }
     }

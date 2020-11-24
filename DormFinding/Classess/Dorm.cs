@@ -89,5 +89,10 @@ namespace DormFinding {
             IsWaterHeater = isWaterHeater;
             Size = size;
         }
+
+        public static implicit operator Dorm(List<Dorm> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -67,7 +67,11 @@ namespace DormFinding.Utils
 
         public static Visibility ConvertByteToVisibility(byte a)
         {
-            if (a == 0) return Visibility.Collapsed; else return Visibility.Visible;
+            if (a == 1) return Visibility.Collapsed; else return Visibility.Visible;
+        }
+        public static bool ConvertVisibilityToBool(Visibility a)
+        {
+            if (a == Visibility.Visible) return false; else return true;
         }
         public static void shortDateFormating()
         {

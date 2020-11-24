@@ -14,8 +14,16 @@
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0:0.3}">
         <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0:0.3}">
-            <Grid Background="White"
+            <Border CornerRadius="15">
+                <Border.Background>
+                    <ImageBrush ImageSource="../images/bg.png" 
+                                Stretch="UniformToFill"
+                                />
+
+                </Border.Background>
+                <Grid 
                   x:Name="layoutMainDorm">
+                
                 <Grid>
                     <Grid.Resources>
                         <ResourceDictionary Source="../StyleResource.xaml" />
@@ -115,6 +123,7 @@
                     </StackPanel>
                 </Grid>
             </Grid>
+            </Border>
         </materialDesign:TransitioningContent>
     </materialDesign:TransitioningContent>
 </UserControl>
