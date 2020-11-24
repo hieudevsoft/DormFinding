@@ -28,7 +28,7 @@
                 Height="auto"
                 HorizontalAlignment="Left">
             <Border.Background>
-                <ImageBrush ImageSource="..\images\dorm_slide_1.jpg"
+                <ImageBrush ImageSource="../images/dorm_slide_1.jpg"
                             x:Name="imageSlider"
                             Stretch="UniformToFill" />
             </Border.Background>

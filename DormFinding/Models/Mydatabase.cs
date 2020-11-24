@@ -73,7 +73,7 @@ namespace DormFinding.Models
             }
             catch (Exception e)
             {
-                MessageBox.Show("Email already exit", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                
                 return false;
 
             }
@@ -100,6 +100,32 @@ namespace DormFinding.Models
             catch (Exception e)
             {
                 MessageBox.Show("Information Error", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+        public static void InsertToTableUserProfileFaceBook(string email, string name, byte[] image)
+        {
+
+            String sql = $"insert into {Helpers.tbUserProfile}({Helpers.colEmailProfile},{Helpers.colNameProfile},{Helpers.colImageProfile}) values(@Email,@Name,@Image);";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Image", image);
+                cmd.ExecuteScalar();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Information Error FaceBook" +e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             finally

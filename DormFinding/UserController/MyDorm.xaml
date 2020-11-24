@@ -11,7 +11,12 @@
              d:DesignWidth="1150">
     <Grid>
         <Border CornerRadius="15"
-                Background="White">
+                >
+            <Border.Background>
+                <ImageBrush ImageSource="../images/background_mydorm.png"
+                            Stretch="UniformToFill"
+                            />
+            </Border.Background>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.2*" />
@@ -58,7 +63,9 @@
                 </WrapPanel>
                 <!--Làm ở đây-->
                 <Grid Grid.Row="1">
-
+                    <local:RowLayout VerticalAlignment="Top" HorizontalAlignment="Left" Width="720" Margin="12"
+                                     Height="86"
+                                     />
                 </Grid>
 
             </Grid>
