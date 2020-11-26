@@ -272,7 +272,7 @@
                                 HorizontalAlignment="Center"
                                 FontFamily="Avenir LT Std 55 Roman"
                                 Content="Sign In"
-                                FontStyle="Italic"
+                            
                                 FontSize="16" />
                     </WrapPanel>
                 </Grid>

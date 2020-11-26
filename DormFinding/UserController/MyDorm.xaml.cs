@@ -93,5 +93,14 @@ namespace DormFinding
                 layoutMainDorm.Children.Add(new ShowDorm(dorm, owner));
         }
 
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            layoutMainDorm.Children.Clear();
+            TransitioningContentSlide.OnApplyTemplate();
+            layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
+            layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
+            layoutMainDorm.Height = 690;
+            layoutMainDorm.Children.Add(new MyDorm(owner));
+        }
     }
 }

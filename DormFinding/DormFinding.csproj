@@ -133,6 +133,9 @@
     <Compile Include="Classess\BookDorm.cs" />
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
+    <Compile Include="SupportUserController\RowBooking.xaml.cs">
+      <DependentUpon>RowBooking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SupportUserController\RowLayout.xaml.cs">
       <DependentUpon>RowLayout.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="SupportUserController\RowBooking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SupportUserController\RowLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -42,6 +42,8 @@
                         <Button Background="Transparent"
                                 Padding="0"
                                 Margin="10 40 8 10"
+                                x:Name="btnHome"
+                                Click="btnHome_Click"
                                 VerticalAlignment="Bottom"
                                 HorizontalAlignment="Right"
                                 BorderThickness="0">
