@@ -133,6 +133,9 @@
     <Compile Include="Classess\BookDorm.cs" />
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
+    <Compile Include="UserController\ScreenBooking.xaml.cs">
+      <DependentUpon>ScreenBooking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SupportUserController\RowBooking.xaml.cs">
       <DependentUpon>RowBooking.xaml</DependentUpon>
     </Compile>
@@ -148,7 +151,7 @@
     <Compile Include="UserController\PostDorm.xaml.cs">
       <DependentUpon>PostDorm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profile.xaml.cs">
+    <Compile Include="UserController\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserController\ShowDorm.xaml.cs">
@@ -191,6 +194,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="UserController\ScreenBooking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SupportUserController\RowBooking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,7 +218,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Profile.xaml">
+    <Page Include="UserController\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

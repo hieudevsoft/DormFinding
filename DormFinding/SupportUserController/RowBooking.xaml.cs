@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DormFinding.Models;
+using DormFinding.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,30 @@ namespace DormFinding
         public RowBooking()
         {
             InitializeComponent();
+        }
+
+        private void btnConfirmBook_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            BookDorm dorm = button.DataContext as BookDorm;
+            if (Mydatabase.updateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+            {
+                if(Mydatabase.resetDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+                {
+                    Helpers.MakeConfirmMessage(Window.GetWindow(this), $"The Dorm has been transferred to { dorm.EmailUser}", "Notify");
+                    MainControl mainControl = (MainControl)Window.GetWindow(this);
+                    mainControl.MainHomeLayout.Children.Clear();
+                    mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                    mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                    mainControl.MainHomeLayout.Width = 1150;
+                    mainControl.MainHomeLayout.Height = 690;
+                    mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
+                }
+                else
+                {
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), $"Failed transferred to {dorm.EmailUser}", "Error");
+                }
+            }
         }
     }
 }

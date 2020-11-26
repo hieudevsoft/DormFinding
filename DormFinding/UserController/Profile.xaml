@@ -60,7 +60,7 @@
                                                  
                                                  Height="40">
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="images/blank_account.png"
+                                                <ImageBrush ImageSource="../images/blank_account.png"
                                                             x:Name="imgAvatarMini"
                                                             Stretch="UniformToFill" />
                                             </Ellipse.Fill>
@@ -451,7 +451,7 @@
                                                FontSize="13" />
                                     <Border CornerRadius="10"
                                             Margin="10 0 0 0"
-                                            Width="240"
+                                            Width="236"
                                             Background="#BFBFBF"
                                             BorderThickness="2"
                                             HorizontalAlignment="Center"
@@ -461,6 +461,9 @@
                                                  x:Name="tbHint"
                                                  Padding="5 6 0 0"
                                                  FontSize="16"
+                                                 TextWrapping="Wrap"
+                                                 materialDesign:ScrollViewerAssist.CornerRectangleVisibility="Hidden"
+                                                 HorizontalScrollBarVisibility="Auto"
                                                  FontFamily="Avenir LT Std 65 Medium"
                                                  materialDesign:HintAssist.Hint="Food"
                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="2"

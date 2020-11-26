@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Program Data\DormFinding\DormFinding\DormFinding\App.xaml
-201815325576
+21553375816
 
-33-271895423
+34-157265064
 145-256391702
-SupportUserController\RowBooking.xaml;SupportUserController\RowLayout.xaml;UserController\MyDorm.xaml;UserController\LikedDorm.xaml;UserController\PostDorm.xaml;Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
+UserController\ScreenBooking.xaml;SupportUserController\RowBooking.xaml;SupportUserController\RowLayout.xaml;UserController\MyDorm.xaml;UserController\LikedDorm.xaml;UserController\PostDorm.xaml;UserController\Profile.xaml;UserController\ShowDorm.xaml;SupportUserController\DormItemHori.xaml;UserController\HomeControl.xaml;SupportUserController\DormItem.xaml;StyleResource.xaml;SupportUserController\Noti_Login_Success.xaml;UserController\SliderShow.xaml;SupportUserController\ResetPassController.xaml;Window\MainControl.xaml;UserController\LoadingBar.xaml;UserController\SignUp.xaml;UserController\Login.xaml;Window\MainWindow.xaml;Window\SplashScreen.xaml;
 
-False
+True
 

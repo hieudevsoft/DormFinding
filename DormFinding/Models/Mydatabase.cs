@@ -52,7 +52,7 @@ namespace DormFinding.Models
             }
         }
 
-        // Insert User
+         
         public static Boolean InsertToTableUser(string email, string password, byte isActive)
         {
             String sql = $"insert into {Helpers.tbUser} values(@Email,@Password,@IsRemember);";
@@ -82,7 +82,6 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
-
         public static void InsertToTableUserProfile(string email)
         {
 
@@ -201,7 +200,6 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
-
         public static User CheckAccountAreadyInApp()
         {
             string sql = $"select * from {Helpers.tbUser} where {Helpers.colRemember}=@value;";
@@ -236,7 +234,6 @@ namespace DormFinding.Models
             }
             return user;
         }
-
         public static UserProfile getProfile(User user)
         {
             string sql = $"select * from {Helpers.tbUserProfile} where {Helpers.colEmailProfile}=@Email";
@@ -319,7 +316,6 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
-
         public static Boolean UpdateProfileSubmit(UserProfile user)
         {
 
@@ -353,7 +349,6 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
-
         public static bool InsertDorm(DormDb dorm)
         {
 
@@ -726,7 +721,6 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
-
         public static UserProfile getOwnerProfileWithDorm(int idDorm)
         {
             UserProfile owner = new UserProfile();
@@ -770,7 +764,6 @@ namespace DormFinding.Models
 
             return owner;
         }
-
         public static Boolean InsertToOwnerLikeDorm(string email, int idDorm, byte like)
         {
 
@@ -1052,7 +1045,6 @@ namespace DormFinding.Models
             }
             return dorm;
         }
-
         public static List<BookDorm> getAllWattingBookDorm(string email)
         {
             List<BookDorm> list = new List<BookDorm>();
@@ -1068,7 +1060,7 @@ namespace DormFinding.Models
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@State", 1);
                 rd = cmd.ExecuteReader();
-                if (rd.Read())
+                while (rd.Read())
                 {
                     BookDorm dorm = new BookDorm();
                     dorm.EmailOwner = rd.GetString(0);
@@ -1079,8 +1071,6 @@ namespace DormFinding.Models
                     dorm.RatingDorm = rd.GetInt16(5);
                     list.Add(dorm);
                 }
-
-
             }
             catch (Exception e)
             {
@@ -1093,6 +1083,97 @@ namespace DormFinding.Models
                 CloseConnection();
             }
             return list;
+        }
+        public static string getUserBookDorm(string email,int id)
+        {
+            String sql = $"select {Helpers.colEmailUserBookDorm} from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@State", 2);
+                cmd.Parameters.AddWithValue("@Id", id);
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    return rd.GetString(0);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getUserBookDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return "No";
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return "No";
+        }
+        public static bool updateDormWhenBook(string email,string emailUser,int id)
+        {
+            String sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} = @EmailUser and {Helpers.colIdDormBookDorm} = @Id" ;
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@State", 2);
+                cmd.Parameters.AddWithValue("@EmailUser", emailUser);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error updateDormWhenBook " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return false;
+        }
+        public static bool resetDormWhenBook(string email, string emailUser,int id)
+        {
+            String sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} <> @EmailUser and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@State", 0);
+                cmd.Parameters.AddWithValue("@EmailUser", emailUser);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error resetDormWhenBook " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return false;
         }
         public static List<Dorm> getAllListDormOwner(string email)
         {

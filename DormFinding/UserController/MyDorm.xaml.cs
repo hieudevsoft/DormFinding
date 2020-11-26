@@ -71,7 +71,9 @@ namespace DormFinding
 
         private void btnNotify_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            MessageBox.Show(list.Count.ToString());
+            layoutControl.Children.Clear();
+            TransitioningContentSlide.OnApplyTemplate();
+            layoutControl.Children.Add(new ScreenBooking(list));
         }
         private void setUpListViewVerti()
         {

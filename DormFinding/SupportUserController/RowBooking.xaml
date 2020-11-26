@@ -22,27 +22,36 @@
                 </Grid.ColumnDefinitions>
                 <fa:ImageAwesome Icon="Spinner" Grid.Column="0"
                                  Width="16"
-                                 Margin="10 0 0 0"
+                                 Margin="5 0 0 0"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Center"
                                  Foreground="#F06292"
                                  Spin="True"
                                  Height="16"
                                  />
-                <TextBlock Text="DemoEmail@gmail.com" Grid.Column="1"
+                <TextBlock Text="{Binding EmailUser}" Grid.Column="1"
                            TextWrapping="Wrap"
                            VerticalAlignment="Center"
+                           Margin="5 0 0 0"
                            FontFamily="Helvetica Rounded"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Left"
                            FontSize="11"
                            />
                 <Button Grid.Column="2" materialDesign:ButtonAssist.CornerRadius="15" 
                         Width="80"
-                        Background="#E53935"
+                        x:Name="btnConfirmBook"
+                        Click="btnConfirmBook_Click"
                         materialDesign:ShadowAssist.ShadowDepth="Depth0"
                         BorderThickness="0"
                         Height="30"
                         >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFC02626" Offset="1"/>
+                            <GradientStop Color="#FFF07654" Offset="0.16"/>
+                            <GradientStop Color="#FFF78119" Offset="0.135"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
                     <Button.Content>
 
                         <Label Content="Confirm" FontSize="10"
@@ -50,7 +59,7 @@
                                />
 
                     </Button.Content>
-                    
+
                 </Button>
             </Grid>
         </Border>

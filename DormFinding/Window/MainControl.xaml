@@ -13,7 +13,6 @@
         Height="758"
         Width="1280"
         Cursor="Arrow"
-      
         WindowStyle="None"
         Background="Transparent">
     <Window.Resources>

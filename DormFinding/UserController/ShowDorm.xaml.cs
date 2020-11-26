@@ -272,10 +272,7 @@ namespace DormFinding
             try
             {
 
-
-                
-                
-                    if (Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 1))
+                    if (Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 0))
                     {
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
@@ -371,7 +368,7 @@ namespace DormFinding
                     {
                         spinnerBook.Visibility = Visibility.Collapsed;
                         btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
-                        btnBooked.IsEnabled = false;
+                        btnBooked.IsCancel = true;
                     }
                     lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
                 }
@@ -386,8 +383,16 @@ namespace DormFinding
             {
                 Helpers.MakeErrorMessage(Window.GetWindow(this), "You are owner so can't book dorm", "Error");
             }
-            else
+            else if(!Mydatabase.getUserBookDorm(owner.Email,dorm.Id).Equals("No"))
             {
+
+                if (Mydatabase.getUserBookDorm(owner.Email, dorm.Id).Equals(user.Email))
+                {
+                    Helpers.MakeConfirmMessage(Window.GetWindow(this), "Dorm was booked by you" , "Notify");
+                } else
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Dorm was booked by " + Mydatabase.getUserBookDorm(owner.Email, dorm.Id), "Error");
+            }
+            else {
                 BookDorm bookDorm = new BookDorm();
                 bookDorm.EmailOwner = owner.Email;
                 bookDorm.EmailUser = user.Email;
