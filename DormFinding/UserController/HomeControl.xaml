@@ -108,7 +108,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <local:DormItemHori Margin="0 0 20 5" />
+                                    <local:DormItemHori Margin="0 0 10 5" />
                                 </DataTemplate>
 
                             </ListView.ItemTemplate>

@@ -1,4 +1,5 @@
-﻿using DormFinding.Utils;
+﻿using DormFinding.Classess;
+using DormFinding.Utils;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -55,7 +56,7 @@ namespace DormFinding.Models
          
         public static Boolean InsertToTableUser(string email, string password, byte isActive)
         {
-            String sql = $"insert into {Helpers.tbUser} values(@Email,@Password,@IsRemember);";
+            sql = $"insert into {Helpers.tbUser} values(@Email,@Password,@IsRemember);";
 
             try
             {
@@ -85,7 +86,7 @@ namespace DormFinding.Models
         public static void InsertToTableUserProfile(string email)
         {
 
-            String sql = $"insert into {Helpers.tbUserProfile}({Helpers.colEmailProfile}) values(@Email);";
+            sql = $"insert into {Helpers.tbUserProfile}({Helpers.colEmailProfile}) values(@Email);";
             try
             {
                 OpenConnection();
@@ -109,7 +110,7 @@ namespace DormFinding.Models
         public static void InsertToTableUserProfileFaceBook(string email, string name, byte[] image)
         {
 
-            String sql = $"insert into {Helpers.tbUserProfile}({Helpers.colEmailProfile},{Helpers.colNameProfile},{Helpers.colImageProfile}) values(@Email,@Name,@Image);";
+            sql = $"insert into {Helpers.tbUserProfile}({Helpers.colEmailProfile},{Helpers.colNameProfile},{Helpers.colImageProfile}) values(@Email,@Name,@Image);";
             try
             {
                 OpenConnection();
@@ -173,7 +174,7 @@ namespace DormFinding.Models
         public static Boolean Update(User user,string email)
         {
 
-            String sql = $"update {Helpers.tbUser} SET {Helpers.colRemember}=@IsRemember , {Helpers.colPassword}=@Password where {Helpers.colEmail}=@Email;";
+            sql = $"update {Helpers.tbUser} SET {Helpers.colRemember}=@IsRemember , {Helpers.colPassword}=@Password where {Helpers.colEmail}=@Email;";
 
             try
             {
@@ -202,7 +203,7 @@ namespace DormFinding.Models
         }
         public static User CheckAccountAreadyInApp()
         {
-            string sql = $"select * from {Helpers.tbUser} where {Helpers.colRemember}=@value;";
+            sql = $"select * from {Helpers.tbUser} where {Helpers.colRemember}=@value;";
             User user = null;
             try
             {
@@ -236,7 +237,7 @@ namespace DormFinding.Models
         }
         public static UserProfile getProfile(User user)
         {
-            string sql = $"select * from {Helpers.tbUserProfile} where {Helpers.colEmailProfile}=@Email";
+            sql = $"select * from {Helpers.tbUserProfile} where {Helpers.colEmailProfile}=@Email";
             UserProfile userProfile=null;
             try
             {
@@ -288,7 +289,7 @@ namespace DormFinding.Models
         public static Boolean UpdateProfileSave(UserProfile user)
         {
 
-            String sql = $"update {Helpers.tbUserProfile} SET {Helpers.colNameProfile}=@Name , {Helpers.colPhoneProfile}=@Phone, {Helpers.colImageProfile}=@Image where {Helpers.colEmailProfile}=@Email;";
+            sql = $"update {Helpers.tbUserProfile} SET {Helpers.colNameProfile}=@Name , {Helpers.colPhoneProfile}=@Phone, {Helpers.colImageProfile}=@Image where {Helpers.colEmailProfile}=@Email;";
 
             try
             {
@@ -319,7 +320,7 @@ namespace DormFinding.Models
         public static Boolean UpdateProfileSubmit(UserProfile user)
         {
 
-            String sql = $"update {Helpers.tbUserProfile} SET {Helpers.colAdressProfile}=@Address , {Helpers.colHintProfile}=@Hint, {Helpers.colDateProfile} = @Date" +
+            sql = $"update {Helpers.tbUserProfile} SET {Helpers.colAdressProfile}=@Address , {Helpers.colHintProfile}=@Hint, {Helpers.colDateProfile} = @Date" +
                 $", {Helpers.colGenderProfile} = @Gender where {Helpers.colEmailProfile}=@Email;";
 
             try
@@ -352,7 +353,7 @@ namespace DormFinding.Models
         public static bool InsertDorm(DormDb dorm)
         {
 
-            String sql = $"insert into {Helpers.tbDorm}(" +
+            sql = $"insert into {Helpers.tbDorm}(" +
                 $"{Helpers.colOwnerDorm}," +
                 $"{Helpers.colAdressDorm}," +
                 $"{Helpers.colDescriptionDorm}," +
@@ -426,7 +427,7 @@ namespace DormFinding.Models
         public static bool updateDorm(DormDb dorm, int id)
         {
 
-            String sql = $"update {Helpers.tbDorm} set " +
+            sql = $"update {Helpers.tbDorm} set " +
                 $"{Helpers.colOwnerDorm} = @Owner," +
                 $"{Helpers.colAdressDorm} = @Address," +
                 $"{Helpers.colDescriptionDorm} = @Description," +
@@ -481,10 +482,97 @@ namespace DormFinding.Models
                 CloseConnection();
             }
         }
+
+        public static bool updateRatingDorm( int id,int quality)
+        {
+
+            sql = $"update {Helpers.tbDorm} set " +
+                $"{Helpers.colQualityDorm} = @Quality " +
+                $"where {Helpers.colIdDorm} = @Id;";
+
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Quality", quality);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error updateRatingDorm Error " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public static bool updateCountDorm(int id, int count)
+        {
+
+            sql = $"update {Helpers.tbDorm} set " +
+                $"{Helpers.colCountDorm} = @Count " +
+                $"where {Helpers.colIdDorm} = @Id;";
+
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Count", count);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error updateCountDorm Error " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public static int getCountDorm(int id)
+        {
+
+            sql = $"select {Helpers.colCountDorm} from {Helpers.tbDorm} where {Helpers.colIdDorm} = @Id";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                int count =  Convert.ToInt32(cmd.ExecuteScalar());
+                return count;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getCountDorm Error " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return -1;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
         public static bool deleteDorm(int id)
         {
 
-            String sql = $"delete from {Helpers.tbDorm} where {Helpers.colIdDorm} = @Id";
+            sql = $"delete from {Helpers.tbDorm} where {Helpers.colIdDorm} = @Id";
 
             try
             {
@@ -510,7 +598,7 @@ namespace DormFinding.Models
         public static void deleteOwnerLikeDorm(int id)
         {
 
-            String sql = $"delete from {Helpers.tbOwnerLikeDorm} where {Helpers.colIdDormOwnerLikeDorm} = @Id";
+            sql = $"delete from {Helpers.tbOwnerLikeDorm} where {Helpers.colIdDormOwnerLikeDorm} = @Id";
 
             try
             {
@@ -536,7 +624,7 @@ namespace DormFinding.Models
         public static void deleteDormBookDorm(int id)
         {
 
-            String sql = $"delete from {Helpers.tbBookDorm} where {Helpers.colIdDormBookDorm} = @Id";
+            sql = $"delete from {Helpers.tbBookDorm} where {Helpers.colIdDormBookDorm} = @Id";
 
             try
             {
@@ -562,7 +650,7 @@ namespace DormFinding.Models
         public static void deleteDormOwnerDorm(int id)
         {
 
-            String sql = $"delete from {Helpers.tbDormOwner} where {Helpers.colIdOwnerDorm} = @Id";
+             sql = $"delete from {Helpers.tbDormOwner} where {Helpers.colIdOwnerDorm} = @Id";
 
             try
             {
@@ -587,7 +675,7 @@ namespace DormFinding.Models
         }
         public static void updateLikeDorm(Dorm dorm)
         {
-            String sql = $"update {Helpers.tbDorm} SET {Helpers.colCountLikeDorm}=@Count where {Helpers.colIdDorm}=@Id;";
+             sql = $"update {Helpers.tbDorm} SET {Helpers.colCountLikeDorm}=@Count where {Helpers.colIdDorm}=@Id;";
 
             try
             {
@@ -616,7 +704,7 @@ namespace DormFinding.Models
         }
         public static List<Dorm> getAllListDorm()
         {
-            string sql = $"select * from {Helpers.tbDorm}";
+            sql = $"select * from {Helpers.tbDorm}";
             List<Dorm> listDorm = new List<Dorm>();
             try
             {
@@ -696,10 +784,94 @@ namespace DormFinding.Models
 
             return listDorm;
         }
+
+        public static List<Dorm> getAllListDormPopular()
+        {
+            sql = $"select top 6 * from {Helpers.tbDorm} order by {Helpers.colQualityDorm} desc";
+            List<Dorm> listDorm = new List<Dorm>();
+            try
+            {
+                OpenConnection();
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Dorm dorm = new Dorm();
+                    int id = rd.GetInt32(0);
+                    string owner = rd.GetString(1);
+                    string address = rd.GetString(2);
+                    string description = rd.GetString(3);
+                    double price = rd.GetDouble(4);
+                    double sale = rd.GetDouble(5);
+
+                    byte[] image;
+                    if (rd.GetValue(6).ToString().Equals(""))
+                    {
+                        dorm.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri($"../../images/icon_app.ico", UriKind.RelativeOrAbsolute));
+
+                    }
+                    else
+                    {
+                        image = (byte[])rd.GetValue(6);
+
+                        dorm.Image = Helpers.ConvertByteToImageBitmap(image);
+                    }
+
+                    int count = rd.GetInt32(7);
+                    int countLike = rd.GetInt32(8);
+
+                    byte wifi = Helpers.ConverBoolToByte(rd.GetBoolean(9));
+
+                    byte parking = Helpers.ConverBoolToByte(rd.GetBoolean(10));
+                    byte television = Helpers.ConverBoolToByte(rd.GetBoolean(11));
+                    byte bathroom = Helpers.ConverBoolToByte(rd.GetBoolean(12));
+                    byte aircon = Helpers.ConverBoolToByte(rd.GetBoolean(13));
+                    byte waterheater = Helpers.ConverBoolToByte(rd.GetBoolean(14));
+                    int quality = rd.GetInt16(15);
+                    double size = rd.GetDouble(16);
+
+                    dorm.Id = id;
+                    dorm.Owner = owner;
+                    dorm.Address = address;
+                    dorm.Description = description;
+                    dorm.Price = price;
+                    dorm.Sale = sale;
+                    dorm.Count = count;
+                    dorm.CountLike = countLike;
+                    dorm.IsWifi = Helpers.ConvertByteToVisibility(wifi);
+                    dorm.IsParking = Helpers.ConvertByteToVisibility(parking);
+                    dorm.IsTelevision = Helpers.ConvertByteToVisibility(television);
+                    dorm.IsBathroom = Helpers.ConvertByteToVisibility(bathroom);
+                    dorm.IsAirCondiditioner = Helpers.ConvertByteToVisibility(aircon);
+                    dorm.IsWaterHeater = Helpers.ConvertByteToVisibility(waterheater);
+                    dorm.Quality = quality;
+                    dorm.Size = size;
+
+                    listDorm.Add(dorm);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getAllListDormPopular " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                rd.Close();
+                CloseConnection();
+            }
+
+            return listDorm;
+        }
+
         public static void InsertToTableOwnerDorm(string email, int idDorm)
         {
 
-            String sql = $"insert into {Helpers.tbDormOwner}({Helpers.colEmailOwnerDorm},{Helpers.colIdOwnerDorm}) values(@Email,@Id);";
+            sql = $"insert into {Helpers.tbDormOwner}({Helpers.colEmailOwnerDorm},{Helpers.colIdOwnerDorm}) values(@Email,@Id);";
             try
             {
                 OpenConnection();
@@ -725,7 +897,7 @@ namespace DormFinding.Models
         {
             UserProfile owner = new UserProfile();
 
-            String sql = $"select {Helpers.colImageProfile},{Helpers.colNameProfile},{Helpers.colPhoneProfile},{Helpers.colEmailProfile}," +
+            sql = $"select {Helpers.colImageProfile},{Helpers.colNameProfile},{Helpers.colPhoneProfile},{Helpers.colEmailProfile}," +
                 $"{Helpers.colAdressProfile}, {Helpers.colGenderProfile} " +
                 $"from {Helpers.tbUserProfile},{Helpers.tbDormOwner} " +
                 $"where {Helpers.colIdOwnerDorm} = @Id and {Helpers.colEmailOwnerDorm} = {Helpers.colEmailProfile};";
@@ -767,7 +939,7 @@ namespace DormFinding.Models
         public static Boolean InsertToOwnerLikeDorm(string email, int idDorm, byte like)
         {
 
-            String sql = $"insert into {Helpers.tbOwnerLikeDorm}({Helpers.colEmailOwnerLikeDorm},{Helpers.colIdDormOwnerLikeDorm},{Helpers.colLikeOwnerLikeDorm}) values(@Email,@Id,@Like);";
+            sql = $"insert into {Helpers.tbOwnerLikeDorm}({Helpers.colEmailOwnerLikeDorm},{Helpers.colIdDormOwnerLikeDorm},{Helpers.colLikeOwnerLikeDorm}) values(@Email,@Id,@Like);";
             try
             {
                 OpenConnection();
@@ -793,7 +965,7 @@ namespace DormFinding.Models
         }
         public static void updateOwnerLikeDorm(string email, int id,byte like)
         {
-            String sql = $"update {Helpers.tbOwnerLikeDorm} SET {Helpers.colLikeOwnerLikeDorm}=@Like where {Helpers.colEmailOwnerLikeDorm}=@Email and {Helpers.colIdDormOwnerLikeDorm} = @Id;";
+            sql = $"update {Helpers.tbOwnerLikeDorm} SET {Helpers.colLikeOwnerLikeDorm}=@Like where {Helpers.colEmailOwnerLikeDorm}=@Email and {Helpers.colIdDormOwnerLikeDorm} = @Id;";
 
             try
             {
@@ -822,7 +994,7 @@ namespace DormFinding.Models
         }
         public static Boolean getStateLikeOfOwner(string email, int id)
         {
-            String sql = $"select {Helpers.colLikeOwnerLikeDorm} from {Helpers.tbOwnerLikeDorm} where {Helpers.colEmailOwnerLikeDorm}=@Email and {Helpers.colIdDormOwnerLikeDorm} = @Id;";
+            sql = $"select {Helpers.colLikeOwnerLikeDorm} from {Helpers.tbOwnerLikeDorm} where {Helpers.colEmailOwnerLikeDorm}=@Email and {Helpers.colIdDormOwnerLikeDorm} = @Id;";
 
             try
             {
@@ -852,7 +1024,7 @@ namespace DormFinding.Models
         }
         public static List<Dorm> getAllListDormOwnerLike(string email)
         {
-            string sql = $"select * from {Helpers.tbOwnerLikeDorm},{Helpers.tbDorm} where {Helpers.colIdDormOwnerLikeDorm} = {Helpers.colIdDorm} and {Helpers.colLikeOwnerLikeDorm} = 1 and {Helpers.colEmailOwnerLikeDorm}=@Email;";
+            sql = $"select * from {Helpers.tbOwnerLikeDorm},{Helpers.tbDorm} where {Helpers.colIdDormOwnerLikeDorm} = {Helpers.colIdDorm} and {Helpers.colLikeOwnerLikeDorm} = 1 and {Helpers.colEmailOwnerLikeDorm}=@Email;";
             List<Dorm> listDorm = new List<Dorm>();
             try
             {
@@ -941,7 +1113,7 @@ namespace DormFinding.Models
         public static Boolean InsertDataToBookDorm(BookDorm bookDorm)
         {
 
-            String sql = $"insert into {Helpers.tbBookDorm}({Helpers.colEmailOwnerBookDorm},{Helpers.colEmailUserBookDorm},{Helpers.colIdDormBookDorm},{Helpers.colStateBookDorm}) values(@EmailOwner,@EmailUser,@Id,@State);";
+            sql = $"insert into {Helpers.tbBookDorm}({Helpers.colEmailOwnerBookDorm},{Helpers.colEmailUserBookDorm},{Helpers.colIdDormBookDorm},{Helpers.colStateBookDorm}) values(@EmailOwner,@EmailUser,@Id,@State);";
             try
             {
                 OpenConnection();
@@ -969,7 +1141,7 @@ namespace DormFinding.Models
         }
         public static void updateBookDorm(BookDorm bookDorm)
         {
-            String sql = $"update {Helpers.tbBookDorm} SET {Helpers.colEmailOwnerBookDorm}=@EmailOwner" +
+            sql = $"update {Helpers.tbBookDorm} SET {Helpers.colEmailOwnerBookDorm}=@EmailOwner" +
                 $", {Helpers.colEmailUserBookDorm} = @EmailUser" +
                 $", {Helpers.colIdDormBookDorm}=@Id" +
                 $", {Helpers.colStateBookDorm}=@State" +
@@ -1008,7 +1180,7 @@ namespace DormFinding.Models
         public static BookDorm getInforBookDorm(BookDorm bookDorm)
         {
             BookDorm dorm = new BookDorm();
-            String sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @EmailOwner and {Helpers.colEmailUserBookDorm}=@EmailUser and {Helpers.colIdDormBookDorm} = @Id";
+            sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @EmailOwner and {Helpers.colEmailUserBookDorm}=@EmailUser and {Helpers.colIdDormBookDorm} = @Id";
 
             try
             {
@@ -1048,7 +1220,7 @@ namespace DormFinding.Models
         public static List<BookDorm> getAllWattingBookDorm(string email)
         {
             List<BookDorm> list = new List<BookDorm>();
-            String sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State";
+            sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State";
 
             try
             {
@@ -1086,7 +1258,7 @@ namespace DormFinding.Models
         }
         public static string getUserBookDorm(string email,int id)
         {
-            String sql = $"select {Helpers.colEmailUserBookDorm} from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State and {Helpers.colIdDormBookDorm} = @Id";
+            sql = $"select {Helpers.colEmailUserBookDorm} from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State and {Helpers.colIdDormBookDorm} = @Id";
 
             try
             {
@@ -1117,7 +1289,7 @@ namespace DormFinding.Models
         }
         public static bool updateDormWhenBook(string email,string emailUser,int id)
         {
-            String sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} = @EmailUser and {Helpers.colIdDormBookDorm} = @Id" ;
+            sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} = @EmailUser and {Helpers.colIdDormBookDorm} = @Id" ;
 
             try
             {
@@ -1143,11 +1315,10 @@ namespace DormFinding.Models
             {
                 CloseConnection();
             }
-            return false;
         }
-        public static bool resetDormWhenBook(string email, string emailUser,int id)
+        public static bool deleteDormWhenBook(string email, string emailUser,int id)
         {
-            String sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} <> @EmailUser and {Helpers.colIdDormBookDorm} = @Id";
+             sql = $"delete from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} <> @EmailUser and {Helpers.colIdDormBookDorm} = @Id";
 
             try
             {
@@ -1165,7 +1336,7 @@ namespace DormFinding.Models
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error resetDormWhenBook " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error deleteDormWhenBook " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
 
             }
@@ -1173,11 +1344,140 @@ namespace DormFinding.Models
             {
                 CloseConnection();
             }
-            return false;
         }
+
+   
+        public static bool insertDormComment(string emailOwner,int idDorm,string emailUser,string comment,int rating)
+        {
+            sql = $"insert into {Helpers.tbBookComment} values(@EmailOwner,@Id,@EmailUser,@Comment,@Rating) ;";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text; ;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@EmailOwner", emailOwner);
+                cmd.Parameters.AddWithValue("@Id", idDorm);
+                cmd.Parameters.AddWithValue("@EmailUser", emailUser);
+                cmd.Parameters.AddWithValue("@Comment", comment);
+                cmd.Parameters.AddWithValue("@Rating", rating);
+                cmd.ExecuteScalar();
+                return true;
+
+            }catch(Exception e)
+            {
+                //MessageBox.Show("Error insertDormComment " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+        }
+
+        public static void deleteDormComment(int idDorm)
+        {
+            sql = $"delete from {Helpers.tbBookComment} where {Helpers.tbBookComment} = @Id ;";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text; ;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id", idDorm);
+               
+                cmd.ExecuteScalar();
+               
+
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show("Error insertDormComment " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+        }
+
+
+        public static int getAVGRating(string emailOwner, int idDorm)
+        {
+            sql = $"select avg({Helpers.colRatingDormComment}) from {Helpers.tbBookComment} where {Helpers.tbBookComment}.{Helpers.colEmailOwnerDormComment} = @Email and {Helpers.tbBookComment}.{Helpers.colIdDormDormComment} = @Id ;";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text; ;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", emailOwner);
+                cmd.Parameters.AddWithValue("@Id", idDorm);
+               
+                int a = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                return a;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getAVGRatig " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return -1;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+        }
+
+
+        public static List<BookComment> getAllCommentBookDorm(string email,int id)
+        {
+            List<BookComment> list = new List<BookComment>();
+            sql = $"select {Helpers.tbUserProfile}.{Helpers.colEmailProfile},{Helpers.tbUserProfile}.{Helpers.colImageProfile},{Helpers.tbBookComment}.{Helpers.colCommentDormComment},{Helpers.tbBookComment}.{Helpers.colRatingDormComment} " +
+                $"from {Helpers.tbUserProfile},{Helpers.tbBookComment} where {Helpers.tbUserProfile}.{Helpers.colEmailProfile} = {Helpers.tbBookComment}.{Helpers.colEmailUserDormComment} " +
+                $"and {Helpers.tbBookComment}.{Helpers.colEmailOwnerDormComment} = @Email and {Helpers.tbBookComment}.{Helpers.colIdDormDormComment} = @Id;";
+            try
+            {
+                OpenConnection();
+                cmd.CommandType = CommandType.Text; ;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Id", id);
+             
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    BookComment bookDorm = new BookComment();
+                    bookDorm.Owner = email;
+                    bookDorm.Id = id;
+                    bookDorm.User = rd.GetString(0);
+                    bookDorm.Image = Helpers.ConvertByteToImageBitmap((byte[])rd.GetValue(1));
+                    bookDorm.Comment = rd.GetString(2)
+;                   bookDorm.Rating = rd.GetInt32(3);
+                    list.Add(bookDorm);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error getAllCommentBookDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return list;
+        }
+
         public static List<Dorm> getAllListDormOwner(string email)
         {
-            string sql = $"select * from {Helpers.tbDorm},{Helpers.tbDormOwner} where {Helpers.colIdDorm} = {Helpers.colIdOwnerDorm} and {Helpers.colEmailOwnerDorm} = @Email";
+           sql = $"select * from {Helpers.tbDorm},{Helpers.tbDormOwner} where {Helpers.colIdDorm} = {Helpers.colIdOwnerDorm} and {Helpers.colEmailOwnerDorm} = @Email";
             List<Dorm> listDorm = new List<Dorm>();
             
             try

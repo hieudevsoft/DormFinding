@@ -33,9 +33,11 @@ namespace DormFinding
             BookDorm dorm = button.DataContext as BookDorm;
             if (Mydatabase.updateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
             {
-                if(Mydatabase.resetDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+                if(Mydatabase.deleteDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
                 {
                     Helpers.MakeConfirmMessage(Window.GetWindow(this), $"The Dorm has been transferred to { dorm.EmailUser}", "Notify");
+                    int count = Mydatabase.getCountDorm(dorm.IdDorm) + 1;
+                    Mydatabase.updateCountDorm(dorm.IdDorm, count);
                     MainControl mainControl = (MainControl)Window.GetWindow(this);
                     mainControl.MainHomeLayout.Children.Clear();
                     mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;

@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Classess;
+using DormFinding.Models;
 using DormFinding.Utils;
 using MaterialDesignThemes.Wpf;
 using System;
@@ -200,18 +201,54 @@ namespace DormFinding
 
         private User user;
 
+        private List<BookComment> listComment = new List<BookComment>();
+
+
+        public int ValueRating
+        {
+            get { return (int)GetValue(ValueRatingProperty); }
+            set { SetValue(ValueRatingProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ValueRating.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ValueRatingProperty =
+            DependencyProperty.Register("ValueRating", typeof(int), typeof(ShowDorm));
+
+
+        public string Comment
+        {
+            get { return (string)GetValue(CommentProperty); }
+            set { SetValue(CommentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Comment.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CommentProperty =
+            DependencyProperty.Register("Comment", typeof(string), typeof(ShowDorm), new PropertyMetadata(""));
+
+
+
+
         public ShowDorm(Dorm dorm, User user)
         {
             InitializeComponent();
             this.user = user;
-            TransitioningContentSlide.OnApplyTemplate();
             this.dorm = dorm;
+            TransitioningContentSlide.OnApplyTemplate();
             initDorm();
             initProfile();
             initLike();
             initBookDorm();
+            initComment();
             SetHover(iconSend);
         }
+
+        private void initComment()
+        {
+
+            listComment = Mydatabase.getAllCommentBookDorm(owner.Email, dorm.Id);
+            listViewComment.ItemsSource = listComment;
+        }
+
         private void initDorm()
         {
             ImageDorm = dorm.Image;
@@ -294,7 +331,8 @@ namespace DormFinding
                         {
                             likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
                             CountLikeDorm--;
-                            dorm.CountLike--;
+                            if(CountLikeDorm==-1)
+                            dorm.CountLike=0;
                             Mydatabase.updateLikeDorm(dorm);
                             Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 0);
                         }
@@ -436,7 +474,41 @@ namespace DormFinding
             }
             else
             {
-
+                if (Mydatabase.getUserBookDorm(owner.Email, dorm.Id).Equals(user.Email))
+                {
+                    ValueRating = ratingBar.Value;
+                    Comment = tbComment.Text.Trim();
+                    if (ValueRating == 0)
+                    {
+                        Helpers.MakeErrorMessage(Window.GetWindow(this), "You must rating dorm " , "Error");
+                    }
+                    else
+                    {
+                        if (Mydatabase.insertDormComment(owner.Email, dorm.Id, user.Email, Comment, ValueRating))
+                        {
+                            Helpers.MakeConfirmMessage(Window.GetWindow(this), "Thanks you bro", "Notify");
+                            if (Mydatabase.getAVGRating(owner.Email, dorm.Id) != -1)
+                            {
+                                Mydatabase.updateRatingDorm(dorm.Id, Mydatabase.getAVGRating(owner.Email, dorm.Id));
+                                dorm.Quality = (dorm.Quality + ValueRating) / Mydatabase.getCountDorm(dorm.Id);
+                                MainControl mainControl = (MainControl)Window.GetWindow(this);
+                                mainControl.MainHomeLayout.Children.Clear();
+                                mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                                mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                                mainControl.MainHomeLayout.Width = 1150;
+                                mainControl.MainHomeLayout.Height = 690;
+                                mainControl.MainHomeLayout.Children.Add(new ShowDorm(dorm, user));
+                            }
+                            
+                        }
+                        else
+                        {
+                            Helpers.MakeErrorMessage(Window.GetWindow(this), "You already rating this dorm", "Error");
+                        }
+                    }
+                }
+                else
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), "You can't comment because you have never book this dorm", "Error");
             }
         }
     }

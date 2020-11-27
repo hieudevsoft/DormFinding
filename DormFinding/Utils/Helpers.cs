@@ -157,5 +157,13 @@ namespace DormFinding.Utils
         public static string colStateBookDorm = "_state_book";
         public static string colCommentBookDorm = "_comment";
         public static string colRatingBookDorm = "_rating";
+
+        //Table Book Comment
+        public static string tbBookComment = "tbDormComment";
+        public static string colEmailOwnerDormComment = "_email_owner";
+        public static string colEmailUserDormComment = "_email_user";
+        public static string colIdDormDormComment = "_id_dorm";
+        public static string colCommentDormComment = "_comment";
+        public static string colRatingDormComment = "_rating";
     }
 }

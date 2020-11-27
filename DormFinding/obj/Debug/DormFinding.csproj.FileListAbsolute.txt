@@ -293,4 +293,6 @@ D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Pro
 D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Profile.baml
 D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.g.cs
 D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.baml
+D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowComment.g.cs
+D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowComment.baml
 D:\Program Data\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache

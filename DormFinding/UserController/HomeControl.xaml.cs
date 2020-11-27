@@ -35,7 +35,7 @@ namespace DormFinding
 
         private void setUpListViewHori()
         {
-            listDorm = Mydatabase.getAllListDorm();
+            listDorm = Mydatabase.getAllListDormPopular();
             listViewHori.ItemsSource = listDorm;
 
         }
@@ -66,7 +66,7 @@ namespace DormFinding
        private bool DormFilter(Object item)
         {
             if (String.IsNullOrEmpty(searchQuery.Text)) return true;
-            else return ((item as Dorm).Owner.IndexOf(searchQuery.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            else return ((item as Dorm).Address.IndexOf(searchQuery.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
         private void searchQuery_TextChanged(object sender, TextChangedEventArgs e)
         {

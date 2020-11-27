@@ -36,6 +36,7 @@ namespace DormFinding
                 Mydatabase.deleteDormBookDorm(dorm.Id);
                 Mydatabase.deleteDormOwnerDorm(dorm.Id);
                 Mydatabase.deleteOwnerLikeDorm(dorm.Id);
+                Mydatabase.deleteDormComment(dorm.Id);
                 MainControl mainControl = (MainControl)Window.GetWindow(this);
                 mainControl.MainHomeLayout.Children.Clear();
                 mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;

@@ -130,9 +130,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classess\BookComment.cs" />
     <Compile Include="Classess\BookDorm.cs" />
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
+    <Compile Include="SupportUserController\RowComment.xaml.cs">
+      <DependentUpon>RowComment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserController\ScreenBooking.xaml.cs">
       <DependentUpon>ScreenBooking.xaml</DependentUpon>
     </Compile>
@@ -166,7 +170,7 @@
     <Compile Include="SupportUserController\DormItem.xaml.cs">
       <DependentUpon>DormItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Mydatabase.cs" />
+    <Compile Include="Database\Mydatabase.cs" />
     <Compile Include="Classess\User.cs" />
     <Compile Include="UserController\SliderShow.xaml.cs">
       <DependentUpon>SliderShow.xaml</DependentUpon>
@@ -194,6 +198,10 @@
     </Compile>
     <Compile Include="Utils\ObservableObject.cs" />
     <Compile Include="Utils\ValidationEmail.cs" />
+    <Page Include="SupportUserController\RowComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserController\ScreenBooking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
