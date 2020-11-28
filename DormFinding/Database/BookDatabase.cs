@@ -78,8 +78,6 @@ namespace DormFinding.Database
                 $", {Helpers.colEmailUserBookDorm} = @EmailUser" +
                 $", {Helpers.colIdDormBookDorm}=@Id" +
                 $", {Helpers.colStateBookDorm}=@State" +
-                $", {Helpers.colCommentBookDorm}=@Comment" +
-                $", {Helpers.colRatingBookDorm}=@Rating" +
                 $" where {Helpers.colEmailOwnerBookDorm}=@EmailOwner and {Helpers.colEmailUserBookDorm} = @EmailUser and  {Helpers.colIdDormBookDorm}=@Id;";
 
             try
@@ -93,8 +91,6 @@ namespace DormFinding.Database
                 Mydatabase.cmd.Parameters.AddWithValue("@EmailUser", bookDorm.EmailUser);
                 Mydatabase.cmd.Parameters.AddWithValue("@Id", bookDorm.IdDorm);
                 Mydatabase.cmd.Parameters.AddWithValue("@State", bookDorm.StateDorm);
-                Mydatabase.cmd.Parameters.AddWithValue("@Comment", bookDorm.CommentDorm);
-                Mydatabase.cmd.Parameters.AddWithValue("@Rating", bookDorm.RatingDorm);
                 Mydatabase.cmd.ExecuteScalar();
 
 
@@ -133,9 +129,7 @@ namespace DormFinding.Database
                     dorm.EmailOwner = Mydatabase.rd.GetString(0);
                     dorm.EmailUser = Mydatabase.rd.GetString(1);
                     dorm.IdDorm = Mydatabase.rd.GetInt32(2);
-                    dorm.StateDorm = Mydatabase.rd.GetInt16(3);
-                    dorm.CommentDorm = Mydatabase.rd.GetString(4);
-                    dorm.RatingDorm = Mydatabase.rd.GetInt16(5);
+                    dorm.StateDorm = Mydatabase.rd.GetInt16(3);    
                 }
 
 
@@ -176,8 +170,7 @@ namespace DormFinding.Database
                     dorm.EmailUser = Mydatabase.rd.GetString(1);
                     dorm.IdDorm = Mydatabase.rd.GetInt32(2);
                     dorm.StateDorm = Mydatabase.rd.GetInt16(3);
-                    dorm.CommentDorm = Mydatabase.rd.GetString(4);
-                    dorm.RatingDorm = Mydatabase.rd.GetInt16(5);
+                    
                     list.Add(dorm);
                 }
             }

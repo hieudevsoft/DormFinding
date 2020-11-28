@@ -27,12 +27,10 @@ namespace DormFinding.Utils
                 return false;
             }
         }
-
         public static void MakeErrorMessage(Window w,string title,string message)=> MessageBox.Show(title, message, MessageBoxButton.OK, MessageBoxImage.Error);
         public static void MakeConfirmMessage(Window w, string title, string message) => MessageBox.Show(title, message, MessageBoxButton.OK, MessageBoxImage.Information);
         public static string GetTextTextBox(TextBox t) => t.Text.Trim();
         public static string GetTextPassWord(PasswordBox p) => p.Password.Trim();
-
         public static byte ConverCheckedToInt(CheckBox cb)
         {
             if (cb.IsChecked == true) return 1; else return 0;
@@ -55,7 +53,6 @@ namespace DormFinding.Utils
             image.EndInit();
             return image;
         }
-
         public static byte[] ConvertImageToBinary(BitmapImage image)
         {
             var encoder = new JpegBitmapEncoder();
@@ -64,7 +61,6 @@ namespace DormFinding.Utils
             encoder.Save(ms);   
             return ms.ToArray();
         }
-
         public static Visibility ConvertByteToVisibility(byte a)
         {
             if (a == 1) return Visibility.Collapsed; else return Visibility.Visible;
@@ -79,17 +75,14 @@ namespace DormFinding.Utils
             ci.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
             Thread.CurrentThread.CurrentCulture = ci;
         }
-
         public static byte ConvertBoolToByte(bool a)
         {
             if (a == true) return 1; else return 0;
         }
-
         public static string ConvertByteToGender(byte a)
         {
             if (a == 1) return "Female"; else return "Male";
         }
-
         public static string ConvertStateToText(int a)
         {
             if (a == 1) return "Booking...";
@@ -105,7 +98,7 @@ namespace DormFinding.Utils
         public static string colPassword = "_password";
         public static string colRemember = "_isRemember";
 
-        //Tabel User Profile
+        //Table User Profile
         public static string tbUserProfile = "tbProfile";
         public static string colEmailProfile = "_email_profile";
         public static string colNameProfile = "_name_profile";
@@ -155,8 +148,6 @@ namespace DormFinding.Utils
         public static string colEmailUserBookDorm = "_email_user";
         public static string colIdDormBookDorm = "_id_dorm";
         public static string colStateBookDorm = "_state_book";
-        public static string colCommentBookDorm = "_comment";
-        public static string colRatingBookDorm = "_rating";
 
         //Table Book Comment
         public static string tbBookComment = "tbDormComment";

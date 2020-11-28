@@ -35,25 +35,26 @@
                                FontSize="24"
                                FontFamily="Avenir LT Std 65 Medium"
                                Foreground="{StaticResource colorBlack}" />
-                    <Border Background="Transparent">
-                        <Border CornerRadius="10"
+                    <StackPanel Orientation="Horizontal">
+                        <Border Background="Transparent">
+                            <Border CornerRadius="10"
                                 Margin="18 10 0 0"
                                 Width="400"
                                 BorderThickness="2"
                                 Background="{StaticResource colorGray}"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Stretch">
-                            <Grid Height="auto">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"></ColumnDefinition>
-                                    <ColumnDefinition Width="85*" />
-                                    <ColumnDefinition Width="262*"/>
-                                </Grid.ColumnDefinitions>
-                                <fa:ImageAwesome Icon="Search"
+                                <Grid Height="auto">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="85*" />
+                                        <ColumnDefinition Width="262*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <fa:ImageAwesome Icon="Search"
                                                  Width="25"
                                                  Height="25"
                                                  Foreground="#9FA1BE" Margin="12,18,12.6,18" />
-                                <TextBox Grid.Column="1"
+                                    <TextBox Grid.Column="1"
                                          Height="60"
                                          Padding="0 9 0 0"
                                          FontSize="16"
@@ -71,9 +72,49 @@
                                          TextAlignment="Left"
                                          BorderThickness="0"
                                          x:Name="searchQuery" Grid.ColumnSpan="2"  />
-                            </Grid>
+                                </Grid>
+                            </Border>
                         </Border>
-                    </Border>
+                        <Border Width="235"
+                                            BorderBrush="Black"
+                                            Background="Transparent"
+                                            VerticalAlignment="Bottom"
+                                            HorizontalAlignment="Left"
+                                            Height="60"
+                                            CornerRadius="10"
+                                            BorderThickness="1"
+                                            Margin="5 5 0 1">
+                            <ComboBox HorizontalContentAlignment="Left"
+                                                  Margin="10 0 10 0"
+                                                  FontSize="18"
+                                                  BorderBrush="Black"
+                                                  x:Name="cbGender"
+                                                  materialDesign:HintAssist.Hint="Select Options"
+                                                  materialDesign:TextFieldAssist.UnderlineCornerRadius="3"
+                                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                                  FontFamily="Avenir LT Std 65 Medium"
+                                                  Foreground="Black">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background"
+                                                            Value="White" />
+                                        <Setter Property="BorderBrush"
+                                                            Value="#263238" />
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                                <ComboBoxItem>New</ComboBoxItem>
+                                <ComboBoxItem>Increasing Price</ComboBoxItem>
+                                <ComboBoxItem>Decreasing Price</ComboBoxItem>
+                                <ComboBoxItem>Increasing Booked Times</ComboBoxItem>
+                                <ComboBoxItem>Decreasing Booked Times</ComboBoxItem>
+                                <ComboBoxItem>Increasing Like</ComboBoxItem>
+                                <ComboBoxItem>Decreasing Like</ComboBoxItem>
+                                <ComboBoxItem>Increasing Rating </ComboBoxItem>
+                                <ComboBoxItem>Decreasing Rating </ComboBoxItem>
+                            </ComboBox>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Vertical">
