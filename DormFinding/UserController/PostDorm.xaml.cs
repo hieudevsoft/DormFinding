@@ -259,7 +259,7 @@ namespace DormFinding
                 if (DormDatabase.Insert(dorm))
                 {
                     Helpers.MakeConfirmMessage(Window.GetWindow(this), "Post Dorm Successfully~", "Notify");
-                    Mydatabase.InsertToTableOwnerDorm(user.Email, DormDatabase.GetAllListDorm()[DormDatabase.GetAllListDorm().Count - 1].Id);
+                    OwnerDormDatabase.Insert(user.Email, DormDatabase.GetAllListDorm()[DormDatabase.GetAllListDorm().Count - 1].Id);
                 }
             }
             else

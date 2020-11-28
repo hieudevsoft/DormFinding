@@ -246,7 +246,7 @@ namespace DormFinding
         private void initComment()
         {
 
-            listComment = Mydatabase.getAllCommentBookDorm(owner.Email, dorm.Id);
+            listComment = CommentDatabase.GetAllCommentBookDorm(owner.Email, dorm.Id);
             listViewComment.ItemsSource = listComment;
         }
 
@@ -271,7 +271,7 @@ namespace DormFinding
         }
         private void initProfile()
         {
-            owner = Mydatabase.getOwnerProfileWithDorm(dorm.Id);
+            owner = OwnerDormDatabase.GetOwnerProfileOfDorm(dorm.Id);
             ImageOwner = Helpers.ConvertByteToImageBitmap(owner.Avatar);
             NameOwner = owner.Name;
             PhoneOwner = owner.Phone;
@@ -483,12 +483,12 @@ namespace DormFinding
                     }
                     else
                     {
-                        if (Mydatabase.insertDormComment(owner.Email, dorm.Id, user.Email, Comment, ValueRating))
+                        if (CommentDatabase.Insert(owner.Email, dorm.Id, user.Email, Comment, ValueRating))
                         {
                             Helpers.MakeConfirmMessage(Window.GetWindow(this), "Thanks you bro", "Notify");
-                            if (Mydatabase.getAVGRating(owner.Email, dorm.Id) != -1)
+                            if (CommentDatabase.GetAvgRating(owner.Email, dorm.Id) != -1)
                             {
-                                DormDatabase.UpdateRating(dorm.Id, Mydatabase.getAVGRating(owner.Email, dorm.Id));
+                                DormDatabase.UpdateRating(dorm.Id, CommentDatabase.GetAvgRating(owner.Email, dorm.Id));
                                 dorm.Quality = (dorm.Quality + ValueRating) / DormDatabase.GetCount(dorm.Id);
                                 MainControl mainControl = (MainControl)Window.GetWindow(this);
                                 mainControl.MainHomeLayout.Children.Clear();

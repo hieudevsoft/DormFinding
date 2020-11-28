@@ -135,8 +135,10 @@
     <Compile Include="Classess\Dorm.cs" />
     <Compile Include="Classess\DormDb.cs" />
     <Compile Include="Database\BookDatabase.cs" />
+    <Compile Include="Database\CommentDatabase.cs" />
     <Compile Include="Database\DormDatabase.cs" />
     <Compile Include="Database\LikeDatabase.cs" />
+    <Compile Include="Database\OwnerDormDatabase.cs" />
     <Compile Include="Database\ProfileDatabase.cs" />
     <Compile Include="Database\UserDatabase.cs" />
     <Compile Include="SupportUserController\RowComment.xaml.cs">

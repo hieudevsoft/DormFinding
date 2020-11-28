@@ -100,13 +100,13 @@ namespace DormFinding.Utils
         }
 
         //Table User
-        public static string tbUser = "tb_user";
+        public static string tbUser = "tbUser";
         public static string colEmail = "_email";
         public static string colPassword = "_password";
         public static string colRemember = "_isRemember";
 
         //Tabel User Profile
-        public static string tbUserProfile = "tb_user_profile";
+        public static string tbUserProfile = "tbProfile";
         public static string colEmailProfile = "_email_profile";
         public static string colNameProfile = "_name_profile";
         public static string colDateProfile = "_date_profile";
@@ -117,7 +117,7 @@ namespace DormFinding.Utils
         public static string colImageProfile = "_image_profile";
 
         //Table Dorm
-        public static string tbDorm = "tb_dorm";
+        public static string tbDorm = "tbDorm";
         public static string colIdDorm = "_id";
         public static string colOwnerDorm = "_owner";
         public static string colAdressDorm = "_address";
@@ -137,7 +137,7 @@ namespace DormFinding.Utils
         public static string colSizeDorm = "_size";
 
         //Table Dorm reference with User
-        public static string tbDormOwner = "tbDorm_Owner";
+        public static string tbDormOwner = "tbDormOwner";
         public static string colIdDormUser = "Id";
         public static string colEmailOwnerDorm = "_email_owner";
         public static string colIdOwnerDorm = "_id_dorm";

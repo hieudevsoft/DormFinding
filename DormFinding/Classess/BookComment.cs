@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 
 namespace DormFinding.Classess
 {
-    class BookComment
+    public class BookComment
     {
         private int _rating;
         private int _id;

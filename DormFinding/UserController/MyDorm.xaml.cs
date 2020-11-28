@@ -79,7 +79,7 @@ namespace DormFinding
         private void setUpListViewVerti()
         {
 
-            listDormVerti = Mydatabase.getAllListDormOwner(owner.Email);
+            listDormVerti = OwnerDormDatabase.GetAllListDormOwner(owner.Email);
             listViewVerti.ItemsSource = listDormVerti;
 
         }

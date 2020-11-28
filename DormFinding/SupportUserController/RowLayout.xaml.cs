@@ -1,19 +1,7 @@
 ﻿using DormFinding.Database;
-using DormFinding.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace DormFinding
 {
@@ -35,9 +23,9 @@ namespace DormFinding
             if (DormDatabase.Delete(dorm.Id))
             {
                 BookDatabase.DeleteByIdDorm(dorm.Id);
-                Mydatabase.deleteDormOwnerDorm(dorm.Id);
+                OwnerDormDatabase.DeleteByDormId(dorm.Id);
                 LikeDatabase.DeleteById(dorm.Id);
-                Mydatabase.deleteDormComment(dorm.Id);
+                CommentDatabase.DeleteByIdDorm(dorm.Id);
                 MainControl mainControl = (MainControl)Window.GetWindow(this);
                 mainControl.MainHomeLayout.Children.Clear();
                 mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
