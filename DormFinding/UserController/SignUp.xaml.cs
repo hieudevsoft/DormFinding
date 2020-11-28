@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using DormFinding.Utils;
 using Facebook;
 using System;
@@ -82,9 +83,9 @@ namespace DormFinding
             {
                 if (isValidAccount(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), tbConfirmPassSignUp.Password.Trim(), cbAgreeTerm))
                 {
-                    if(Mydatabase.InsertToTableUser(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), 0))
+                    if(UserDatabase.Insert(tbEmailSignUp.Text.Trim(), tbPasswordSignUp.Password.Trim(), 0))
                     {
-                        Mydatabase.InsertToTableUserProfile(tbEmailSignUp.Text.Trim());
+                        ProfileDatabase.Insert(tbEmailSignUp.Text.Trim());
                         Helpers.MakeConfirmMessage(Window.GetWindow(this), "Registered Successfully~", "Notify");
                     }else
                     {

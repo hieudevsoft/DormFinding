@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DormFinding
 {
-    class UserProfile
+    public class UserProfile
     {
         private string _email;
         private string _name;

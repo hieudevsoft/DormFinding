@@ -1,5 +1,6 @@
 ﻿namespace DormFinding
 {
+    using DormFinding.Database;
     using DormFinding.Models;
     using DormFinding.Utils;
     using Facebook;
@@ -90,9 +91,9 @@
         {
             User user = new User(tbEmail.Text.Trim(), tbPassword.Password.Trim(), Helpers.ConverCheckedToInt(cbRememberPass));
             
-            if (Mydatabase.CheckAccount(user.Email, user.Password)){
+            if (UserDatabase.CheckAccount(user.Email, user.Password)){
                 
-                Mydatabase.Update(user,user.Email);
+                UserDatabase.Update(user,user.Email);
                 MainControl m = new MainControl(user,AccessToken);
                 Window.GetWindow(this).Hide();
                 m.Show();
@@ -146,9 +147,9 @@
                 user.Email = $"{me.id.ToString()}@facebook.com";
                 user.Password = "dormfinding";
                 user.isRemember = 0;
-                if (Mydatabase.InsertToTableUser(user.Email,user.Password,user.isRemember))
+                if (UserDatabase.Insert(user.Email,user.Password,user.isRemember))
                 {
-                    Mydatabase.InsertToTableUserProfileFaceBook(user.Email,me.name.ToString(),Helpers.ConvertImageToBinary(new System.Windows.Media.Imaging.BitmapImage(uriPhoto)));
+                    ProfileDatabase.InsertFaceBook(user.Email,me.name.ToString(),Helpers.ConvertImageToBinary(new System.Windows.Media.Imaging.BitmapImage(uriPhoto)));
                 }
                 else
                 {

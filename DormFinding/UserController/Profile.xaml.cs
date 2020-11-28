@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using DormFinding.Database;
 
 namespace DormFinding
 {
@@ -78,7 +79,7 @@ namespace DormFinding
 
         private void initProfile()
         {
-            userProfile = Mydatabase.getProfile(user);
+            userProfile = ProfileDatabase.GetProfile(user);
             tbNameProfile.Text = userProfile.Name;
             tbPhoneProfile.Text = userProfile.Phone;
             tbEmailProfile.Text = userProfile.Email;
@@ -108,7 +109,7 @@ namespace DormFinding
             userProfile.Date = dpDateOfBirth.SelectedDate.ToString().Split(' ')[0].Trim();
             userProfile.Gender = (byte)cbGender.SelectedIndex;
 
-            if (Mydatabase.UpdateProfileSubmit(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
+            if (ProfileDatabase.UpdateProfileSubmit(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
         }
 
         private void btnSaveProfile_Click(object sender, RoutedEventArgs e)
@@ -116,7 +117,7 @@ namespace DormFinding
             userProfile.Name = tbNameProfile.Text.Trim();
             userProfile.Phone = tbPhoneProfile.Text.Trim();
             userProfile.Avatar = Helpers.ConvertImageToBinary((BitmapImage)imgAvatarMini.ImageSource);
-            if (Mydatabase.UpdateProfileSave(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
+            if (ProfileDatabase.UpdateProfileSave(userProfile)) MessageBox.Show("Update SuccessFull", "Notify");
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
@@ -138,7 +139,7 @@ namespace DormFinding
                 {
                     user.Password = newPass;
                     user.isRemember = 0;
-                    if (Mydatabase.Update(user, user.Email))
+                    if (UserDatabase.Update(user, user.Email))
                     {
                         Helpers.MakeConfirmMessage(Window.GetWindow(this), "Update Password Successfully~", "Notify");
                     }

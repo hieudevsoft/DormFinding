@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,11 +32,11 @@ namespace DormFinding
         {
             Button button = sender as Button;
             Dorm dorm = button.DataContext as Dorm;
-            if (Mydatabase.deleteDorm(dorm.Id))
+            if (DormDatabase.Delete(dorm.Id))
             {
-                Mydatabase.deleteDormBookDorm(dorm.Id);
+                BookDatabase.DeleteByIdDorm(dorm.Id);
                 Mydatabase.deleteDormOwnerDorm(dorm.Id);
-                Mydatabase.deleteOwnerLikeDorm(dorm.Id);
+                LikeDatabase.DeleteById(dorm.Id);
                 Mydatabase.deleteDormComment(dorm.Id);
                 MainControl mainControl = (MainControl)Window.GetWindow(this);
                 mainControl.MainHomeLayout.Children.Clear();

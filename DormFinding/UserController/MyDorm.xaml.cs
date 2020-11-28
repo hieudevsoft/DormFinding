@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using DormFinding.Utils;
 using System.Collections.Generic;
 using System.Windows;
@@ -51,14 +52,14 @@ namespace DormFinding
         private void initOwner()
         {
 
-                UserProfile profile = Mydatabase.getProfile(owner);
+                UserProfile profile = ProfileDatabase.GetProfile(owner);
                 NameOwner = "Hello " + profile.Name;
                 if(profile.Avatar!=null)
                 ImageOwner = Helpers.ConvertByteToImageBitmap(profile.Avatar);
         }
         private void initState()
         {
-            list = Mydatabase.getAllWattingBookDorm(owner.Email);
+            list = BookDatabase.GetAllWattingBook(owner.Email);
             if (list.Count != 0)
             {
                 notifyMyDorm.Visibility = System.Windows.Visibility.Visible;

@@ -1,4 +1,5 @@
 ﻿
+using DormFinding.Database;
 using DormFinding.Models;
 using DormFinding.Utils;
 using Microsoft.Win32;
@@ -255,16 +256,16 @@ namespace DormFinding
             if (!check)
             {
 
-                if (Mydatabase.InsertDorm(dorm))
+                if (DormDatabase.Insert(dorm))
                 {
                     Helpers.MakeConfirmMessage(Window.GetWindow(this), "Post Dorm Successfully~", "Notify");
-                    Mydatabase.InsertToTableOwnerDorm(user.Email, Mydatabase.getAllListDorm()[Mydatabase.getAllListDorm().Count - 1].Id);
+                    Mydatabase.InsertToTableOwnerDorm(user.Email, DormDatabase.GetAllListDorm()[DormDatabase.GetAllListDorm().Count - 1].Id);
                 }
             }
             else
             {
                
-                if(Mydatabase.updateDorm(dorm,dormSend.Id)) Helpers.MakeConfirmMessage(Window.GetWindow(this), "Update Dorm Successfully~", "Notify");
+                if(DormDatabase.Update(dorm,dormSend.Id)) Helpers.MakeConfirmMessage(Window.GetWindow(this), "Update Dorm Successfully~", "Notify");
                 else Helpers.MakeErrorMessage(Window.GetWindow(this), "Failure update Dorm", "Error");
             }
         }

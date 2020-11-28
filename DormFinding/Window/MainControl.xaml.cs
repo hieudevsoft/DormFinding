@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using Facebook;
 using System;
 using System.Collections.Generic;
@@ -124,7 +125,7 @@ namespace DormFinding
                 else
                 {
                     user.isRemember = 0;
-                    Mydatabase.Update(user, user.Email);
+                    UserDatabase.Update(user, user.Email);
                     MainWindow m = new MainWindow();
                     m.Show();
                     this.Hide();
@@ -156,7 +157,7 @@ namespace DormFinding
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
                     MainHomeLayout.Height = 690;
-                    MainHomeLayout.Children.Add(new LikedDorm(Mydatabase.getAllListDormOwnerLike(user.Email), user));
+                    MainHomeLayout.Children.Add(new LikedDorm(LikeDatabase.GetAllListDormByEmail(user.Email), user));
                     break;
                 case 2:
                     wbLogout.Visibility = Visibility.Collapsed;

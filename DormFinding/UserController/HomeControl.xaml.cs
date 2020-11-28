@@ -1,4 +1,5 @@
-﻿ using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,14 +36,14 @@ namespace DormFinding
 
         private void setUpListViewHori()
         {
-            listDorm = Mydatabase.getAllListDormPopular();
+            listDorm = DormDatabase.GetAllListDormPopular();
             listViewHori.ItemsSource = listDorm;
 
         }
         private void setUpListViewVerti()
         {
 
-            listDormVerti = Mydatabase.getAllListDorm();
+            listDormVerti = DormDatabase.GetAllListDorm();
             listViewVerti.ItemsSource = listDormVerti;
             
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listViewVerti.ItemsSource);

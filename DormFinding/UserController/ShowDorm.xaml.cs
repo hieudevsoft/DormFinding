@@ -1,4 +1,5 @@
 ﻿using DormFinding.Classess;
+using DormFinding.Database;
 using DormFinding.Models;
 using DormFinding.Utils;
 using MaterialDesignThemes.Wpf;
@@ -284,7 +285,7 @@ namespace DormFinding
         {
             try
             {
-                Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
+                Boolean click = LikeDatabase.GetStateLike(user.Email, dorm.Id);
                 if (click) likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
             }
             catch (Exception e)
@@ -309,23 +310,23 @@ namespace DormFinding
             try
             {
 
-                    if (Mydatabase.InsertToOwnerLikeDorm(user.Email, dorm.Id, 0))
+                    if (LikeDatabase.Insert(user.Email, dorm.Id, 0))
                     {
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
                         dorm.CountLike++;
-                        Mydatabase.updateLikeDorm(dorm);
+                        DormDatabase.UpdateLikeDorm(dorm);
                     }
                     else
                     {
-                        Boolean click = Mydatabase.getStateLikeOfOwner(user.Email, dorm.Id);
+                        Boolean click = LikeDatabase.GetStateLike(user.Email, dorm.Id);
                         if (!click)
                         {
                             likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                             CountLikeDorm++;
                             dorm.CountLike++;
-                            Mydatabase.updateLikeDorm(dorm);
-                            Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 1);
+                            DormDatabase.UpdateLikeDorm(dorm);
+                            LikeDatabase.Update(user.Email, dorm.Id, 1);
                         }
                         else
                         {
@@ -333,8 +334,8 @@ namespace DormFinding
                             CountLikeDorm--;
                             if(CountLikeDorm==-1)
                             dorm.CountLike=0;
-                            Mydatabase.updateLikeDorm(dorm);
-                            Mydatabase.updateOwnerLikeDorm(user.Email, dorm.Id, 0);
+                            DormDatabase.UpdateLikeDorm(dorm);
+                            LikeDatabase.Update(user.Email, dorm.Id, 0);
                         }
                     }
 
@@ -381,15 +382,13 @@ namespace DormFinding
         {
             try
             {
-               
-                
                     BookDorm bookDorm = new BookDorm();
                     bookDorm.EmailOwner = owner.Email;
                     bookDorm.EmailUser = user.Email;
                     bookDorm.IdDorm = dorm.Id;
                     bookDorm.StateDorm = 1;
 
-                    bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                    bookDorm = BookDatabase.GetItem(bookDorm);
                     if (bookDorm.StateDorm == 0)
                     {
                         spinnerBook.Visibility = Visibility.Collapsed;
@@ -421,14 +420,14 @@ namespace DormFinding
             {
                 Helpers.MakeErrorMessage(Window.GetWindow(this), "You are owner so can't book dorm", "Error");
             }
-            else if(!Mydatabase.getUserBookDorm(owner.Email,dorm.Id).Equals("No"))
+            else if(!BookDatabase.GetEmailBookDorm(owner.Email,dorm.Id).Equals("No"))
             {
 
-                if (Mydatabase.getUserBookDorm(owner.Email, dorm.Id).Equals(user.Email))
+                if (BookDatabase.GetEmailBookDorm(owner.Email, dorm.Id).Equals(user.Email))
                 {
                     Helpers.MakeConfirmMessage(Window.GetWindow(this), "Dorm was booked by you" , "Notify");
                 } else
-                Helpers.MakeErrorMessage(Window.GetWindow(this), "Dorm was booked by " + Mydatabase.getUserBookDorm(owner.Email, dorm.Id), "Error");
+                Helpers.MakeErrorMessage(Window.GetWindow(this), "Dorm was booked by " + BookDatabase.GetEmailBookDorm(owner.Email, dorm.Id), "Error");
             }
             else {
                 BookDorm bookDorm = new BookDorm();
@@ -436,7 +435,7 @@ namespace DormFinding
                 bookDorm.EmailUser = user.Email;
                 bookDorm.IdDorm = dorm.Id;
                 bookDorm.StateDorm = 1;
-                if (Mydatabase.InsertDataToBookDorm(bookDorm))
+                if (BookDatabase.Insert(bookDorm))
                 {
                     spinnerBook.Visibility = Visibility.Visible;
                     btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
@@ -444,14 +443,14 @@ namespace DormFinding
                 }
                 else
                 {
-                    bookDorm = Mydatabase.getInforBookDorm(bookDorm);
+                    bookDorm = BookDatabase.GetItem(bookDorm);
                     if (bookDorm.StateDorm == 0)
                     {
                         spinnerBook.Visibility = Visibility.Visible;
                         btnBooked.IsEnabled = true;
                         btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A2D8E9"));
                         bookDorm.StateDorm = 1;
-                        Mydatabase.updateBookDorm(bookDorm);
+                        BookDatabase.Update(bookDorm);
                     }
                     else if (bookDorm.StateDorm == 1)
                     {
@@ -459,7 +458,7 @@ namespace DormFinding
                         btnBooked.IsEnabled = true;
                         btnBooked.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2DCA73"));
                         bookDorm.StateDorm = 0;
-                        Mydatabase.updateBookDorm(bookDorm);
+                        BookDatabase.Update(bookDorm);
                     }
                     lbStateBook.Content = Helpers.ConvertStateToText(bookDorm.StateDorm);
                 }
@@ -474,7 +473,7 @@ namespace DormFinding
             }
             else
             {
-                if (Mydatabase.getUserBookDorm(owner.Email, dorm.Id).Equals(user.Email))
+                if (BookDatabase.GetEmailBookDorm(owner.Email, dorm.Id).Equals(user.Email))
                 {
                     ValueRating = ratingBar.Value;
                     Comment = tbComment.Text.Trim();
@@ -489,8 +488,8 @@ namespace DormFinding
                             Helpers.MakeConfirmMessage(Window.GetWindow(this), "Thanks you bro", "Notify");
                             if (Mydatabase.getAVGRating(owner.Email, dorm.Id) != -1)
                             {
-                                Mydatabase.updateRatingDorm(dorm.Id, Mydatabase.getAVGRating(owner.Email, dorm.Id));
-                                dorm.Quality = (dorm.Quality + ValueRating) / Mydatabase.getCountDorm(dorm.Id);
+                                DormDatabase.UpdateRating(dorm.Id, Mydatabase.getAVGRating(owner.Email, dorm.Id));
+                                dorm.Quality = (dorm.Quality + ValueRating) / DormDatabase.GetCount(dorm.Id);
                                 MainControl mainControl = (MainControl)Window.GetWindow(this);
                                 mainControl.MainHomeLayout.Children.Clear();
                                 mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;

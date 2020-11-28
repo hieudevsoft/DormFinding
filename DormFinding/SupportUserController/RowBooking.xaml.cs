@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using DormFinding.Utils;
 using System;
 using System.Collections.Generic;
@@ -31,13 +32,13 @@ namespace DormFinding
         {
             Button button = sender as Button;
             BookDorm dorm = button.DataContext as BookDorm;
-            if (Mydatabase.updateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+            if (BookDatabase.UpdateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
             {
-                if(Mydatabase.deleteDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+                if(BookDatabase.DeleteDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
                 {
                     Helpers.MakeConfirmMessage(Window.GetWindow(this), $"The Dorm has been transferred to { dorm.EmailUser}", "Notify");
-                    int count = Mydatabase.getCountDorm(dorm.IdDorm) + 1;
-                    Mydatabase.updateCountDorm(dorm.IdDorm, count);
+                    int count = DormDatabase.GetCount(dorm.IdDorm) + 1;
+                    DormDatabase.UpdateCountDorm(dorm.IdDorm, count);
                     MainControl mainControl = (MainControl)Window.GetWindow(this);
                     mainControl.MainHomeLayout.Children.Clear();
                     mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;

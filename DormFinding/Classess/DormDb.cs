@@ -2,7 +2,7 @@
 
 namespace DormFinding
 {
-    class DormDb
+    public class DormDb
     {
         private int _id;
         private string _owner;

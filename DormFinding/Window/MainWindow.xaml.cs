@@ -1,12 +1,9 @@
 ﻿namespace DormFinding
 {
-    using DormFinding.Models;
-    using System;
-    using System.Runtime.InteropServices;
+    using DormFinding.Database;
     using System.Windows;
     using System.Windows.Input;
-    using System.Windows.Interop;
-    using System.Windows.Media;
+
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml.
@@ -29,7 +26,7 @@
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            User user = Mydatabase.CheckAccountAreadyInApp();
+            User user = UserDatabase.CheckAccountAreadyInApp();
             if (user != null)
             {
                 MainControl m = new MainControl(user,"");

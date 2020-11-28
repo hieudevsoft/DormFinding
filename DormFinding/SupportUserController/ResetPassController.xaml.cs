@@ -1,4 +1,5 @@
-﻿using DormFinding.Models;
+﻿using DormFinding.Database;
+using DormFinding.Models;
 using DormFinding.Utils;
 using System;
 using System.Collections.Generic;
@@ -95,13 +96,13 @@ namespace DormFinding
                     user.Email = tbEmailReset.Text.Trim();
                     try
                     {
-                        UserProfile userProfile = Mydatabase.getProfile(user);
+                        UserProfile userProfile = ProfileDatabase.GetProfile(user);
                         if (userProfile != null)
                         {
                             if (userProfile.Hint.Equals(lbAnswerReset.Text.Trim()))
                             {
                                 user.Password = tbPasswordReset.Password.Trim();
-                                Mydatabase.Update(user, user.Email);
+                                UserDatabase.Update(user, user.Email);
                                 Helpers.MakeConfirmMessage(Window.GetWindow(this), "Reset Password Successfully~", "Notify");
                             }
                             else
