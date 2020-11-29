@@ -20,20 +20,27 @@ namespace DormFinding
         {
             Button button = sender as Button;
             Dorm dorm = button.DataContext as Dorm;
-            if (DormDatabase.Delete(dorm.Id))
+            MessageBoxResult result = MessageBox.Show("Would you like to delete this dorm?", "Notify", MessageBoxButton.YesNo);
+            switch (result)
             {
-                BookDatabase.DeleteByIdDorm(dorm.Id);
-                OwnerDormDatabase.DeleteByDormId(dorm.Id);
-                LikeDatabase.DeleteById(dorm.Id);
-                CommentDatabase.DeleteByIdDorm(dorm.Id);
-                MainControl mainControl = (MainControl)Window.GetWindow(this);
-                mainControl.MainHomeLayout.Children.Clear();
-                mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
-                mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
-                mainControl.MainHomeLayout.Width = 1150;
-                mainControl.MainHomeLayout.Height = 690;
-                mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
+                case MessageBoxResult.Yes:
+                    if (DormDatabase.Delete(dorm.Id))
+                    {
+                        BookDatabase.DeleteByIdDorm(dorm.Id);
+                        OwnerDormDatabase.DeleteByDormId(dorm.Id);
+                        LikeDatabase.DeleteById(dorm.Id);
+                        CommentDatabase.DeleteByIdDorm(dorm.Id);
+                        MainControl mainControl = (MainControl)Window.GetWindow(this);
+                        mainControl.MainHomeLayout.Children.Clear();
+                        mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                        mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                        mainControl.MainHomeLayout.Width = 1150;
+                        mainControl.MainHomeLayout.Height = 690;
+                        mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
+                    }
+                    break;
             }
+          
             
         }
 

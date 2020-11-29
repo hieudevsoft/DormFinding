@@ -42,12 +42,6 @@ namespace DormFinding
            
 
         }
-        private Uri getLogoutUri()
-        {
-            FacebookClient client = new FacebookClient();
-            var _logoutUri = client.GetLogoutUrl(new { access_token = token, next = "https://www.facebook.com/logout.php?" });
-            return _logoutUri;
-        }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -101,37 +95,41 @@ namespace DormFinding
      
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
-            if (user != null)
+            MessageBoxResult result = MessageBox.Show("Would you like to sign out?", "Notify", MessageBoxButton.YesNo);
+            switch (result)
             {
-                if(user.Email.Contains("@facebook.com"))
-                {
-
-
-
-                    FacebookClient fb = new FacebookClient();
-                    Uri logoutUrl = fb.GetLogoutUrl(new
+                case MessageBoxResult.Yes:
+                    if (user != null)
                     {
-                        access_token = token,
-                        next = "https://www.facebook.com/connect/login_sucess.html"
-                    });
+                        if (user.Email.Contains("@facebook.com"))
+                        {
+                            FacebookClient fb = new FacebookClient();
+                            Uri logoutUrl = fb.GetLogoutUrl(new
+                            {
+                                access_token = token,
+                                next = "https://www.facebook.com/connect/login_sucess.html"
+                            });
 
-                    wbLogout.Visibility = Visibility.Visible;
-                    wbLogout.Navigate(logoutUrl.AbsoluteUri);
+                            wbLogout.Visibility = Visibility.Visible;
+                            wbLogout.Navigate(logoutUrl.AbsoluteUri);
 
-                    token = null;
+                            token = null;
 
-                    
-                }
-                else
-                {
-                    user.isRemember = 0;
-                    UserDatabase.Update(user, user.Email);
-                    MainWindow m = new MainWindow();
-                    m.Show();
-                    this.Hide();
-                } 
-               
+
+                        }
+                        else
+                        {
+                            user.isRemember = 0;
+                            UserDatabase.Update(user, user.Email);
+                            MainWindow m = new MainWindow();
+                            m.Show();
+                            this.Hide();
+                        }
+
+                    }
+                    break;
             }
+           
         }
 
         private void ListViewSideBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
