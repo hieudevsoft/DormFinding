@@ -85,5 +85,24 @@ namespace DormFinding
             layoutMainDorm.Height = 690;
             layoutMainDorm.Children.Add(new ShowDorm(dorm,user));
         }
+
+        private void cbOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int a = cbOptions.SelectedIndex;
+            switch (a)
+            {
+                case 0: listDormVerti = DormDatabase.GetAllListDorm(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 1: listDormVerti = DormDatabase.GetAllListDormIncreasingPrice(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 2: listDormVerti = DormDatabase.GetAllListDormDecreasingPrice(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 3: listDormVerti = DormDatabase.GetAllListDormIncreasingBookTimes(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 4: listDormVerti = DormDatabase.GetAllListDormDecreasingBookTimes(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 5: listDormVerti = DormDatabase.GetAllListDormIncreasingLike(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 6: listDormVerti = DormDatabase.GetAllListDormDecreasingLike(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 7: listDormVerti = DormDatabase.GetAllListDormIncreasingRating(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 8: listDormVerti = DormDatabase.GetAllListDormDecreasingRating(); listViewVerti.ItemsSource = listDormVerti ; break;
+             
+            }
+            CollectionViewSource.GetDefaultView(listViewVerti.ItemsSource).Refresh();
+        }
     }
 }
