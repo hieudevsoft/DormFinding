@@ -75,7 +75,7 @@
                                 </Grid>
                             </Border>
                         </Border>
-                        <Border Width="235"
+                        <Border Width="250"
                                             BorderBrush="Black"
                                             Background="Transparent"
                                             VerticalAlignment="Bottom"

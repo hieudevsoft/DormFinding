@@ -310,7 +310,7 @@ namespace DormFinding
             try
             {
 
-                    if (LikeDatabase.Insert(user.Email, dorm.Id, 0))
+                    if (LikeDatabase.Insert(user.Email, dorm.Id, 1))
                     {
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
