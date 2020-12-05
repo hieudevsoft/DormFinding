@@ -49,7 +49,6 @@ D:\DormFinding\DormFinding\DormFinding\bin\Debug\System.Runtime.CompilerServices
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\MyDorm.g.cs
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.g.cs
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\PostDorm.g.cs
-D:\DormFinding\DormFinding\DormFinding\obj\Debug\Profile.g.cs
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ShowDorm.g.cs
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\DormItemHori.g.cs
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\HomeControl.g.cs
@@ -71,7 +70,6 @@ D:\DormFinding\DormFinding\DormFinding\obj\Debug\App.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\MyDorm.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\LikedDorm.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\PostDorm.baml
-D:\DormFinding\DormFinding\DormFinding\obj\Debug\Profile.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ShowDorm.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\DormItemHori.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\HomeControl.baml
@@ -93,8 +91,6 @@ D:\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CoreCompileI
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CopyComplete
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
-D:\DormFinding\DormFinding\DormFinding\obj\Debug\RowLayout.g.cs
-D:\DormFinding\DormFinding\DormFinding\obj\Debug\RowLayout.baml
 D:\C#\DORMFINDING\DormFinding\DormFinding\bin\Debug\DormFinding.exe.config
 D:\C#\DORMFINDING\DormFinding\DormFinding\bin\Debug\DormFinding.exe
 D:\C#\DORMFINDING\DormFinding\DormFinding\bin\Debug\DormFinding.pdb
@@ -400,3 +396,14 @@ D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CoreCompileInputs.c
 D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.csproj.CopyComplete
 D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.exe
 D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.pdb
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowComment.g.cs
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.g.cs
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowBooking.g.cs
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowLayout.g.cs
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Profile.g.cs
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowComment.baml
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.baml
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowBooking.baml
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowLayout.baml
+D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Profile.baml
