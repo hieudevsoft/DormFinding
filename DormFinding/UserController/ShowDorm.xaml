@@ -55,8 +55,8 @@
                                         Click="Button_Click"
                                         Background="Transparent">
                                     <materialDesign:PackIcon Kind="ArrowBack"
-                                                             Width="20"
-                                                             Height="20" />
+                                                             Width="40"
+                                                             Height="40" />
                                 </Button>
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding ImageDorm, ElementName=showDorm}" />
