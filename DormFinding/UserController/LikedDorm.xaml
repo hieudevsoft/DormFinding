@@ -37,7 +37,7 @@
                                    FontSize="20"
                                    FontFamily="Avenir LT Std 65 Medium"
                                    Foreground="{StaticResource colorGray}" />
-                        <TextBlock Text="Find your Dorm"
+                        <TextBlock Text="Find your favourite dorm"
                                    Margin="20 8 0 0"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"

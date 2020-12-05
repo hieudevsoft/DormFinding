@@ -239,7 +239,8 @@
                 <Grid VerticalAlignment="Center"
                       HorizontalAlignment="Center">
                     <WrapPanel Orientation="Vertical">
-                        <Label Content="Hello, Friend !"
+                        <Label Content="Greeting!"
+                               HorizontalAlignment="Center"
                                Foreground="White"
                                FontSize="32"
                                FontFamily="Arial Rounded MT Bold" />
@@ -251,7 +252,7 @@
                                VerticalAlignment="Center"
                                FontSize="14"
                                FontFamily="Avenir LT Std 55 Roman" />
-                        <Label Content="and start journey with us"
+                        <Label Content="and start your journey with us"
                                Foreground="#F3FAFA"
                                Margin="20 0 0 0"
                                FontFamily="Avenir LT Std 55 Roman"
