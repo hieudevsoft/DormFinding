@@ -332,8 +332,8 @@ namespace DormFinding
                         {
                             likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
                             CountLikeDorm--;
-                            if(CountLikeDorm==-1)
-                            dorm.CountLike=0;
+                            if (CountLikeDorm == -1)
+                            CountLikeDorm = 0;
                             dorm.CountLike = CountLikeDorm;
                             DormDatabase.UpdateLikeDorm(dorm);
                             LikeDatabase.Update(user.Email, dorm.Id, 0);

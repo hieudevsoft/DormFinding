@@ -74,7 +74,7 @@
                            VerticalAlignment="Top"
                            HorizontalAlignment="Center">
                     <TextBlock Text="Sign in to Dorm Finding"
-                               FontFamily="Arial Rounded MT Bold"
+                               FontFamily="Helvetica Neue LT Std"
                                Foreground="{StaticResource colorGreen}"
                                FontSize="32"
                                TextWrapping="Wrap" />
@@ -243,7 +243,7 @@
                                HorizontalAlignment="Center"
                                Foreground="White"
                                FontSize="32"
-                               FontFamily="Arial Rounded MT Bold" />
+                               FontFamily="Helvetica Neue LT Std" />
                         <Label Content="Enter your personal details"
                                Foreground="#F3FAFA"
                                Margin="15 15 0 0"

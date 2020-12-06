@@ -57,7 +57,7 @@
                                    FontSize="12"
                                    Margin="0 -2 0 0"
                                    VerticalAlignment="Center"
-                                   Foreground="{StaticResource colorBlue}" />
+                                   Foreground="{StaticResource colorBlue}" FontFamily="Avenir LT Std 55 Roman" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Margin="10 0 5 5"
