@@ -340,7 +340,6 @@ D:\Dorm\DormFinding\DormFinding\bin\Debug\System.Data.SqlClient.xml
 D:\Dorm\DormFinding\DormFinding\bin\Debug\System.Memory.xml
 D:\Dorm\DormFinding\DormFinding\bin\Debug\System.Numerics.Vectors.xml
 D:\Dorm\DormFinding\DormFinding\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
 D:\Dorm\DormFinding\DormFinding\obj\Debug\SupportUserController\RowComment.g.cs
 D:\Dorm\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.g.cs
 D:\Dorm\DormFinding\DormFinding\obj\Debug\SupportUserController\RowBooking.g.cs
@@ -407,3 +406,4 @@ D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.ba
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowBooking.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowLayout.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Profile.baml
+D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache
