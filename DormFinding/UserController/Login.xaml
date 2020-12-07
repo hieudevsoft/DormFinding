@@ -74,7 +74,7 @@
                            VerticalAlignment="Top"
                            HorizontalAlignment="Center">
                     <TextBlock Text="Sign in to Dorm Finding"
-                               FontFamily="Arial Rounded MT Bold"
+                               FontFamily="Helvetica Neue LT Std"
                                Foreground="{StaticResource colorGreen}"
                                FontSize="32"
                                TextWrapping="Wrap" />
@@ -239,10 +239,11 @@
                 <Grid VerticalAlignment="Center"
                       HorizontalAlignment="Center">
                     <WrapPanel Orientation="Vertical">
-                        <Label Content="Hello, Friend !"
+                        <Label Content="Greeting!"
+                               HorizontalAlignment="Center"
                                Foreground="White"
                                FontSize="32"
-                               FontFamily="Arial Rounded MT Bold" />
+                               FontFamily="Helvetica Neue LT Std" />
                         <Label Content="Enter your personal details"
                                Foreground="#F3FAFA"
                                Margin="15 15 0 0"
@@ -251,7 +252,7 @@
                                VerticalAlignment="Center"
                                FontSize="14"
                                FontFamily="Avenir LT Std 55 Roman" />
-                        <Label Content="and start journey with us"
+                        <Label Content="and start your journey with us"
                                Foreground="#F3FAFA"
                                Margin="20 0 0 0"
                                FontFamily="Avenir LT Std 55 Roman"

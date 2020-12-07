@@ -97,7 +97,7 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Orientation="Vertical"
                                             Grid.Column="0">
-                                    <Label Content="Price"
+                                    <Label Content="Rent fee"
                                            FontSize="12"
                                            FontFamily="Avenir LT Std 65 Medium"
                                            Foreground="SlateGray" />
@@ -108,7 +108,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical"
                                             Grid.Column="1">
-                                    <Label Content="Reviews"
+                                    <Label Content="Review"
                                            FontSize="12"
                                            Margin="10 0 0 0"
                                            FontFamily="Avenir LT Std 65 Medium"
@@ -136,7 +136,7 @@
                             <Grid Grid.Row="4">
                                 <StackPanel Orientation="Vertical"
                                             Margin="12 0 0 0">
-                                    <TextBlock Text="Aminities"
+                                    <TextBlock Text="Commodities"
                                                Margin="3 0 0 0"
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Center"

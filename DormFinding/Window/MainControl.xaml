@@ -170,7 +170,7 @@
                         Grid.Column="0"
                         Margin="10 0 0 0"
                         Width="80"
-                        Height="690"
+                        Height="720"
                         x:Name="GridMenu"
                         CornerRadius="15"
                         Background="{StaticResource solidColorSideBar}"
@@ -350,7 +350,7 @@
                 <Border CornerRadius="15"
                         Background="Transparent"
                         Grid.Column="1"
-                        Margin="14 28 5 28">
+                        Margin="14 14 5 14">
                     <materialDesign:TransitioningContent x:Name="TransitioningContentSlideAdd"
                                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0:0.5}">
                         <Grid x:Name="MainHomeLayout">

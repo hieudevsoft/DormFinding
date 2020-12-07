@@ -33,7 +33,7 @@
                         >
                 <Label Content="Create Account"
                        HorizontalAlignment="Center"
-                       FontFamily="Arial Rounded MT Bold"
+                       FontFamily="Helvetica Neue LT Std"
                        FontSize="32"
                        Foreground="{StaticResource colorGreen}"
                        VerticalAlignment="Top" />
@@ -236,7 +236,7 @@
                         <Label Content="Welcome Back !"
                                Foreground="White"
                                FontSize="32"
-                               FontFamily="Arial Rounded MT Bold" />
+                               FontFamily="Helvetica Neue LT Std" />
                         <Label Content="To keep connected with us please"
                                Foreground="#F3FAFA"
                                Margin="15 15 0 0"

@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="650"
+             d:DesignHeight="690"
              d:DesignWidth="1150">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide1"
@@ -16,7 +16,7 @@
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0:0.3}">
             <Border CornerRadius="15">
                 <Border.Background>
-                    <ImageBrush ImageSource="../images/bg.png" 
+                    <ImageBrush ImageSource="../images/bg2.jpg" 
                                 Stretch="UniformToFill"
                                 />
 
@@ -37,7 +37,7 @@
                                    FontSize="20"
                                    FontFamily="Avenir LT Std 65 Medium"
                                    Foreground="{StaticResource colorGray}" />
-                        <TextBlock Text="Find your Dorm"
+                        <TextBlock Text="Find your favourite Dorm"
                                    Margin="20 8 0 0"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"

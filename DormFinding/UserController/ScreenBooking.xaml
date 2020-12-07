@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DormFinding"
              xmlns:materialDesgin="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="1150"
+             d:DesignHeight="690" d:DesignWidth="1150"
              >
     <Grid>
         <ScrollViewer Grid.Row="2"

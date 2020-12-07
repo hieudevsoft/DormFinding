@@ -197,6 +197,7 @@ namespace DormFinding
             
             if (!e.Uri.ToString().StartsWith("https://www.facebook.com/connect/login_success.html"))
             {
+                check++;
                 MessageBox.Show(check+"");
                 if (check == 2) { 
                 MainWindow m = new MainWindow();
