@@ -44,7 +44,7 @@ namespace DormFinding
             TransitioningContentSlide1.OnApplyTemplate();
             layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
-            layoutMainDorm.Width = 1120;
+            layoutMainDorm.Width = 1150;
             layoutMainDorm.Height = 690;
             layoutMainDorm.Children.Add(new ShowDorm(dorm,user));
         }

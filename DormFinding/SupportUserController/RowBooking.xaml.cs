@@ -30,13 +30,23 @@ namespace DormFinding
 
         private void btnConfirmBook_Click(object sender, RoutedEventArgs e)
         {
+            updateStateDorm(sender, "transfered",2);
+        }
+
+        private void btnDecline_Click(object sender, RoutedEventArgs e)
+        {
+            updateStateDorm(sender, "canceled",0);
+        }
+
+        private void updateStateDorm(object sender, string msg,int state)
+        {
             Button button = sender as Button;
             BookDorm dorm = button.DataContext as BookDorm;
-            if (BookDatabase.UpdateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+            if (BookDatabase.UpdateDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm,state))
             {
-                if(BookDatabase.DeleteDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
+                if (BookDatabase.DeleteDormWhenBook(dorm.EmailOwner, dorm.EmailUser, dorm.IdDorm))
                 {
-                    Helpers.MakeConfirmMessage(Window.GetWindow(this), $"The Dorm has been transferred to { dorm.EmailUser}", "Notify");
+                    Helpers.MakeConfirmMessage(Window.GetWindow(this), $"The Dorm has been {msg} to { dorm.EmailUser}", "Notify");
                     int count = DormDatabase.GetCount(dorm.IdDorm) + 1;
                     DormDatabase.UpdateCountDorm(dorm.IdDorm, count);
                     MainControl mainControl = (MainControl)Window.GetWindow(this);
@@ -44,12 +54,12 @@ namespace DormFinding
                     mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     mainControl.MainHomeLayout.Width = 1150;
-                    mainControl.MainHomeLayout.Height = 690;
+                    mainControl.MainHomeLayout.Height = 720;
                     mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
                 }
                 else
                 {
-                    Helpers.MakeErrorMessage(Window.GetWindow(this), $"Failed transferred to {dorm.EmailUser}", "Error");
+                    Helpers.MakeErrorMessage(Window.GetWindow(this), $"Failed {msg} to {dorm.EmailUser}", "Error");
                 }
             }
         }

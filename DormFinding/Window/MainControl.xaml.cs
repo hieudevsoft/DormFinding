@@ -142,7 +142,7 @@ namespace DormFinding
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
-                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Height = 720;
                     MainHomeLayout.Children.Add(new LikedDorm(LikeDatabase.GetAllListDormByEmail(user.Email), user));
                     break;
                 case 2:
@@ -152,7 +152,7 @@ namespace DormFinding
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
-                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Height = 720;
                     MainHomeLayout.Children.Add(new MyDorm(user));
                     break;
                 case 3:
@@ -162,7 +162,7 @@ namespace DormFinding
                     MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
-                    MainHomeLayout.Height = 690;
+                    MainHomeLayout.Height = 720;
                     MainHomeLayout.Children.Add(new PostDorm(user,null));
                     break;
                 case 4:
@@ -197,7 +197,7 @@ namespace DormFinding
             
             if (!e.Uri.ToString().StartsWith("https://www.facebook.com/connect/login_success.html"))
             {
-                MessageBox.Show(check+"");
+                check++;
                 if (check == 2) { 
                 MainWindow m = new MainWindow();
                 m.Show();

@@ -35,7 +35,7 @@ namespace DormFinding
                         mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                         mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                         mainControl.MainHomeLayout.Width = 1150;
-                        mainControl.MainHomeLayout.Height = 690;
+                        mainControl.MainHomeLayout.Height = 720;
                         mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
                     }
                     break;
@@ -53,8 +53,30 @@ namespace DormFinding
             mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
             mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
             mainControl.MainHomeLayout.Width = 1150;
-            mainControl.MainHomeLayout.Height = 690;
+            mainControl.MainHomeLayout.Height = 720;
             mainControl.MainHomeLayout.Children.Add(new PostDorm(mainControl.user, dorm));
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Dorm dorm = button.DataContext as Dorm;
+            MainControl mainControl = (MainControl)Window.GetWindow(this);
+            MessageBoxResult result = MessageBox.Show("Would you like to reset this dorm?", "Notify", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    if (OwnerDormDatabase.Update(mainControl.user.Email,dorm.Id,0))
+                    { 
+                        mainControl.MainHomeLayout.Children.Clear();
+                        mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
+                        mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
+                        mainControl.MainHomeLayout.Width = 1150;
+                        mainControl.MainHomeLayout.Height = 720;
+                        mainControl.MainHomeLayout.Children.Add(new MyDorm(mainControl.user));
+                    }
+                    break;
+            }
         }
     }
 }

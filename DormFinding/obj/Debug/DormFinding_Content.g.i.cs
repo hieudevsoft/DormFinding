@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/bg.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/%e2%80%94pngtree%e2%80%94valentines%20day%20love%20red%20origami_3738066.p" +
+    "ng")]
 
 

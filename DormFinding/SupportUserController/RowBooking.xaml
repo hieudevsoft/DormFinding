@@ -7,17 +7,21 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:local="clr-namespace:DormFinding"
              mc:Ignorable="d" 
-             d:DesignHeight="35" d:DesignWidth="280">
+             d:DesignHeight="35" d:DesignWidth="380">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
               
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:1}">
 
-        <Border CornerRadius="15" Background="White">
+        <Border CornerRadius="15" Background="#efefef">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="2" Color="Gray"/>
+            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.3*"/>
                     <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <fa:ImageAwesome Icon="Spinner" Grid.Column="0"
@@ -53,11 +57,30 @@
                         </LinearGradientBrush>
                     </Button.Background>
                     <Button.Content>
-
                         <Label Content="Confirm" FontSize="10"
                                Foreground="White"
                                />
-
+                    </Button.Content>
+                </Button>
+                <Button Grid.Column="3" materialDesign:ButtonAssist.CornerRadius="15" 
+                        Width="80"
+                        x:Name="btnDecline"
+                        Click="btnDecline_Click"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        BorderThickness="0"
+                        Height="30"
+                        >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF2673C0" Offset="1"/>
+                            <GradientStop Color="#FF54F0E9" Offset="0.203"/>
+                            <GradientStop Color="#FF19EDF7" Offset="0.135"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Content>
+                        <Label Content="Decline" FontSize="10"
+                               Foreground="White"
+                               />
                     </Button.Content>
 
                 </Button>

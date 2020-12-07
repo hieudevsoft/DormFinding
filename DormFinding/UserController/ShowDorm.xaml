@@ -9,12 +9,17 @@
              mc:Ignorable="d"
              Background="Transparent"
              Name="showDorm"
-             d:DesignHeight="690"
-             d:DesignWidth="1120">
+             d:DesignHeight="720"
+             d:DesignWidth="1150">
+  
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0:0.5}">
         <Grid x:Name="layoutDorm">
+            <Image Source="../images/image_like.png" x:Name="like"
+                   Stretch="UniformToFill"
+                   >
+            </Image>
             <Border Width="auto"
                     Height="auto"
                     CornerRadius="15"

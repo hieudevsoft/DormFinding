@@ -9,12 +9,12 @@
              xmlns:ff="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
              Name="ProfileWindow"
-             d:DesignHeight="690"
+             d:DesignHeight="720"
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
         <Border Background="#F0F0F0"
-                Height="690"
+                Height="720"
                 Width="1150"
                 CornerRadius="22">
             <Grid>

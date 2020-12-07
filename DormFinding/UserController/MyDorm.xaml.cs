@@ -91,8 +91,8 @@ namespace DormFinding
                 TransitioningContentSlide.OnApplyTemplate();
                 layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
                 layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
-                layoutMainDorm.Width = 1120;
-                layoutMainDorm.Height = 690;
+                layoutMainDorm.Width = 1150;
+                layoutMainDorm.Height = 720;
                 layoutMainDorm.Children.Add(new ShowDorm(dorm, owner));
         }
 
@@ -102,7 +102,7 @@ namespace DormFinding
             TransitioningContentSlide.OnApplyTemplate();
             layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
-            layoutMainDorm.Height = 690;
+            layoutMainDorm.Height = 720;
             layoutMainDorm.Children.Add(new MyDorm(owner));
         }
     }

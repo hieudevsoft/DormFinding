@@ -8,15 +8,15 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d"
              Name="myDorm"
-             d:DesignHeight="690"
+             d:DesignHeight="720"
              d:DesignWidth="1150">
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
                                          OpeningEffect="{materialDesign:TransitionEffect FadeIn, Duration=0:0:1}">
         <Grid x:Name="layoutMainDorm">
             <Border CornerRadius="15">
                 <Border.Background>
-                    <ImageBrush ImageSource="../images/background_mydorm.png"
-                                Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="../images/bg_mydorm.png"
+                                Stretch="Uniform" />
                 </Border.Background>
                 <Grid>
                     <Grid.RowDefinitions>

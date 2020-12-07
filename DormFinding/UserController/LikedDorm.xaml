@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="690"
+             d:DesignHeight="720"
              d:DesignWidth="1150">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide1"
@@ -16,8 +16,8 @@
                                              OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0:0.3}">
             <Border CornerRadius="15">
                 <Border.Background>
-                    <ImageBrush ImageSource="../images/bg2.jpg" 
-                                Stretch="UniformToFill"
+                    <ImageBrush ImageSource="../images/bg_like.png" 
+                                Stretch="Uniform"
                                 />
 
                 </Border.Background>

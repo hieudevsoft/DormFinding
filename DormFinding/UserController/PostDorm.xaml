@@ -8,20 +8,17 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Name="postDorm"
-             d:DesignHeight="690"
+             d:DesignHeight="720"
              d:DesignWidth="1150">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlideAdd"
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0:0.5}">
-
-        <Border Background="#75C7E0"
-                CornerRadius="15">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Button Width="auto"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Width="auto"
                         Height="auto"
                         Grid.ColumnSpan="2"
                         VerticalAlignment="Top"
@@ -34,24 +31,24 @@
                         x:Name="btnBack"
                         Click="btnBack_Click"
                         Background="Transparent">
-                    <materialDesign:PackIcon Kind="ArrowBack"
+                <materialDesign:PackIcon Kind="ArrowBack"
                                              Width="20"
                                              Height="20" />
-                </Button>
-                <Grid Grid.Column="0"
+            </Button>
+            <Grid Grid.Column="0"
                       >
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Border Grid.Row="0"
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
                             CornerRadius="15"
                             Margin="10">
-                        
-                        <Border.Background>
-                            <ImageBrush ImageSource="{Binding ImageDorm, ElementName=postDorm}" Stretch="UniformToFill" />
-                        </Border.Background>
-                        <Button VerticalAlignment="Top"
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ImageDorm, ElementName=postDorm}" Stretch="UniformToFill" />
+                    </Border.Background>
+                    <Button VerticalAlignment="Top"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 x:Name="btnUploadDorm"
@@ -60,41 +57,42 @@
                                 Padding="0"
                                 Margin="10"
                                 HorizontalAlignment="Right">
-                            <materialDesign:PackIcon Kind="Camera"
+                        <materialDesign:PackIcon Kind="Camera"
                                                      Width="30"
+                                                     Foreground="Black"
                                                      Height="30" />
-                        </Button>
-                    </Border>
-                    <Border Grid.Row="2"
+                    </Button>
+                </Border>
+                <Border Grid.Row="2"
                             CornerRadius="15"
                             Margin="10 5">
-                        <Grid Width="auto"
+                    <Grid Width="auto"
                               Height="auto">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <Border Grid.Row="0"
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
                                     Background="White"
                                     BorderBrush="#403F40"
                                     Height="58"
                                     Margin="0 0 0 5"
                                     BorderThickness="0.4"
                                     CornerRadius="10">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="2"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
                                                       ShadowDepth="1"
                                                       Color="Gray" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Kind="Person"
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Person"
                                                              Foreground="#403F40"
                                                              Margin="5 0 0 0"
                                                              Width="25"
@@ -102,7 +100,7 @@
                                                              Grid.Column="0"
                                                              HorizontalAlignment="Center"
                                                              VerticalAlignment="Center" />
-                                    <TextBox Grid.Column="1"
+                                <TextBox Grid.Column="1"
                                              Height="50"
                                              Padding="5 6 0 0"
                                              x:Name="tbOwner"
@@ -119,26 +117,26 @@
                                              VerticalAlignment="Center"
                                              TextAlignment="Left"
                                              BorderThickness="0" />
-                                </Grid>
-                            </Border>
-                            <Border Grid.Row="1"
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="1"
                                     Background="White"
                                     Margin="0 0 0 5"
                                     BorderBrush="#403F40"
                                     Height="58"
                                     BorderThickness="0.4"
                                     CornerRadius="10">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="2"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
                                                       ShadowDepth="1"
                                                       Color="Gray" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Kind="Location"
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Location"
                                                              Foreground="#403F40"
                                                              Margin="5 0 0 0"
                                                              Width="25"
@@ -146,7 +144,7 @@
                                                              Grid.Column="0"
                                                              HorizontalAlignment="Center"
                                                              VerticalAlignment="Center" />
-                                    <TextBox Grid.Column="1"
+                                <TextBox Grid.Column="1"
                                              Height="50"
                                              Text="{Binding AddressDorm, ElementName=postDorm}"
                                              Padding="5 6 0 0"
@@ -163,9 +161,9 @@
                                              VerticalAlignment="Center"
                                              TextAlignment="Left"
                                              BorderThickness="0" />
-                                </Grid>
-                            </Border>
-                            <Border Grid.Row="2"
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2"
                                     Background="White
                                     "
                                     BorderBrush="#403F40"
@@ -173,17 +171,17 @@
                                     Margin="0 0 0 5"
                                     BorderThickness="0.4"
                                     CornerRadius="10">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="2"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
                                                       ShadowDepth="1"
                                                       Color="Gray" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Kind="Money"
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Money"
                                                              Foreground="#403F40"
                                                              Margin="5 0 0 0"
                                                              Width="25"
@@ -191,7 +189,7 @@
                                                              Grid.Column="0"
                                                              HorizontalAlignment="Center"
                                                              VerticalAlignment="Center" />
-                                    <TextBox Grid.Column="1"
+                                <TextBox Grid.Column="1"
                                              Height="50"
                                              Padding="5 6 0 0"
                                              x:Name="tbPrice"
@@ -209,26 +207,26 @@
                                              VerticalAlignment="Center"
                                              TextAlignment="Left"
                                              BorderThickness="0" />
-                                </Grid>
-                            </Border>
-                            <Border Grid.Row="3"
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="3"
                                     Background="White"
                                     BorderBrush="#403F40"
                                     Height="58"
                                     Margin="0 0 0 5"
                                     BorderThickness="0.4"
                                     CornerRadius="10">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="2"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
                                                       ShadowDepth="1"
                                                       Color="Gray" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Kind="House"
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="House"
                                                              Foreground="#403F40"
                                                              Margin="5 0 0 0"
                                                              Width="25"
@@ -236,7 +234,7 @@
                                                              Grid.Column="0"
                                                              HorizontalAlignment="Center"
                                                              VerticalAlignment="Center" />
-                                    <TextBox Grid.Column="1"
+                                <TextBox Grid.Column="1"
                                              Height="50"
                                              Padding="5 6 0 0"
                                              x:Name="tbArea"
@@ -254,26 +252,26 @@
                                              VerticalAlignment="Center"
                                              TextAlignment="Left"
                                              BorderThickness="0" />
-                                </Grid>
-                            </Border>
-                            <Border Grid.Row="4"
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="4"
                                     Background="White"
                                     BorderBrush="#403F40"
                                     Height="58"
                                     Margin="0 0 0 5"
                                     BorderThickness="0.4"
                                     CornerRadius="10">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="2"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
                                                       ShadowDepth="1"
                                                       Color="Gray" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <materialDesign:PackIcon Kind="Sale"
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Kind="Sale"
                                                              Foreground="#403F40"
                                                              Margin="5 0 0 0"
                                                              Width="25"
@@ -281,7 +279,7 @@
                                                              Grid.Column="0"
                                                              HorizontalAlignment="Center"
                                                              VerticalAlignment="Center" />
-                                    <TextBox Grid.Column="1"
+                                <TextBox Grid.Column="1"
                                              Height="50"
                                              Padding="5 6 0 0"
                                              x:Name="tbSale"
@@ -299,19 +297,19 @@
                                              VerticalAlignment="Center"
                                              TextAlignment="Left"
                                              BorderThickness="0" />
-                                </Grid>
-                            </Border>
-                        </Grid>
-                    </Border>
-                </Grid>
-                <Grid Grid.Column="2"
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="2"
                       Margin="0 10 10 10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.4*"/>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">                   
-                        <Border  CornerRadius="15"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border  CornerRadius="15"
                            >
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="2"
@@ -346,42 +344,42 @@
                         </Border>
                     </Border>
                 </Grid>
-                    <Border Grid.Row="1" Background="White"
+                <Border Grid.Row="1" Background="White"
                             CornerRadius="15"
                             >
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="2"
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="2"
                                               ShadowDepth="1"
                                               Color="Gray" />
-                        </Border.Effect>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0"
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
                                        HorizontalAlignment="Center"
                                        FontSize="25"
                                        Text="Commodity"
                                        FontFamily="Avenir LT Std 65 Medium"
                                        VerticalAlignment="Center" />
-                            <WrapPanel Grid.Row="1" VerticalAlignment="Center"
+                        <WrapPanel Grid.Row="1" VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal"
                                        >
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Wifi:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Wifi:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -389,32 +387,32 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <fa:FontAwesome Icon="Wifi"
+                                <fa:FontAwesome Icon="Wifi"
                                                     FontSize="20"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding WifiDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
-                                
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="2"
+                            </Grid>
+
+                        </WrapPanel>
+                        <WrapPanel Grid.Row="2"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal">
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Parking:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Parking:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -422,32 +420,32 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <fa:FontAwesome Icon="Bicycle"
+                                <fa:FontAwesome Icon="Bicycle"
                                                     FontSize="20"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding ParkingDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
+                            </Grid>
 
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="3"
+                        </WrapPanel>
+                        <WrapPanel Grid.Row="3"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal">
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Television:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Television:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -455,32 +453,32 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <fa:FontAwesome Icon="Television"
+                                <fa:FontAwesome Icon="Television"
                                                     FontSize="20"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding TelevisionDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
+                            </Grid>
 
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="4"
+                        </WrapPanel>
+                        <WrapPanel Grid.Row="4"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal">
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Bathroom:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Bathroom:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -488,32 +486,32 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <fa:FontAwesome Icon="Bath"
+                                <fa:FontAwesome Icon="Bath"
                                                     FontSize="20"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding BathDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
-            
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="5"
+                            </Grid>
+
+                        </WrapPanel>
+                        <WrapPanel Grid.Row="5"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal">
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Air Condinitioner:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Air Condinitioner:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -521,33 +519,33 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <materialDesign:PackIcon Kind="AirConditioner"
+                                <materialDesign:PackIcon Kind="AirConditioner"
                                                     Width="20"
                                                     Height="20"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding AirConDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
+                            </Grid>
 
-                            </WrapPanel>
-                            <WrapPanel Grid.Row="6"
+                        </WrapPanel>
+                        <WrapPanel Grid.Row="6"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Orientation="Horizontal">
-                                <Grid Width="380">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Air Condinitioner:"
+                            <Grid Width="380">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Air Condinitioner:"
                                            Grid.Column="0"
                                            VerticalAlignment="Center"
                                            HorizontalContentAlignment="Center"
@@ -555,23 +553,23 @@
                                            FontFamily="Avenir LT Std 65 Medium"
                                            FontSize="14"
                                            Foreground="Black" />
-                                    <materialDesign:PackIcon Kind="WaterHeater"
+                                <materialDesign:PackIcon Kind="WaterHeater"
                                                              Width="20"
                                                              Height="20"
                                                              Grid.Column="1"
                                                              VerticalAlignment="Center"
                                                              HorizontalAlignment="Center" />
-                                    <ToggleButton Margin="20 0 0 0"
+                                <ToggleButton Margin="20 0 0 0"
                                                   Background="#58B0C9"
                                                   Grid.Column="2"
                                                   IsChecked="{Binding WaterHeaterDorm, ElementName=postDorm}"
                                                   HorizontalAlignment="Center"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOffBackground="Gray"
                                                   materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="#58B0C9" />
-                                </Grid>
+                            </Grid>
 
-                            </WrapPanel>
-                            <Button VerticalAlignment="Center"
+                        </WrapPanel>
+                        <Button VerticalAlignment="Center"
                                 Grid.Row="7"
                                 HorizontalAlignment="Center"
                                 FontFamily="Avenir LT Std 65 Medium"
@@ -613,12 +611,9 @@
                                 </LinearGradientBrush>
                             </Button.Background>
                         </Button>
-                        </Grid>
-                    </Border>
-            
-                </Grid>
-
+                    </Grid>
+                </Border>
             </Grid>
-        </Border>
+        </Grid>
     </materialDesign:TransitioningContent>
 </UserControl>

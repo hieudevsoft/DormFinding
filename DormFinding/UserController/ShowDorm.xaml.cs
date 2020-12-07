@@ -18,6 +18,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace DormFinding
 {
@@ -226,7 +227,8 @@ namespace DormFinding
         public static readonly DependencyProperty CommentProperty =
             DependencyProperty.Register("Comment", typeof(string), typeof(ShowDorm), new PropertyMetadata(""));
 
-
+        private DispatcherTimer dispatcherTimer;
+        
 
 
         public ShowDorm(Dorm dorm, User user)
@@ -234,7 +236,7 @@ namespace DormFinding
             InitializeComponent();
             this.user = user;
             this.dorm = dorm;
-            TransitioningContentSlide.OnApplyTemplate();
+            TransitioningContentSlide.ApplyTemplate();
             initDorm();
             initProfile();
             initLike();
@@ -298,20 +300,38 @@ namespace DormFinding
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TransitioningContentSlide.OnApplyTemplate();
+            TransitioningContentSlide.ApplyTemplate();
             layoutDorm.Children.Clear();
             layoutDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutDorm.HorizontalAlignment = HorizontalAlignment.Left;
             layoutDorm.Children.Add(new HomeControl(user));
         }
-
+        private void AnimationLikeOpacity()
+        {
+            Panel.SetZIndex(like, 1);
+            DoubleAnimation a = new DoubleAnimation();
+            a.From = 0;
+            a.To = 1;
+            a.AutoReverse = true;
+            a.Duration = TimeSpan.FromSeconds(1);
+            like.BeginAnimation(OpacityProperty, a);
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(TimerOnTick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+        private void TimerOnTick(object sender, EventArgs e)
+        {
+            Panel.SetZIndex(like, 0);
+            dispatcherTimer.Stop();
+        }
         private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
-
                     if (LikeDatabase.Insert(user.Email, dorm.Id, 1))
                     {
+                        AnimationLikeOpacity();
                         likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                         CountLikeDorm++;
                         dorm.CountLike++;
@@ -319,12 +339,14 @@ namespace DormFinding
                     }
                     else
                     {
-                        Boolean click = LikeDatabase.GetStateLike(user.Email, dorm.Id);
+                        
+                        bool click = LikeDatabase.GetStateLike(user.Email, dorm.Id);
                         if (!click)
-                        {
+                        {   
                             likeIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E34853"));
                             CountLikeDorm++;
                             dorm.CountLike++;
+                            AnimationLikeOpacity();
                             DormDatabase.UpdateLikeDorm(dorm);
                             LikeDatabase.Update(user.Email, dorm.Id, 1);
                         }
@@ -333,7 +355,10 @@ namespace DormFinding
                             likeIcon.Foreground = new SolidColorBrush(Colors.Gray);
                             CountLikeDorm--;
                             if (CountLikeDorm == -1)
+                            {
+                            LikeDatabase.DeleteById(dorm.Id);
                             CountLikeDorm = 0;
+                            }
                             dorm.CountLike = CountLikeDorm;
                             DormDatabase.UpdateLikeDorm(dorm);
                             LikeDatabase.Update(user.Email, dorm.Id, 0);

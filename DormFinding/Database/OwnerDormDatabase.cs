@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace DormFinding.Database
 {
@@ -89,15 +90,26 @@ namespace DormFinding.Database
                     string address = Mydatabase.rd.GetValue(4).ToString();
                     byte gender = byte.Parse(Mydatabase.rd.GetValue(5).ToString());
                     byte[] image;
-                    image = (byte[])Mydatabase.rd.GetValue(0);
+                    try
+                    {
+                        
+                        image = (byte[])Mydatabase.rd.GetValue(0);
+                       
+                    }
+                    catch(Exception e)
+                    {
+                        image = Helpers.ConvertImageToBinary(new BitmapImage(new Uri("../../images/blank_account.png", UriKind.RelativeOrAbsolute)));
+                    }
+                   
                     owner = new UserProfile(email, name, "", phone, address, "", gender, image);
+
 
                 }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error getOwnerProfileWithDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error GetOwnerProfileWithDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             finally
@@ -193,6 +205,36 @@ namespace DormFinding.Database
             }
 
             return listDorm;
+        }
+
+        //Update State Dorm
+        public static bool Update(string email,int id, int state)
+        {
+            Mydatabase.sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                Mydatabase.OpenConnection();
+
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@Email", email);
+                Mydatabase.cmd.Parameters.AddWithValue("@State", state);
+                Mydatabase.cmd.Parameters.AddWithValue("@Id", id);
+                Mydatabase.cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Reset Dorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                Mydatabase.CloseConnection();
+            }
         }
     }
 }

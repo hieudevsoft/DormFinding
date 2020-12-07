@@ -221,7 +221,7 @@ namespace DormFinding.Database
         }
 
         //Update Dorm When Booked
-        public static bool UpdateDormWhenBook(string email, string emailUser, int id)
+        public static bool UpdateDormWhenBook(string email, string emailUser, int id,int state)
         {
             Mydatabase.sql = $"update {Helpers.tbBookDorm} set {Helpers.colStateBookDorm} = @State where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colEmailUserBookDorm} = @EmailUser and {Helpers.colIdDormBookDorm} = @Id";
 
@@ -233,7 +233,7 @@ namespace DormFinding.Database
                 Mydatabase.cmd.CommandText = Mydatabase.sql;
                 Mydatabase.cmd.Parameters.Clear();
                 Mydatabase.cmd.Parameters.AddWithValue("@Email", email);
-                Mydatabase.cmd.Parameters.AddWithValue("@State", 2);
+                Mydatabase.cmd.Parameters.AddWithValue("@State", state);
                 Mydatabase.cmd.Parameters.AddWithValue("@EmailUser", emailUser);
                 Mydatabase.cmd.Parameters.AddWithValue("@Id", id);
                 Mydatabase.cmd.ExecuteScalar();
