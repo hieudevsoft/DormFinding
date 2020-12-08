@@ -76,9 +76,9 @@
                         Panel.ZIndex="1"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
-                        Width="800"
+                        Width="1250"
                         Navigated="wbLogout_Navigated"
-                        Height="600"
+                        Height="700"
                         Grid.RowSpan="2" />
             <materialDesign:PopupBox Foreground="Black"
                                      VerticalAlignment="Top"

@@ -1,5 +1,6 @@
 ﻿
 FD:\Dorm\DormFinding\DormFinding\App.xaml;;
+FD:\Dorm\DormFinding\DormFinding\SupportUserController\RowWaitting.xaml;;
 FD:\Dorm\DormFinding\DormFinding\SupportUserController\RowComment.xaml;;
 FD:\Dorm\DormFinding\DormFinding\UserController\ScreenBooking.xaml;;
 FD:\Dorm\DormFinding\DormFinding\SupportUserController\RowBooking.xaml;;
@@ -16,6 +17,7 @@ FD:\Dorm\DormFinding\DormFinding\StyleResource.xaml;;
 FD:\Dorm\DormFinding\DormFinding\SupportUserController\Noti_Login_Success.xaml;;
 FD:\Dorm\DormFinding\DormFinding\UserController\SliderShow.xaml;;
 FD:\Dorm\DormFinding\DormFinding\SupportUserController\ResetPassController.xaml;;
+FD:\Dorm\DormFinding\DormFinding\UserController\WaittingScreen.xaml;;
 FD:\Dorm\DormFinding\DormFinding\Window\MainControl.xaml;;
 FD:\Dorm\DormFinding\DormFinding\UserController\LoadingBar.xaml;;
 FD:\Dorm\DormFinding\DormFinding\UserController\SignUp.xaml;;

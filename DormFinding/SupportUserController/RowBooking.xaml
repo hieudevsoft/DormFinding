@@ -7,7 +7,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              xmlns:local="clr-namespace:DormFinding"
              mc:Ignorable="d" 
-             d:DesignHeight="35" d:DesignWidth="380">
+             d:DesignHeight="45" d:DesignWidth="380">
 
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide"
               
@@ -57,7 +57,8 @@
                         </LinearGradientBrush>
                     </Button.Background>
                     <Button.Content>
-                        <Label Content="Confirm" FontSize="10"
+                        <Label Content="Confirm" FontSize="12"
+                               Padding="0"
                                Foreground="White"
                                />
                     </Button.Content>
@@ -78,7 +79,8 @@
                         </LinearGradientBrush>
                     </Button.Background>
                     <Button.Content>
-                        <Label Content="Decline" FontSize="10"
+                        <Label Content="Decline" FontSize="12"
+                               Padding="0"
                                Foreground="White"
                                />
                     </Button.Content>

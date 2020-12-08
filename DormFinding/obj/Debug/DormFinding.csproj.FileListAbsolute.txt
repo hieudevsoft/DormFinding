@@ -406,3 +406,9 @@ D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\ScreenBooking.ba
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowBooking.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\SupportUserController\RowLayout.baml
 D:\DormFinding\DormFinding\DormFinding\obj\Debug\UserController\Profile.baml
+D:\Dorm\DormFinding\DormFinding\obj\Debug\UserController\WaittingScreen.g.cs
+D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding_Content.g.cs
+D:\Dorm\DormFinding\DormFinding\obj\Debug\UserController\WaittingScreen.baml
+D:\Dorm\DormFinding\DormFinding\obj\Debug\SupportUserController\RowWaitting.g.cs
+D:\Dorm\DormFinding\DormFinding\obj\Debug\SupportUserController\RowWaitting.baml
+D:\Dorm\DormFinding\DormFinding\obj\Debug\DormFinding.csprojAssemblyReference.cache

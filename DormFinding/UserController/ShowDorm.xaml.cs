@@ -228,11 +228,12 @@ namespace DormFinding
             DependencyProperty.Register("Comment", typeof(string), typeof(ShowDorm), new PropertyMetadata(""));
 
         private DispatcherTimer dispatcherTimer;
-        
 
+        byte handlerArrowLeft;
 
-        public ShowDorm(Dorm dorm, User user)
+        public ShowDorm(Dorm dorm, User user, byte State)
         {
+            handlerArrowLeft = State;
             InitializeComponent();
             this.user = user;
             this.dorm = dorm;
@@ -304,7 +305,13 @@ namespace DormFinding
             layoutDorm.Children.Clear();
             layoutDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutDorm.HorizontalAlignment = HorizontalAlignment.Left;
-            layoutDorm.Children.Add(new HomeControl(user));
+            layoutDorm.Width = 1150;
+            layoutDorm.Height = 720;
+
+            if (handlerArrowLeft == 0) layoutDorm.Children.Add(new HomeControl(user));
+            else if (handlerArrowLeft == 1) layoutDorm.Children.Add(new MyDorm(user));
+            else if (handlerArrowLeft == 2) layoutDorm.Children.Add(new MyDorm(BookDatabase.GetUserDorm(user.Email, dorm.Id)));
+            else layoutDorm.Children.Add(new LikedDorm(LikeDatabase.GetAllListDormByEmail(user.Email), user));
         }
         private void AnimationLikeOpacity()
         {
@@ -522,8 +529,8 @@ namespace DormFinding
                                 mainControl.MainHomeLayout.VerticalAlignment = VerticalAlignment.Top;
                                 mainControl.MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                                 mainControl.MainHomeLayout.Width = 1150;
-                                mainControl.MainHomeLayout.Height = 690;
-                                mainControl.MainHomeLayout.Children.Add(new ShowDorm(dorm, user));
+                                mainControl.MainHomeLayout.Height = 720;
+                                mainControl.MainHomeLayout.Children.Add(new ShowDorm(dorm, user,1));
                             }
                             
                         }

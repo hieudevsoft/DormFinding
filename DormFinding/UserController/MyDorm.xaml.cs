@@ -59,7 +59,7 @@ namespace DormFinding
         }
         private void initState()
         {
-            list = BookDatabase.GetAllWattingBook(owner.Email);
+            list = BookDatabase.GetAllWattingBook(owner.Email,true);
             if (list.Count != 0)
             {
                 notifyMyDorm.Visibility = System.Windows.Visibility.Visible;
@@ -93,7 +93,7 @@ namespace DormFinding
                 layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
                 layoutMainDorm.Width = 1150;
                 layoutMainDorm.Height = 720;
-                layoutMainDorm.Children.Add(new ShowDorm(dorm, owner));
+                layoutMainDorm.Children.Add(new ShowDorm(dorm, owner,1));
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -104,6 +104,13 @@ namespace DormFinding
             layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
             layoutMainDorm.Height = 720;
             layoutMainDorm.Children.Add(new MyDorm(owner));
+        }
+
+        private void btnDormWating_Click(object sender, RoutedEventArgs e)
+        {
+            layoutControl.Children.Clear();
+            TransitioningContentSlide.OnApplyTemplate();
+            layoutControl.Children.Add(new WaittingScreen(BookDatabase.GetAllWattingBook(owner.Email,false)));
         }
     }
 }

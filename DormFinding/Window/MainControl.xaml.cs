@@ -1,4 +1,5 @@
 ﻿using DormFinding.Database;
+using DormFinding.Utils;
 using Facebook;
 using System;
 using System.Windows;
@@ -12,7 +13,7 @@ namespace DormFinding
     /// <summary>
     /// Interaction logic for MainControl.xaml
     /// </summary>
-   
+
     public partial class MainControl : Window
     {
         private Uri uriPhoto;
@@ -21,13 +22,13 @@ namespace DormFinding
         private string token;
         int check = 0;
         private string id { get; set; }
-        
-        public MainControl(User user,string token)
+
+        public MainControl(User user, string token)
         {
             InitializeComponent();
             this.token = token;
             this.user = user;
-           
+
 
         }
 
@@ -36,11 +37,12 @@ namespace DormFinding
             try
             {
                 DragMove();
-            }catch(Exception exx)
+            }
+            catch (Exception exx)
             {
 
             }
-            
+
         }
 
         private void btnExitApp_Click(object sender, RoutedEventArgs e)
@@ -80,7 +82,7 @@ namespace DormFinding
             btnOpenMenu.Visibility = Visibility.Collapsed;
             btnCloseMenu.Visibility = Visibility.Visible;
         }
-     
+
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Would you like to sign out?", "Notify", MessageBoxButton.YesNo);
@@ -117,14 +119,14 @@ namespace DormFinding
                     }
                     break;
             }
-           
+
         }
 
         private void ListViewSideBar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListViewSideBar.SelectedIndex;
             MoveCursorMenu(index);
-            
+
             switch (index)
             {
                 case 0:
@@ -163,7 +165,7 @@ namespace DormFinding
                     MainHomeLayout.HorizontalAlignment = HorizontalAlignment.Left;
                     MainHomeLayout.Width = 1150;
                     MainHomeLayout.Height = 720;
-                    MainHomeLayout.Children.Add(new PostDorm(user,null));
+                    MainHomeLayout.Children.Add(new PostDorm(user, null));
                     break;
                 case 4:
                     wbLogout.Visibility = Visibility.Collapsed;
@@ -184,25 +186,20 @@ namespace DormFinding
             {
                 case 0: SlideCursor.Margin = new Thickness(0, 5, 0, 0); break;
                 case 1: SlideCursor.Margin = new Thickness(0, 78, 0, 0); break;
-                case 2: SlideCursor.Margin = new Thickness(0, 155, 0, 0);break;
-                case 3 : SlideCursor.Margin = new Thickness(0, 241, 0, 0);break;
+                case 2: SlideCursor.Margin = new Thickness(0, 155, 0, 0); break;
+                case 3: SlideCursor.Margin = new Thickness(0, 241, 0, 0); break;
                 case 4: SlideCursor.Margin = new Thickness(0, 325, 0, 0); break;
             }
-                
+
 
         }
 
         private void wbLogout_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            
+
             if (!e.Uri.ToString().StartsWith("https://www.facebook.com/connect/login_success.html"))
             {
-                check++;
-                if (check == 2) { 
-                MainWindow m = new MainWindow();
-                m.Show();
-                this.Hide();
-                }
+                Helpers.MakeConfirmMessage(this, "Please Sign Out Facebook and Exit App to Logout App", "Notify");
             }
         }
     }

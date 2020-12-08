@@ -45,8 +45,8 @@ namespace DormFinding
             layoutMainDorm.VerticalAlignment = VerticalAlignment.Top;
             layoutMainDorm.HorizontalAlignment = HorizontalAlignment.Left;
             layoutMainDorm.Width = 1150;
-            layoutMainDorm.Height = 690;
-            layoutMainDorm.Children.Add(new ShowDorm(dorm,user));
+            layoutMainDorm.Height = 720;
+            layoutMainDorm.Children.Add(new ShowDorm(dorm,user,3));
         }
     }
 }

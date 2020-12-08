@@ -17,7 +17,7 @@
                                          OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0:0.5}">
         <Grid x:Name="layoutDorm">
             <Image Source="../images/image_like.png" x:Name="like"
-                   Stretch="UniformToFill"
+                   Stretch="Uniform"
                    >
             </Image>
             <Border Width="auto"
@@ -60,8 +60,8 @@
                                         Click="Button_Click"
                                         Background="Transparent">
                                     <materialDesign:PackIcon Kind="ArrowBack"
-                                                             Width="40"
-                                                             Height="40" />
+                                                             Width="30"
+                                                             Height="30" />
                                 </Button>
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding ImageDorm, ElementName=showDorm}" />

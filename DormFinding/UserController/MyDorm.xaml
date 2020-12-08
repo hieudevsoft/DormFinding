@@ -53,6 +53,18 @@
                                                 FontSize="25" />
                             </Button.Content>
                         </Button>
+                        <Button Background="Transparent"
+                                    Padding="0"
+                                    x:Name="btnDormWating"
+                                    Click="btnDormWating_Click"
+                                    Margin="10 30 10 0"
+                                    BorderThickness="0">
+                            <Button.Content>
+                                <fa:FontAwesome Icon="History"
+                                                    Foreground="Black"
+                                                    FontSize="23" />
+                            </Button.Content>
+                        </Button>
                         <Canvas Margin="5 0 15 0"
                                 VerticalAlignment="Center">
                             <Button Background="Transparent"
@@ -77,7 +89,6 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                         </Canvas>
-                        
                     </WrapPanel>
                     <!--Làm ở đây-->
                     <Grid Grid.Row="1" x:Name="layoutControl">

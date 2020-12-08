@@ -46,7 +46,7 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <local:RowBooking Margin="0 0 10 10"
+                                <local:RowWaitting Margin="0 0 10 10"
                                                                  Width="380"
                                                                  Height="45"
                                                                  />

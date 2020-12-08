@@ -1134,5 +1134,92 @@ namespace DormFinding.Database
             return listDorm;
         }
 
+        //Get Dorm by Id
+
+        public static Dorm Get(int idDorm)
+        {
+            Mydatabase.sql = $"select * from {Helpers.tbDorm} where {Helpers.colIdDorm} = @Id";
+            List<Dorm> listDorm = new List<Dorm>();
+            try
+            {
+                Mydatabase.OpenConnection();
+
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@Id", idDorm);
+                Mydatabase.rd = Mydatabase.cmd.ExecuteReader();
+                if (Mydatabase.rd.Read())
+                {
+                    Dorm dorm = new Dorm();
+                    int id = Mydatabase.rd.GetInt32(0);
+                    string owner = Mydatabase.rd.GetString(1);
+                    string address = Mydatabase.rd.GetString(2);
+                    string description = Mydatabase.rd.GetString(3);
+                    double price = Mydatabase.rd.GetDouble(4);
+                    double sale = Mydatabase.rd.GetDouble(5);
+
+                    byte[] image;
+                    if (Mydatabase.rd.GetValue(6).ToString().Equals(""))
+                    {
+                        dorm.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri($"../../images/icon_app.ico", UriKind.RelativeOrAbsolute));
+
+                    }
+                    else
+                    {
+                        image = (byte[])Mydatabase.rd.GetValue(6);
+
+                        dorm.Image = Helpers.ConvertByteToImageBitmap(image);
+                    }
+
+                    int count = Mydatabase.rd.GetInt32(7);
+                    int countLike = Mydatabase.rd.GetInt32(8);
+
+                    byte wifi = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(9));
+
+                    byte parking = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(10));
+                    byte television = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(11));
+                    byte bathroom = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(12));
+                    byte aircon = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(13));
+                    byte waterheater = Helpers.ConverBoolToByte(Mydatabase.rd.GetBoolean(14));
+                    int quality = Mydatabase.rd.GetInt16(15);
+                    double size = Mydatabase.rd.GetDouble(16);
+
+                    dorm.Id = id;
+                    dorm.Owner = owner;
+                    dorm.Address = address;
+                    dorm.Description = description;
+                    dorm.Price = price;
+                    dorm.Sale = sale;
+                    dorm.Count = count;
+                    dorm.CountLike = countLike;
+                    dorm.IsWifi = Helpers.ConvertByteToVisibility(wifi);
+                    dorm.IsParking = Helpers.ConvertByteToVisibility(parking);
+                    dorm.IsTelevision = Helpers.ConvertByteToVisibility(television);
+                    dorm.IsBathroom = Helpers.ConvertByteToVisibility(bathroom);
+                    dorm.IsAirCondiditioner = Helpers.ConvertByteToVisibility(aircon);
+                    dorm.IsWaterHeater = Helpers.ConvertByteToVisibility(waterheater);
+                    dorm.Quality = quality;
+                    dorm.Size = size;
+
+                    return dorm;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error get " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            finally
+            {
+                Mydatabase.rd.Close();
+                Mydatabase.CloseConnection();
+            }
+
+            return null;
+        }
+
     }
 }

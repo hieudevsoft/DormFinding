@@ -148,11 +148,12 @@ namespace DormFinding.Database
         }
 
         //Get All User booking waiting
-        public static List<BookDorm> GetAllWattingBook(string email)
+        public static List<BookDorm> GetAllWattingBook(string email,bool IsOwner)
         {
             List<BookDorm> list = new List<BookDorm>();
+            if(IsOwner)
             Mydatabase.sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colStateBookDorm} = @State";
-
+            else Mydatabase.sql = $"select * from {Helpers.tbBookDorm} where {Helpers.colEmailUserBookDorm} = @Email and {Helpers.colStateBookDorm} = @State";
             try
             {
                 Mydatabase.OpenConnection();
@@ -220,6 +221,76 @@ namespace DormFinding.Database
             return "No";
         }
 
+        //Get Owner By Id dorm
+        public static User GetOwnerByIdDorm(int id)
+        {
+            User user = new User("", "", 0);
+            Mydatabase.sql = $"select {Helpers.colEmailOwnerBookDorm} from {Helpers.tbBookDorm} where {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                Mydatabase.OpenConnection();
+
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@Id", id);
+                Mydatabase.rd = Mydatabase.cmd.ExecuteReader();
+                if (Mydatabase.rd.Read())
+                {
+                     user.Email = Mydatabase.rd.GetString(0);
+                    return user;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error GetOwnerByIdDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            finally
+            {
+                Mydatabase.rd.Close();
+                Mydatabase.CloseConnection();
+            }
+            return null;
+        }
+
+        //Get User Book Dorm By Id dorm
+        public static User GetUserDorm(string email,int id)
+        {
+            User user = new User("", "", 0);
+            Mydatabase.sql = $"select {Helpers.colEmailUserBookDorm} from {Helpers.tbBookDorm} where {Helpers.colEmailOwnerBookDorm} = @Email and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                Mydatabase.OpenConnection();
+
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@Email", email);
+                Mydatabase.cmd.Parameters.AddWithValue("@Id", id);
+                Mydatabase.rd = Mydatabase.cmd.ExecuteReader();
+                if (Mydatabase.rd.Read())
+                {
+                    user.Email = Mydatabase.rd.GetString(0);
+                    return user;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error GetUserByIdDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            finally
+            {
+                Mydatabase.rd.Close();
+                Mydatabase.CloseConnection();
+            }
+            return null;
+        }
+
+
         //Update Dorm When Booked
         public static bool UpdateDormWhenBook(string email, string emailUser, int id,int state)
         {
@@ -273,6 +344,36 @@ namespace DormFinding.Database
             catch (Exception e)
             {
                 MessageBox.Show("Error deleteDormWhenBook " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+
+            }
+            finally
+            {
+                Mydatabase.CloseConnection();
+            }
+        }
+
+        //Delete item by id user
+        public static bool DeleteDormWhenBookUser(string emailUser, int id)
+        {
+            Mydatabase.sql = $"delete from {Helpers.tbBookDorm} where  {Helpers.colEmailUserBookDorm} = @EmailUser and {Helpers.colIdDormBookDorm} = @Id";
+
+            try
+            {
+                Mydatabase.OpenConnection();
+
+                Mydatabase.cmd.CommandType = CommandType.Text;
+                Mydatabase.cmd.CommandText = Mydatabase.sql;
+                Mydatabase.cmd.Parameters.Clear();
+                Mydatabase.cmd.Parameters.AddWithValue("@State", 0);
+                Mydatabase.cmd.Parameters.AddWithValue("@EmailUser", emailUser);
+                Mydatabase.cmd.Parameters.AddWithValue("@Id", id);
+                Mydatabase.cmd.ExecuteScalar();
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error DeleteDormWhenBookUser " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
 
             }
