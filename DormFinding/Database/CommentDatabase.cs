@@ -124,7 +124,15 @@ namespace DormFinding.Database
                     bookDorm.Owner = email;
                     bookDorm.Id = id;
                     bookDorm.User = Mydatabase.rd.GetString(0);
-                    bookDorm.Image = Helpers.ConvertByteToImageBitmap((byte[])Mydatabase.rd.GetValue(1));
+                    try
+                    {
+                        bookDorm.Image = Helpers.ConvertByteToImageBitmap((byte[])Mydatabase.rd.GetValue(1));
+                    }
+                    catch(Exception exception)
+                    {
+                        bookDorm.Image = new System.Windows.Media.Imaging.BitmapImage(new Uri("../../images/blank_account.png", UriKind.RelativeOrAbsolute));
+                    }
+                    
                     bookDorm.Comment = Mydatabase.rd.GetString(2);                   
                     bookDorm.Rating = Mydatabase.rd.GetInt32(3);
                     list.Add(bookDorm);
@@ -133,7 +141,7 @@ namespace DormFinding.Database
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error getAllCommentBookDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Error GetAllCommentBookDorm " + e.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             finally
