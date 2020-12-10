@@ -91,7 +91,7 @@ namespace DormFinding
             int a = cbOptions.SelectedIndex;
             switch (a)
             {
-                case 0: listDormVerti = DormDatabase.GetAllListDorm(); listViewVerti.ItemsSource = listDormVerti ; break;
+                case 0: listDormVerti = DormDatabase.GetAllListDormNew(); listViewVerti.ItemsSource = listDormVerti ; break;
                 case 1: listDormVerti = DormDatabase.GetAllListDormIncreasingPrice(); listViewVerti.ItemsSource = listDormVerti ; break;
                 case 2: listDormVerti = DormDatabase.GetAllListDormDecreasingPrice(); listViewVerti.ItemsSource = listDormVerti ; break;
                 case 3: listDormVerti = DormDatabase.GetAllListDormIncreasingBookTimes(); listViewVerti.ItemsSource = listDormVerti ; break;
